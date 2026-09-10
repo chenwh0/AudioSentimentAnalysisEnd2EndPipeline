@@ -1,0 +1,10 @@
+torch==2.7.0
+torchaudio==2.7.0
+torchcodec==0.4.0
+transformers>=4.30
+datasets
+soundfile
+numpy<2.0
+pandas
+kagglehub
+sentencepiece
