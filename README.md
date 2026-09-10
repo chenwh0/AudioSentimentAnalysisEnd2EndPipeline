@@ -1,6 +1,6 @@
 # Audio Sentiment Analysis pipeline
 
-Authors: Alve Akash & Wen-Hsin Chen
+*Authors: Alve Akash & Wen-Hsin Chen*
 
 Here we will build a pipeline with two steps, audio to text conversion and text
 sentiment analysis.
