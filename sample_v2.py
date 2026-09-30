@@ -1,5 +1,3 @@
-
-
 from datasets import load_dataset
 from transformers import pipeline
 from sklearn.metrics import classification_report, f1_score
@@ -12,10 +10,10 @@ from tqdm.auto import tqdm
 import time
 import platform
 
-"""# Performance helpers (work on any CUDA-enabled Linux box, and fall back cleanly on CPU)"""
+"""# Performance helpers"""
 
 def _cuda_sync():
-    """GPU work is asynchronous; wait for it so timings measure real work."""
+    """GPU work is asynchronous, so wait for it before reading the clock."""
     if torch.cuda.is_available():
         torch.cuda.synchronize()
 
@@ -29,7 +27,6 @@ def _peak_memory_mb() -> float:
     return float("nan")
 
 class StageTimer:
-    """with StageTimer() as t: ...; then t.seconds"""
     def __enter__(self):
         _cuda_sync()
         self.start = time.perf_counter()
@@ -203,7 +200,7 @@ def run_analyzers():
 """# Results"""
 
 def report_results(models_results: dict):
-    # Compare labels case-insensitively so "Positive" and "POSITIVE" count as the same class
+    # Models disagree on capitalisation, so compare labels in lower case
     for model_name, dataframe in models_results.items():
         dataframe["actual_sentiment_norm"] = dataframe["actual_sentiment"].str.lower()
         dataframe["predicted_sentiment_norm"] = dataframe["predicted_sentiment"].str.lower()
@@ -218,8 +215,6 @@ def report_results(models_results: dict):
         print(f"Accuracy: {accuracy:.2%}")
         print()
 
-    """## Per-class accuracy (share of each true class that was predicted correctly)"""
-
     for model_name, dataframe in models_results.items():
         per_class_accuracy = dataframe.groupby("actual_sentiment")["correct"].agg(["mean", "size"])
         per_class_accuracy.columns = ["accuracy", "count"]
@@ -228,8 +223,6 @@ def report_results(models_results: dict):
         for label, row in per_class_accuracy.iterrows():
             print(f"  {label:14s} {row['accuracy']:8.2%}  (n={int(row['count'])})")
         print()
-
-    """## Classification report (precision / recall / F1 per class)"""
 
     for model_name, dataframe in models_results.items():
         print(f"\n{model_name}")
@@ -268,15 +261,14 @@ def report_performance(models_results: dict, output_path: str = "performance.csv
 """# Figure"""
 
 def _short_model_name(model_names: str) -> str:
-    """'ASR: org/whisper-x. Sentiment: org/roberta-y' -> 'whisper-x + roberta-y'"""
+    """Turn the long pair name into two short lines for axis labels."""
     asr, sentiment = model_names.split(". Sentiment: ")
     asr = asr.replace("ASR: ", "").split("/")[-1]
     sentiment = sentiment.split("/")[-1]
     return f"{asr}\n+ {sentiment}"
 
 def plot_results(models_results: dict, output_path: str = "results.png"):
-    """Two panels: overall accuracy vs macro F1 per model pair, and per-class accuracy heatmap."""
-    # Palette (validated categorical + sequential blue ramp) and text tokens
+    """Accuracy and macro F1 per pair on top, per-class accuracy heatmap below."""
     blue, orange = "#2a78d6", "#eb6834"
     text_primary, text_secondary, grid = "#0b0b0b", "#52514e", "#e6e5e1"
     blues = LinearSegmentedColormap.from_list("blues", ["#cde2fb", "#3987e5", "#0d366b"])
@@ -294,12 +286,12 @@ def plot_results(models_results: dict, output_path: str = "results.png"):
         macro_f1.append(f1_score(actual, predicted, average="macro", zero_division=0))
         per_class[name] = correct.groupby(dataframe["actual_sentiment"]).mean()
 
-    # Majority-class baseline: always predicting the most common true label
+    # Accuracy you would get by always answering the most common label
     first = models_results[names[0]]["actual_sentiment"]
     baseline = first.value_counts(normalize=True).iloc[0]
 
-    per_class_table = pandas.DataFrame(per_class).T.loc[names]        # rows = models, cols = classes
-    per_class_table = per_class_table[first.value_counts().index]     # order classes by frequency
+    per_class_table = pandas.DataFrame(per_class).T.loc[names]
+    per_class_table = per_class_table[first.value_counts().index]
 
     fig, (ax_bars, ax_heat) = plt.subplots(
         2, 1, figsize=(10, 4.2 + 0.9 * len(names)),
@@ -307,7 +299,7 @@ def plot_results(models_results: dict, output_path: str = "results.png"):
     )
     fig.patch.set_facecolor("#fcfcfb")
 
-    # --- Panel 1: overall accuracy vs macro F1, horizontal grouped bars
+    # Top panel
     y = list(range(len(names)))
     height = 0.36
     ax_bars.barh([i + height / 2 for i in y], accuracy, height, color=blue, label="Accuracy")
@@ -332,7 +324,7 @@ def plot_results(models_results: dict, output_path: str = "results.png"):
     ax_bars.set_title("Overall accuracy vs macro F1 (higher is better)",
                       loc="left", fontsize=11, color=text_primary, fontweight="bold")
 
-    # --- Panel 2: per-class accuracy heatmap (rows = model pairs, cols = true class)
+    # Bottom panel
     values = per_class_table.to_numpy(dtype=float)
     ax_heat.imshow(values, cmap=blues, vmin=0, vmax=1, aspect="auto")
     class_counts = first.value_counts()
@@ -345,7 +337,7 @@ def plot_results(models_results: dict, output_path: str = "results.png"):
             v = values[r, c]
             ax_heat.text(c, r, f"{v:.0%}", ha="center", va="center", fontsize=9,
                          color="#ffffff" if v > 0.55 else text_primary)
-    # 2px surface gap between cells
+    # Minor gridlines in the surface colour draw the gaps between cells
     ax_heat.set_xticks([x - 0.5 for x in range(1, values.shape[1])], minor=True)
     ax_heat.set_yticks([y_ - 0.5 for y_ in range(1, values.shape[0])], minor=True)
     ax_heat.grid(which="minor", color="#fcfcfb", linewidth=2)
@@ -363,8 +355,8 @@ def plot_results(models_results: dict, output_path: str = "results.png"):
     return fig
 
 def plot_performance(performance, output_path: str = "performance.png"):
-    """Four panels from the performance table (DataFrame or path to performance.csv):
-    time breakdown per pair, ASR throughput, sentiment throughput, peak GPU memory."""
+    """Runtime by stage, ASR throughput, sentiment throughput, and peak GPU memory.
+    Accepts the performance DataFrame or a path to the saved CSV."""
     if isinstance(performance, str):
         performance = pandas.read_csv(performance, index_col="model_pair")
     if performance.empty:
@@ -393,7 +385,7 @@ def plot_performance(performance, output_path: str = "performance.png"):
         ax.tick_params(length=0, labelsize=8.5, colors=text_secondary)
         ax.set_xlabel(xlabel, fontsize=9, color=text_secondary)
 
-    # --- (a) time breakdown: stacked load / ASR / sentiment, in minutes
+    # Runtime by stage
     load_m, asr_m, sent_m = (performance[c] / 60 for c in ("load_s", "asr_s", "sentiment_s"))
     total_m = load_m + asr_m + sent_m
     ax_time.barh(y, asr_m, 0.6, color=blue, label="ASR (transcription)", edgecolor=surface, linewidth=2)
@@ -409,7 +401,7 @@ def plot_performance(performance, output_path: str = "performance.png"):
     ax_time.set_title("Runtime per model pair, by stage", loc="left", fontsize=11,
                       color=text_primary, fontweight="bold", pad=18)
 
-    # --- (b) ASR throughput
+    # ASR throughput
     ax_asr.barh(y, performance["asr_clips_per_s"], 0.6, color=blue)
     for i, v in enumerate(performance["asr_clips_per_s"]):
         ax_asr.text(v + 0.15, i, f"{v:.1f}", va="center", fontsize=8.5, color=text_primary)
@@ -418,7 +410,7 @@ def plot_performance(performance, output_path: str = "performance.png"):
     ax_asr.set_title("ASR throughput (higher is faster)", loc="left", fontsize=11,
                      color=text_primary, fontweight="bold")
 
-    # --- (c) sentiment throughput
+    # Sentiment throughput
     ax_sent.barh(y, performance["sentiment_per_s"], 0.6, color=orange)
     for i, v in enumerate(performance["sentiment_per_s"]):
         ax_sent.text(v + 8, i, f"{v:.0f}", va="center", fontsize=8.5, color=text_primary)
@@ -427,7 +419,7 @@ def plot_performance(performance, output_path: str = "performance.png"):
     ax_sent.set_title("Sentiment throughput (higher is faster)", loc="left", fontsize=11,
                       color=text_primary, fontweight="bold")
 
-    # --- (d) peak GPU memory
+    # Peak GPU memory
     mem_gb = performance["peak_gpu_mem_mb"] / 1024
     if mem_gb.notna().any():
         ax_mem.barh(y, mem_gb, 0.6, color=aqua)
