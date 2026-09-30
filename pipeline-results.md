@@ -89,13 +89,3 @@ Putting the two figures together, the pair that scores best is also close to the
 | Whisper + SiEBERT | 23.1% | 0.13 | 8.1 min | 3.06 GB |
 
 SiEBERT is the most expensive sentiment model on every axis, 2.7 times slower than Cardiff NLP and 39% heavier in memory, and it gives the lowest accuracy because of its two-label vocabulary. Tabularis is the cheapest and second worst. Cardiff NLP sits in the middle on cost and alone at the top on accuracy. On the speech side, LibriSpeech is a third faster and within two points on every sentiment model, so the extra 112 seconds per pair that Whisper costs buys better per-class numbers on positive and negative but no better overall score.
-
-## What I would change before the next run
-
-Map every model's answers into the dataset's five labels before scoring. Fold the intensified positive and negative answers into plain positive and negative, and ignore capitalisation. Without this, SiEBERT and the Tabularis model are being graded on a vocabulary test they were never entered in, and SiEBERT's 93% on positive clips suggests it would do well on the classes it can name.
-
-Decide what to do with the 127 disagreement and mixed clips. Either drop them from the scoring or count them as neutral, and say which in the write-up.
-
-Transcribe once per speech model and reuse the text across the three sentiment models. That alone takes the run from 41 minutes to about 15.
-
-Keep both speech models for now. Whisper costs 33% more time but wins the positive and negative classes by eight or nine points, and once the label mapping is in place those classes will count for more than they do today.
