@@ -5,7 +5,8 @@
 Here we will build a pipeline with two steps, audio to text conversion and text
 sentiment analysis.
 
-You are encouraged to search for more models that are suitable for each task on your own.
+[<img width="1975" height="1110" alt="image" src="https://github.com/user-attachments/assets/e6ce7e28-84e7-482a-ae59-af7a67d5abba" />](https://canva.link/hekirw70qgig8be)
+
 
 ## Step 1: Audio to Text
 
