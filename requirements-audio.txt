@@ -8,3 +8,6 @@ numpy<2.0
 pandas
 kagglehub
 sentencepiece
+scikit-learn
+matplotlib
+tqdm
