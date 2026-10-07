@@ -2,7 +2,8 @@
 
 *Authors: Alve Rahman & Wen-Hsin Chen*
 
-Here we will build a pipeline with two steps, audio to text conversion and text
+# **[MILESTONE 1 report](https://docs.google.com/document/d/15mlKvYDbJhemaAteiA_fhf3kZlqcs_YridL3AvPEP1k/edit?tab=t.0)**
+We'll build a pipeline with two steps, audio to text conversion and text
 sentiment analysis.
 
 [<img width="1975" height="1110" alt="image" src="https://github.com/user-attachments/assets/e6ce7e28-84e7-482a-ae59-af7a67d5abba" />](https://canva.link/hekirw70qgig8be)
