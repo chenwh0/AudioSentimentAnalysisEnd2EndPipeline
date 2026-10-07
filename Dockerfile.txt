@@ -18,7 +18,7 @@ RUN pip install --upgrade pip && \
     pip install jupyter
 
 COPY README.md .
-COPY sample.ipynb .
+COPY sample_v2.ipynb .
 
 # Expose Jupyter port
 EXPOSE 8888
