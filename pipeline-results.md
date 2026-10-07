@@ -89,3 +89,20 @@ Putting the two figures together, the pair that scores best is also close to the
 | Whisper + SiEBERT | 23.1% | 0.13 | 8.1 min | 3.06 GB |
 
 SiEBERT is the most expensive sentiment model on every axis, 2.7 times slower than Cardiff NLP and 39% heavier in memory, and it gives the lowest accuracy because of its two-label vocabulary. Tabularis is the cheapest and second worst. Cardiff NLP sits in the middle on cost and alone at the top on accuracy. On the speech side, LibriSpeech is a third faster and within two points on every sentiment model, so the extra 112 seconds per pair that Whisper costs buys better per-class numbers on positive and negative but no better overall score.
+
+## Confidence
+
+The pipeline returns a softmax probability for its chosen label. The confidence table averages it over all clips and splits it by whether the prediction was right.
+
+| Pair | Mean confidence | When correct | When wrong | Share above 0.90 |
+|---|---|---|---|---|
+| Whisper + SiEBERT | 0.991 | 0.996 | 0.989 | 98.6% |
+| Whisper + Cardiff NLP | 0.738 | 0.759 | 0.694 | 17.7% |
+| Whisper + Tabularis | 0.615 | 0.644 | 0.601 | 3.6% |
+| LibriSpeech + SiEBERT | 0.991 | 0.996 | 0.990 | 98.7% |
+| LibriSpeech + Cardiff NLP | 0.731 | 0.756 | 0.678 | 13.6% |
+| LibriSpeech + Tabularis | 0.584 | 0.604 | 0.574 | 1.5% |
+
+SiEBERT's confidence carries no signal. It is above 0.90 on 99% of clips and is as sure when wrong as when right, 0.99 against 1.00. A two-class model trained on reviews has no "I am not sure" output.
+
+Cardiff NLP has the only usable gap: 0.76 when right against 0.69 or 0.68 when wrong, and it rarely goes above 0.90. The gap is small, but a threshold on it would catch some mistakes. Tabularis is the least confident model, with a mean around 0.60, and its gap between right and wrong is only three to four points, so it is uncertain everywhere rather than uncertain in the right places.
