@@ -6,7 +6,7 @@
 We'll build a pipeline with two steps, audio to text conversion and text
 sentiment analysis.
 
-[<img width="1975" height="1110" alt="image" src="https://github.com/user-attachments/assets/e6ce7e28-84e7-482a-ae59-af7a67d5abba" />](https://canva.link/hekirw70qgig8be)
+[<img width="1982" height="1118" alt="image" src="https://github.com/user-attachments/assets/72280291-595e-4f7d-bf85-8eaeebbebfdb" />](https://canva.link/hekirw70qgig8be)
 
 
 ## Step 1: Audio to Text
