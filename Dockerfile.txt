@@ -24,4 +24,8 @@ COPY sample.py .
 EXPOSE 8888
 
 # Default command: start Jupyter Notebook
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+
+CMD ["python3", "sample.py"]
+
+# Alternatively uncomment to use Jupyter notebook instead: 
+# CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
