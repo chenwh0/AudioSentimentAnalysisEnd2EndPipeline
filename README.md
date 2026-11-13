@@ -1,6 +1,14 @@
+# Prof's comments to improve
+* Implement an assertion. I couldn't find one in `sample.py`. Your calibration table already shows that a confidence threshold carries no signal for SiEBERT and a weak one for Cardiff NLP. Use that to choose and justify your assertions 
+* Measure ASR quality directly. Report word error rate if gold transcripts are available, and run the sentiment models on gold transcripts.
+* Map SiEBERT's labels.  It has no neutral class, so every neutral clip currently counts as wrong. Map low-confidence predictions to neutral with a threshold tuned on a development slice.
+* Exclude the Disagreement and <mixed> clips (127 in total) from the evaluation set and report macro-F1 over the three remaining classes
+
+
 # Audio Sentiment Analysis pipeline
 
 *Authors: Alve Rahman & Wen-Hsin Chen*
+
 
 We'll build a pipeline with two steps, audio to text conversion and text sentiment analysis.
 
