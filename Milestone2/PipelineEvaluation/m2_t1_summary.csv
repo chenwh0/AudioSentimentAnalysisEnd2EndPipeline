@@ -1,0 +1,10 @@
+config,macro_f1,accuracy,assert_pass,upstream_loss
+AventIQ-AI/whisper-audio-to-text|cardiffnlp/twitter-roberta-base-sentiment-latest,0.6210915674250624,0.7166666666666667,0.6906666666666667,-0.014456422107394395
+facebook/s2t-small-librispeech-asr|cardiffnlp/twitter-roberta-base-sentiment-latest,0.6102256663473092,0.7253333333333334,0.5033333333333333,-0.0035905210296411916
+openai/whisper-tiny|cardiffnlp/twitter-roberta-base-sentiment-latest,0.6149754829924938,0.714,0.584,-0.008340337674825782
+AventIQ-AI/whisper-audio-to-text|tabularisai/multilingual-sentiment-analysis,0.3304121160892531,0.3406666666666667,0.6793333333333333,0.003983388426917811
+facebook/s2t-small-librispeech-asr|tabularisai/multilingual-sentiment-analysis,0.33720716685878765,0.3473333333333333,0.44733333333333336,-0.002811662342616761
+openai/whisper-tiny|tabularisai/multilingual-sentiment-analysis,0.3252074526662327,0.3353333333333333,0.332,0.009188051849938206
+AventIQ-AI/whisper-audio-to-text|siebert/sentiment-roberta-large-english,0.33411753657726334,0.358,0.9853333333333333,0.00945020349207043
+facebook/s2t-small-librispeech-asr|siebert/sentiment-roberta-large-english,0.3368431794946014,0.36,0.8333333333333334,0.006724560574732363
+openai/whisper-tiny|siebert/sentiment-roberta-large-english,0.32284934382217784,0.3446666666666667,0.9826666666666667,0.020718396247155935

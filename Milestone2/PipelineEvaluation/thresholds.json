@@ -1,0 +1,50 @@
+{
+  "AventIQ-AI/whisper-audio-to-text|cardiffnlp/twitter-roberta-base-sentiment-latest": {
+    "t": 0.65,
+    "tau": null
+  },
+  "facebook/s2t-small-librispeech-asr|cardiffnlp/twitter-roberta-base-sentiment-latest": {
+    "t": 0.7,
+    "tau": null
+  },
+  "openai/whisper-tiny|cardiffnlp/twitter-roberta-base-sentiment-latest": {
+    "t": 0.7,
+    "tau": null
+  },
+  "AventIQ-AI/whisper-audio-to-text|tabularisai/multilingual-sentiment-analysis": {
+    "t": 0.5,
+    "tau": null
+  },
+  "facebook/s2t-small-librispeech-asr|tabularisai/multilingual-sentiment-analysis": {
+    "t": 0.55,
+    "tau": null
+  },
+  "openai/whisper-tiny|tabularisai/multilingual-sentiment-analysis": {
+    "t": 0.7,
+    "tau": null
+  },
+  "AventIQ-AI/whisper-audio-to-text|siebert/sentiment-roberta-large-english": {
+    "t": 0.05,
+    "tau": 0.99
+  },
+  "facebook/s2t-small-librispeech-asr|siebert/sentiment-roberta-large-english": {
+    "t": 0.05,
+    "tau": 0.99
+  },
+  "openai/whisper-tiny|siebert/sentiment-roberta-large-english": {
+    "t": 0.05,
+    "tau": 0.99
+  },
+  "AventIQ-AI/whisper-audio-to-text|distilbert/distilbert-base-uncased-finetuned-sst-2-english": {
+    "t": 0.05,
+    "tau": 0.99
+  },
+  "facebook/s2t-small-librispeech-asr|distilbert/distilbert-base-uncased-finetuned-sst-2-english": {
+    "t": 0.05,
+    "tau": 0.99
+  },
+  "openai/whisper-tiny|distilbert/distilbert-base-uncased-finetuned-sst-2-english": {
+    "t": 0.05,
+    "tau": 0.99
+  }
+}

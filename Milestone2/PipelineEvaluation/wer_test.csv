@@ -1,0 +1,4 @@
+asr,wer
+AventIQ-AI/whisper-audio-to-text,0.14775725593667546
+facebook/s2t-small-librispeech-asr,0.9285270836566817
+openai/whisper-tiny,0.19882042526773241
