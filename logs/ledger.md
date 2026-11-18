@@ -62,3 +62,8 @@
 2026-11-18T11:45:01-06:00 | XAI-TOK | v3 summary figures rendered for whisper-tiny on the 20 study clips
 2026-11-18T11:45:03-06:00 | XAI-TOK | v3 summary figures rendered for whisper-base on the 20 study clips
 2026-11-18T11:45:03-06:00 | XAI-TOK | v3 summary figures rendered for aventiq on the 20 study clips
+2026-11-18T11:50:13-06:00 | XAI-TOK | v4 presentation figures (A quality, B tokens on audio, C heat map; 10x8 in, 300 dpi, >=12 pt), example viewed for all three models, two fix passes; combined __summary figures of the 20 study clips removed; batch rendering 20 x 3.
+2026-11-18T11:51:29-06:00 | XAI-TOK | v4 presentation figures rendered for whisper-tiny on the 20 study clips
+2026-11-18T11:51:30-06:00 | XAI-TOK | v4 presentation figures rendered for whisper-base on the 20 study clips
+2026-11-18T11:51:30-06:00 | XAI-TOK | v4 presentation figures rendered for aventiq on the 20 study clips
+2026-11-18T11:51:43-06:00 | XAI-TOK | v4 batch done: 60 cases x 3 figures, 0 errors; manifest rebuilt; committing.
