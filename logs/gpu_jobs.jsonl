@@ -155,3 +155,20 @@
 {"ts": "2026-11-18T05:52:06-0600", "job": "w2_n300_3", "event": "start", "pid": 474243, "note": "audioxai scan test n=300 chunk 3 (<=55 clips)"}
 {"ts": "2026-11-18T05:55:23-0600", "job": "w2_n300_3", "event": "end", "pid": 474243, "note": "audioxai scan test n=300 chunk 3 (<=55 clips) rc=0"}
 {"ts": "2026-11-18T05:55:23-0600", "job": "w2_n300_4", "event": "start", "pid": 477815, "note": "audioxai scan test n=300 chunk 4 (<=55 clips)"}
+{"ts": "2026-11-18T05:58:32-0600", "job": "w2_n300_4", "event": "end", "pid": 477815, "note": "audioxai scan test n=300 chunk 4 (<=55 clips) rc=0"}
+{"ts": "2026-11-18T05:58:32-0600", "job": "w2_n300_5", "event": "start", "pid": 481157, "note": "audioxai scan test n=300 final chunk"}
+{"ts": "2026-11-18T05:58:33-0600", "job": "w2_n300_5", "event": "end", "pid": 481157, "note": "audioxai scan test n=300 final chunk rc=0"}
+{"ts": "2026-11-18T05:58:38-0600", "job": "w2_aventiq_a", "event": "start", "pid": 481357, "note": "AventIQ test 50 chunk 1"}
+{"ts": "2026-11-18T05:58:41-0600", "job": "w2_aventiq_a", "event": "end", "pid": 481357, "note": "AventIQ test 50 chunk 1 rc=1"}
+{"ts": "2026-11-18T06:02:12-0600", "job": "w2_aventiq_a", "event": "start", "pid": 484725, "note": "AventIQ test 50 chunk 1"}
+{"ts": "2026-11-18T06:06:42-0600", "job": "w2_aventiq_a", "event": "end", "pid": 484725, "note": "AventIQ test 50 chunk 1 rc=0"}
+{"ts": "2026-11-18T06:06:42-0600", "job": "w2_aventiq_b", "event": "start", "pid": 489313, "note": "AventIQ test 50 chunk 2"}
+{"ts": "2026-11-18T06:09:39-0600", "job": "w2_aventiq_b", "event": "end", "pid": 489313, "note": "AventIQ test 50 chunk 2 rc=0"}
+{"ts": "2026-11-18T06:09:49-0600", "job": "w2_n100_m2_1", "event": "start", "pid": 492919, "note": "M2 occlusion on n100 chunk 1"}
+{"ts": "2026-11-18T06:14:19-0600", "job": "w2_n100_m2_1", "event": "end", "pid": 492919, "note": "M2 occlusion on n100 chunk 1 rc=0"}
+{"ts": "2026-11-18T06:14:19-0600", "job": "w2_n100_m2_2", "event": "start", "pid": 497192, "note": "M2 occlusion on n100 chunk 2"}
+{"ts": "2026-11-18T06:17:18-0600", "job": "w2_n100_m2_2", "event": "end", "pid": 497192, "note": "M2 occlusion on n100 chunk 2 rc=0"}
+{"ts": "2026-11-18T06:17:18-0600", "job": "w2_n100_m2_3", "event": "start", "pid": 500207, "note": "M2 occlusion on n100 chunk 3"}
+{"ts": "2026-11-18T06:20:43-0600", "job": "w2_n100_m2_3", "event": "end", "pid": 500207, "note": "M2 occlusion on n100 chunk 3 rc=0"}
+{"ts": "2026-11-18T06:20:43-0600", "job": "w2_n100_m2_4", "event": "start", "pid": 503710, "note": "M2 occlusion on n100 chunk 4"}
+{"ts": "2026-11-18T06:24:22-0600", "job": "w2_n100_m2_4", "event": "end", "pid": 503710, "note": "M2 occlusion on n100 chunk 4 rc=0"}

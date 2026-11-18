@@ -73,3 +73,21 @@ lines: ledger 30 gpu_jobs 153 fp 17 eval 10
 python procs: 2
 newest files: 268 modified in last 15 min
 
+
+## Sonnet monitor, Phase 4 extension
+
+- 2026-11-18 05:55:51 CST  HEALTHY. GPU 6239/20475 MiB, 100% util, one python (pid 477817, audioxai scan chunk 4, 5260 MiB) + MPS server. Disk / 51% used, 865G free. ledger.md 33 lines (mtime 05:55:27), gpu_jobs.jsonl 157 lines (05:55:23), W2_audioxai.md 57 lines (05:51:28, changed within 20 min). Only unmatched start: w2_n300_4 pid 477815, ~30s old (chunks 2,3 ended rc=0). n300: 269 npz, 269 clip_rows lines, run_ext.log at [269/300]; 31 clips left.
+## 2026-11-18T06:04:20-06:00
+10467 MiB, 20475 MiB, 100 %
+disk avail 865G
+lines: ledger 33 gpu_jobs 163 fp 17 eval 10
+python procs: 2
+newest files: 163 modified in last 15 min
+
+## 2026-11-18T06:19:20-06:00
+9117 MiB, 20475 MiB, 100 %
+disk avail 865G
+lines: ledger 33 gpu_jobs 171 fp 17 eval 10
+python procs: 2
+newest files: 122 modified in last 15 min
+

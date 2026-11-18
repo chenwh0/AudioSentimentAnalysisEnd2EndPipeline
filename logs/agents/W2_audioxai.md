@@ -55,3 +55,21 @@ W2 DONE
 - audit fixes (CPU only): scan.py aadd string -> "aadd 3.1.0 CLI, model v3 (v3.1), threshold 0.5, --segments --resolution 0.02 (20 ms)"; re-ran summarize for results/ (n=50) and results/whisper-base: flattened diff shows only /aadd changed; README Models line updated, stale "Not run tonight" bullet removed; report.py template "(M2, not run tonight)" removed, title/answer built from S.asr, H3 card for non-tiny ASR says "decided on whisper-tiny only"; rebuilt report.html and results/whisper-base/report_whisper-base.html (JS smoke-run OK)
 W2 FIXES DONE
 - running: run_ext.sh (n300 scan)
+## 05:58 CST
+- done: results/n300 (whisper-tiny, 300 clips; 100 reused): H1 0.994 [0.966,1.021] n=214 refuted; H2 refuted (paired flagged-clean WER -0.126 [-0.275,-0.017] n=85, but pooled 0.343 vs 0.223; err-word importance share - word share +0.020 [0.010,0.032]); per-class FR music 1.060 [1.007,1.123] n=21, hum 0.837 [0.670,0.988] n=12 (exploratory, 8 classes)
+- running: AventIQ 50 -> M2 on n100
+## 06:09 CST
+- first AventIQ attempt failed (checkpoint is fp16; float input vs half bias); fixed by loading with dtype=torch.float32 in core.asr(); rerun via scripts/run_ext2.sh
+- done: results/aventiq (50 clips): H1 0.991 [0.913,1.060] refuted; H2 refuted (0.221 vs 0.200; imp-share minus word-share +0.036 [0.005,0.071]); WER 0.210, Cardiff acc 0.78 (=gold-text acc), 96% same labels as tiny; deletion diff 0.167 [0.109,0.226]; randomization 0.931 FAIL; H3 for AventIQ from Phase 1 holds (+0.016 [-0.001,0.033])
+- running: M2 occlusion on results/n100 (4 chunks of 25)
+## 06:22 CST
+- running: M2 occlusion on results/n100, 90/100 clips done; no blockers
+- next: n100 summary, README Extensions section, W2 EXT DONE
+## 06:26 CST
+W2 EXT DONE
+1. results/n300 (whisper-tiny, 300 clips; n50/n100 are per-label prefixes by construction): H1 refuted, FR 0.994 [0.966,1.021] n=214; H2 refuted (paired flagged-clean WER -0.126 [-0.275,-0.017], pooled 0.343 vs 0.223); per-class only music 1.060 and hum 0.837 exclude 1.
+2. results/aventiq (50 clips, fp32 load): WER 0.210, Cardiff acc 0.78 (= gold-text), 96% same labels as tiny; H1 0.991 [0.913,1.060] refuted; H2 refuted; Phase 1 H3 for AventIQ holds (+0.016 [-0.001,0.033]).
+3. M2 on results/n100: M1-M2 time-profile Spearman 0.167 [0.147,0.186] n=100; M2 FR 0.989 [0.917,1.069].
+4. Faithfulness: deletion beats random everywhere (n300 diff 0.201 [0.146,0.251]); randomization FAILS everywhere (0.909-0.931).
+5. Audit fixes done at 05:50-05:51 (only /aadd changed in results/summary.json and whisper-base/summary.json); n50 aggregate.csv/faithfulness.csv hashes unchanged; README Extensions lists the results/n100 files updated after the audit.
+6. Estimated (not clock-read) stamps in this log: blocks "04:37", "04:49", "05:06", "05:14", "05:26", "05:40", "05:41" (the last two hand-corrected from 05:43/05:45), "05:44", and "05:51" (corrected from 05:53 via mtime); also HYPOTHESES.md "~04:37" (actually about 04:35) and "~04:57" (mtime 04:56). Stamps from 05:58 onward and the TEST_UNLOCKED line came from date.

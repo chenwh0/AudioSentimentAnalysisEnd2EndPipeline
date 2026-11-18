@@ -97,3 +97,27 @@ attends to degraded audio, is not supported: attribution mass in AADD-flagged fr
 (focus ratio about 1, CI includes 1) for M1, M2, M3 and M4, and ASR errors are no more frequent in flagged audio.
 Caveats: n=50 (3 negatives), AADD flags are estimates on real audio, and M1 fails the randomization sanity check.
 No test-slice finding changed any reported configuration.
+
+## Extensions (run after the Phase 4 commit; the n=50 numbers above are unchanged)
+- **results/n300** (whisper-tiny, 300-clip stratified test sample: 221 neutral, 64 positive, 15 negative). Same seeded
+  procedure with n=300, so the n=50 and n=100 samples are per-label prefixes of the same permutations (subsets by
+  construction); the 100 rows were reused. M1, M3, M4, AADD, word errors, sentiment IG; no M2 or item 7.
+  H1 refuted: focus ratio 0.994 [0.966, 1.021], n=214 (86 zero-flag, 69 all-flag); informative 0.991 [0.948, 1.031];
+  M3 1.002 [0.964, 1.064], M4 0.990 [0.939, 1.057]. Per degradation class (exploratory, 8 classes): music 1.060
+  [1.007, 1.123] n=21 and hum 0.837 [0.670, 0.988] n=12 are the only CIs that exclude 1. H2 refuted, with a caveat:
+  pooled error rate is higher in flagged audio (0.343 vs 0.223), but within clips that have both kinds of audio
+  the paired difference is negative (-0.126 [-0.275, -0.017], n=85), and erroneous words carry more than their
+  share of sentiment importance (+0.020 [0.010, 0.032]). Cardiff accuracy 0.70 on ASR text vs 0.74 on gold text,
+  WER 0.321. Deletion diff 0.201 [0.146, 0.251] (n=32); randomization 0.909, FAIL (n=17).
+- **results/aventiq** (AventIQ-AI/whisper-audio-to-text rev 8d9feea90b485a705473d4388250d0e5bf6663f6, a
+  whisper-base fine-tune loaded in float32; alignment heads taken from its generation_config; same 50 clips;
+  report_aventiq.html). WER 0.210, Cardiff accuracy 0.78 (the same as on gold text), 96% of labels match tiny's.
+  H1 refuted, 0.991 [0.913, 1.060]; M4 0.994 [0.925, 1.058]. H2 refuted (0.221 vs 0.200; +0.036 [0.005, 0.071]).
+  Deletion diff 0.167 [0.109, 0.226]; randomization 0.931, FAIL. H3 for AventIQ from Phase 1 holds: gold minus ASR
+  macro-F1 +0.016 [-0.001, 0.033].
+- **M2 on the 100-clip sample (results/n100).** Median per-token M1-M2 time-profile Spearman 0.167
+  [0.147, 0.186], n=100; M2 focus ratio 0.989 [0.917, 1.069], n=71. Files under results/n100 updated after the
+  Phase 4 audit: summary.json (adds the m2 block, a note and the corrected aadd string; every other field is
+  recomputed from the unchanged aggregate.csv and faithfulness.csv), m2.csv and m2_rows.jsonl (new), and
+  npz/<clip>_m2.npz (new, not for commit). aggregate.csv, clip_rows.jsonl, faithfulness.csv, faith_rows.jsonl and
+  test_sample_ids.csv are unchanged.

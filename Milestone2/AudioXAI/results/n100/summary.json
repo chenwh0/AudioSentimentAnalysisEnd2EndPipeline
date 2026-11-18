@@ -5,7 +5,7 @@
   "asr_rev": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
   "sentiment": "cardiffnlp/twitter-roberta-base-sentiment-latest",
   "sentiment_rev": "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
-  "aadd": "aadd 3.1.0 CLI, model v3 (registry default), 20 ms segments",
+  "aadd": "aadd 3.1.0 CLI, model v3 (v3.1), threshold 0.5, --segments --resolution 0.02 (20 ms)",
   "flag_rule_frame": "20 ms frame flagged if any class probability >= 0.5",
   "flag_rule_clip": "AADD published default: per-class 95th percentile >= 0.5",
   "aadd_caveat": "AADD is trained on synthetic LibriSpeech degradations; VoxCeleb is real YouTube audio, so flags are estimates.",
@@ -15,6 +15,7 @@
     "Positive": 21,
     "Negative": 5
   },
+  "note": "n=100 sample; the n=50 sample is a per-label prefix subset by construction",
   "n_zero_flagged": 29,
   "n_aadd_clip_flag": 62,
   "mean_frac_flagged": 0.48031449040515256,
@@ -419,5 +420,27 @@
     },
     "verdict": "FAIL",
     "rule": "PASS only if mean Spearman(|M1| original, |M1| top-2-decoder-reinit) < 0.5"
+  },
+  "m2": {
+    "n": 100,
+    "m1_m2_rho_time_median": {
+      "n": 100,
+      "mean": 0.16709843987625878,
+      "median": 0.16838166677497196,
+      "ci": [
+        0.14724442333913598,
+        0.18616310066298242
+      ]
+    },
+    "focus_ratio_m2": {
+      "n": 71,
+      "mean": 0.9890507038919832,
+      "median": 0.9999999906867744,
+      "ci": [
+        0.9169614987359974,
+        1.0693122400532546
+      ]
+    },
+    "note": "M2 = 100 ms x 10-mel patch occlusion (SPES-style), drop in teacher-forced token log-prob"
   }
 }

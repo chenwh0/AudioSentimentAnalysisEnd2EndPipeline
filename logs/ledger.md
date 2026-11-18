@@ -31,3 +31,4 @@
 2026-11-18T05:49:36-06:00 | P5 | XAI figure agent done (4 figures). Note: figures group by aggregate.csv degradation_class; summary.json per-class block uses a different grouping (hum n=1, time_stretch n=2) -> both are from files, figure follows its spec.
 2026-11-18T05:51:41-06:00 | P4 | W2 FIXES DONE (audit item 7 + stale text) committed. W2 extension (n300, aventiq) continues to 07:10.
 2026-11-18T05:55:27-06:00 | P5 | audit_final pass 1: 101 numbers, 87 match, 7 mismatches (all text-side), 7 not-in-named-file -> all fixed in OVERNIGHT_REPORT.md; the Phase 5 section had NOT been written (heading mismatch in my replace; commit 11369f1 title was wrong) -> written now.
+2026-11-18T06:27:02-06:00 | P4 | W2 EXT DONE 06:26: n300 whisper-tiny (H1 0.994 [0.966,1.021] n=214 refuted), AventIQ 50, M2 on n100; randomization FAILS everywhere, deletion passes everywhere. Report P4 + status updated.

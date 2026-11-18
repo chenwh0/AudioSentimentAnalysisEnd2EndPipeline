@@ -95,7 +95,7 @@ def aadd_frames(clip, seg_csv_cache={}):
 def asr():
     from transformers import WhisperForConditionalGeneration, WhisperProcessor
     proc = WhisperProcessor.from_pretrained(paths.ASR_ID, revision=paths.ASR_REV)
-    m = WhisperForConditionalGeneration.from_pretrained(paths.ASR_ID, revision=paths.ASR_REV,
+    m = WhisperForConditionalGeneration.from_pretrained(paths.ASR_ID, revision=paths.ASR_REV, dtype=torch.float32,
                                                         attn_implementation="eager").to(DEV).eval()
     for p in m.parameters():
         p.requires_grad_(False)
