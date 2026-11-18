@@ -59,6 +59,18 @@
  "moonshine-base:norm|cardiff": {
   "tau": null
  },
+ "whisper-tiny-wsp:full|cardiff": {
+  "tau": null,
+  "t": 0.65,
+  "t_balanced_acc_dev": 0.579408330089529,
+  "t_b": 0.9,
+  "t_b_balanced_acc_dev": 0.5397041650447645,
+  "second_classifier_A4a": "tabularisai",
+  "tau_boundary_hit": false
+ },
+ "whisper-tiny-wsp:norm|cardiff": {
+  "tau": null
+ },
  "gold|cardiff": {
   "tau": null
  },
@@ -123,6 +135,18 @@
   "tau_boundary_hit": false
  },
  "moonshine-base:norm|tabularisai": {
+  "tau": null
+ },
+ "whisper-tiny-wsp:full|tabularisai": {
+  "tau": null,
+  "t": 0.65,
+  "t_balanced_acc_dev": 0.5592691622103386,
+  "t_b": 0.95,
+  "t_b_balanced_acc_dev": 0.49518716577540106,
+  "second_classifier_A4a": "cardiff",
+  "tau_boundary_hit": false
+ },
+ "whisper-tiny-wsp:norm|tabularisai": {
   "tau": null
  },
  "gold|tabularisai": {
@@ -191,6 +215,18 @@
  "moonshine-base:norm|siebert": {
   "tau": 0.99
  },
+ "whisper-tiny-wsp:full|siebert": {
+  "tau": 0.99,
+  "t": 0.05,
+  "t_balanced_acc_dev": 0.5,
+  "t_b": 0.2,
+  "t_b_balanced_acc_dev": 0.5069144492436766,
+  "second_classifier_A4a": "cardiff",
+  "tau_boundary_hit": true
+ },
+ "whisper-tiny-wsp:norm|siebert": {
+  "tau": 0.99
+ },
  "gold|siebert": {
   "tau": 0.99
  },
@@ -255,6 +291,18 @@
   "tau_boundary_hit": true
  },
  "moonshine-base:norm|distilbert": {
+  "tau": 0.99
+ },
+ "whisper-tiny-wsp:full|distilbert": {
+  "tau": 0.99,
+  "t": 0.05,
+  "t_balanced_acc_dev": 0.5,
+  "t_b": 0.45,
+  "t_b_balanced_acc_dev": 0.5084171826625388,
+  "second_classifier_A4a": "cardiff",
+  "tau_boundary_hit": true
+ },
+ "whisper-tiny-wsp:norm|distilbert": {
   "tau": 0.99
  },
  "gold|distilbert": {

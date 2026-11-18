@@ -56,3 +56,13 @@ lines: ledger 23 gpu_jobs 135 fp 17 eval 8
 python procs: 4
 newest files: 123 modified in last 15 min
 
+
+## Sonnet monitor, Phase 5 start
+2026-11-18 05:44 CST. Verdict: HEALTHY.
+- GPU: 6664/20475 MiB, util 100%. Compute apps: pid 463020 (5686 MiB, audioxai scan), pid 236492 (28 MiB).
+- Disk /: 866G free (51% used).
+- Logs (lines, mtime): ledger.md 26, 05:43:25; gpu_jobs.jsonl 151, 05:43:57; forward_passes.jsonl 17, 05:24:32 (20 min old, expected: no forward-pass job running other than scan); eval_runs.jsonl 10, 05:40:39; agents/W2_audioxai.md 53, 05:43:14; agents/figures.md 16, 05:07:39 (37 min old, but figures/ files changed in last 20 min).
+- Unmatched starts in gpu_jobs.jsonl: 1, w2_n300_1 pid 463018, started 05:43:57 (age under 1 min), matches live process `audioxai scan --slice test --sample 300 --limit 55` (pid 463020) holding /tmp/m2_gpu.lock (flock 461765, bash 463018, audioxai 463020).
+- run_t1_P5grid ended exit=0 at 05:43:51.
+- Git: modified T2_variants registry/results, AudioXAI paths.py/scan.py, logs/gpu_jobs.jsonl; untracked n300 results, run_ext.sh, OVERNIGHT_REPORT.md. HEAD febbbe2 (P3 done partial scope).
+- Changed in last 20 min: logs/agents/W2_audioxai.md, W1_wsp.md, figures/wsp_results_table.*, figures/specs/*.json, AudioXAI/results n300/*, summary.json, run_ext.log.

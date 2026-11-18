@@ -79,7 +79,7 @@
  "name": "facebook/s2t-small-librispeech-asr",
  "short_name": "s2t-small",
  "version": "256e91a603c013ae09aa1e4c09cfc3f8acdf8d19",
- "registered_at": "2026-11-18T05:03:12-0600",
+ "registered_at": "2026-11-18T05:43:52-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",

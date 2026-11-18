@@ -64,6 +64,15 @@
    ],
    "tau": null,
    "t": 0.45
+  },
+  "upstream=whisper-tiny-wsp": {
+   "macro_f1": 0.3266102673513675,
+   "ci": [
+    0.3041269951602692,
+    0.3491421997746562
+   ],
+   "tau": null,
+   "t": 0.65
   }
  },
  "gold_text_macro_f1": {
@@ -71,13 +80,14 @@
   "s2t-small": 0.3388567235888127,
   "whisper-tiny": 0.3388567235888127,
   "whisper-base": 0.3388567235888127,
-  "moonshine-base": 0.3388567235888127
+  "moonshine-base": 0.3388567235888127,
+  "whisper-tiny-wsp": 0.3388567235888127
  },
  "kind": "sentiment",
  "name": "tabularisai/multilingual-sentiment-analysis",
  "short_name": "tabularisai",
  "version": "eea032081f8d247b4303ef3565e7cec1b6f201c9",
- "registered_at": "2026-11-18T05:03:13-0600",
+ "registered_at": "2026-11-18T05:43:53-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",

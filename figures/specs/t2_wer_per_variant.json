@@ -17,6 +17,7 @@
  },
  "caption": "Word error rate of each speech-to-text variant against human transcripts (solid), the same with filler words removed (light), and against the whisper-large-v3 machine transcript the earlier notebook used as a stand-in for truth (hatched). The stand-in is itself 0.179 away from the humans.",
  "output": "figures/t2_wer_per_variant.png",
- "data_sha256": "74141c65699da1c6a36b4a6adfc57905c93a8fa3963594bd3955da19658cdfe6",
- "generated": "2026-11-18 overnight run, Phase 5 prep"
+ "data_sha256": "e43e4927a2b054d828b8ccee67ea2d9d823cd865f31aee2c05c347125431408d",
+ "generated": "2026-11-18 overnight run, Phase 5 prep",
+ "revision_note": "re-issued 05:47 CST after the whisper-tiny-wsp row was added to the data file; include that row (label 'whisper-tiny-wsp (edited)') in the figure"
 }

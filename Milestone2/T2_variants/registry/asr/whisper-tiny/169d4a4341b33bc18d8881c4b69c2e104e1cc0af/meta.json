@@ -83,7 +83,7 @@
  "name": "openai/whisper-tiny",
  "short_name": "whisper-tiny",
  "version": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
- "registered_at": "2026-11-18T05:03:12-0600",
+ "registered_at": "2026-11-18T05:43:52-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",

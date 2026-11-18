@@ -1,7 +1,7 @@
 {
  "purpose": "Show offline accuracy against model size for the speech-to-text variants: larger or more accurate transcription does not buy sentiment macro-F1.",
  "data_file": "Milestone2/T2_variants/results/size_vs_accuracy.csv",
- "filter": "all rows",
+ "filter": "all rows; whisper-tiny-wsp is absent from size_vs_accuracy.csv (same loaded size as whisper-tiny plus a 2.0 MB patch) and is NOT plotted; say so in the caption footnote",
  "columns": {
   "x": "size_loaded_MB",
   "y_left_panel": "cardiff_macro_f1",
@@ -19,5 +19,6 @@
  "caption": "Accuracy against size for the five speech-to-text variants. Moonshine-base has the lowest word error rate but the lowest sentiment macro-F1; the three Whisper variants sit within each other's confidence intervals.",
  "output": "figures/t2_accuracy_vs_size.png",
  "data_sha256": "f3c8180210307a853dd7ce80ed4539a2e52fb8b043655dbdd4f47b0c5a5f99bf",
- "generated": "2026-11-18 overnight run, Phase 5 prep"
+ "generated": "2026-11-18 overnight run, Phase 5 prep",
+ "revision_note": "re-issued 05:47 CST after the whisper-tiny-wsp row was added to the data file; include that row (label 'whisper-tiny-wsp (edited)') in the figure"
 }

@@ -64,6 +64,15 @@
    ],
    "tau": null,
    "t": 0.7
+  },
+  "upstream=whisper-tiny-wsp": {
+   "macro_f1": 0.6085767570194007,
+   "ci": [
+    0.5803036442731014,
+    0.6367985123330122
+   ],
+   "tau": null,
+   "t": 0.65
   }
  },
  "gold_text_macro_f1": {
@@ -71,13 +80,14 @@
   "s2t-small": 0.637136555953067,
   "whisper-tiny": 0.637136555953067,
   "whisper-base": 0.637136555953067,
-  "moonshine-base": 0.637136555953067
+  "moonshine-base": 0.637136555953067,
+  "whisper-tiny-wsp": 0.637136555953067
  },
  "kind": "sentiment",
  "name": "cardiffnlp/twitter-roberta-base-sentiment-latest",
  "short_name": "cardiff",
  "version": "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
- "registered_at": "2026-11-18T05:03:13-0600",
+ "registered_at": "2026-11-18T05:43:53-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",

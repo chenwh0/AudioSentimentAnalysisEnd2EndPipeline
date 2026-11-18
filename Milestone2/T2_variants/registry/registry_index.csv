@@ -4,6 +4,7 @@ asr,facebook/s2t-small-librispeech-asr,256e91a603c013ae09aa1e4c09cfc3f8acdf8d19,
 asr,openai/whisper-tiny,169d4a4341b33bc18d8881c4b69c2e104e1cc0af,155.43,Milestone2/T2_variants/registry/asr/whisper-tiny/169d4a4341b33bc18d8881c4b69c2e104e1cc0af
 asr,openai/whisper-base,e37978b90ca9030d5170a5c07aadb050351a65bb,294.78,Milestone2/T2_variants/registry/asr/whisper-base/e37978b90ca9030d5170a5c07aadb050351a65bb
 asr,UsefulSensors/moonshine-base,7a73d8d55ac0ba2ef3ae761593f6784b51f96dcf,248.07,Milestone2/T2_variants/registry/asr/moonshine-base/7a73d8d55ac0ba2ef3ae761593f6784b51f96dcf
+asr,whisper-tiny-wsp,wsp,,Milestone2/T2_variants/registry/asr/whisper-tiny-wsp/wsp
 sentiment,cardiffnlp/twitter-roberta-base-sentiment-latest,3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7,502.4,Milestone2/T2_variants/registry/sentiment/cardiff/3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7
 sentiment,tabularisai/multilingual-sentiment-analysis,eea032081f8d247b4303ef3565e7cec1b6f201c9,545.24,Milestone2/T2_variants/registry/sentiment/tabularisai/eea032081f8d247b4303ef3565e7cec1b6f201c9
 sentiment,siebert/sentiment-roberta-large-english,74cea614e245b0832c770ec9aa51bd58df965b9c,1422.87,Milestone2/T2_variants/registry/sentiment/siebert/74cea614e245b0832c770ec9aa51bd58df965b9c

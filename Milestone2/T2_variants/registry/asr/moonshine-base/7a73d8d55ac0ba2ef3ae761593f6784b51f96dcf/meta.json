@@ -74,7 +74,7 @@
  "name": "UsefulSensors/moonshine-base",
  "short_name": "moonshine-base",
  "version": "7a73d8d55ac0ba2ef3ae761593f6784b51f96dcf",
- "registered_at": "2026-11-18T05:03:13-0600",
+ "registered_at": "2026-11-18T05:43:53-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",

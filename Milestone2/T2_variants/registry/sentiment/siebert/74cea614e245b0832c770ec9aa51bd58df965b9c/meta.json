@@ -67,6 +67,15 @@
    ],
    "tau": 0.99,
    "t": 0.05
+  },
+  "upstream=whisper-tiny-wsp": {
+   "macro_f1": 0.3238527350294962,
+   "ci": [
+    0.3001756897050504,
+    0.3478035643170566
+   ],
+   "tau": 0.99,
+   "t": 0.05
   }
  },
  "gold_text_macro_f1": {
@@ -74,13 +83,14 @@
   "s2t-small": 0.3473444303001982,
   "whisper-tiny": 0.3473444303001982,
   "whisper-base": 0.3473444303001982,
-  "moonshine-base": 0.3473444303001982
+  "moonshine-base": 0.3473444303001982,
+  "whisper-tiny-wsp": 0.3473444303001982
  },
  "kind": "sentiment",
  "name": "siebert/sentiment-roberta-large-english",
  "short_name": "siebert",
  "version": "74cea614e245b0832c770ec9aa51bd58df965b9c",
- "registered_at": "2026-11-18T05:03:13-0600",
+ "registered_at": "2026-11-18T05:43:53-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",

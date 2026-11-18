@@ -79,7 +79,7 @@
  "name": "AventIQ-AI/whisper-audio-to-text",
  "short_name": "AventIQ",
  "version": "8d9feea90b485a705473d4388250d0e5bf6663f6",
- "registered_at": "2026-11-18T05:03:12-0600",
+ "registered_at": "2026-11-18T05:43:52-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",

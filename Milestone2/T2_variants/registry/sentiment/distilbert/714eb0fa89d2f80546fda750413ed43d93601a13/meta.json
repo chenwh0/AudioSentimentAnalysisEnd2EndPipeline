@@ -66,6 +66,15 @@
    ],
    "tau": 0.99,
    "t": 0.05
+  },
+  "upstream=whisper-tiny-wsp": {
+   "macro_f1": 0.4562402194651209,
+   "ci": [
+    0.4300349024478087,
+    0.4820289766455723
+   ],
+   "tau": 0.99,
+   "t": 0.05
   }
  },
  "gold_text_macro_f1": {
@@ -73,13 +82,14 @@
   "s2t-small": 0.4801811896215673,
   "whisper-tiny": 0.4801811896215673,
   "whisper-base": 0.4801811896215673,
-  "moonshine-base": 0.4801811896215673
+  "moonshine-base": 0.4801811896215673,
+  "whisper-tiny-wsp": 0.4801811896215673
  },
  "kind": "sentiment",
  "name": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
  "short_name": "distilbert",
  "version": "714eb0fa89d2f80546fda750413ed43d93601a13",
- "registered_at": "2026-11-18T05:03:14-0600",
+ "registered_at": "2026-11-18T05:43:53-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",

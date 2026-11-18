@@ -83,7 +83,7 @@
  "name": "openai/whisper-base",
  "short_name": "whisper-base",
  "version": "e37978b90ca9030d5170a5c07aadb050351a65bb",
- "registered_at": "2026-11-18T05:03:13-0600",
+ "registered_at": "2026-11-18T05:43:52-0600",
  "storage": {
   "minio": {
    "endpoint": "http://localhost:9000",
