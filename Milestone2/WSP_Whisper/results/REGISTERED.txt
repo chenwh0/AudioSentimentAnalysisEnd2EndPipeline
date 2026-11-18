@@ -1,0 +1,8 @@
+registered_checkpoint: fp17
+holdout_wer_gold: 0.1769708423326134  (harness eval run 2026-11-18T05:25:33-06:00, n=250)
+n_changed_weights: 165888  (0.439% of 37,760,640 unique params; tensor model.decoder.embed_tokens.weight == tied proj_out.weight)
+patch: edits/patch_fp17.safetensors + edits/edits_fp17.json (edits E2net, E5)
+registered_at: 2026-11-18T05:25:49-06:00
+selection pool: saved cumulative checkpoints fp10 (holdout 0.2302) and fp17 (holdout 0.1770); lowest holdout WER -> fp17.
+note: holdout-only candidates cand_E5 (0.1802), cand_E2E5 (0.1758), cand_E2E5E8 (0.1760) were keep/revert probes, not saved checkpoints, and are not tested; cand_E2E5 had a lower holdout WER than fp17 by 9 errors / 7408 gold words (1302 vs 1311) (it keeps the kinda rows that E9 removed on practice evidence). No test run of any edited checkpoint has happened before this file.
+passes used: 17 of 50 (tonight's cap 20). fp20 not reached: editing stopped at 17 passes (see logs/agents/W1_wsp.md).

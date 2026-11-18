@@ -42,3 +42,17 @@ newest files: 119 modified in last 15 min
 - forward_passes: 9 lines (<=20), every line has hypothesis_id.
 - GPU lock /tmp/m2_gpu.lock held by flock 424511 / bash 424512 / audioxai 424514 (the active W2 job); no other waiters.
 - Activity in last 20 min: yes. W2_audioxai.md at 05:05, W1_wsp.md at 04:54 (about 12 min ago), plus edits under Milestone2/WSP_Whisper and Milestone2/AudioXAI. No stall. W1 is closest to the 20-minute limit (quiet since 04:54, but WSP files were modified in the window).
+## 2026-11-18T05:19:20-06:00
+8773 MiB, 20475 MiB, 100 %
+disk avail 866G
+lines: ledger 23 gpu_jobs 121 fp 14 eval 6
+python procs: 5
+newest files: 216 modified in last 15 min
+
+## 2026-11-18T05:34:20-06:00
+2723 MiB, 20475 MiB, 97 %
+disk avail 866G
+lines: ledger 23 gpu_jobs 135 fp 17 eval 8
+python procs: 4
+newest files: 123 modified in last 15 min
+

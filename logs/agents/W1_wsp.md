@@ -25,3 +25,17 @@
 - E4 H3_digits: 426 digit-token tied rows x0.80, isolated on the 12 diag clips with digits: 0.1870->0.1543 KEEP; E5 replaces E4 with x0.65: 0.1370 KEEP (163,584 weights).
 - Pass 10: cumulative E1+E2+E5 on M: 0.1733 (base 0.1832). Saving fp10 (edits/patch_fp10.safetensors + edits_fp10.json).
 - Next: holdout eval of fp10 (harness), then passes 11-20 on new mechanisms, fp20, register by holdout WER at <=07:20.
+
+## Status 05:20 CST
+- Passes used: 14 (+E9 running = 15). fp10 saved: edits/patch_fp10.safetensors, edits/edits_fp10.json (E1+E2+E5, 168,960 weights = 0.447%).
+- Holdout eval runs (summary only, harness): base 0.1843; fp10 0.2302 (long=1: filler repetition loop); cand_E2E5 0.1758; cand_E5 0.1802; cand_E2E5E8 0.1760.
+- Decisions: E1 reverted, H1 (filler row scaling) BLOCKED after two consecutive failures (E3 collapse on M, E1 loop on holdout). E6 (cause x1.20) REVERT on M. E7 (digits x0.50) REVERT ('$$$' collapse on one clip). E8 new mechanism (cancel half of final-LN-bias offset on filler rows): +4 errors fixed on M but no holdout gain -> REVERT.
+- Caveat recorded: holdout used for 2 keep/revert decisions (E1, E8) as the brief allows; slight optimistic bias on holdout numbers; test untouched.
+- Running: E9 (undo kinda part of E2). Next: practice generalization pass on unseen practice clips, save final checkpoint, register by holdout by 07:20 latest (target ~06:00).
+
+## Status 05:35 CST
+- Passes used: 17 (final). E9 (kinda rows back to base) KEEP on M (0.1793->0.1766); E2+E9 consolidated as E2net (cause/gonna/gotta rows x1.10). Passes 16-17: generalization check on the 58 never-used practice clips: base 0.2883 -> state 0.2836, no new loops (the one loop clip loops in base too).
+- Editing stopped at 17 passes (05:25): remaining error mass (function-word deletions at clip edges, disfluent repetitions, acoustic substitutions) has no row-level mechanism I could state as a hypothesis; H1 blocked, H2/H3 refinements already failed once each.
+- Saved fp17: edits/patch_fp17.safetensors + edits/edits_fp17.json (E2net + E5, 165,888 weights, 0.439%). Holdout fp17 0.1770.
+- REGISTERED (05:25:49): fp17, results/REGISTERED.txt, before any edited test run.
+- Test (once each): fp17 WER gold 0.2152 (base 0.2206), pseudo 0.2100, long 3, short 9. fp10 test running; then fp17 dev run, final_results.py, post.py.

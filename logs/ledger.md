@@ -20,3 +20,4 @@
 2026-11-18T05:06:32-06:00 | harness | local pre-push guard installed (.git/hooks/pre-push): refuses main/master, non-fast-forward, files >50MB, weights outside WSP patches, secret-like strings; chains to git-lfs hook. Dry-run to m2-overnight passes; dry-run to main refused.
 2026-11-18T05:07:26-06:00 | P5prep | T1 (3) and T2 (2) figures rendered by Opus figure agents in matplotlib; orchestrator spot-checks OK (figures/manifest.md). Waiting on W1 (07:30) and W2 (07:40).
 2026-11-18T05:09:32-06:00 | P5prep | manifest spot-check lines for T2 carried an estimated time (05:10) instead of the real 05:08; corrected after the figure agent flagged it. Values were read from the final PNGs (rendered 05:07).
+2026-11-18T05:13:33-06:00 | P1/P4 | H3 wording aligned with the pre-registered criterion in AudioXAI/HYPOTHESES.md: refuted for whisper-tiny and s2t (gold - ASR CI above 0), not refuted for AventIQ; magnitude <= 0.034 vs ~0.3 for the classifier choice.
