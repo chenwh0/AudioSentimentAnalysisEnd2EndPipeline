@@ -192,3 +192,226 @@ Non-numeric issues:
 - The Phase 5 section is still a placeholder, even though commit 11369f1's message says it was filled.
 - The first t2_wer_per_variant manifest row carries a stale sha (74141c65…).
 - The Phase 1 audit summary leaves out the missing §4a write-up.
+
+# Final audit, pass 2 (2026-11-18 06:30 CST)
+
+Auditor: fresh-context Opus, second pass. Scope: `Milestone2/OVERNIGHT_REPORT.md` at HEAD e87f0b8 (the working copy is identical to HEAD and `git status` is clean), `OVERNIGHT_STATUS.md`, `figures/manifest.md`, and the tracked-file rules. I used no GPU and modified no file except this one. The Phase 4 extension had finished (ledger 06:27:02), so `results/n300/` and `results/aventiq/` are audited this time. Paths written as `results/...` resolve against the phase directory. ✓ = matches the file, ✗ = does not, NIF = not in the named file.
+
+## 1. Report numbers
+
+### Run facts
+| # | Claim | File | Value found | Match |
+|---|---|---|---|---|
+| 1 | Start 04:27 | OVERNIGHT_STATUS.md | 04:27 | ✓ |
+| 2 | Push 08:20 CST | OVERNIGHT_STATUS.md | 08:20 | ✓ |
+| 3 | RTX 4000 Ada, 20 GB | STATUS / ledger named; neither has it | logs/monitor.md: RTX 4000 Ada, 20475 MiB | NIF (true) |
+| 4 | main e2a81e44… | ledger.md preflight, STATUS | e2a81e44736f… | ✓ |
+| 5 | brief's 10 hours | brief.md (launch folder) | ../brief.md l.150 "10 hours from launch" | ✓ |
+
+### Phase 1
+| # | Claim | File | Value found | Match |
+|---|---|---|---|---|
+| 6 | 3,426 clips, no label disagreement | gold_checks.json | 3426, 0 mismatches | ✓ |
+| 7 | Whisper-family 18–22% | wer_test.csv | 0.1831 / 0.2206 | ✓ |
+| 8 | AventIQ 0.1831 | wer_test.csv | 0.18312 | ✓ |
+| 9 | whisper-tiny 0.2206 | wer_test.csv | 0.22061 | ✓ |
+| 10 | s2t 0.598 | wer_test.csv | 0.59832 | ✓ |
+| 11 | large-v3 17.9% | wer_test.csv | 0.17892 | ✓ |
+| 12 | Cardiff gold 0.637 | m2_t1_results.csv | 0.63714 | ✓ |
+| 13 | 0.603–0.621 from machine transcripts | m2_t1_results.csv | full source 0.6032–0.6211 (norm 0.5978–0.6222, pseudo 0.6066) | ✓ (full) |
+| 14 | At most 0.034 | m2_t1_results.csv | 0.6371 − 0.6032 = 0.0339 | ✓ |
+| 15 | Baseline accuracy 0.736 | baseline.json | 0.736 | ✓ |
+| 16 | Baseline macro-F1 0.283 | baseline.json | 0.28264 | ✓ |
+| 17 | "none on accuracy (**best 0.718**)" | m2_t1_results.csv | Cardiff accuracy on machine transcripts: full 0.7167 / 0.718 / 0.714; norm 0.7153 / 0.7127 / **0.7213** (whisper-tiny norm); pseudo 0.7013. The best is **0.721**; 0.718 is the best on `full` only. "None beats 0.736" still holds. | ✗ |
+| 18 | Gold text 0.739 | m2_t1_results.csv | 0.73933 | ✓ |
+| 19 | s2t reported 0.93 WER, row s2t-small-OLD(batch8) | wer_test.csv | wer_pseudo_ref 0.92853 | ✓ |
+| 20 | Loops 244 → 134 of 1,500 | s2t_loop_analysis.json | 244 / 134 / n 1500 | ✓ |
+| 21 | 0.864 → 0.598 | wer_test.csv | 0.86389 → 0.59832 | ✓ |
+| 22 | 48 dev clips | s2t_bug_probe.json | 48 | ✓ |
+| 23 | 11 loops at batch 8 | s2t_bug_probe.json | 11 | ✓ |
+| 24 | 5 at batch 1 | s2t_bug_probe.json | 5 | ✓ |
+| 25 | 38 with no mask | s2t_bug_probe.json | 38 | ✓ |
+| 26 | Binary confidence 0.99 | thresholds.json | tau 0.99 | ✓ |
+| 27 | A3 threshold 0.05 passes every clip | thresholds.json, assertions_test.csv | t 0.05; pass_A3 1.0 (6 rows) | ✓ |
+| 28 | Joint pass accuracy 0.60–0.75 | assertions_test.csv acc_pass_A123_A4a | 0.5989–0.7480 | ✓ |
+| 29 | Joint fail 0.10–0.74 | acc_fail_A123_A4a | 0.0984–0.7401 | ✓ |
+| 30 | A4a alone pass 0.59–0.72 | acc_pass_A4a | 0.5933–0.7225 | ✓ |
+| 31 | A4a alone fail 0.07–0.81 | acc_fail_A4a | 0.0705–0.8120 | ✓ |
+| 32 | Pearson −0.24 | correlations.json | −0.2384 | ✓ |
+| 33 | Pearson −0.08 | correlations.json | −0.0832 | ✓ |
+| 34 | Audit 8 of 9 | logs/audit_phase1.md | 8 PASS, item 9 FAIL | ✓ |
+| 35 | 25.5% of clips | gold_checks.json | 0.2554 (875) | ✓ |
+| 36 | > 0.1 s | gold_checks.json | key duration_abs_delta_gt_0.1s | ✓ |
+| 37 | Span-matched WER lower for every model | wer_test_spanmatched.csv | 4 of 4 | ✓ |
+
+### Phase 2
+| # | Claim | File | Value found | Match |
+|---|---|---|---|---|
+| 38 | Six speech-to-text variants (5 models + wsp) | registry/asr | 6 directories | ✓ |
+| 39 | Four sentiment variants | registry/sentiment | 4 | ✓ |
+| 40 | Moonshine WER 0.161, the lowest | T2 wer_test.csv | 0.16125, the lowest | ✓ |
+| 41 | Moonshine Cardiff 0.603, the lowest | m2_t1_results.csv | 0.6027 (s2t 0.6032) | ✓ |
+| 42 | Whisper variants WER 0.182–0.221 | wer_test.csv | base 0.1817, AventIQ 0.1831, wsp 0.2152, tiny 0.2206 | ✓ |
+| 43 | Whisper variants give Cardiff **0.615–0.621** | m2_t1_results.csv | tiny 0.6150, base 0.6184, AventIQ 0.6211, **wsp 0.6086**. The same paragraph now counts wsp among the six variants, so the range is **0.609–0.621**, or the sentence should say it excludes wsp. | ✗ (scope) |
+| 44 | Grid 6 × 4 = 24 | T2 m2_t1_results.csv | 6 ASR × 4 sentiment (96 rows over 4 sources) | ✓ |
+| 45 | Every pair of ASR CIs overlaps for Cardiff | m2_t1_results.csv | max lo 0.5926 < min hi 0.6308 | ✓ |
+| 46 | AventIQ weights ≤ 0.0023 | AventIQ meta.json | "240/245 tensors differ by ≤2.3e-3" | ✓ |
+| 47 | Results differ by 0.003 | AventIQ meta.json | That file holds only AventIQ's 0.6211. The difference needs whisper-base (0.6184, its meta / size_vs_accuracy.csv): 0.0027 | NIF (true) |
+| 48 | SiEBERT 4,073 MB | T2_REPORT.md | 4,072.68 | ✓ |
+| 49 | 1,423 MB loaded | T2_REPORT.md | 1,422.87 | ✓ |
+
+### Phase 3
+| # | Claim | File | Value found | Match |
+|---|---|---|---|---|
+| 50 | 432 rows | edit_locations.csv | n_rows_changed 432 | ✓ |
+| 51 | 0.44% | REGISTERED.txt | 0.439% | ✓ |
+| 52 | 165,888 | wsp_results.csv | 165888 | ✓ |
+| 53 | WER 0.2206 → 0.2152 | wsp_results.csv | 0.22061 → 0.21522 | ✓ |
+| 54 | Δ −0.0054 | wsp_results.csv | −0.005395 | ✓ |
+| 55 | CI [−0.0079, −0.0026] | wsp_results.csv | [−0.00794, −0.00264] | ✓ |
+| 56 | Cardiff 0.6150 → 0.6086 | wsp_results.csv | 0.61498 → 0.60858 | ✓ |
+| 57 | Δ −0.0064 | wsp_results.csv | −0.00640 | ✓ |
+| 58 | CI [−0.0119, −0.0016] | wsp_results.csv | [−0.01190, −0.00157] | ✓ |
+| 59 | vs large-v3 0.1988 → 0.2100 | wsp_results.csv | 0.19882 → 0.21005 | ✓ |
+| 60 | 17 of 50 passes | REGISTERED.txt | 17 of 50 | ✓ |
+| 61 | Cap 20 | REGISTERED.txt | 20 | ✓ |
+| 62 | Floor 40 passes and 3 families, brief.md §6 | ../brief.md | l.280 (inside §6, which starts at l.241): "at least 40 forward passes and testing 3 distinct hypothesis families" | ✓ |
+| 63 | 500 → 250 / 250 | splits/manifest.json | 250 / 250 | ✓ |
+| 64 | Base reproduces 0.1988 exactly | eval_base_test.csv | recomputed 0.198820 | ✓ |
+| 65 | 17 lines | logs/forward_passes.jsonl (at R/logs) | 17 | ✓ |
+| 66 | Registered 05:25:49 | REGISTERED.txt | 05:25:49 | ✓ |
+| 67 | 303b9e7 at 05:37 | git log | 05:37:14 | ✓ |
+| 68 | fp10: 18 test clips loop | wsp_results.csv | long 18 | ✓ |
+| 69 | fp10 WER 0.357 | wsp_results.csv | 0.35675 | ✓ |
+| 70 | Two keep/revert decisions (E1, E8) used holdout | logs/agents/W1_wsp.md, status 05:20 | l.33 "holdout used for 2 keep/revert decisions (E1, E8)" | ✓ |
+| 71 | cand_E2E5 9 errors lower | REGISTERED.txt | 1302 vs 1311 | ✓ |
+
+### Phase 4, headline (50 clips)
+| # | Claim | File | Value found | Match |
+|---|---|---|---|---|
+| 72 | 50 clips, extended to 100 | summary.json, n100/summary.json | 50, 100 | ✓ |
+| 73 | Focus ratio 0.991 | summary.json H1 | 0.99090 | ✓ |
+| 74 | CI [0.911, 1.061] | summary.json | [0.9110, 1.0613] | ✓ |
+| 75 | n = 34 | summary.json | 34 | ✓ |
+| 76 | 16 with no flagged frame | summary.json | n_zero_flagged 16 | ✓ |
+| 77 | 16 flagged throughout | summary.json | n_all_flagged 16 | ✓ |
+| 78 | 0.242 inside flagged | summary.json H2 | 0.24188 | ✓ |
+| 79 | 0.258 outside | summary.json H2 | 0.25763 | ✓ |
+| 80 | +0.006, CI [−0.010, 0.024] | summary.json H2 | 0.00622 [−0.00992, 0.02409] | ✓ |
+| 81 | H3 +0.022 | summary.json H3 | 0.02216 | ✓ |
+| 82 | "gap of **about 0.29** between Cardiff and **the binary classifiers** on the same transcripts" | T1 m2_t1_results.csv | whisper-tiny/full: Cardiff 0.6150 vs SiEBERT 0.3228 (gap **0.29**) but vs DistilBERT 0.4575 (gap **0.16**). Across T1 ASR the gap to SiEBERT is 0.28–0.29 and to DistilBERT 0.16. The 0.29 also matches tabularisai (0.325), which is not binary. | ✗ |
+| 83 | At most 0.034 | T1 m2_t1_results.csv | 0.0339 | ✓ |
+| 84 | whisper-base WER 0.208 vs 0.243 | whisper-base/summary.json, summary.json | 0.2076 / 0.2431 | ✓ |
+| 85 | Cardiff accuracy 0.74 for both | both summary.json | 0.74 / 0.74 | ✓ |
+| 86 | 92% identical labels | AudioXAI/README.md (l.86), from the two aggregate.csv files | README 92%; recomputed 46/50 = 0.92 | ✓ |
+| 87 | HYPOTHESES.md in 016d798 at 04:49 | git log | 04:49:48 | ✓ |
+| 88 | Test unlocked 05:05 | ledger.md | 05:04:57 | ✓ |
+| 89 | AADD 3.1.0 | summary.json | "aadd 3.1.0 CLI" | ✓ |
+| 90 | Registry model "v3", described as v3.1 | summary.json | "model v3 (v3.1)"; README l.41 "model v3.1" | ✓ |
+| 91 | 20 ms frames, `--resolution 0.02` | summary.json | "--resolution 0.02 (20 ms)" | ✓ |
+| 92 | Flag at p ≥ 0.5 | summary.json flag_rule_frame | ≥ 0.5 | ✓ |
+| 93 | Deletion AUC 1.426 vs 1.181 | faithfulness.csv (recomputed) | 1.4261 / 1.1815 | ✓ |
+| 94 | Diff 0.245, CI [0.187, 0.303] | faithfulness.csv, summary.json deletion | 0.2446 [0.1870, 0.3035] | ✓ |
+| 95 | 19 of 20 clips | faithfulness.csv | 19 with auc_diff > 0 | ✓ |
+| 96 | Top two decoder layers | summary.json randomization rule | top-2 decoder re-init | ✓ |
+| 97 | Spearman 0.916 | faithfulness.csv | 0.9159 (n 10) | ✓ |
+| 98 | M1 vs input magnitude 0.78 | faithfulness.csv | 0.7845 | ✓ |
+| 99 | M2 0.997, CI includes 1 | summary.json m2 | 0.9966 [0.9252, 1.0686] | ✓ |
+
+### Phase 4, extension (new in this pass)
+| # | Claim | File | Value found | Match |
+|---|---|---|---|---|
+| 100 | Full 300-clip sample | n300/summary.json | n_clips 300 | ✓ |
+| 101 | H1 0.994, CI [0.966, 1.021] | n300/summary.json H1 | 0.99365 [0.96614, 1.02081] | ✓ |
+| 102 | n = 214 | n300/summary.json | 214 (= 300 − 86 zero-flag) | ✓ |
+| 103 | Only music (1.060) and hum (0.837) have intervals that exclude 1 | n300 focus_ratio_m1_by_class | music 1.060 [1.007, 1.123]; hum 0.837 [0.670, 0.988]; codec, highpass, noise, reverb and time_stretch include 1. Note: clipping has n = 1 and a degenerate interval [1.030, 1.030], which literally excludes 1. | ✓ (note) |
+| 104 | Paired diff −0.126 [−0.275, −0.017] | n300 H2 paired_wer_diff | −0.12570 [−0.27522, −0.01652] | ✓ |
+| 105 | 85 clips with both regions | n300 H2 | n 85 | ✓ |
+| 106 | Pooled 0.343 vs 0.223 | n300 H2 | 0.34336 / 0.22325 | ✓ |
+| 107 | +0.020 [0.010, 0.032] | n300 H2 err_imp_share_minus_word_share | 0.02044 [0.00988, 0.03153] | ✓ |
+| 108 | AventIQ WER 0.210 | aventiq/summary.json | 0.21042 | ✓ |
+| 109 | AventIQ Cardiff 0.78, equal to gold-text | aventiq/summary.json | 0.78 / 0.78 | ✓ |
+| 110 | 96% labels identical to tiny's | README l.114 | 96%; recomputed 48/50 = 0.96 | ✓ |
+| 111 | AventIQ H1 0.991 [0.913, 1.060], H2 refuted | aventiq/summary.json | 0.99122 [0.91284, 1.05991]; H2 "refuted" | ✓ |
+| 112 | M2 vs M1 Spearman 0.167 [0.147, 0.186] | n100/summary.json m2 | 0.16710 [0.14724, 0.18616] | ✓ |
+| 113 | M2 focus 0.989 [0.917, 1.069] | n100/summary.json m2 | 0.98905 [0.91696, 1.06931] | ✓ |
+| 114 | Deletion beats random on every run; 300-clip diff 0.201 [0.146, 0.251] | all 5 summary.json | n300 0.2006 [0.1461, 0.2514]; every run's CI lies above 0 (n100 0.246, base 0.183, AventIQ 0.167) | ✓ |
+| 115 | Randomization fails on every run, Spearman 0.909–0.931 | all 5 summary.json | 0.9159 / 0.9089 / 0.9309 / 0.9176 / 0.9305, all FAIL | ✓ |
+
+### Phase 4, limitations
+| # | Claim | File | Value found | Match |
+|---|---|---|---|---|
+| 116 | 50 clips, 3 negative | summary.json label_counts | Negative 3 | ✓ |
+| 117 | 300 tiny, 50 base and AventIQ, M2 on 100, segment replacement on 10 | n300, whisper-base, aventiq, n100 summaries; results/e2e_segments.csv | 300 / 50 / 50 / m2 n 100 / 10 rows | ✓ |
+| 118 | Mean flagged fraction 0.505 | summary.json mean_frac_flagged | 0.50476 | ✓ |
+| 119 | ".npz, **about 570 MB**" | du | Stale after the extension: npz 136 MB + whisper-base 136 + n100 327 + **n300 1,149** + **aventiq 138** = **1,885 MB (≈1.9 GB)**, or 1,916 MB with dev/npz (31 MB). None of it is tracked. | ✗ |
+
+### Phase 5
+| # | Claim | File | Value found | Match |
+|---|---|---|---|---|
+| 120 | 11 figures | figures/manifest.md, figures/ | 11 names, each with png + svg + spec + script | ✓ |
+| 121 | Phase 1 audit 8 of 9 | audit_phase1.md | 8/9 | ✓ |
+| 122 | Phase 3 audit 8 of 9 | audit_phase3.md | 8/9 | ✓ |
+| 123 | Registration written 13 s before that run | audit_phase3.md item 9 | registered_at 05:25:49, gpu_jobs start 05:26:02 | ✓ |
+| 124 | Commit 11 minutes after it | audit_phase3.md | "11 min after it started" | ✓ |
+| 125 | Phase 4 audit 7 of 8, fixed afterwards | audit_phase4.md; README l.41, summary.json aadd | 7/8; v3.1 wording now present | ✓ |
+| 126 | Pass 1: 7 mismatches among 101 | audit_final.md pass 1 | 101 / 7 | ✓ |
+| 127 | Monitor loop every 15 minutes | ledger.md 04:34:20, monitor.md | every 15 min | ✓ |
+| 128 | 17 WSP passes | forward_passes.jsonl | 17 lines | ✓ |
+| 129 | Phase 1 finished 05:02 | ledger.md | 05:02:46 "Phase 1 DONE at 05:02" | ✓ |
+| 130 | Phase 2 finished **05:03** | ledger.md | 05:04:57 "Phase 2 DONE at **05:04**" (commit 98e2cdf at 05:04:57). No Phase-2 event at 05:03. | ✗ |
+| 131 | Two workers at 05:41 | ledger.md | W1 DONE 05:41; W2 DONE 05:40 (its commit 71d3163 is at 05:41:45) | ✓ (W2 is 05:40) |
+| 132 | About two hours ahead of the compressed plan | logs/oracle_plan.md l.4 | Phase 2 planned by 07:05 (done 05:04); P3/P4 until 07:40 (done 05:41) | ✓ |
+| 133 | Gold text adds only 0.02–0.03 (Phase 1) | m2_t1_results.csv | gold − full for Cardiff: AventIQ 0.016, tiny 0.022, s2t 0.034 | ✓ (rounded) |
+| 134 | Switching classifiers moves it by about 0.3 (Phase 1) | Phase 1 section; no file | The Phase 1 section gives no 0.3. From m2_t1_results.csv the largest gap is 0.29 (Cardiff vs SiEBERT or tabularisai); the gap to DistilBERT is 0.16 | NIF (true as the maximum) |
+
+Other observations:
+- The wording of the pass-1 fixes is correct: #17's companion clause (gold 0.739), the A4a ranges (#28–31), the six variants (#38) and 6 × 4 (#44) now match. #17 adds a new parenthetical "best 0.718", and it is wrong.
+- The Phase 5 header says the final commit hash is in `OVERNIGHT_STATUS.md`. STATUS does not have it yet, which is expected before the push.
+- AventIQ's H3 verdict in aventiq/summary.json is "holds" (+0.016 [−0.001, 0.033]). The report does not mention it. That is consistent with ledger 05:13 ("not refuted for AventIQ") and is not a mismatch.
+
+## 2. OVERNIGHT_STATUS.md against disk
+| Line | On disk | Agrees |
+|---|---|---|
+| VERDICT RUNNING, 04:27, 08:20 | run in progress, final audit running | yes |
+| Phase 1 DONE, audit 8/9, item 9 fixed | T1_REPORT.md; audit_phase1.md 8 PASS / item 9 FAIL | yes |
+| Phase 2 DONE, MinIO unreachable | T2_REPORT.md, registry/ (6 ASR, 4 sentiment), results/; minio_attempt.json reachable=false | yes |
+| Phase 3 PARTIAL: 17/50 passes, cap 20, fp10 and fp17 only, floor 40 not reached; 0.2206→0.2152, 0.6150→0.6086, CIs exclude 0; audit 8/9 | wsp_results.csv and REGISTERED.txt match; only patch_fp10/fp17 among fp* | yes |
+| Phase 4 PARTIAL: 50 headline; n300, 50 base and AventIQ, M2 on 100, segment replacement on 10; audit 7/8, item 7 fixed | n300/ (300), whisper-base/ (50), aventiq/ (50), n100 m2 (100), e2e_segments.csv (10); README l.41 and summary.json carry v3.1 and --resolution 0.02 | yes |
+| Phase 5 IN PROGRESS: 11 figures, report drafted, final audit running | 11 figures present; report Phase 5 section written; this audit | yes |
+| Branch m2-overnight from e2a81e4 | git log e2a81e4..HEAD = 20 commits | yes |
+
+## 3. figures/manifest.md
+All 11 figures exist (png, svg, spec JSON and render script each). Every data-file sha256 in the manifest equals both the file on disk and the hash in its spec. The one exception is the first `t2_wer_per_variant` row (74141c65…), which is the pre-wsp hash by design, as the orchestrator's 05:55 note says. The re-render row's e43e4927… matches. The data files are unchanged since pass 1. I recomputed these spot checks:
+| Figure | Values | Result |
+|---|---|---|
+| t1_macro_f1_grid | 0.6211 [0.5926, 0.6493]; 0.4423; 0.3228; baseline 0.2826 | ✓ |
+| t1_passrate_vs_f1 | sha d7fcdf4c… matches; Pearson −0.24 / −0.08 and Spearman −0.07 / +0.06 equal correlations.json (−0.0668, +0.0559) | ✓ |
+| t1_full_norm_gold | s2t/cardiff 0.6032 / 0.5978 / 0.6371 | ✓ |
+| t2_wer_per_variant (both rows) | moonshine 0.1612 / 0.1477 / 0.1482; wsp 0.2152 / 0.1997 / 0.2100; tiny 0.2206 / 0.1988; large 0.1789; OLD 0.8639 | ✓ |
+| t2_accuracy_vs_size | 147.12 / 0.6211 / 0.1831; 294.78 / 0.6184; 248.07 / 0.6027 | ✓ |
+| wsp_results_table | base 0.2206, long 3 / short 6; fp10 long 18, 168,960; fp17 −0.0054 [−0.0079, −0.0026] | ✓ |
+| wsp_edit_locations | 165,888 / 432 / 0.00833; fp10 168,960 / 440 | ✓ |
+| xai_focus_ratio_by_class | ZpPPaMazpf0_00003 time_stretch, correct 1, 1.54255; 8fKRoUIpAJY_00012 clean 0.2602; noise mean 0.9926 (n 15); 34 valid / 16 NaN | ✓ |
+| xai_wer_flagged_vs_clean | f_k09R8r 1.0 / 0.0833 / 12; ZpPPaMazpf0_00008 0.3158 / 1.0 / 19; hW0Q6eHqN-U 0.0 / 0.2703 / 36; 12 clips with both rates | ✓ |
+| xai_deletion_curves | k5 1.0039 / 0.4207; k25 3.4033 / 2.6516; k50 4.0643 / 3.9883; AUC 1.4261 / 1.1815 / 0.2446 | ✓ |
+| xai_example_clip | npz sha 00221b2b… matches; frac_flagged 0.2958 | ✓ (sha and aggregate row; npz internals not re-read) |
+
+## 4. Tracked-file rules (`git ls-files`, 3,804 files, HEAD e87f0b8)
+- Over 50 MB: in the working copy, the four PipelineEvaluation/data CSVs (225–652 MB) are Git LFS paths, as in pass 1. In `git ls-tree -r -l HEAD` no blob exceeds 50 MB. The largest committed blobs are the three report HTML files (9.16, 9.49 and 9.50 MB; `results/aventiq/report_aventiq.html` is new). **PASS**
+- Weights: the only tracked weight files are `Milestone2/WSP_Whisper/edits/patch_fp10.safetensors` and `patch_fp17.safetensors`. No .bin, .pt, .pth, .ckpt, .h5, .onnx, .gguf, .msgpack or .npz is tracked. The new n300/ and aventiq/ entries are CSV, JSONL, JSON and HTML only. **PASS**
+- `git status`: clean. The run_ext logs and script that were untracked in pass 1 are now either committed or ignored.
+
+## 5. Summary
+| Numbers checked | Matched | Mismatched | Not in named file |
+|---|---|---|---|
+| 134 | 126 | 5 | 3 (all true elsewhere: #3 GPU, #47 0.003, #134 "about 0.3") |
+
+Mismatches and correct values:
+1. #17 Phase 1, "none on accuracy (best 0.718)": the best Cardiff accuracy on machine transcripts is **0.721** (whisper-tiny, normalized text). 0.718 is the best on full transcripts (s2t). The claim that none beats 0.736 holds.
+2. #43 Phase 2, "the Whisper variants … give 0.615–0.621": whisper-tiny-wsp, now counted among the six variants, gives **0.6086**. Either write **0.609–0.621**, or say "the unedited Whisper variants".
+3. #82 Phase 4, "a gap of about 0.29 between Cardiff and the binary classifiers": that holds for SiEBERT (0.615 − 0.323 = 0.29) but not for DistilBERT (0.615 − 0.457 = **0.16**). Write "between Cardiff and SiEBERT", or "0.16–0.29 to the binary classifiers".
+4. #119 Phase 4 limitations, ".npz, about 570 MB": after the extension the uncommitted .npz arrays total **≈1.9 GB** (1,885 MB across the 50-clip, whisper-base, n100, n300 and aventiq runs; 1,916 MB including dev).
+5. #130 Phase 5, "Phases 1 and 2 finished at 05:02 and 05:03": Phase 2 finished at **05:04** (ledger 05:04:57 "Phase 2 DONE at 05:04"; commit 98e2cdf 05:04:57).
+
+Minor, not counted as mismatches: W2 finished at 05:40, not 05:41 (#131); clipping's degenerate n = 1 interval (#103); the npz internals of the example clip were not re-read.
