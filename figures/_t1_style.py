@@ -63,3 +63,26 @@ T2_COLOR = {"AventIQ": "#CC79A7", "s2t-small": "#56B4E9", "whisper-tiny": "#009E
 T2_MARKER = {"AventIQ": "o", "s2t-small": "s", "whisper-tiny": "^", "whisper-base": "D", "moonshine-base": "v"}
 WER_NOTE = ("Word error rate = (words substituted + words dropped + words inserted) / words in the reference transcript; "
             "0.18 means about 18 errors per 100 reference words.")
+
+# XAI figures: AADD dominant degradation class, fixed order by clip count in Milestone2/AudioXAI/results/aggregate.csv
+# (ties broken by summary.json degradation_class_counts order). Six Okabe-Ito hues validated --pairs all (worst CVD
+# dE 7.6 -> markers double-encode identity); "clean" is deliberately neutral gray with an open marker.
+XAI_CLASS_ORDER = ["clean", "noise", "reverb", "music", "codec", "clipping", "time_stretch"]
+XAI_CLASS_COLOR = {"clean": "#898781", "noise": "#0072B2", "reverb": "#E69F00", "music": "#009E73",
+                   "codec": "#CC79A7", "clipping": "#56B4E9", "time_stretch": "#D55E00"}
+XAI_CLASS_MARKER = {"clean": "o", "noise": "o", "reverb": "s", "music": "^", "codec": "D", "clipping": "v",
+                    "time_stretch": "P"}
+XAI_CLASS_LABEL = {"clean": "clean", "noise": "noise", "reverb": "reverb (echo)", "music": "music",
+                   "codec": "codec artefacts", "clipping": "clipping", "time_stretch": "time stretch"}
+# Cardiff sentiment correct / wrong (pair validated: CVD dE 21.9, normal 31.2)
+CORRECT_COLOR = {1: "#0072B2", 0: "#D55E00"}
+
+
+def boot_ci(x, n=10_000, seed=8001, stat=None):
+    """Percentile 95% bootstrap CI of the mean (numpy default_rng(seed)); x is 1-D or (clips, k) for per-column CIs."""
+    import numpy as np
+    x = np.asarray(x, float)
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, len(x), size=(n, len(x)))
+    m = x[idx].mean(1)
+    return np.percentile(m, 2.5, axis=0), np.percentile(m, 97.5, axis=0)

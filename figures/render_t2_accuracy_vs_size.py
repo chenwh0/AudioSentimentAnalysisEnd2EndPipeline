@@ -12,7 +12,7 @@ OFF_R = {"AventIQ": (-8, -8, "right"), "s2t-small": (8, 0, "left"), "whisper-tin
          "whisper-base": (8, 4, "left"), "moonshine-base": (0, -14, "center")}
 
 fig, (axl, axr) = plt.subplots(1, 2, figsize=(11, 5.4), sharex=True)
-fig.subplots_adjust(top=0.82, bottom=0.27, left=0.07, right=0.98, wspace=0.22)
+fig.subplots_adjust(top=0.82, bottom=0.29, left=0.07, right=0.98, wspace=0.22)
 for ax in (axl, axr):
     ax.grid(axis="x", visible=True)
 for a, r in df.iterrows():
@@ -31,7 +31,9 @@ axr.set_ylim(0, 0.7)
 axl.set_ylabel(spec["axes"]["y_left"]); axr.set_ylabel(spec["axes"]["y_right"])
 axl.set_title("Sentiment macro-F1 (bars = 95% confidence interval; higher is better)", loc="left", fontsize=9.5)
 axr.set_title("Word error rate vs human transcripts (lower is better)", loc="left", fontsize=9.5)
-fig.supxlabel(spec["axes"]["x"], y=0.175, fontsize=9.5, color=INK2)
-fig.legend(*axl.get_legend_handles_labels(), loc="lower center", bbox_to_anchor=(0.5, 0.085), ncol=5, fontsize=8.5)
-note = (MACRO_F1_NOTE + " " + WER_NOTE)
+fig.supxlabel(spec["axes"]["x"], y=0.195, fontsize=9.5, color=INK2)
+fig.legend(*axl.get_legend_handles_labels(), loc="lower center", bbox_to_anchor=(0.5, 0.105), ncol=5, fontsize=8.5)
+WSP_NOTE = ("whisper-tiny-wsp (the weight-edited whisper-tiny) is not plotted: it has no row in size_vs_accuracy.csv "
+            "(same loaded size as whisper-tiny plus a 2.0 MB patch).")
+note = (MACRO_F1_NOTE + " " + WER_NOTE + " " + WSP_NOTE)
 finish(fig, spec, 140, note=note)

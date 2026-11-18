@@ -20,5 +20,5 @@
  "output": "figures/t2_accuracy_vs_size.png",
  "data_sha256": "f3c8180210307a853dd7ce80ed4539a2e52fb8b043655dbdd4f47b0c5a5f99bf",
  "generated": "2026-11-18 overnight run, Phase 5 prep",
- "revision_note": "re-issued 05:47 CST after the whisper-tiny-wsp row was added to the data file; include that row (label 'whisper-tiny-wsp (edited)') in the figure"
+ "revision_note": "re-issued 05:47 CST: data file unchanged; the whisper-tiny-wsp variant is NOT plotted (no size row); the caption footnote says so"
 }

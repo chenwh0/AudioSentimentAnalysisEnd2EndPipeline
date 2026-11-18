@@ -14,9 +14,11 @@ df = df[df.asr != REF].copy()
 SHORT = {"UsefulSensors/moonshine-base": "moonshine-base", "openai/whisper-base": "whisper-base",
          "AventIQ-AI/whisper-audio-to-text": "AventIQ (whisper-base fine-tune)", "openai/whisper-tiny": "whisper-tiny",
          "facebook/s2t-small-librispeech-asr": "s2t-small (batch-1 fix)",
-         "s2t-small-OLD(batch8)": "s2t-small, before the batch fix"}
+         "s2t-small-OLD(batch8)": "s2t-small, before the batch fix",
+         "whisper-tiny-wsp": "whisper-tiny-wsp (edited)"}  # weight-edited whisper-tiny (Phase 3), added 05:47 spec re-issue
 OLD = "s2t-small-OLD(batch8)"
 df["name"] = df.asr.map(SHORT)
+assert df.name.notna().all(), df.asr[df.name.isna()].tolist()
 df = df.sort_values("wer_gold").reset_index(drop=True)   # ascending; plotted top to bottom
 
 SER = ["wer_gold", "wer_gold_nofillers", "wer_pseudo_ref"]
@@ -41,7 +43,7 @@ def style(s, old=False):
     return st
 
 
-fig, ax = plt.subplots(figsize=(10, 6.4))
+fig, ax = plt.subplots(figsize=(10, 7.2))
 fig.subplots_adjust(top=0.84, bottom=0.2, left=0.25, right=0.97)
 ax.grid(axis="y", visible=False); ax.grid(axis="x", visible=True)
 h, gap = 0.24, 0.03
