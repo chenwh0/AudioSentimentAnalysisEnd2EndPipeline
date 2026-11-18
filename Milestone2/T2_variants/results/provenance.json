@@ -1,0 +1,14 @@
+{
+ "started": "2026-11-18T05:01:35-0600",
+ "config": "Milestone2/T1_final/config.yaml",
+ "inputs": {
+  "gold_tsv_sha256": "f139680b0e1b41121f9d56ff9080aadfa28558637e2930694ac90acb2bdf2469",
+  "transcripts_AventIQ_sha256": "668b2b0838278d714fa7a55f53bf090b9f5501bdd45336a5d6a17fdf7f100d4e",
+  "transcripts_s2t-small_sha256": "0db3093aae5549609aebbd1d1001a78dc8954a3180a43694224c3168957331f1",
+  "transcripts_whisper-tiny_sha256": "544ad58f1ea4b3ab03964fca1389f3e2c7d8ad6d03e1de5103a501f48236a632",
+  "transcripts_whisper-base_sha256": "6bcc63eede8d1964703114e00969c7f378ae69caf65ac967b19f103d73b68d0d",
+  "transcripts_moonshine-base_sha256": "8059a090712d91f5dd090f6d6cae2ce494cb2ee25db763941832c33354ebf64e",
+  "aadd_files_csv_sha256": "c06a210b768e986f3456d58768238df8dc74e92dadb85f0e34dda48897692a14"
+ },
+ "finished": "2026-11-18T05:03:11-0600"
+}

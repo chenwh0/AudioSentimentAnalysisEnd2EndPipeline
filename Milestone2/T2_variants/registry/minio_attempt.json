@@ -1,0 +1,7 @@
+{
+ "endpoint": "http://localhost:9000",
+ "credentials_in_env": false,
+ "reachable": false,
+ "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+ "uploaded": false
+}

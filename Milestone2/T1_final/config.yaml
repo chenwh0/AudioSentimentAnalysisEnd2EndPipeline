@@ -19,3 +19,6 @@ sentiment_models:
   distilbert/distilbert-base-uncased-finetuned-sst-2-english: {revision: 714eb0fa89d2f80546fda750413ed43d93601a13, kind: binary}
 tau_grid: {start: 0.50, stop: 0.99, step: 0.01}
 t_grid: {start: 0.05, stop: 0.95, step: 0.05}
+
+# Dataset revision pinned by the collaborator (do not regenerate splits): Milestone2/PipelineEvaluation/dataset_revision.txt
+dataset_revision_file: Milestone2/PipelineEvaluation/dataset_revision.txt

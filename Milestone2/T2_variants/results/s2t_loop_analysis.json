@@ -1,0 +1,22 @@
+{
+ "s2t-small:test": {
+  "n": 1500,
+  "before_gt_1.5x_pseudo": 244,
+  "after_gt_1.5x_pseudo": 134,
+  "before_gt_1.5x_gold": 229,
+  "after_gt_1.5x_gold": 115,
+  "before_mean_words": 40.86666666666667,
+  "after_mean_words": 33.634,
+  "gold_mean_words": 26.816
+ },
+ "s2t-small:dev": {
+  "n": 500,
+  "before_gt_1.5x_pseudo": 92,
+  "after_gt_1.5x_pseudo": 49,
+  "before_gt_1.5x_gold": 82,
+  "after_gt_1.5x_gold": 40,
+  "before_mean_words": 43.366,
+  "after_mean_words": 35.838,
+  "gold_mean_words": 28.348
+ }
+}

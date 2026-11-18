@@ -1,0 +1,13 @@
+# Figure manifest
+
+| name | spec | data file + sha256 | tool | outputs | spot-check values (from data file) |
+|---|---|---|---|---|---|
+| t1_macro_f1_grid | figures/specs/t1_macro_f1_grid.json | Milestone2/T1_final/results/m2_t1_results.csv, sha256 8968f33ed3fd24d27748ee9138e7de4ca0d58ea9b340041b2713af19145d74d5 (+ baseline.json macro_f1) | matplotlib via Opus agent; Claude Design not used because figures must be repo files | figures/t1_macro_f1_grid.png, figures/t1_macro_f1_grid.svg (script figures/render_t1_macro_f1_grid.py) | AventIQ / cardiff / full: macro_f1 0.6211 (CI 0.5926-0.6493); s2t-small / distilbert / full: macro_f1 0.4423 (CI 0.4168-0.4684); whisper-tiny / siebert / full: macro_f1 0.3228; dashed baseline 0.2826 |
+| t1_passrate_vs_f1 | figures/specs/t1_passrate_vs_f1.json | Milestone2/T1_final/results/assertions_test.csv, sha256 d7fcdf4cac2fdc39cba3f6b40b3c5de3e224375aa7ba9aec49de50861fc1fb00 (+ correlations.json) | matplotlib via Opus agent; Claude Design not used because figures must be repo files | figures/t1_passrate_vs_f1.png, figures/t1_passrate_vs_f1.svg (script figures/render_t1_passrate_vs_f1.py) | AventIQ / cardiff: pass_A123 0.6907, pass_A123_A4a 0.3740, macro_f1 0.6211; s2t-small / cardiff: pass_A123 0.4533, pass_A123_A4a 0.2513, macro_f1 0.6032; whisper-tiny / tabularisai: pass_A123 0.3320, pass_A123_A4a 0.2007, macro_f1 0.3252; panel stats Pearson -0.24 / Spearman -0.07 (A123), -0.08 / +0.06 (A123_A4a) |
+| t1_full_norm_gold | figures/specs/t1_full_norm_gold.json | Milestone2/T1_final/results/m2_t1_results.csv, sha256 8968f33ed3fd24d27748ee9138e7de4ca0d58ea9b340041b2713af19145d74d5 | matplotlib via Opus agent; Claude Design not used because figures must be repo files | figures/t1_full_norm_gold.png, figures/t1_full_norm_gold.svg (script figures/render_t1_full_norm_gold.py) | s2t-small / cardiff: full 0.6032, norm 0.5978, gold 0.6371 (gold - full = 0.034); whisper-tiny / distilbert: full 0.4575, norm 0.4650, gold 0.4802; AventIQ / tabularisai: full 0.3304, norm 0.3252, gold 0.3389 |
+
+
+## Orchestrator spot-checks (05:05 CST)
+- orchestrator spot-check t1_macro_f1_grid: OK — AventIQ cardiff full macro_f1: data 0.6211 vs manifest 0.6211; s2t-small distilbert full: data 0.4423 vs manifest 0.4423; whisper-tiny siebert full: data 0.3228 vs manifest 0.3228
+- orchestrator spot-check t1_passrate_vs_f1: OK — AventIQ cardiff pass_A123: data 0.6907 vs manifest 0.6907; s2t cardiff pass_A123_A4a: data 0.2513 vs manifest 0.2513; whisper-tiny tabularisai macro_f1: data 0.3252 vs manifest 0.3252
+- orchestrator spot-check t1_full_norm_gold: OK — s2t cardiff gold: data 0.6371 vs manifest 0.6371; whisper-tiny distilbert norm: data 0.4650 vs manifest 0.4650; AventIQ tabularisai full: data 0.3304 vs manifest 0.3304

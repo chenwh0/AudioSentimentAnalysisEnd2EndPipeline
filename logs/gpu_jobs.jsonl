@@ -70,3 +70,19 @@
 {"ts": "2026-11-18T05:02:13-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 12s, cache scores_siebert__whisper-base_full.csv"}
 {"ts": "2026-11-18T05:02:25-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 11s, cache scores_siebert__whisper-base_norm.csv"}
 {"ts": "2026-11-18T05:02:36-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 11s, cache scores_siebert__moonshine-base_full.csv"}
+{"ts": "2026-11-18T05:02:48-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 10s, cache scores_siebert__moonshine-base_norm.csv"}
+{"ts": "2026-11-18T05:02:50-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_distilbert__whisper-base_full.csv"}
+{"ts": "2026-11-18T05:02:52-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_distilbert__whisper-base_norm.csv"}
+{"ts": "2026-11-18T05:02:54-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_distilbert__moonshine-base_full.csv"}
+{"ts": "2026-11-18T05:02:56-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_distilbert__moonshine-base_norm.csv"}
+{"ts":"2026-11-18T05:03:12-06:00","job":"run_t1_P2grid","event":"end","pid":419305,"note":"exit=0"}
+{"ts":"2026-11-18T05:03:12-06:00","job":"W1_edit_E2","event":"start","pid":421138,"note":"edit E2 measure"}
+{"ts":"2026-11-18T05:03:22-06:00","job":"W1_edit_E2","event":"end","pid":421138,"note":"edit E2 measure rc=0"}
+{"ts": "2026-11-18T05:03:22-0600", "job": "w2_dev_m2", "event": "start", "pid": 421381, "note": "M2 occlusion dev 3 clips"}
+{"ts": "2026-11-18T05:03:49-0600", "job": "w2_dev_m2", "event": "end", "pid": 421381, "note": "M2 occlusion dev 3 clips rc=0"}
+{"ts":"2026-11-18T05:03:49-06:00","job":"W1_edit_E3","event":"start","pid":421929,"note":"edit E3 measure"}
+{"ts":"2026-11-18T05:04:32-06:00","job":"W1_edit_E3","event":"end","pid":421929,"note":"edit E3 measure rc=0"}
+{"ts": "2026-11-18T05:04:32-0600", "job": "w2_dev_e2e", "event": "start", "pid": 422488, "note": "e2e segment replacement dev 2 clips"}
+{"ts": "2026-11-18T05:04:38-0600", "job": "w2_dev_e2e", "event": "end", "pid": 422488, "note": "e2e segment replacement dev 2 clips rc=0"}
+{"ts": "2026-11-18T05:04:51-0600", "job": "w2_dev_dbg", "event": "start", "pid": 422868, "note": "debug e2e batching"}
+{"ts": "2026-11-18T05:04:56-0600", "job": "w2_dev_dbg", "event": "end", "pid": 422868, "note": "debug e2e batching rc=0"}

@@ -1,0 +1,89 @@
+{
+ "source_repo": "https://huggingface.co/UsefulSensors/moonshine-base",
+ "revision": "7a73d8d55ac0ba2ef3ae761593f6784b51f96dcf",
+ "snapshot": "/home/cppesl/.cache/huggingface/hub/models--UsefulSensors--moonshine-base/snapshots/7a73d8d55ac0ba2ef3ae761593f6784b51f96dcf",
+ "weights_sha256": "e020c79d0a979a7ec099f718ff1cd2f19e92aead230d69654bca5975a8e1b862",
+ "size_on_disk": {
+  "loaded_files": {
+   "generation_config.json": 189,
+   "tokenizer.json": 1985530,
+   "model.safetensors": 246079928,
+   "config.json": 976,
+   "preprocessor_config.json": 215
+  },
+  "loaded_files_MB": 248.07,
+  "hub_repo_all_files_MB": 248.08,
+  "hub_weight_files_MB": {
+   "model.safetensors": 246.08
+  }
+ },
+ "offline_accuracy_test": {
+  "n": 1500,
+  "wer_gold": 0.1612470167064439,
+  "wer_gold_nofillers": 0.147743443789388,
+  "wer_pseudo_reference": 0.1482228775415179,
+  "reference": "SLUE-VoxCeleb human transcripts (gold); whisper-large-v3 pseudo-reference for comparability",
+  "cardiff_macro_f1": 0.6026731999865002,
+  "cardiff_macro_f1_ci": [
+   0.574088619737083,
+   0.6308858581712515
+  ],
+  "cardiff_t": 0.7,
+  "cardiff_tau": null
+ },
+ "all_sentiment_downstream": {
+  "cardiff": {
+   "macro_f1": 0.6026731999865002,
+   "ci": [
+    0.574088619737083,
+    0.6308858581712515
+   ],
+   "tau": null,
+   "t": 0.7
+  },
+  "tabularisai": {
+   "macro_f1": 0.3368055860287084,
+   "ci": [
+    0.3141110371181707,
+    0.3594106734043296
+   ],
+   "tau": null,
+   "t": 0.45
+  },
+  "siebert": {
+   "macro_f1": 0.3282248450457747,
+   "ci": [
+    0.3045483150200214,
+    0.3521808489321607
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "distilbert": {
+   "macro_f1": 0.4598087027205801,
+   "ci": [
+    0.4330816558609732,
+    0.4866717085649312
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  }
+ },
+ "notes": "English-only; max_new_tokens capped at 6.5 tokens/s per the model card; the card cautions against using Moonshine for subjective classification (it only transcribes here)",
+ "kind": "asr",
+ "name": "UsefulSensors/moonshine-base",
+ "short_name": "moonshine-base",
+ "version": "7a73d8d55ac0ba2ef3ae761593f6784b51f96dcf",
+ "registered_at": "2026-11-18T05:03:13-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/asr/moonshine-base/7a73d8d55ac0ba2ef3ae761593f6784b51f96dcf",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}
