@@ -1,0 +1,17 @@
+{
+ "A123": {
+  "pearson": -0.23841126376839006,
+  "spearman": -0.06678475954023655,
+  "same_ranking": false
+ },
+ "A123_A4a": {
+  "pearson": -0.08318780750795729,
+  "spearman": 0.055944055944055944,
+  "same_ranking": false
+ },
+ "A123_A4b": {
+  "pearson": -0.29339753359806225,
+  "spearman": -0.23986823316258768,
+  "same_ranking": false
+ }
+}

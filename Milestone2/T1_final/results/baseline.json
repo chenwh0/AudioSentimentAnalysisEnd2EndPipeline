@@ -1,0 +1,24 @@
+{
+ "baseline": "always-neutral",
+ "macro_f1": 0.282642089093702,
+ "accuracy": 0.736,
+ "P_Negative": 0.0,
+ "R_Negative": 0.0,
+ "F1_Negative": 0.0,
+ "n_Negative": 74,
+ "P_Neutral": 0.736,
+ "R_Neutral": 1.0,
+ "F1_Neutral": 0.847926267281106,
+ "n_Neutral": 1104,
+ "P_Positive": 0.0,
+ "R_Positive": 0.0,
+ "F1_Positive": 0.0,
+ "n_Positive": 322,
+ "macro_f1_ci_lo": 0.2775616083009079,
+ "macro_f1_ci_hi": 0.28744785741372775,
+ "test_label_counts": {
+  "Neutral": 1104,
+  "Positive": 322,
+  "Negative": 74
+ }
+}

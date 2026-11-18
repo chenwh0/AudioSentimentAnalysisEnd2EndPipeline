@@ -1,0 +1,34 @@
+{
+ "n_clips": 3426,
+ "coverage": 3426,
+ "coverage_by_slice": {
+  "dev": 500,
+  "load_pool": 1426,
+  "test": 1500
+ },
+ "label_agreement": 3426,
+ "label_mismatches": 0,
+ "label_confusion": {
+  "Negative": {
+   "Negative": 168,
+   "Neutral": 0,
+   "Positive": 0
+  },
+  "Neutral": {
+   "Negative": 0,
+   "Neutral": 2521,
+   "Positive": 0
+  },
+  "Positive": {
+   "Negative": 0,
+   "Neutral": 0,
+   "Positive": 737
+  }
+ },
+ "duration_abs_delta_gt_0.1s": 875,
+ "duration_mismatch_fraction": 0.2553998832457677,
+ "duration_abs_delta_max": 1.5700624999999988,
+ "duration_abs_delta_mean": 0.0714927393461763,
+ "gold_text_empty": 0,
+ "verdict_durations": "INVESTIGATE: >1% of clips differ by >0.1 s"
+}

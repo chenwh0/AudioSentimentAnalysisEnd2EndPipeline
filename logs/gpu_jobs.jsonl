@@ -1,0 +1,52 @@
+{"ts": "2026-11-18T04:15:17-0600", "job": "preflight_gpu_warmup", "pid": 382308, "event": "end", "checksum": -130122.109375, "secs": 0.148, "gpu": "NVIDIA RTX 4000 Ada Generation"}
+{"ts":"2026-11-18T04:35:29-06:00","job":"aadd_devtest","event":"start","pid":395495,"note":"aadd v3 scan dev+test 2000 clips"}
+{"ts":"2026-11-18T04:36:06-06:00","job":"aadd_devtest","event":"end","pid":395495,"note":"rc=0"}
+{"ts": "2026-11-18T04:36:06-0600", "job": "w2_aadd_smoke", "event": "start", "pid": 396055, "note": "aadd dev smoke 2 clips"}
+{"ts": "2026-11-18T04:36:11-0600", "job": "w2_aadd_smoke", "event": "end", "pid": 396055, "note": "aadd dev smoke 2 clips rc=0"}
+{"ts":"2026-11-18T04:36:11-06:00","job":"W1_eval_base_holdout","event":"start","pid":396215,"note":"harness base holdout"}
+{"ts":"2026-11-18T04:36:36-06:00","job":"W1_eval_base_holdout","event":"end","pid":396215,"note":"harness base holdout rc=0"}
+{"ts":"2026-11-18T04:36:42-06:00","job":"W1_eval_base_test","event":"start","pid":396604,"note":"harness base test (once)"}
+{"ts":"2026-11-18T04:39:00-06:00","job":"W1_eval_base_test","event":"end","pid":396604,"note":"harness base test (once) rc=0"}
+{"ts": "2026-11-18T04:39:00-0600", "job": "w2_smoke_explain", "event": "start", "pid": 398213, "note": "explain 2 dev smoke clips"}
+{"ts": "2026-11-18T04:39:04-0600", "job": "w2_smoke_explain", "event": "end", "pid": 398213, "note": "explain 2 dev smoke clips rc=1"}
+{"ts": "2026-11-18T04:39:16-0600", "job": "w2_smoke_gen", "event": "start", "pid": 398546, "note": "generate check"}
+{"ts": "2026-11-18T04:39:20-0600", "job": "w2_smoke_gen", "event": "end", "pid": 398546, "note": "generate check rc=0"}
+{"ts": "2026-11-18T04:39:27-0600", "job": "w2_smoke_explain", "event": "start", "pid": 398757, "note": "explain 2 dev smoke clips"}
+{"ts": "2026-11-18T04:39:42-0600", "job": "w2_smoke_explain", "event": "end", "pid": 398757, "note": "explain 2 dev smoke clips rc=0"}
+{"ts":"2026-11-18T04:39:51-06:00","job":"run_t1","event":"start","pid":399145,"note":"run_t1.py full P1 regeneration"}
+{"ts": "2026-11-18T04:43:05-0600", "job": "transcribe:facebook/s2t-small-librispeech-asr", "event": "end", "pid": 399150, "note": "2000 clips, batch 1, 190s"}
+{"ts": "2026-11-18T04:43:10-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_cardiff__AventIQ_full.csv"}
+{"ts": "2026-11-18T04:43:13-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_cardiff__AventIQ_norm.csv"}
+{"ts": "2026-11-18T04:43:20-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 6s, cache scores_cardiff__s2t-small_full.csv"}
+{"ts": "2026-11-18T04:43:26-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 6s, cache scores_cardiff__s2t-small_norm.csv"}
+{"ts": "2026-11-18T04:43:31-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 5s, cache scores_cardiff__whisper-tiny_full.csv"}
+{"ts": "2026-11-18T04:43:36-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 4s, cache scores_cardiff__whisper-tiny_norm.csv"}
+{"ts": "2026-11-18T04:43:39-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_cardiff__gold.csv"}
+{"ts": "2026-11-18T04:43:44-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 5s, cache scores_cardiff__pseudo.csv"}
+{"ts": "2026-11-18T04:43:47-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_tabularisai__AventIQ_full.csv"}
+{"ts": "2026-11-18T04:43:49-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_tabularisai__AventIQ_norm.csv"}
+{"ts": "2026-11-18T04:43:53-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 4s, cache scores_tabularisai__s2t-small_full.csv"}
+{"ts": "2026-11-18T04:43:57-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_tabularisai__s2t-small_norm.csv"}
+{"ts": "2026-11-18T04:44:00-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_tabularisai__whisper-tiny_full.csv"}
+{"ts": "2026-11-18T04:44:03-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_tabularisai__whisper-tiny_norm.csv"}
+{"ts": "2026-11-18T04:44:05-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_tabularisai__gold.csv"}
+{"ts": "2026-11-18T04:44:08-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_tabularisai__pseudo.csv"}
+{"ts": "2026-11-18T04:44:21-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 12s, cache scores_siebert__AventIQ_full.csv"}
+{"ts": "2026-11-18T04:44:32-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 10s, cache scores_siebert__AventIQ_norm.csv"}
+{"ts": "2026-11-18T04:44:54-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 21s, cache scores_siebert__s2t-small_full.csv"}
+{"ts": "2026-11-18T04:45:15-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 21s, cache scores_siebert__s2t-small_norm.csv"}
+{"ts": "2026-11-18T04:45:31-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 15s, cache scores_siebert__whisper-tiny_full.csv"}
+{"ts": "2026-11-18T04:45:45-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 13s, cache scores_siebert__whisper-tiny_norm.csv"}
+{"ts": "2026-11-18T04:45:57-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 11s, cache scores_siebert__gold.csv"}
+{"ts": "2026-11-18T04:46:12-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 15s, cache scores_siebert__pseudo.csv"}
+{"ts": "2026-11-18T04:46:15-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__AventIQ_full.csv"}
+{"ts": "2026-11-18T04:46:16-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__AventIQ_norm.csv"}
+{"ts": "2026-11-18T04:46:20-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_distilbert__s2t-small_full.csv"}
+{"ts": "2026-11-18T04:46:24-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_distilbert__s2t-small_norm.csv"}
+{"ts": "2026-11-18T04:46:26-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_distilbert__whisper-tiny_full.csv"}
+{"ts": "2026-11-18T04:46:29-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__whisper-tiny_norm.csv"}
+{"ts": "2026-11-18T04:46:31-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__gold.csv"}
+{"ts": "2026-11-18T04:46:34-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__pseudo.csv"}
+{"ts":"2026-11-18T04:46:44-06:00","job":"W1_diag","event":"start","pid":404563,"note":"3 practice diagnostic passes + layer audit"}
+{"ts":"2026-11-18T04:46:44-06:00","job":"run_t1","event":"end","pid":399145,"note":"exit=0"}
+{"ts":"2026-11-18T04:47:11-06:00","job":"W1_diag","event":"end","pid":404563,"note":"3 practice diagnostic passes + layer audit rc=0"}
