@@ -51,3 +51,7 @@ W2 DONE
 ## 05:44 CST (extensions, hard stop 07:10)
 - committed n=50 files hashed (scratch committed.sha256) and left untouched; new dirs only: results/n300, results/aventiq, results/n100 (M2)
 - running: scripts/run_ext.sh (n300 whisper-tiny in 5 short GPU chunks reusing the 100 rows -> AventIQ 50 -> M2 on n100 in 4 chunks)
+## 05:51 CST
+- audit fixes (CPU only): scan.py aadd string -> "aadd 3.1.0 CLI, model v3 (v3.1), threshold 0.5, --segments --resolution 0.02 (20 ms)"; re-ran summarize for results/ (n=50) and results/whisper-base: flattened diff shows only /aadd changed; README Models line updated, stale "Not run tonight" bullet removed; report.py template "(M2, not run tonight)" removed, title/answer built from S.asr, H3 card for non-tiny ASR says "decided on whisper-tiny only"; rebuilt report.html and results/whisper-base/report_whisper-base.html (JS smoke-run OK)
+W2 FIXES DONE
+- running: run_ext.sh (n300 scan)

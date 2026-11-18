@@ -39,3 +39,4 @@
 - orchestrator spot-check xai_wer_flagged_vs_clean (05:48 CST): 12 clips with both rates; pooled error rate flagged 0.242 vs clean 0.258
 - orchestrator spot-check xai_deletion_curves (05:48 CST): mean drop at k=5 top 1.00 vs random 0.42; at k=50 top 4.06 vs random 3.99; AUC 1.426 vs 1.181
 - orchestrator spot-check xai_example_clip (05:48 CST): clip id10273_ZpPPaMazpf0_00003 label Neutral, pred Neutral, class time_stretch, frac_flagged 0.296, WER 0.400, duration 6.2 s (to be compared with the panel title/axes)
+- orchestrator note (05:55 CST): the first t2_wer_per_variant row's data sha256 (74141c65…) is the pre-wsp version of wer_test.csv; the re-render row below it carries the current hash (e43e4927…).

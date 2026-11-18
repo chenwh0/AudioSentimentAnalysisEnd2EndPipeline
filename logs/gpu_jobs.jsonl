@@ -151,3 +151,7 @@
 {"ts": "2026-11-18T05:43:57-0600", "job": "w2_n300_1", "event": "start", "pid": 463018, "note": "audioxai scan test n=300 chunk 1 (<=55 clips)"}
 {"ts": "2026-11-18T05:47:40-0600", "job": "w2_n300_1", "event": "end", "pid": 463018, "note": "audioxai scan test n=300 chunk 1 (<=55 clips) rc=0"}
 {"ts": "2026-11-18T05:47:40-0600", "job": "w2_n300_2", "event": "start", "pid": 468567, "note": "audioxai scan test n=300 chunk 2 (<=55 clips)"}
+{"ts": "2026-11-18T05:52:06-0600", "job": "w2_n300_2", "event": "end", "pid": 468567, "note": "audioxai scan test n=300 chunk 2 (<=55 clips) rc=0"}
+{"ts": "2026-11-18T05:52:06-0600", "job": "w2_n300_3", "event": "start", "pid": 474243, "note": "audioxai scan test n=300 chunk 3 (<=55 clips)"}
+{"ts": "2026-11-18T05:55:23-0600", "job": "w2_n300_3", "event": "end", "pid": 474243, "note": "audioxai scan test n=300 chunk 3 (<=55 clips) rc=0"}
+{"ts": "2026-11-18T05:55:23-0600", "job": "w2_n300_4", "event": "start", "pid": 477815, "note": "audioxai scan test n=300 chunk 4 (<=55 clips)"}
