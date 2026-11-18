@@ -48,3 +48,6 @@ W2 DONE
 8. Extension n=100 (results/n100): H1 0.995 [0.939,1.049] n=71, refuted; H2 refuted.
 9. whisper-base on same 50 (results/whisper-base): WER 0.208 vs 0.243, Cardiff acc 0.74 both, 92% same labels; H1 0.991 [0.912,1.059]; randomization FAIL 0.931.
 10. Caveats: AADD flags are estimates on real audio (54% of dev frames flagged); small n; npz dirs not for commit; no test finding changed any configuration.
+## 05:44 CST (extensions, hard stop 07:10)
+- committed n=50 files hashed (scratch committed.sha256) and left untouched; new dirs only: results/n300, results/aventiq, results/n100 (M2)
+- running: scripts/run_ext.sh (n300 whisper-tiny in 5 short GPU chunks reusing the 100 rows -> AventIQ 50 -> M2 on n100 in 4 chunks)

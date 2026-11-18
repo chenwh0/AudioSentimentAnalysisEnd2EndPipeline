@@ -138,3 +138,9 @@
 {"ts": "2026-11-18T05:39:40-0600", "job": "w2_test_base_b", "event": "end", "pid": 454195, "note": "whisper-base test 50, chunk 2 rc=0"}
 {"ts":"2026-11-18T05:39:40-06:00","job":"W1_eval_fp17_dev","event":"start","pid":457419,"note":"harness fp17 dev (transcripts for Phase 2/5)"}
 {"ts":"2026-11-18T05:40:40-06:00","job":"W1_eval_fp17_dev","event":"end","pid":457419,"note":"harness fp17 dev (transcripts for Phase 2/5) rc=0"}
+{"ts":"2026-11-18T05:42:38-06:00","job":"run_t1_P5grid","event":"start","pid":460724,"note":"6 ASR x 4 sentiment grid incl. whisper-tiny-wsp into T2_variants/results"}
+{"ts": "2026-11-18T05:42:48-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 460733, "note": "2000 texts, 4s, cache scores_cardiff__whisper-tiny-wsp_full.csv"}
+{"ts": "2026-11-18T05:42:52-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 460733, "note": "2000 texts, 4s, cache scores_cardiff__whisper-tiny-wsp_norm.csv"}
+{"ts": "2026-11-18T05:42:56-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 460733, "note": "2000 texts, 3s, cache scores_tabularisai__whisper-tiny-wsp_full.csv"}
+{"ts": "2026-11-18T05:42:58-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 460733, "note": "2000 texts, 2s, cache scores_tabularisai__whisper-tiny-wsp_norm.csv"}
+{"ts": "2026-11-18T05:43:13-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 460733, "note": "2000 texts, 15s, cache scores_siebert__whisper-tiny-wsp_full.csv"}

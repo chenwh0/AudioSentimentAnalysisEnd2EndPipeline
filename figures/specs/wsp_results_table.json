@@ -1,0 +1,44 @@
+{
+ "purpose": "Show the weight-space-editing result as a figure in the style of the WSP tutorial's table: for the base model and each saved checkpoint, test word error rate with its CI, the paired change versus base, and the downstream sentiment macro-F1 with its CI.",
+ "data_file": "Milestone2/WSP_Whisper/results/wsp_results.csv",
+ "filter": "all three rows (base, fp10, fp17); mark fp17 as the registered checkpoint",
+ "columns": {
+  "rows": "checkpoint",
+  "left_panel": {
+   "x": "test_wer_gold",
+   "err": [
+    "wer_ci_lo",
+    "wer_ci_hi"
+   ]
+  },
+  "middle_panel": {
+   "x": "delta_wer_vs_base",
+   "err": [
+    "delta_ci_lo",
+    "delta_ci_hi"
+   ]
+  },
+  "right_panel": {
+   "x": "cardiff_macro_f1",
+   "err": [
+    "f1_ci_lo",
+    "f1_ci_hi"
+   ]
+  },
+  "annotations": [
+   "n_changed_weights",
+   "long",
+   "short"
+  ]
+ },
+ "encodings": "three horizontal dot-and-interval panels sharing the row axis (base, fp10, fp17 top to bottom): (1) test WER vs human transcripts with 95% CI, (2) paired change in WER vs base with its CI and a vertical zero line, (3) Cardiff macro-F1 with CI; label fp17 '(registered)'; print changed-weight counts (and % of 37,760,640) and the long/short transcript counts as small text at the row ends; distinct fixed colors for base (gray), fp10 (orange) and fp17 (blue)",
+ "axes": {
+  "x_left": "word error rate vs human transcripts (test slice, n = 1,500)",
+  "x_middle": "change in word error rate vs base (paired bootstrap 95% CI)",
+  "x_right": "macro-F1 with the Cardiff sentiment model"
+ },
+ "caption": "Weight-space edits to whisper-tiny (no training, 17 forward passes, 0.44% of weights rescaled). The registered checkpoint fp17 lowers the word error rate by 0.005 with a confidence interval that excludes zero, but lowers sentiment macro-F1 by 0.006, also significant. fp10 is a failed intermediate checkpoint kept for honesty.",
+ "output": "figures/wsp_results_table.png",
+ "data_sha256": "0306e3c2a135c71d6244a1eefaebdb4233e9df8977533ba4489e027fc0af851c",
+ "generated": "2026-11-18 overnight run, Phase 5"
+}

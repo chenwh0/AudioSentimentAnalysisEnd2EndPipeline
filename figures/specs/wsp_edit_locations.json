@@ -1,0 +1,21 @@
+{
+ "purpose": "Show where in the network the edits sit: every changed weight lives in the decoder token-embedding matrix, which is tied to the output projection, so the figure must make clear that no encoder or attention weights were touched.",
+ "data_file": "Milestone2/WSP_Whisper/results/edit_locations.csv",
+ "filter": "rows for fp17 (registered); fp10 may be shown as a lighter companion",
+ "columns": {
+  "layer": "layer",
+  "n_changed": "n_changed",
+  "n_rows_changed": "n_rows_changed",
+  "fraction_changed": "fraction_changed",
+  "registered": "registered"
+ },
+ "encodings": "a schematic bar chart of whisper-tiny's parameter groups along the x axis in network order (encoder conv stem, encoder blocks 0-3, decoder embed_tokens / proj_out (tied), decoder blocks 0-3, layer norms), with bar height = number of changed weights (log scale or broken axis so zeros are visible as empty bars labelled '0'); only the tied embedding/projection bar is non-zero: 165,888 weights in 432 token rows for fp17; a text box explaining the tie (one edited row changes both the token's input embedding and its output logit) and listing the two edit groups (426 digit-token rows \u00d7 0.65; 'cause', 'gonna', 'gotta' rows \u00d7 1.10, from Milestone2/WSP_Whisper/edits/edits_fp17.json)",
+ "axes": {
+  "x": "parameter group of whisper-tiny, in network order",
+  "y": "number of weights changed (fp17)"
+ },
+ "caption": "Where the registered edits sit. All 165,888 changed weights (0.44% of the model) are rows of the decoder's token-embedding matrix, which shares storage with the output projection; the encoder, attention and feed-forward weights are untouched.",
+ "output": "figures/wsp_edit_locations.png",
+ "data_sha256": "f702421426df0803aedefa1beb4faa97f2655c558de2a4635b968baca823ca71",
+ "generated": "2026-11-18 overnight run, Phase 5"
+}
