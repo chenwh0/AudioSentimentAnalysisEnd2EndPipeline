@@ -34,3 +34,5 @@
 2026-11-18T06:27:02-06:00 | P4 | W2 EXT DONE 06:26: n300 whisper-tiny (H1 0.994 [0.966,1.021] n=214 refuted), AventIQ 50, M2 on n100; randomization FAILS everywhere, deletion passes everywhere. Report P4 + status updated.
 2026-11-18T06:33:11-06:00 | P5 | final audit pass 2: 5/134 mismatches -> all fixed. Monitor loop stopped (pid 394508). Final verdict written. Committing and pushing.
 2026-11-18T06:33:46-06:00 | P5 | PUSHED 8a652e18173065f491725848a219d31545430c1e to origin/m2-overnight; git ls-remote matched local HEAD. Recording the verification and pushing the record commit (final tip).
+2026-11-18T06:34:01-06:00 | P5 | final tip 77f7fdb60ef2119edd7e4d293e11e48ffe291cef pushed and verified (cosmetic status fix). Run complete.
+2026-11-18T10:13:26-06:00 | post-run | added Milestone2/README.md (theory + results with all 11 figures inline, numbers taken from audited result files only) and a pointer line in OVERNIGHT_STATUS.md; committing to m2-overnight.
