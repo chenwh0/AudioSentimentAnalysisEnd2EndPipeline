@@ -14,3 +14,14 @@
 - Hypotheses: H1 fillers suppressed in the tied output rows of ' uh'/' um' -> scale those rows up. H2 colloquial tokens (' gonna',' kinda',' gotta',' cause') under-scored -> scale rows. H3 (backup) digit tokens -> spelled numbers in gold.
 - Running: pass 4, teacher-forced probe (wsp/probe.py) measuring logit ratio max_other/target at gold positions; waiting on GPU lock (other workers' jobs).
 - Next: choose one row-scale per group from the probe margins (written rationale), measure each with one practice pass.
+
+## Status 05:09 CST
+- Passes used: 10/20. Edit ledger: Milestone2/WSP_Whisper/edits/edit_log.jsonl (hypothesis, tensor, rows, op, before/after per edit); state edits/state.json.
+- Pass 4 teacher-forced probe (wsp/diag/probe_margins.json): median max_other/target ratio at gold positions uh 1.08, um 1.05, cause 1.06, kinda 1.05; logits reconstruct from final-LN hidden @ tied rows (max abs err 0.016).
+- M = first 64 practice clips of rng(8001) order; base M WER 0.1832 (practice, not a result).
+- E1 H1_fillers: tied rows uh/um (6 case variants) x1.10 -> M 0.1832->0.1793 KEEP (2,304 weights).
+- E2 H2_colloquial: tied rows cause/kinda/gonna/gotta (8) x1.10 -> M 0.1793->0.1782 KEEP (3,072 weights).
+- E3 H1_fillers: filler rows to x1.20 total -> M 5.57 (uh-uh-uh repetition collapse: tied row also scales the fed-back input embedding) REVERT. H1 failure 1 of 2; filler rows stay at x1.10.
+- E4 H3_digits: 426 digit-token tied rows x0.80, isolated on the 12 diag clips with digits: 0.1870->0.1543 KEEP; E5 replaces E4 with x0.65: 0.1370 KEEP (163,584 weights).
+- Pass 10: cumulative E1+E2+E5 on M: 0.1733 (base 0.1832). Saving fp10 (edits/patch_fp10.safetensors + edits_fp10.json).
+- Next: holdout eval of fp10 (harness), then passes 11-20 on new mechanisms, fp20, register by holdout WER at <=07:20.

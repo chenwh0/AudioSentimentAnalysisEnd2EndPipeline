@@ -86,3 +86,12 @@
 {"ts": "2026-11-18T05:04:38-0600", "job": "w2_dev_e2e", "event": "end", "pid": 422488, "note": "e2e segment replacement dev 2 clips rc=0"}
 {"ts": "2026-11-18T05:04:51-0600", "job": "w2_dev_dbg", "event": "start", "pid": 422868, "note": "debug e2e batching"}
 {"ts": "2026-11-18T05:04:56-0600", "job": "w2_dev_dbg", "event": "end", "pid": 422868, "note": "debug e2e batching rc=0"}
+{"ts":"2026-11-18T05:05:25-06:00","job":"W1_edit_E4","event":"start","pid":423653,"note":"edit E4 measure"}
+{"ts":"2026-11-18T05:05:30-06:00","job":"W1_edit_E4","event":"end","pid":423653,"note":"edit E4 measure rc=0"}
+{"ts":"2026-11-18T05:05:49-06:00","job":"W1_edit_E5","event":"start","pid":424102,"note":"edit E5 measure"}
+{"ts":"2026-11-18T05:05:57-06:00","job":"W1_edit_E5","event":"end","pid":424102,"note":"edit E5 measure rc=0"}
+{"ts": "2026-11-18T05:06:03-0600", "job": "w2_test_scan_a", "event": "start", "pid": 424512, "note": "audioxai scan test 50, chunk 1"}
+{"ts": "2026-11-18T05:08:15-0600", "job": "w2_test_scan_a", "event": "end", "pid": 424512, "note": "audioxai scan test 50, chunk 1 rc=0"}
+{"ts":"2026-11-18T05:08:15-06:00","job":"W1_rebase10","event":"start","pid":426763,"note":"rebase cumulative on M (pass 10)"}
+{"ts":"2026-11-18T05:08:25-06:00","job":"W1_rebase10","event":"end","pid":426763,"note":"rebase cumulative on M (pass 10) rc=0"}
+{"ts": "2026-11-18T05:08:25-0600", "job": "w2_test_scan_b", "event": "start", "pid": 426981, "note": "audioxai scan test 50, chunk 2"}

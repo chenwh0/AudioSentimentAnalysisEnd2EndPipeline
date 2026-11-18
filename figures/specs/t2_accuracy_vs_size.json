@@ -1,0 +1,23 @@
+{
+ "purpose": "Show offline accuracy against model size for the speech-to-text variants: larger or more accurate transcription does not buy sentiment macro-F1.",
+ "data_file": "Milestone2/T2_variants/results/size_vs_accuracy.csv",
+ "filter": "all rows",
+ "columns": {
+  "x": "size_loaded_MB",
+  "y_left_panel": "cardiff_macro_f1",
+  "y_err_low": "ci_lo",
+  "y_err_high": "ci_hi",
+  "y_right_panel": "wer_gold",
+  "label": "asr"
+ },
+ "encodings": "two panels side by side sharing the x axis (size in MB, linear): left, Cardiff macro-F1 with CI error bars per variant; right, WER vs gold per variant; each point labelled with the variant's short name (offset labels so they do not collide); same marker color per variant in both panels (fixed order AventIQ, s2t-small, whisper-tiny, whisper-base, moonshine-base)",
+ "axes": {
+  "x": "size of the files a service loads (MB)",
+  "y_left": "macro-F1 with the Cardiff sentiment model (test slice)",
+  "y_right": "word error rate vs human transcripts"
+ },
+ "caption": "Accuracy against size for the five speech-to-text variants. Moonshine-base has the lowest word error rate but the lowest sentiment macro-F1; the three Whisper variants sit within each other's confidence intervals.",
+ "output": "figures/t2_accuracy_vs_size.png",
+ "data_sha256": "f3c8180210307a853dd7ce80ed4539a2e52fb8b043655dbdd4f47b0c5a5f99bf",
+ "generated": "2026-11-18 overnight run, Phase 5 prep"
+}

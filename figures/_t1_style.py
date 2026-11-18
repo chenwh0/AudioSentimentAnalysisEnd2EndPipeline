@@ -45,11 +45,21 @@ def wrap(s, width):
     return "\n".join(textwrap.wrap(s, width))
 
 
-def finish(fig, spec, wrap_width):
-    """Caption as sub-caption title; macro-F1 footnote at the bottom."""
+def finish(fig, spec, wrap_width, note=MACRO_F1_NOTE):
+    """Caption as sub-caption title; footnote (default: macro-F1 definition) at the bottom."""
     fig.suptitle(wrap(spec["caption"], wrap_width), x=0.01, ha="left", fontsize=10, color=INK, y=0.995)
-    fig.text(0.01, 0.005, wrap(MACRO_F1_NOTE, int(wrap_width * 1.15)), ha="left", va="bottom", fontsize=7.5, color=MUTED)
+    fig.text(0.01, 0.005, wrap(note, int(wrap_width * 1.15)), ha="left", va="bottom", fontsize=7.5, color=MUTED)
     out = R / spec["output"]
     fig.savefig(out, dpi=200)
     fig.savefig(out.with_suffix(".svg"))
     print("wrote", out, out.with_suffix(".svg"))
+
+
+# T2: one color per speech-to-text variant (Okabe-Ito colors not used for the sentiment models where possible),
+# fixed order AventIQ, s2t-small, whisper-tiny, whisper-base, moonshine-base. Markers double-encode identity.
+T2_ORDER = ["AventIQ", "s2t-small", "whisper-tiny", "whisper-base", "moonshine-base"]
+T2_COLOR = {"AventIQ": "#CC79A7", "s2t-small": "#56B4E9", "whisper-tiny": "#009E73",
+            "whisper-base": "#D55E00", "moonshine-base": "#000000"}
+T2_MARKER = {"AventIQ": "o", "s2t-small": "s", "whisper-tiny": "^", "whisper-base": "D", "moonshine-base": "v"}
+WER_NOTE = ("Word error rate = (words substituted + words dropped + words inserted) / words in the reference transcript; "
+            "0.18 means about 18 errors per 100 reference words.")

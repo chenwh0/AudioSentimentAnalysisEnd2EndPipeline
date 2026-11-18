@@ -33,3 +33,12 @@ lines: ledger 17 gpu_jobs 83 fp 7 eval 2
 python procs: 6
 newest files: 119 modified in last 15 min
 
+
+## Sonnet monitor, Phase 2 done / Phases 3-4 running
+- 2026-11-18 05:06 CST. Verdict: HEALTHY.
+- GPU: 977/20475 MiB used, 1% util; one compute app pid 236492 (28 MiB). Disk: 867G free (51% used).
+- Logs (lines, mtime): ledger.md 19 (05:04:57); gpu_jobs.jsonl 92 (05:05:57); forward_passes.jsonl 9 (05:05:52); eval_runs.jsonl 2 (04:38:59); W1_wsp.md 16 (04:54:01); W2_audioxai.md 19 (05:05:57).
+- gpu_jobs: 0 malformed lines; 1 unmatched start: w2_test_scan_a pid 424512, age ~0.1 min (running now, `audioxai scan --slice test --sample 50 --limit 25`, pid 424514).
+- forward_passes: 9 lines (<=20), every line has hypothesis_id.
+- GPU lock /tmp/m2_gpu.lock held by flock 424511 / bash 424512 / audioxai 424514 (the active W2 job); no other waiters.
+- Activity in last 20 min: yes. W2_audioxai.md at 05:05, W1_wsp.md at 04:54 (about 12 min ago), plus edits under Milestone2/WSP_Whisper and Milestone2/AudioXAI. No stall. W1 is closest to the 20-minute limit (quiet since 04:54, but WSP files were modified in the window).
