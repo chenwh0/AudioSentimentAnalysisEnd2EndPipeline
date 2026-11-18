@@ -1,0 +1,36 @@
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Loading weights:   0%|          | 0/357 [00:00<?, ?it/s]Loading weights: 100%|██████████| 357/357 [00:00<00:00, 27075.19it/s]
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Loading weights:   0%|          | 0/357 [00:00<?, ?it/s]Loading weights: 100%|██████████| 357/357 [00:00<00:00, 26000.01it/s]
+{
+ "n_dev_clips": 48,
+ "pipeline_batch8": {
+  "gt_1.5x_pseudo": 11,
+  "mean_words": 43.604166666666664,
+  "ref_mean_words": 24.333333333333332,
+  "example": "and conservoir the old and tender and experts and snares and the encombure sixty four north south southern own playing games an ice plated plated and conserv si"
+ },
+ "pipeline_batch1": {
+  "gt_1.5x_pseudo": 5,
+  "mean_words": 31.5625,
+  "ref_mean_words": 24.333333333333332,
+  "example": "and conservoir the old and tender and experts and snares and encombed were sixty four north south southern own playing games and ice plated"
+ },
+ "generate_batch8_with_attention_mask": {
+  "gt_1.5x_pseudo": 11,
+  "mean_words": 43.604166666666664,
+  "example": "and conservoir the old and tender and experts and snares and the encombure sixty four north south southern own playing games an ice plated plated and conserv si"
+ },
+ "generate_batch8_without_attention_mask": {
+  "gt_1.5x_pseudo": 38,
+  "mean_words": 60.708333333333336,
+  "example": "and conservoir the old and tender and experts and snares and the encombed were sixty four north south southern own playing games and ice platings were in the sa"
+ },
+ "pipeline_preprocess_keys": [
+  "is_last",
+  "input_features",
+  "attention_mask"
+ ]
+}
+exit=0

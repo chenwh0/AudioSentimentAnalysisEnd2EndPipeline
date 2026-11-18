@@ -1,0 +1,80 @@
+{
+ "n_dev_clips": 48,
+ "dev_clip_ids": [
+  "id10293_SJxWXqMu2ds_00001",
+  "id10308_igRoN6MXsWo_00002",
+  "id10272_olePnztkm6U_00010",
+  "id10304_JQtDfEz08aU_00019",
+  "id10285_dG-z37iVdzA_00001",
+  "id10273_eLl_yTeuaKo_00018",
+  "id10283_arklnCzCq48_00002",
+  "id10304_FJOvOooCIvs_00004",
+  "id10303_Zs8VK91yVMI_00017",
+  "id10309_qFrRfhWombs_00005",
+  "id10283_vaK4t1-WD4M_00044",
+  "id10282_s4X9cwCCnFo_00004",
+  "id10296_LUFoMNPpdbY_00004",
+  "id10280_d7S0qeo6EP0_00002",
+  "id10304_FJOvOooCIvs_00003",
+  "id10286_lJQTN_wK9vA_00002",
+  "id10273_jyOctu82nhs_00002",
+  "id10273_prqT1CcDqMc_00019",
+  "id10304_Wab8UZNYhM0_00001",
+  "id10301_AeRSD9jIdSg_00004",
+  "id10300_AsHhZ_bnpQg_00001",
+  "id10298_6qFnVechX9o_00021",
+  "id10308_rgpPBT4yQcg_00013",
+  "id10300__WKW_Jkdvq8_00001",
+  "id10284_7yx9A0yzLYk_00028",
+  "id10281_NHARUN9OhSo_00004",
+  "id10287_2iaCNe7ajII_00001",
+  "id10270_GWXujl-xAVM_00045",
+  "id10280_PQBBKBYGWgU_00006",
+  "id10273_MqKFZOAwUsg_00002",
+  "id10270_GWXujl-xAVM_00044",
+  "id10297_6pjKcuVoHLM_00012",
+  "id10309_GyJHpVQmcvc_00003",
+  "id10295_K1gPy1UKmBE_00008",
+  "id10309_vobW27_-JyQ_00015",
+  "id10270_8jEAjG6SegY_00035",
+  "id10286_4TtOX8dgtYI_00003",
+  "id10298_Cjt5DP6qc5Q_00003",
+  "id10288_dRr05CxK0jQ_00005",
+  "id10273_eLl_yTeuaKo_00011",
+  "id10293_EHtXD7XFeeI_00003",
+  "id10281_NHARUN9OhSo_00007",
+  "id10283_r9-0pljhZqs_00017",
+  "id10298_VHtcwtdPjpE_00002",
+  "id10285_uArtiTSTnSU_00001",
+  "id10273_8cfyJEV7hP8_00039",
+  "id10303_VCEs8oAQAiM_00014",
+  "id10294_oTRparDs-84_00002"
+ ],
+ "pipeline_batch8": {
+  "gt_1.5x_pseudo": 11,
+  "mean_words": 43.604166666666664,
+  "ref_mean_words": 24.333333333333332,
+  "example": "and conservoir the old and tender and experts and snares and the encombure sixty four north south southern own playing games an ice plated plated and conserv si"
+ },
+ "pipeline_batch1": {
+  "gt_1.5x_pseudo": 5,
+  "mean_words": 31.5625,
+  "ref_mean_words": 24.333333333333332,
+  "example": "and conservoir the old and tender and experts and snares and encombed were sixty four north south southern own playing games and ice plated"
+ },
+ "generate_batch8_with_attention_mask": {
+  "gt_1.5x_pseudo": 11,
+  "mean_words": 43.604166666666664,
+  "example": "and conservoir the old and tender and experts and snares and the encombure sixty four north south southern own playing games an ice plated plated and conserv si"
+ },
+ "generate_batch8_without_attention_mask": {
+  "gt_1.5x_pseudo": 38,
+  "mean_words": 60.708333333333336,
+  "example": "and conservoir the old and tender and experts and snares and the encombed were sixty four north south southern own playing games and ice platings were in the sa"
+ },
+ "pipeline_preprocess_keys": [
+  "is_last",
+  "input_features",
+  "attention_mask"
+ ]
+}

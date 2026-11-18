@@ -37,9 +37,9 @@ Why the numbers moved: macro-F1 rose from 0.35 to 0.60–0.62 for Cardiff mainly
 
 ## 3. Gold transcripts and WER (professor comment 2; brief §4.1)
 
-Join and checks (`results/gold_checks.json`, `results/gold_join.csv`): coverage 3,426 / 3,426 (dev 500, test 1,500, load pool 1,426); label agreement 3,426 / 3,426; gold text empty on 0 clips. Durations: 875 clips (25.5%) have |SLUE span − WAV duration| > 0.1 s. Investigation (6 minutes, logged in `logs/ledger.md`): the difference is never positive, i.e. SLUE's (start, end) always lies inside the WAV; median shortfall 0.20 s, 99th percentile 0.77 s, 4 clips above 1 s; gold words per second are 3.43 against WAV length and 3.47 against the SLUE span. So the transcript describes the same utterance with trimmed edge silence, not a different span. The brief's 1% threshold is exceeded and reported as such.
+Join and checks (`results/gold_checks.json`, `results/gold_join.csv`): coverage 3,426 / 3,426 (dev 500, test 1,500, load pool 1,426); label agreement 3,426 / 3,426; gold text empty on 0 clips. Durations: 875 clips (25.5%) have |SLUE span − WAV duration| > 0.1 s. Investigation (6 minutes, logged in `logs/ledger.md`): the difference is never positive, i.e. SLUE's (start, end) always lies inside the WAV; median shortfall 0.20 s among the mismatched clips, 99th percentile 0.77 s among them (0.55 s over all clips), 4 clips above 1 s; gold words per second are 3.43 against WAV length and 3.47 against the SLUE span. So the transcript describes the same utterance with trimmed edge silence, not a different span. The brief's 1% threshold is exceeded and reported as such.
 
-Sensitivity (`results/wer_test_spanmatched.csv`): on the 1,118 span-matched test clips versus the 382 mismatched ones, WER vs gold is 0.1752 vs 0.2044 (AventIQ), 0.2018 vs 0.2711 (whisper-tiny), 0.4936 vs 0.8797 (s2t), 0.1680 vs 0.2083 (whisper-large-v3). Mismatched clips are harder for every model, including the pseudo-reference, so part of the headline WER is edge speech that SLUE did not transcribe; the ranking of models is the same on both subsets.
+Sensitivity (`results/wer_test_spanmatched.csv`): on the 1,090 span-matched test clips versus the 410 mismatched ones, WER vs gold is 0.1752 vs 0.2044 (AventIQ), 0.2018 vs 0.2711 (whisper-tiny), 0.4936 vs 0.8797 (s2t), 0.1680 vs 0.2083 (whisper-large-v3). Mismatched clips are harder for every model, including the pseudo-reference, so part of the headline WER is edge speech that SLUE did not transcribe; the ranking of models is the same on both subsets.
 
 WER on the test slice (`results/wer_test.csv`; per-clip values in `results/wer_per_clip_test.csv`):
 
@@ -70,7 +70,16 @@ Normalizing the ASR text (lowercase, no punctuation, like SLUE) changes Cardiff 
 
 Before/after on the test slice (`results/s2t_loop_analysis.json`): transcripts with more than 1.5× the pseudo-reference word count 244 → 134 (vs gold: 229 → 115); mean words 40.9 → 33.6 against 26.8 for gold. WER vs gold 0.8639 → 0.5983. The fixed transcripts (`data/transcripts_s2t-small.csv`) are used everywhere; the old file stays at `Milestone2/PipelineEvaluation/transcripts_s2t-small-librispeech-asr.csv`.
 
-Cause probe on 48 dev clips (`results/s2t_bug_probe.json`, filled in by `s2t_bug_probe.py`): see that file for the counts under four conditions: the notebook's pipeline at batch 8, the pipeline at batch 1, `model.generate` at batch 8 with an explicit attention mask, and at batch 8 without one. The write-up of the probe is in section 4a below, appended when the probe finished.
+Cause probe on 48 dev clips (`results/s2t_bug_probe.json`, `s2t_bug_probe.py`; dev clips chosen with `default_rng(8001)`), counting transcripts longer than 1.5× the pseudo-reference:
+
+| condition | long transcripts / 48 | mean words (reference 24.3) |
+|---|---|---|
+| notebook pipeline, batch 8 | 11 | 43.6 |
+| notebook pipeline, batch 1 (the fix) | 5 | 31.6 |
+| `model.generate`, batch 8, explicit attention mask | 11 | 43.6 |
+| `model.generate`, batch 8, no attention mask | 38 | 60.7 |
+
+The pipeline's preprocess output does contain `attention_mask`, and its batch-8 output is identical to `generate` with an explicit mask, so the suspected "missing mask" is not the cause. The cause is padding itself: with a mask the loops halve relative to no mask, but padded log-mel frames still reach s2t's convolutional subsampler (whose receptive field crosses the mask boundary) and the decoder's cross-attention, and they more than double the long-transcript count compared with batch 1 (11 vs 5). Batch size 1 removes padding entirely, which is why it is the fix. The 5 / 48 loops that remain at batch 1 (134 / 1,500 on test) are the model's own behaviour on conversational VoxCeleb audio, outside LibriSpeech's read-speech domain.
 
 ## 5. Assertions (professor comment 1; brief §4.3)
 
@@ -96,13 +105,13 @@ Does A4 fix the negative correlation across configurations? No. With A1∧A2∧A
 ## 6. Mappings, thresholds, exclusions, CIs (professor comments 3 and 4; brief §4.4)
 
 - 3,426 clips verified in code (`pipeline/common.py::load_slices` asserts the counts, the index files and disjointness; test labels 74 / 1,104 / 322 in `results/baseline.json`).
-- τ (binary models): 0.99 for every configuration and every text source, a boundary hit (`results/thresholds.json`). t (A3): Cardiff 0.65 / 0.75 / 0.70, tabularisai 0.50 / 0.50 / 0.70, binary 0.05 (dead). t_b (A4b): 0.15–0.90 (unstable across ASR, a sign that the AADD clean fraction is a weak predictor of correctness; the balanced accuracies are in `results/thresholds.json`).
+- τ (binary models): 0.99 for every configuration and every text source, a boundary hit (`results/thresholds.json`). t (A3): Cardiff 0.65 / 0.75 / 0.70, tabularisai 0.50 / 0.50 / 0.70, binary 0.05 (dead). t_b (A4b): 0.05–0.90 (unstable across ASR, a sign that the AADD clean fraction is a weak predictor of correctness; the balanced accuracies are in `results/thresholds.json`).
 - 95% bootstrap CIs (10,000 resamples, `default_rng(8001)`) for every macro-F1 (`results/m2_t1_results.csv`, columns `macro_f1_ci_lo/hi`, width about ±0.03 for Cardiff) and paired CIs for full-minus-gold, full-minus-pseudo and full-minus-normalized (`results/gap_ci.csv`).
 - Per-class precision, recall and F1 for all 12 configurations and 4 text sources: `results/m2_t1_results.csv`. Cardiff's weakest class is Negative (F1 0.33–0.37 on 74 clips).
 
 ## 7. Reproducible entry point (brief §4.5)
 
-`run_t1.py` + `config.yaml`: Linux paths rebuilt from the `file` column, no Windows calls, transcription and scoring only when a cache under `data/` is missing. It ran end to end once on this machine (`results/run_t1.log`, `results/provenance.json` with SHA-256 of every input cache); the auditor reran it into `results_audit/` and diffed the tables (`logs/audit_phase1.md`).
+`run_t1.py` + `config.yaml`: Linux paths rebuilt from the `file` column, no Windows calls, transcription and scoring only when a cache under `data/` is missing. It ran end to end once on this machine (`results/run_t1.log`, `results/provenance.json` with SHA-256 of every input cache); the auditor reran it into `results_audit/` and diffed the tables (`logs/audit_phase1.md`: 8 of 9 items passed on the first pass; the failed item was two wrong numbers in this report, corrected).
 
 ## 8. Limitations and open items
 

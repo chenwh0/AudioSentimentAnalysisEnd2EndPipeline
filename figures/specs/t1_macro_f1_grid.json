@@ -1,0 +1,21 @@
+{
+ "purpose": "Show how little the ASR choice matters and how much the sentiment model matters: macro-F1 on the 1,500-clip test slice for every ASR x sentiment configuration, with 95% bootstrap confidence intervals.",
+ "data_file": "Milestone2/T1_final/results/m2_t1_results.csv",
+ "filter": "source == 'full'",
+ "columns": {
+  "x_group": "asr",
+  "series": "sentiment",
+  "y": "macro_f1",
+  "y_err_low": "macro_f1_ci_lo",
+  "y_err_high": "macro_f1_ci_hi"
+ },
+ "encodings": "grouped bars: one group per ASR model (AventIQ, s2t-small, whisper-tiny), one bar per sentiment model in fixed order cardiff, distilbert, siebert, tabularisai; error bars from the CI columns; a dashed horizontal line at the always-neutral baseline macro-F1 0.2826 (Milestone2/T1_final/results/baseline.json, key macro_f1), labelled 'always-neutral baseline'",
+ "axes": {
+  "x": "speech-to-text model",
+  "y": "macro-F1 over negative / neutral / positive (test slice, n = 1,500)"
+ },
+ "caption": "Macro-F1 of each speech-to-text x sentiment pair on the test slice. Swapping the speech model moves Cardiff by about 0.02; swapping the sentiment model moves it by about 0.3. Error bars: 95% bootstrap CI (10,000 resamples).",
+ "output": "figures/t1_macro_f1_grid.png",
+ "data_sha256": "8968f33ed3fd24d27748ee9138e7de4ca0d58ea9b340041b2713af19145d74d5",
+ "generated": "2026-11-18 overnight run, Phase 5 prep"
+}

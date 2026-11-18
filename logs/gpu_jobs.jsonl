@@ -50,3 +50,23 @@
 {"ts":"2026-11-18T04:46:44-06:00","job":"W1_diag","event":"start","pid":404563,"note":"3 practice diagnostic passes + layer audit"}
 {"ts":"2026-11-18T04:46:44-06:00","job":"run_t1","event":"end","pid":399145,"note":"exit=0"}
 {"ts":"2026-11-18T04:47:11-06:00","job":"W1_diag","event":"end","pid":404563,"note":"3 practice diagnostic passes + layer audit rc=0"}
+{"ts": "2026-11-18T04:52:56-0600", "job": "transcribe:openai/whisper-base", "event": "end", "pid": 405079, "note": "2000 clips, batch 8, 341s"}
+{"ts": "2026-11-18T05:00:06-0600", "job": "transcribe:UsefulSensors/moonshine-base", "event": "end", "pid": 405079, "note": "2000 clips, batch 8, 429s"}
+{"ts":"2026-11-18T05:00:26-06:00","job":"W1_probe","event":"start","pid":417856,"note":"teacher-forced probe pass"}
+{"ts":"2026-11-18T05:00:31-06:00","job":"W1_probe","event":"end","pid":417856,"note":"teacher-forced probe pass rc=0"}
+{"ts": "2026-11-18T05:00:45-0600", "job": "w2_dev_scan_gpu", "event": "start", "pid": 418405, "note": "dev holdout clips 4-8 GPU timing"}
+{"ts": "2026-11-18T05:01:22-0600", "job": "w2_dev_scan_gpu", "event": "end", "pid": 418405, "note": "dev holdout clips 4-8 GPU timing rc=0"}
+{"ts":"2026-11-18T05:01:22-06:00","job":"W1_edit_E1","event":"start","pid":419137,"note":"edit E1 measure"}
+{"ts":"2026-11-18T05:01:28-06:00","job":"run_t1_P2grid","event":"start","pid":419305,"note":"5 ASR x 4 sentiment grid into T2_variants/results"}
+{"ts":"2026-11-18T05:01:32-06:00","job":"W1_edit_E1","event":"end","pid":419137,"note":"edit E1 measure rc=0"}
+{"ts": "2026-11-18T05:01:41-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 419403, "note": "2000 texts, 4s, cache scores_cardiff__whisper-base_full.csv"}
+{"ts": "2026-11-18T05:01:44-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 419403, "note": "2000 texts, 3s, cache scores_cardiff__whisper-base_norm.csv"}
+{"ts": "2026-11-18T05:01:48-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 419403, "note": "2000 texts, 3s, cache scores_cardiff__moonshine-base_full.csv"}
+{"ts": "2026-11-18T05:01:52-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 419403, "note": "2000 texts, 3s, cache scores_cardiff__moonshine-base_norm.csv"}
+{"ts": "2026-11-18T05:01:54-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_tabularisai__whisper-base_full.csv"}
+{"ts": "2026-11-18T05:01:57-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_tabularisai__whisper-base_norm.csv"}
+{"ts": "2026-11-18T05:01:59-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_tabularisai__moonshine-base_full.csv"}
+{"ts": "2026-11-18T05:02:01-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_tabularisai__moonshine-base_norm.csv"}
+{"ts": "2026-11-18T05:02:13-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 12s, cache scores_siebert__whisper-base_full.csv"}
+{"ts": "2026-11-18T05:02:25-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 11s, cache scores_siebert__whisper-base_norm.csv"}
+{"ts": "2026-11-18T05:02:36-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 11s, cache scores_siebert__moonshine-base_full.csv"}
