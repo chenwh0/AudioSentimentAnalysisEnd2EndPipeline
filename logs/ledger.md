@@ -33,3 +33,4 @@
 2026-11-18T05:55:27-06:00 | P5 | audit_final pass 1: 101 numbers, 87 match, 7 mismatches (all text-side), 7 not-in-named-file -> all fixed in OVERNIGHT_REPORT.md; the Phase 5 section had NOT been written (heading mismatch in my replace; commit 11369f1 title was wrong) -> written now.
 2026-11-18T06:27:02-06:00 | P4 | W2 EXT DONE 06:26: n300 whisper-tiny (H1 0.994 [0.966,1.021] n=214 refuted), AventIQ 50, M2 on n100; randomization FAILS everywhere, deletion passes everywhere. Report P4 + status updated.
 2026-11-18T06:33:11-06:00 | P5 | final audit pass 2: 5/134 mismatches -> all fixed. Monitor loop stopped (pid 394508). Final verdict written. Committing and pushing.
+2026-11-18T06:33:46-06:00 | P5 | PUSHED 8a652e18173065f491725848a219d31545430c1e to origin/m2-overnight; git ls-remote matched local HEAD. Recording the verification and pushing the record commit (final tip).

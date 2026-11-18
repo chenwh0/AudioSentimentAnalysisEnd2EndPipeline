@@ -8,3 +8,4 @@ Branch: m2-overnight from main e2a81e44736fc03378f6123ec6c03c93d56c2333
 Final content commit: dc83cb0d0faa529ccff6c76e6a749ad4ad4c95f4 (the status commit that records it is its child)
 Audits: P1 8\/9 (fixed), P3 8\/9 (item 9 = literal git-order check, disclosed), P4 7\/8 (fixed), final report pass 1 and pass 2 (fixed).
 Not done tonight: T3-T7 (course VM); WSP fp25\/fp50 and the 40-pass null-result floor; AudioXAI at 300 clips for whisper-base\/AventIQ and segment replacement on 100; MinIO upload (server unreachable).
+Pushed: 8a652e18173065f491725848a219d31545430c1e to origin/m2-overnight, verified with git ls-remote at 06:33 CST (remote == local). This line is recorded in one further commit, which is the branch tip.
