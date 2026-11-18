@@ -66,3 +66,10 @@ newest files: 123 modified in last 15 min
 - run_t1_P5grid ended exit=0 at 05:43:51.
 - Git: modified T2_variants registry/results, AudioXAI paths.py/scan.py, logs/gpu_jobs.jsonl; untracked n300 results, run_ext.sh, OVERNIGHT_REPORT.md. HEAD febbbe2 (P3 done partial scope).
 - Changed in last 20 min: logs/agents/W2_audioxai.md, W1_wsp.md, figures/wsp_results_table.*, figures/specs/*.json, AudioXAI/results n300/*, summary.json, run_ext.log.
+## 2026-11-18T05:49:20-06:00
+8498 MiB, 20475 MiB, 100 %
+disk avail 865G
+lines: ledger 30 gpu_jobs 153 fp 17 eval 10
+python procs: 2
+newest files: 268 modified in last 15 min
+
