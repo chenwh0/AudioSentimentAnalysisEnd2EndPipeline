@@ -32,3 +32,19 @@
 - done (priority 2): results/n100 (100 clips, 50 reused by construction): H1 0.995 [0.939,1.049] n=71 refuted; H2 refuted
 - running (priority 3): whisper-base on same 50 (scripts/run_test_base.sh -> results/whisper-base)
 - next: README results section, final audit of numbers
+## 05:40 CST
+- done (priority 3): whisper-base on the same 50 -> results/whisper-base/{aggregate.csv,faithfulness.csv,summary.json,report_whisper-base.html}; WER 0.208 vs tiny 0.243, Cardiff acc 0.74 both, pred agreement 92%
+- README.md results + answer section written
+- next: final consistency checks
+## 05:41 CST
+W2 DONE
+1. Package: Milestone2/AudioXAI/{audioxai/,pyproject.toml,README.md,HYPOTHESES.md (04:35, addendum 04:57, both before TEST_UNLOCKED 05:04)}; CLI audioxai explain|scan|summarize|m2|e2e|report.
+2. Test sample: 50 clips (37 Neu/10 Pos/3 Neg), results/test_sample_ids.csv, reproducible from default_rng(8001); outputs results/{aggregate.csv,summary.json,faithfulness.csv,m2.csv,e2e_segments.csv}, report.html (8.9 MB offline, no audio).
+3. H1 refuted: mean M1 focus ratio 0.991 [0.911,1.061], n=34 (16 zero-flag NaN, 16 all-flag); informative 0.983 [0.832,1.113]; M3 0.972, M4 0.967, M2 0.997, all CIs include 1.
+4. H2 refuted: error rate flagged 0.242 vs clean 0.258; erroneous-word sentiment-importance share minus word share +0.006 [-0.010,0.024].
+5. H3 strictly refuted via Phase 1 gap_ci: gold-ASR Cardiff macro-F1 +0.022 [0.003,0.042] (0.615 -> 0.637); the classifier ceiling is the main limit.
+6. Deletion (n=20): AUC top 1.426 vs random 1.181, diff 0.245 [0.187,0.303], 19/20 clips top>random.
+7. Randomization (n=10, top-2 decoder layers reinit): Spearman 0.916 -> FAIL; |M1| vs |input| rho 0.78; M1-M2 time agreement 0.162.
+8. Extension n=100 (results/n100): H1 0.995 [0.939,1.049] n=71, refuted; H2 refuted.
+9. whisper-base on same 50 (results/whisper-base): WER 0.208 vs 0.243, Cardiff acc 0.74 both, 92% same labels; H1 0.991 [0.912,1.059]; randomization FAIL 0.931.
+10. Caveats: AADD flags are estimates on real audio (54% of dev frames flagged); small n; npz dirs not for commit; no test finding changed any configuration.

@@ -32,15 +32,23 @@ def clip_metrics(res):
         prof = prof / np.maximum(prof.sum(1, keepdims=True), 1e-12)
         clipprof = prof.mean(0)
         m4 = res["m4"][:, :n_seg].mean(0); m4 = m4 / max(m4.sum(), 1e-12)
+        m3 = res["m3"][:, :n_seg].mean(0); m3 = m3 / max(m3.sum(), 1e-12)
+        from scipy.stats import spearmanr
+        pmax = res["aadd"][:n_seg].max(1)
+        if len(pmax) == n_seg and pmax.std() > 0:
+            row["rho_m1_aaddmax"] = float(spearmanr(clipprof, pmax).statistic)  # descriptive, graded
+            row["rho_m1_m4_time"] = float(spearmanr(clipprof, m4).statistic)
+            row["rho_m1_m3_time"] = float(spearmanr(clipprof, m3).statistic)
         if flag.any():
             row["m1_mass_flagged"] = float(clipprof[flag].sum())
             row["focus_ratio_m1"] = row["m1_mass_flagged"] / row["frac_flagged"]
             row["focus_ratio_m4"] = float(m4[flag].sum()) / row["frac_flagged"]
+            row["focus_ratio_m3"] = float(m3[flag].sum()) / row["frac_flagged"]
             tokfr = prof[:, flag].sum(1) / row["frac_flagged"]
             row["focus_ratio_m1_token_median"] = float(np.median(tokfr))
         else:
             row["m1_mass_flagged"] = 0.0
-            row["focus_ratio_m1"] = np.nan; row["focus_ratio_m4"] = np.nan; row["focus_ratio_m1_token_median"] = np.nan
+            row["focus_ratio_m1"] = np.nan; row["focus_ratio_m4"] = np.nan; row["focus_ratio_m3"] = np.nan; row["focus_ratio_m1_token_median"] = np.nan
     # errors inside flagged vs clean
     cnt = res["cnt"]
     row.update(S=cnt["S"], D=cnt["D"], I=cnt["I"], H=cnt["H"], N_ref=cnt["N"],

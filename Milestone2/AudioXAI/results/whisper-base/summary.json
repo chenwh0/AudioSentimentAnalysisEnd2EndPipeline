@@ -1,0 +1,408 @@
+{
+  "slice": "test",
+  "n_clips": 50,
+  "asr": "openai/whisper-base",
+  "asr_rev": "e37978b90ca9030d5170a5c07aadb050351a65bb",
+  "sentiment": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+  "sentiment_rev": "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
+  "aadd": "aadd 3.1.0 CLI, model v3 (registry default), 20 ms segments",
+  "flag_rule_frame": "20 ms frame flagged if any class probability >= 0.5",
+  "flag_rule_clip": "AADD published default: per-class 95th percentile >= 0.5",
+  "aadd_caveat": "AADD is trained on synthetic LibriSpeech degradations; VoxCeleb is real YouTube audio, so flags are estimates.",
+  "bootstrap": "10,000 resamples, numpy default_rng(8001), percentile CI",
+  "label_counts": {
+    "Neutral": 37,
+    "Positive": 10,
+    "Negative": 3
+  },
+  "n_zero_flagged": 16,
+  "n_aadd_clip_flag": 32,
+  "mean_frac_flagged": 0.5047582294607933,
+  "degradation_class_counts": {
+    "clean": 18,
+    "noise": 15,
+    "reverb": 6,
+    "music": 6,
+    "codec": 3,
+    "clipping": 1,
+    "time_stretch": 1
+  },
+  "focus_ratio_m1": {
+    "n": 34,
+    "mean": 0.9907760850339316,
+    "median": 1.0,
+    "ci": [
+      0.9118145066144848,
+      1.058628602380891
+    ]
+  },
+  "n_all_flagged": 16,
+  "focus_ratio_m1_informative": {
+    "n": 18,
+    "mean": 0.982577059442645,
+    "median": 1.0017058863950057,
+    "ci": [
+      0.8352971561140969,
+      1.1102409899650172
+    ]
+  },
+  "focus_ratio_m4_informative": {
+    "n": 18,
+    "mean": 1.0234200262583844,
+    "median": 1.0063021847696016,
+    "ci": [
+      0.8835097982174115,
+      1.159561720584374
+    ]
+  },
+  "focus_ratio_m3_informative": {
+    "n": 18,
+    "mean": 0.9978690694680884,
+    "median": 0.9946014796413087,
+    "ci": [
+      0.8496724018798828,
+      1.1997776006208687
+    ]
+  },
+  "rho_m1_vs_aadd_maxprob": {
+    "n": 50,
+    "mean": 0.040139113076834265,
+    "median": 0.0316363349630088,
+    "ci": [
+      -0.018710180548900914,
+      0.09917246379789292
+    ]
+  },
+  "n_frac_flagged_ge_0.9": 21,
+  "focus_ratio_m3": {
+    "n": 34,
+    "mean": 0.998871860306635,
+    "median": 1.0,
+    "ci": [
+      0.9194860458913888,
+      1.1064294257579435
+    ]
+  },
+  "rho_m1_m4_time": {
+    "n": 50,
+    "mean": 0.39572420826814164,
+    "median": 0.37945491149536137,
+    "ci": [
+      0.35746365011197223,
+      0.4352173492530646
+    ]
+  },
+  "rho_m1_m3_time": {
+    "n": 50,
+    "mean": 0.10364009559459611,
+    "median": 0.099553029939669,
+    "ci": [
+      0.05027020891390729,
+      0.15766997943002314
+    ]
+  },
+  "focus_ratio_m4": {
+    "n": 34,
+    "mean": 1.012398847949376,
+    "median": 1.0,
+    "ci": [
+      0.9382292751136415,
+      1.0840441404787042
+    ]
+  },
+  "focus_ratio_m1_by_class": {
+    "clipping": {
+      "n": 1,
+      "mean": 1.0780138973476123,
+      "median": 1.0780138973476123,
+      "ci": [
+        1.0780138973476123,
+        1.0780138973476123
+      ]
+    },
+    "codec": {
+      "n": 3,
+      "mean": 1.0436691114213612,
+      "median": 1.0447552093165986,
+      "ci": [
+        0.9946542017637418,
+        1.091597923183743
+      ]
+    },
+    "highpass": {
+      "n": 0,
+      "mean": NaN,
+      "ci": [
+        NaN,
+        NaN
+      ]
+    },
+    "hum": {
+      "n": 1,
+      "mean": 0.2560583065743699,
+      "median": 0.2560583065743699,
+      "ci": [
+        0.2560583065743699,
+        0.2560583065743699
+      ]
+    },
+    "music": {
+      "n": 6,
+      "mean": 1.019431835311485,
+      "median": 1.0,
+      "ci": [
+        0.9991867538345489,
+        1.0591087918363364
+      ]
+    },
+    "noise": {
+      "n": 15,
+      "mean": 0.9989266134736664,
+      "median": 1.0,
+      "ci": [
+        0.994058908138982,
+        1.0026310006994539
+      ]
+    },
+    "reverb": {
+      "n": 6,
+      "mean": 1.0638675894268639,
+      "median": 1.00046155573518,
+      "ci": [
+        0.9820938465755801,
+        1.2003362836854834
+      ]
+    },
+    "time_stretch": {
+      "n": 2,
+      "mean": 0.8688058012162598,
+      "median": 0.8688058012162598,
+      "ci": [
+        0.2200428036157973,
+        1.5175687988167224
+      ]
+    }
+  },
+  "H1": {
+    "verdict": "refuted (CI includes 1)",
+    "statistic": "mean focus ratio M1 over clips with >=1 flagged frame",
+    "n": 34,
+    "mean": 0.9907760850339316,
+    "median": 1.0,
+    "ci": [
+      0.9118145066144848,
+      1.058628602380891
+    ]
+  },
+  "H2": {
+    "verdict": "refuted",
+    "pooled_err_rate_flagged": 0.213768115942029,
+    "pooled_err_rate_clean": 0.20101351351351351,
+    "n_ref_words_flagged": 552,
+    "n_ref_words_clean": 592,
+    "paired_wer_diff_flagged_minus_clean": {
+      "n": 12,
+      "mean": 0.047726326741753256,
+      "median": 0.028827751196172313,
+      "ci": [
+        -0.04948329819756767,
+        0.147622727162768
+      ]
+    },
+    "err_imp_share_minus_word_share": {
+      "n": 50,
+      "mean": 0.030752202251006784,
+      "median": 0.0,
+      "ci": [
+        0.0031885210417555644,
+        0.05998867032728289
+      ]
+    },
+    "mean_err_word_share": 0.1312539386360266,
+    "mean_err_word_imp_share": 0.16200614088703336,
+    "sent_imp_share_flagged": {
+      "n": 50,
+      "mean": 0.5089243015029475,
+      "median": 0.580732121903726,
+      "ci": [
+        0.3815050573783603,
+        0.6375692752756874
+      ]
+    },
+    "word_share_flagged": {
+      "n": 50,
+      "mean": 0.5121103281469007,
+      "median": 0.5659345376255304,
+      "ci": [
+        0.3856985752496594,
+        0.6404111947254197
+      ]
+    }
+  },
+  "pointbiserial_vs_correct": {
+    "focus_ratio_m1": {
+      "n": 34,
+      "r": -0.08173764415102701,
+      "ci": [
+        -0.24894334032126436,
+        0.1288059291480657
+      ],
+      "n_valid_boot": 9997
+    },
+    "focus_ratio_m3": {
+      "n": 34,
+      "r": 0.0728320602675086,
+      "ci": [
+        -0.18729228450496005,
+        0.2800588738346557
+      ],
+      "n_valid_boot": 9997
+    },
+    "focus_ratio_m4": {
+      "n": 34,
+      "r": 0.02446316067680132,
+      "ci": [
+        -0.1566926549373305,
+        0.21938318274968913
+      ],
+      "n_valid_boot": 9997
+    },
+    "wer": {
+      "n": 50,
+      "r": -0.04451266855502339,
+      "ci": [
+        -0.3349972553506267,
+        0.27458352738810016
+      ],
+      "n_valid_boot": 10000
+    },
+    "wer_flagged": {
+      "n": 33,
+      "r": 0.15666828130663185,
+      "ci": [
+        -0.0895056298165755,
+        0.3846544569962428
+      ],
+      "n_valid_boot": 9997
+    },
+    "wer_clean": {
+      "n": 29,
+      "r": -0.06958326092795265,
+      "ci": [
+        -0.4724621075854262,
+        0.39241806916195854
+      ],
+      "n_valid_boot": 10000
+    },
+    "sent_imp_share_flagged": {
+      "n": 50,
+      "r": 0.09059868761421014,
+      "ci": [
+        -0.19027298978010002,
+        0.36965440791543364
+      ],
+      "n_valid_boot": 10000
+    },
+    "frac_flagged": {
+      "n": 50,
+      "r": 0.09265249340240192,
+      "ci": [
+        -0.18869339848768038,
+        0.3664273970410697
+      ],
+      "n_valid_boot": 10000
+    },
+    "err_word_imp_share": {
+      "n": 50,
+      "r": -0.16436316690584912,
+      "ci": [
+        -0.4541835375123459,
+        0.15015540604495198
+      ],
+      "n_valid_boot": 10000
+    }
+  },
+  "cardiff_acc_asr_text_sample": 0.74,
+  "cardiff_acc_gold_text_sample": 0.78,
+  "mean_wer_sample": 0.20764406412036027,
+  "H3": {
+    "verdict": "pending: Phase 1 gold-text ablation not found",
+    "candidates": [
+      "/home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline/Milestone2/T1_final/results/gold_checks.json",
+      "/home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline/Milestone2/T1_final/results/gold_join.csv"
+    ]
+  },
+  "deletion": {
+    "n": 20,
+    "auc_top": {
+      "n": 20,
+      "mean": 1.1483795789034672,
+      "median": 1.161014034492629,
+      "ci": [
+        1.02554365827921,
+        1.290460165841826
+      ]
+    },
+    "auc_random": {
+      "n": 20,
+      "mean": 0.965026358333559,
+      "median": 1.0019856370320688,
+      "ci": [
+        0.8520519237191843,
+        1.0852222424710976
+      ]
+    },
+    "auc_diff": {
+      "n": 20,
+      "mean": 0.18335322056990805,
+      "median": 0.1888864447526764,
+      "ci": [
+        0.12593190463652026,
+        0.2412309159228835
+      ]
+    },
+    "frac_clips_top_gt_random": 0.9,
+    "unit": "mean per-token teacher-forced log-prob drop (nats), AUC over k=5..50% patches"
+  },
+  "randomization": {
+    "n": 10,
+    "rho_tf_abs": {
+      "n": 10,
+      "mean": 0.9305487407794389,
+      "median": 0.930405219332102,
+      "ci": [
+        0.9198982276922537,
+        0.9419484974011612
+      ]
+    },
+    "rho_time_abs": {
+      "n": 10,
+      "mean": 0.9061724299227905,
+      "median": 0.9132740758064505,
+      "ci": [
+        0.8903381961589903,
+        0.9219629799757143
+      ]
+    },
+    "rho_tf_signed": {
+      "n": 10,
+      "mean": 0.1882801167752059,
+      "median": 0.15200696287804005,
+      "ci": [
+        0.11347129518666997,
+        0.26534358824207877
+      ]
+    },
+    "rho_map_vs_absinput": {
+      "n": 10,
+      "mean": 0.776875824185819,
+      "median": 0.7812930497970758,
+      "ci": [
+        0.7422987614083286,
+        0.8113325175300415
+      ]
+    },
+    "verdict": "FAIL",
+    "rule": "PASS only if mean Spearman(|M1| original, |M1| top-2-decoder-reinit) < 0.5"
+  }
+}

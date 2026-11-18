@@ -135,3 +135,6 @@
 {"ts":"2026-11-18T05:33:15-06:00","job":"W1_eval_fp10_test","event":"start","pid":450835,"note":"harness fp10 test (once)"}
 {"ts":"2026-11-18T05:36:43-06:00","job":"W1_eval_fp10_test","event":"end","pid":450835,"note":"harness fp10 test (once) rc=0"}
 {"ts": "2026-11-18T05:36:43-0600", "job": "w2_test_base_b", "event": "start", "pid": 454195, "note": "whisper-base test 50, chunk 2"}
+{"ts": "2026-11-18T05:39:40-0600", "job": "w2_test_base_b", "event": "end", "pid": 454195, "note": "whisper-base test 50, chunk 2 rc=0"}
+{"ts":"2026-11-18T05:39:40-06:00","job":"W1_eval_fp17_dev","event":"start","pid":457419,"note":"harness fp17 dev (transcripts for Phase 2/5)"}
+{"ts":"2026-11-18T05:40:40-06:00","job":"W1_eval_fp17_dev","event":"end","pid":457419,"note":"harness fp17 dev (transcripts for Phase 2/5) rc=0"}

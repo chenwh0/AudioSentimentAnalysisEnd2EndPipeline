@@ -31,7 +31,7 @@ The 50-clip test sample is reproducible: sort test.csv by original_index, propor
 
 ## Outputs (results/)
 - `test_sample_ids.csv`, `aggregate.csv` (one row per clip; zero-flag clips kept with NaN focus ratio),
-  `faithfulness.csv`, `summary.json` (H1-H3 verdicts and CIs), `npz/<clip>.npz` (float16, cropped; not committed),
+  `faithfulness.csv`, `summary.json` (H1-H3 verdicts and CIs), `npz/<clip>.npz` (float16, cropped; not committed, and neither are results/n100/npz or results/whisper-base/npz),
   `report.html` at the package root.
 
 ## Models and versions
@@ -59,3 +59,43 @@ The 50-clip test sample is reproducible: sort test.csv by original_index, propor
 What AudioXAI adds: the joining of these pieces on one timeline per clip (attribution vs AADD flags vs word errors vs
 sentiment importance), the clip-level metrics that test H1-H3 with bootstrap CIs, the faithfulness checks, and the
 offline report. None of the underlying models or detectors are ours.
+
+## Results tonight (whisper-tiny + Cardiff, 50-clip stratified test sample; all numbers from results/summary.json)
+- Sample: 37 neutral, 10 positive, 3 negative. AADD flagged 50% of 20 ms frames on average; 16 clips had no flagged
+  frame (focus ratio NaN, kept in aggregate.csv) and 16 had every frame flagged (ratio 1 by construction).
+- **H1 refuted.** Mean M1 focus ratio 0.991, 95% CI [0.911, 1.061], n=34; informative clips (0 < flagged < 1)
+  0.983 [0.832, 1.113], n=18. M3 0.972 [0.923, 1.011], M4 0.967 [0.873, 1.054]. Graded Spearman between the M1 time
+  profile and max AADD probability 0.033 [-0.027, 0.094]. Focus ratio does not predict Cardiff correctness
+  (point-biserial -0.08 [-0.25, 0.13]).
+- **H2 refuted.** Error rate in flagged audio 0.242 (554 ref words) vs clean 0.258 (590). Erroneous words carry
+  13.0% of sentiment importance vs 12.4% of words (difference +0.006 [-0.010, 0.024]), so errors do not avoid
+  sentiment-bearing words. About half of the sentiment importance (0.50 [0.38, 0.63]) lies in flagged audio.
+- **H3 strictly refuted** by Phase 1 (T1_final/results/gap_ci.csv, n=1500): human gold text raises Cardiff macro-F1
+  from 0.615 to 0.637, +0.022 [0.003, 0.042]. The gain is small; the classifier on perfect text tops out at 0.637,
+  which is the main reason ASR choice matters little. On the sample: accuracy 0.74 on ASR text, 0.78 on gold.
+- **Faithfulness.** Deletion (n=20): AUC top-k 1.426 vs random 1.181, difference 0.245 [0.187, 0.303], top > random
+  in 19/20 clips, so M1 ranks patches better than random. Model randomization (n=10, top 2 decoder layers
+  re-initialized): Spearman 0.916 [0.903, 0.928], **FAIL** (rule: < 0.5); |M1| correlates 0.78 with |input|, i.e. grad x
+  input is dominated by the input's own structure. Signed maps do change (rho 0.09). M1 vs M2 (occlusion, all 50
+  clips): median per-token time-profile Spearman 0.162 [0.136, 0.189]; M1 vs M4 0.54.
+- End-to-end window replacement (item 7, 10 clips, positives/negatives first): replacing a 500 ms window with the
+  clip's noise floor changes Cardiff P(gold) by 0.054 [0.023, 0.096] in flagged windows vs 0.126 [0.044, 0.209] in
+  clean windows (descriptive, small n).
+- 100-clip extension (results/n100; the 50 are a per-label prefix of the same seeded permutations): H1 0.995
+  [0.939, 1.049], n=71, refuted; H2 refuted.
+- Second ASR variant, whisper-base (rev e37978b90ca9030d5170a5c07aadb050351a65bb), same 50 clips
+  (results/whisper-base, report_whisper-base.html): mean WER 0.208 vs 0.243 for tiny, yet Cardiff accuracy is
+  0.74 for both (37/50 correct each, 35 in common) and the predicted label matches tiny's on 92% of clips (and
+  matches the gold-text prediction on 92%). H1 0.991 [0.912, 1.059], refuted; M4 1.012 [0.938, 1.084]. H2 refuted
+  (flagged 0.214 vs clean 0.201; erroneous words carry 16.2% of importance vs 13.1% of words, +[0.003, 0.060]).
+  Deletion diff 0.18 [0.126, 0.241]; randomization rho 0.931, FAIL. No Phase 1 gold ablation exists for base, so H3
+  is reported only for tiny.
+
+## Answer to the question (tonight's evidence, small n)
+ASR choice barely changes sentiment because (a) the sentiment classifier's decision is stable under the word errors
+both Whisper sizes make: about 92% of predicted labels are the same on ASR text and on gold text, and (b) even
+perfect text only lifts Cardiff macro-F1 by about 2 points (0.615 to 0.637). The user's hypothesis, that the ASR
+attends to degraded audio, is not supported: attribution mass in AADD-flagged frames matches their share of duration
+(focus ratio about 1, CI includes 1) for M1, M2, M3 and M4, and ASR errors are no more frequent in flagged audio.
+Caveats: n=50 (3 negatives), AADD flags are estimates on real audio, and M1 fails the randomization sanity check.
+No test-slice finding changed any reported configuration.

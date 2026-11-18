@@ -48,6 +48,10 @@ def dev_clips():
 
 
 def out_dir(slice_):
+    """results/ for the 50-clip test sample, results/dev for dev; AUDIOXAI_RESULTS overrides (e.g. results/n100)."""
+    import os
+    if os.environ.get("AUDIOXAI_RESULTS"):
+        return paths.X / os.environ["AUDIOXAI_RESULTS"]
     return paths.X / ("results" if slice_ == "test" else "results/dev")
 
 
@@ -133,6 +137,29 @@ def _ci_pb(df, col, B=10000):
     return dict(n=int(len(x)), r=r, ci=ci, n_valid_boot=nb)
 
 
+def h3_from_phase1():
+    """H3 from Phase 1 (T1_final) paired gap CI for whisper-tiny + Cardiff, full-pipeline minus human gold text."""
+    f = paths.T1RES / "gap_ci.csv"
+    if not f.exists():
+        return None
+    g = pd.read_csv(f)
+    r = g[(g.config == f"{paths.ASR_ID}|{paths.SENT_ID}") & (g.comparison == "full_minus_gold")]
+    if not len(r):
+        return None
+    r = r.iloc[0]
+    gain, lo, hi = -float(r.gap), -float(r.ci_hi), -float(r.ci_lo)
+    res = pd.read_csv(paths.T1RES / "m2_t1_results.csv")
+    sub = res[(res.config == f"{paths.ASR_ID}|{paths.SENT_ID}")]
+    f1 = {row.source: float(row.macro_f1) for row in sub.itertuples()}
+    verdict = "refuted (gold text raises macro-F1; paired CI above 0)" if lo > 0 else "holds (paired CI includes 0 or is below 0)"
+    return dict(verdict=verdict, source=str(f), gold_minus_asr_macro_f1=gain, ci=[lo, hi],
+                macro_f1_full=f1.get("full"), macro_f1_gold=f1.get("gold"),
+                detail=f"Phase 1 (test slice, n=1500): Cardiff macro-F1 whisper-tiny text {f1.get('full', float('nan')):.3f} vs "
+                       f"human gold text {f1.get('gold', float('nan')):.3f}; gold - ASR = {gain:+.3f} [{lo:+.3f}, {hi:+.3f}]. "
+                       f"Gold text helps only slightly; the classifier on perfect text still reaches only "
+                       f"{f1.get('gold', float('nan')):.3f}.")
+
+
 def find_h3():
     """Look for Phase 1's gold-text ablation for Cardiff with whisper-tiny in T1_final/results."""
     cands = sorted(paths.T1RES.glob("*gold*")) + sorted(paths.T1RES.glob("*ablation*"))
@@ -156,6 +183,17 @@ def summarize(slice_="test", h3=None):
         S["degradation_class_counts"] = df.degradation_class.value_counts().to_dict()
     fr = _ci_mean(df.get("focus_ratio_m1", pd.Series(dtype=float)))
     S["focus_ratio_m1"] = fr
+    if "frac_flagged" in df:
+        inf = df[(df.frac_flagged > 0) & (df.frac_flagged < 1)]
+        S["n_all_flagged"] = int((df.frac_flagged >= 1).sum())
+        S["focus_ratio_m1_informative"] = _ci_mean(inf.focus_ratio_m1)
+        S["focus_ratio_m4_informative"] = _ci_mean(inf.focus_ratio_m4)
+        S["focus_ratio_m3_informative"] = _ci_mean(inf.focus_ratio_m3)
+    S["rho_m1_vs_aadd_maxprob"] = _ci_mean(df.get("rho_m1_aaddmax", pd.Series(dtype=float)))
+    S["n_frac_flagged_ge_0.9"] = int((df.get("frac_flagged", pd.Series(dtype=float)) >= 0.9).sum())
+    S["focus_ratio_m3"] = _ci_mean(df.get("focus_ratio_m3", pd.Series(dtype=float)))
+    S["rho_m1_m4_time"] = _ci_mean(df.get("rho_m1_m4_time", pd.Series(dtype=float)))
+    S["rho_m1_m3_time"] = _ci_mean(df.get("rho_m1_m3_time", pd.Series(dtype=float)))
     S["focus_ratio_m4"] = _ci_mean(df.get("focus_ratio_m4", pd.Series(dtype=float)))
     S["focus_ratio_m1_by_class"] = {k: _ci_mean(g.focus_ratio_m1) for k, g in df.groupby("degradation_class_argmax")} \
         if "degradation_class_argmax" in df else {}
@@ -195,12 +233,12 @@ def summarize(slice_="test", h3=None):
                        word_share_flagged=_ci_mean(df.get("word_share_flagged", pd.Series(dtype=float))))
     # correctness associations
     S["pointbiserial_vs_correct"] = {c: _ci_pb(df, c) for c in
-                                    ["focus_ratio_m1", "focus_ratio_m4", "wer", "wer_flagged", "wer_clean",
+                                    ["focus_ratio_m1", "focus_ratio_m3", "focus_ratio_m4", "wer", "wer_flagged", "wer_clean",
                                      "sent_imp_share_flagged", "frac_flagged", "err_word_imp_share"] if c in df}
     S["cardiff_acc_asr_text_sample"] = float(df.correct.mean())
     S["cardiff_acc_gold_text_sample"] = float(df.correct_gold_text.mean())
     S["mean_wer_sample"] = float(df.wer.mean())
-    S["H3"] = h3 or dict(verdict="pending: Phase 1 gold-text ablation not found", candidates=find_h3())
+    S["H3"] = h3 or h3_from_phase1() or dict(verdict="pending: Phase 1 gold-text ablation not found", candidates=find_h3())
     fp = od / "faithfulness.csv"
     if fp.exists():
         f = pd.read_csv(fp)
@@ -216,5 +254,18 @@ def summarize(slice_="test", h3=None):
                                       rho_map_vs_absinput=_ci_mean(d.rho_map_vs_absinput),
                                       verdict="PASS" if d.rho_tf_abs.mean() < 0.5 else "FAIL",
                                       rule="PASS only if mean Spearman(|M1| original, |M1| top-2-decoder-reinit) < 0.5")
+    m2p = od / "m2.csv"
+    if m2p.exists():
+        m2 = pd.read_csv(m2p)
+        S["m2"] = dict(n=int(len(m2)), m1_m2_rho_time_median=_ci_mean(m2.m1_m2_rho_time_median),
+                       focus_ratio_m2=_ci_mean(m2.get("focus_ratio_m2", pd.Series(dtype=float))),
+                       note="M2 = 100 ms x 10-mel patch occlusion (SPES-style), drop in teacher-forced token log-prob")
+    ep = od / "e2e_segments.csv"
+    if ep.exists():
+        e = pd.read_csv(ep)
+        S["e2e_segments"] = dict(n=int(len(e)), mean_abs_change=_ci_mean(e.mean_abs_change), max_drop=_ci_mean(e.max_drop),
+                                 dp_flagged_windows=_ci_mean(e.get("dp_flagged_windows", pd.Series(dtype=float))),
+                                 dp_clean_windows=_ci_mean(e.get("dp_clean_windows", pd.Series(dtype=float))),
+                                 note="|change in Cardiff P(gold label)| when a 500 ms window is replaced by the clip noise floor")
     json.dump(S, open(od / "summary.json", "w"), indent=2, default=float)
     return S

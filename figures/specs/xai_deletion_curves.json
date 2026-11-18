@@ -1,0 +1,23 @@
+{
+ "purpose": "Faithfulness check of the attribution maps: removing the most-attributed time-frequency patches should hurt the model more than removing random patches of the same size.",
+ "data_file": "Milestone2/AudioXAI/results/faithfulness.csv",
+ "filter": "all rows (n = 20 clips)",
+ "columns": {
+  "x": "k in {5,10,...,50} (percent of patches removed), from the column names drop_top_<k> and drop_rand_<k>",
+  "y_series": [
+   "drop_top_<k> (mean over clips)",
+   "drop_rand_<k> (mean over clips)"
+  ],
+  "band": "95% bootstrap CI of the mean across clips per k (compute with numpy default_rng(8001), 10,000 resamples)",
+  "auc": "auc_top and auc_random columns (mean over clips) in a legend or text box"
+ },
+ "encodings": "two lines with markers (top-attributed patches vs random patches) with shaded CI bands; x axis in percent; a text box with mean AUC top, mean AUC random and the difference with its CI from summary.json key deletion",
+ "axes": {
+  "x": "share of time-frequency patches removed (%)",
+  "y": "drop in the model's log-probability of its own transcript (mean over clips)"
+ },
+ "caption": "Deletion curves for whisper-tiny on 20 test clips. Removing the patches the attribution method ranks highest (top) lowers the model's confidence in its transcript faster than removing random patches, so the maps carry real signal even though they fail the model-randomization check (reported in the text).",
+ "output": "figures/xai_deletion_curves.png",
+ "data_sha256": "a29c73801b9497afc9d53e4e9b434cd38c4f70bead8e28ec529fe16b69a2155c",
+ "generated": "2026-11-18 overnight run, Phase 5"
+}

@@ -44,6 +44,11 @@ def clip_payload(npz_path, wav_env=None, cols=320):
     if K:
         m4 = m4 / np.maximum(m4.max(1, keepdims=True), 1e-12)
         mm = m4.mean(0, keepdims=True); m4 = np.concatenate([mm / max(mm.max(), 1e-12), m4])
+    m3 = z["m3"].astype(np.float32) if "m3" in z else np.zeros((0, m4.shape[-1]))
+    m3 = _pool_time(np.repeat(m3, 2, -1)[:, :nf], c) if len(m3) else np.zeros((0, c))
+    if len(m3):
+        m3 = m3 / np.maximum(m3.max(1, keepdims=True), 1e-12)
+        mm = m3.mean(0, keepdims=True); m3 = np.concatenate([mm / max(mm.max(), 1e-12), m3])
     aadd = z["aadd"].astype(np.float32)
     aadd_p = _pool_time(np.repeat(aadd.T, 2, -1)[:, :nf], c) if aadd.size else np.zeros((12, c))
     flag = _pool_time(np.repeat((aadd >= 0.5).any(1).astype(np.float32), 2)[:nf], c) if aadd.size else np.zeros(c)
@@ -66,12 +71,13 @@ def clip_payload(npz_path, wav_env=None, cols=320):
                 gold=meta["gold"], cnt=meta["cnt"], pred=LABELS3[int(np.argmax(z["probs"]))],
                 probs=[round(float(x), 3) for x in z["probs"]],
                 pred_gold=LABELS3[int(np.argmax(z["probs_gold"]))], toks=toks, words=words,
-                mel=_q8(_pool_time(mel, c)), m1=_q8(m1b), m4=_q8(m4), aadd=_q8(aadd_p), flag=[round(float(v), 2) for v in flag],
+                mel=_q8(_pool_time(mel, c)), m1=_q8(m1b), m4=_q8(m4), m3=_q8(m3), aadd=_q8(aadd_p), flag=[round(float(v), 2) for v in flag],
                 env=[[round(float(a), 3), round(float(b), 3)] for a, b in env], cols=c)
 
 
 def build(slice_="test", out="report.html", max_clips=50):
-    od = paths.X / ("results" if slice_ == "test" else "results/dev")
+    from .scan import out_dir
+    od = out_dir(slice_)
     S = json.load(open(od / "summary.json"))
     agg = pd.read_csv(od / "aggregate.csv")
     faith = pd.read_csv(od / "faithfulness.csv") if (od / "faithfulness.csv").exists() else pd.DataFrame()
@@ -110,12 +116,14 @@ select,button{font:inherit;background:var(--card);color:var(--fg);border:1px sol
 </style></head><body>
 <h1>AudioXAI: does whisper-tiny attend to degraded audio?</h1>
 <div class="mut" id="sub"></div>
+<div class="card" id="answer"></div>
 <h2>Hypotheses and verdicts</h2><div class="grid" id="verd"></div>
 <h2>Faithfulness</h2><div class="card" id="faith"></div>
+<div class="card"><svg id="delc" width="100%" height="190"></svg><div class="mut">Deletion curves: mean drop in per-token teacher-forced log-prob (nats) after removing the top-k% M1 patches (solid) vs the same number of random patches (dashed).</div></div>
 <h2>Focus ratio per clip (M1)</h2><div class="card"><svg id="hist" width="100%" height="170"></svg><div class="mut">Focus ratio = M1 attribution mass in AADD-flagged 20 ms frames ÷ fraction of frames flagged; 1 = no concentration. Clips with no flagged frame are NaN and not plotted.</div></div>
 <h2>Clip view</h2>
 <div class="card">
-<div>Clip <select id="clipSel"></select> Method <select id="meth"><option value="m1">M1 SmoothGrad grad×input (time×freq)</option><option value="m4">M4 cross-attention, alignment heads (time-only)</option><option value="none">none</option></select>
+<div>Clip <select id="clipSel"></select> Method <select id="meth"><option value="m1">M1 SmoothGrad grad×input (time×freq)</option><option value="m3">M3 Grad-CAM, last encoder layer (time-only)</option><option value="m4">M4 cross-attention, alignment heads (time-only)</option><option value="none">none</option></select>
 Token <select id="tokSel"></select></div>
 <div id="clipHead" style="margin:6px 0"></div>
 <div class="mut">Waveform</div><canvas id="cw" height="60"></canvas>
@@ -135,13 +143,23 @@ const ci=o=>o&&o.ci?`${f(o.mean)} [${f(o.ci[0])}, ${f(o.ci[1])}] (n=${o.n})`:'n/
 const S=D.summary;
 $('sub').textContent=`${S.slice} slice, n=${S.n_clips} clips, ASR ${S.asr}, sentiment ${S.sentiment}. ${S.aadd}. ${S.aadd_caveat}`;
 function card(t,v,body){return `<div class="card"><div class="v">${t}: ${v}</div><div class="mut">${body}</div></div>`}
-let h=card('H1 attribution concentrates in flagged audio',S.H1.verdict,`mean focus ratio (M1) ${ci(S.H1)}; median ${f(S.H1.median)}. M4 ${ci(S.focus_ratio_m4)}. Clips with zero flagged frames: ${S.n_zero_flagged}.`);
+let h=card('H1 attribution concentrates in flagged audio',S.H1.verdict,`mean focus ratio (M1) ${ci(S.H1)}; median ${f(S.H1.median)}. M3 ${ci(S.focus_ratio_m3)}, M4 ${ci(S.focus_ratio_m4)}. Time-profile agreement Spearman M1-M3 ${ci(S.rho_m1_m3_time)}, M1-M4 ${ci(S.rho_m1_m4_time)}. Clips with zero flagged frames: ${S.n_zero_flagged} (NaN, kept in table); all frames flagged: ${S.n_all_flagged} (ratio 1 by construction). Informative clips (0&lt;flagged&lt;1): M1 ${ci(S.focus_ratio_m1_informative)}, M4 ${ci(S.focus_ratio_m4_informative)}. Graded Spearman(M1 time profile, max AADD prob) ${ci(S.rho_m1_vs_aadd_maxprob)}.`);
 if(S.H2){const H=S.H2;h+=card('H2 errors in flagged audio, on low-importance words',H.verdict,`error rate flagged ${f(H.pooled_err_rate_flagged)} (${H.n_ref_words_flagged} ref words) vs clean ${f(H.pooled_err_rate_clean)} (${H.n_ref_words_clean}); paired diff ${ci(H.paired_wer_diff_flagged_minus_clean)}. Importance share of erroneous words minus their word share ${ci(H.err_imp_share_minus_word_share)}. Sentiment importance share in flagged ${ci(H.sent_imp_share_flagged)}.`)}
 h+=card('H3 text classifier is the bottleneck',S.H3.verdict||'',(S.H3.detail||'')+` Sample: Cardiff accuracy on ASR text ${f(S.cardiff_acc_asr_text_sample)}, on gold text ${f(S.cardiff_acc_gold_text_sample)}.`);
 $('verd').innerHTML=h;
+$('answer').innerHTML=`<b>Reading.</b> Whisper-tiny's attribution does not concentrate on AADD-flagged audio (mean focus ratio ${f(S.H1.mean)}, 95% CI [${f(S.H1.ci[0])}, ${f(S.H1.ci[1])}], n=${S.H1.n}; graded rank correlation with AADD probability ${f(S.rho_m1_vs_aadd_maxprob.mean)}). `+
+(S.H2?`ASR errors are not more frequent in flagged audio (${f(S.H2.pooled_err_rate_flagged)} vs ${f(S.H2.pooled_err_rate_clean)}) and erroneous words carry about their share of sentiment importance (${f(S.H2.mean_err_word_imp_share)} vs ${f(S.H2.mean_err_word_share)} word share). `:'')+
+`Human gold text raises Cardiff macro-F1 only from ${f(S.H3.macro_f1_full)} to ${f(S.H3.macro_f1_gold)}. The small ASR effect is better explained by a classifier ceiling than by where the ASR looks. Caveats: AADD flags are estimates on real audio, and M1 ${S.randomization&&S.randomization.verdict=='FAIL'?'fails':'passes'} the model-randomization check (Spearman ${S.randomization?f(S.randomization.rho_tf_abs.mean):'n/a'}); a failure means its maps are partly driven by the input itself, although deletion shows they still rank patches better than random.`;
 let fh='';if(S.deletion){const d=S.deletion;fh+=`<div>Deletion (top-k% M1 patches vs random, k=5..50%, n=${d.n}): AUC top ${ci(d.auc_top)}, random ${ci(d.auc_random)}, diff ${ci(d.auc_diff)}; clips with top &gt; random ${f(d.frac_clips_top_gt_random,2)}. ${d.unit}.</div>`}
 if(S.randomization){const r=S.randomization;fh+=`<div>Model randomization (top 2 decoder layers re-initialized, n=${r.n}): Spearman |M1| TF ${ci(r.rho_tf_abs)}, time profile ${ci(r.rho_time_abs)} → <b>${r.verdict}</b> (${r.rule}). Correlation of |M1| with |input|: ${ci(r.rho_map_vs_absinput)}.</div>`}
+if(S.m2){fh+=`<div>M1 vs M2 (SPES-style patch occlusion, n=${S.m2.n} clips): median per-token Spearman of time profiles ${ci(S.m2.m1_m2_rho_time_median)}; M2 focus ratio ${ci(S.m2.focus_ratio_m2)}.</div>`}
+if(S.e2e_segments){const e=S.e2e_segments;fh+=`<div>End-to-end 500 ms window replacement (n=${e.n} clips): mean |ΔP(gold)| ${ci(e.mean_abs_change)}; in flagged windows ${ci(e.dp_flagged_windows)}, clean windows ${ci(e.dp_clean_windows)}.</div>`}
 $('faith').innerHTML=fh||'not run';
+(function(){const F=D.faith.filter(r=>r.auc_top!=null);if(!F.length)return;const ks=[5,10,15,20,25,30,35,40,45,50];
+const mt=ks.map(k=>F.reduce((a,r)=>a+r['drop_top_'+k],0)/F.length),mr=ks.map(k=>F.reduce((a,r)=>a+r['drop_rand_'+k],0)/F.length);
+const svg=$('delc');const W=svg.clientWidth||800,H=160,mx=Math.max(...mt,...mr)*1.1;const X=k=>40+(k-5)/45*(W-60),Y=v=>H-v/mx*(H-15);
+const pl=(a,d)=>`<polyline fill="none" stroke="var(--acc)" stroke-width="2" ${d?'stroke-dasharray="5"':''} points="${a.map((v,i)=>X(ks[i])+','+Y(v)).join(' ')}"/>`;
+svg.innerHTML=pl(mt,0)+pl(mr,1)+`<line x1="40" x2="${W-20}" y1="${H}" y2="${H}" stroke="var(--line)"/><text x="40" y="${H+16}" font-size="11" fill="var(--mut)">k=5%</text><text x="${W-60}" y="${H+16}" font-size="11" fill="var(--mut)">50%</text><text x="2" y="14" font-size="11" fill="var(--mut)">${f(mx,2)}</text><text x="${X(50)-60}" y="${Y(mt[9])-6}" font-size="11" fill="var(--acc)">top-k</text><text x="${X(50)-60}" y="${Y(mr[9])+14}" font-size="11" fill="var(--mut)">random</text>`})();
 // histogram
 (function(){const v=D.table.map(r=>r.focus_ratio_m1).filter(x=>x!=null&&isFinite(x));const svg=$('hist');const W=svg.clientWidth||800,H=150;if(!v.length)return;
 const mx=Math.max(2,...v);const nb=20;const b=new Array(nb).fill(0);v.forEach(x=>b[Math.min(nb-1,Math.floor(x/mx*nb))]++);const bm=Math.max(...b);
@@ -159,7 +177,7 @@ $('clipHead').innerHTML=`<b>${C.file}</b> gold label <b>${C.label}</b>, Cardiff 
 let c=$('cw'),w=fit(c),g=c.getContext('2d');g.clearRect(0,0,w,60);g.fillStyle=getComputedStyle(document.body).color;C.env.forEach((e,i)=>{const x=i/C.env.length*w;g.fillRect(x,30-e[1]*28,Math.max(1,w/C.env.length),Math.max(1,(e[1]-e[0])*28))});
 c=$('cm');w=fit(c);g=c.getContext('2d');const mel=dec(C.mel),[nb,nt]=C.mel.shape;const img=g.createImageData(nt,nb);
 const meth=$('meth').value,tk=+$('tokSel').value;let ov=null,ovs=null;
-if(meth=='m1'&&C.m1.shape[0]){ov=dec(C.m1);ovs=C.m1.shape}if(meth=='m4'&&C.m4.shape[0]){ov=dec(C.m4);ovs=C.m4.shape}
+if(meth=='m1'&&C.m1.shape[0]){ov=dec(C.m1);ovs=C.m1.shape}if(meth=='m4'&&C.m4.shape[0]){ov=dec(C.m4);ovs=C.m4.shape}if(meth=='m3'&&C.m3&&C.m3.shape[0]){ov=dec(C.m3);ovs=C.m3.shape}
 for(let y=0;y<nb;y++)for(let x=0;x<nt;x++){const v=mel[y*nt+x]/255;let r=v*200,gg=v*200,b=v*200;
  if(ov){let a;if(meth=='m1'){const band=Math.floor(y/8);a=ov[(tk*ovs[1]+band)*ovs[2]+x]/255}else{a=ov[tk*ovs[1]+x]/255}const cc=cmap(a);const al=Math.min(1,a*1.2);r=r*(1-al)+cc[0]*al;gg=gg*(1-al)+cc[1]*al;b=b*(1-al)+cc[2]*al}
  const i=((nb-1-y)*nt+x)*4;img.data[i]=r;img.data[i+1]=gg;img.data[i+2]=b;img.data[i+3]=255}

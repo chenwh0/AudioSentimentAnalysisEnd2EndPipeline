@@ -60,3 +60,13 @@ Faithfulness (prerequisite for trusting H1)
   PASS only if mean rho < 0.5. Failures are reported as findings.
 
 No test-slice finding changes any reported configuration tonight; any suggested change becomes a recommendation.
+
+## Addendum (2026-11-18 ~04:57 CST, still before TEST_UNLOCKED; based on dev clips only)
+Dev observation (AADD orchestrator file, 500 dev clips, 20 ms frames): 54% of frames are flagged under the
+any-class >= 0.5 rule; 27% of clips have no flagged frame and 21% have every frame flagged. A clip with every frame
+flagged has focus ratio exactly 1 by construction, so it carries no information about H1.
+- The primary H1 statistic and verdict stay exactly as defined above (all clips with >= 1 flagged frame).
+- Secondary, reported alongside (not a separate verdict): mean focus ratio with bootstrap CI over "informative"
+  clips, 0 < fraction flagged < 1; plus the per-clip Spearman correlation between the M1 time profile and the
+  per-frame max AADD probability (graded, no threshold).
+- Counts of zero-flag and all-flag clips are reported.

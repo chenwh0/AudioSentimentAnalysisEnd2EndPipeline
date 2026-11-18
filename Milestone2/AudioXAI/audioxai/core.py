@@ -161,6 +161,32 @@ def m1_smoothgrad(m, feats, seq, keep, n=8, sigma_frac=0.1, seed=8001, n_frames=
     return maps, lp0
 
 
+def m3_gradcam(m, feats, seq, keep, n_enc):
+    """Grad-CAM on the last encoder layer output (time-only: the Conv1d front end leaves no frequency axis).
+    alpha_c = mean_t dlogp/dA[t,c]; cam_t = ReLU(sum_c alpha_c A[t,c]). Same formula as captum LayerGradCam."""
+    store = {}
+    layer = m.model.encoder.layers[-1]
+
+    def hook(mod, inp, out):
+        a = out[0] if isinstance(out, tuple) else out
+        a.retain_grad(); store["a"] = a
+    h = layer.register_forward_hook(hook)
+    try:
+        with torch.enable_grad():
+            x = feats.detach().clone().requires_grad_(True)  # makes the graph reach the encoder
+            lp = teacher_forced_logp(m, x, seq, keep)[0]
+            A = store["a"]
+            cams = np.zeros((len(keep), n_enc), np.float32)
+            for k in range(len(keep)):
+                g, = torch.autograd.grad(lp[k], A, retain_graph=k < len(keep) - 1)
+                alpha = g[0].mean(0)  # (C,)
+                cam = torch.relu((A[0] * alpha).sum(-1))[:n_enc]
+                cams[k] = cam.detach().float().cpu().numpy()
+    finally:
+        h.remove()
+    return cams / np.maximum(cams.sum(1, keepdims=True), 1e-12)
+
+
 def m4_crossattn(m, feats, seq, keep, n_enc):
     heads = m.generation_config.alignment_heads
     with torch.no_grad():
@@ -329,7 +355,9 @@ def explain_clip(clip, smooth_n=8, save_dir=None):
     if keep:
         maps, lp0 = m1_smoothgrad(m, feats, seq, keep, n=smooth_n, n_frames=n_frames)
         m4 = m4_crossattn(m, feats, seq, keep, n_seg)
+        m3 = m3_gradcam(m, feats, seq, keep, n_seg)
     else:
+        m3 = np.zeros((0, n_seg))
         maps = np.zeros((0, 80, n_frames), np.float32); lp0 = np.zeros(0); m4 = np.zeros((0, n_seg))
     gold = gold_table().get(clip, "")
     tags, events, cnt = align_errors(gold, words)
@@ -340,7 +368,7 @@ def explain_clip(clip, smooth_n=8, save_dir=None):
     pg = sentiment_predict([gold or " "])[0]
     aadd, aadd_src = aadd_frames(clip)
     res = dict(meta=meta, dur=dur, n_frames=n_frames, n_seg=n_seg, seq=seq.cpu().numpy(), ts=ts, keep=np.array(keep),
-               text=text, words=words, tags=tags, events=events, cnt=cnt, gold=gold, maps=maps, lp0=lp0, m4=m4,
+               text=text, words=words, tags=tags, events=events, cnt=cnt, gold=gold, maps=maps, lp0=lp0, m4=m4, m3=m3,
                ig_sig=sig, ig_abs=ab, probs=probs, probs_gold=pg, aadd=aadd, aadd_src=aadd_src,
                logmel=feats[0, :, :n_frames].float().cpu().numpy(), wav=wav)
     if save_dir is not None:
@@ -355,7 +383,7 @@ def save_npz(res, save_dir):
     clip = res["meta"]["file"]
     np.savez_compressed(
         Path(save_dir) / f"{clip}.npz",
-        logmel=res["logmel"].astype(np.float16), m1=res["maps"].astype(np.float16), m4=res["m4"].astype(np.float16),
+        logmel=res["logmel"].astype(np.float16), m1=res["maps"].astype(np.float16), m4=res["m4"].astype(np.float16), m3=res["m3"].astype(np.float16),
         aadd=(res["aadd"][:res["n_seg"]] if res["aadd"] is not None else np.zeros((0, 12))).astype(np.float16),
         seq=res["seq"], token_ts=res["ts"].astype(np.float32), keep=res["keep"], lp0=res["lp0"].astype(np.float32),
         ig_sig=np.asarray(res["ig_sig"], np.float32), ig_abs=np.asarray(res["ig_abs"], np.float32),

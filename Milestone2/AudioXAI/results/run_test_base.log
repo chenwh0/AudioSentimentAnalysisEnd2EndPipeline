@@ -1,0 +1,86 @@
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Loading weights:   0%|          | 0/245 [00:00<?, ?it/s]Loading weights: 100%|██████████| 245/245 [00:00<00:00, 25947.64it/s]
+A custom logits processor of type <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> has been passed to `.generate()`, but it was also created in `.generate()`, given its parameterization. The custom <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> will take precedence. Please check the docstring of <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> to see related `.generate()` flags.
+A custom logits processor of type <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> has been passed to `.generate()`, but it was also created in `.generate()`, given its parameterization. The custom <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> will take precedence. Please check the docstring of <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> to see related `.generate()` flags.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 106513.59it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[1/50] id10294_1l9B0dz7gjc_00003 15.3s
+[2/50] id10273_8fKRoUIpAJY_00012 37.6s
+[3/50] id10273_8cfyJEV7hP8_00022 26.7s
+[4/50] id10285_LbFFEF1pHO0_00004 30.0s
+[5/50] id10304_dz2ohrKoOBA_00005 14.2s
+[6/50] id10298_hSC1Yb953Sg_00001 14.7s
+[7/50] id10296_f_k09R8r_cA_00004 9.1s
+[8/50] id10276_HrA2BLcLApA_00026 25.5s
+[9/50] id10294_GzajCggf7-8_00001 7.6s
+[10/50] id10287_V0ubcXO71Sg_00001 10.6s
+[11/50] id10273_E50E5hbggyM_00005 8.6s
+[12/50] id10294_VweNonqOdrE_00008 4.6s
+[13/50] id10271_zWyD72sHVwA_00007 4.8s
+[14/50] id10303_VCEs8oAQAiM_00011 4.6s
+[15/50] id10288_R4S2c-NiPfA_00001 4.6s
+[16/50] id10297_FvbLoirHpx0_00006 4.4s
+[17/50] id10286_gkDeAS985L4_00006 6.6s
+[18/50] id10274_wH6ebv-K8AA_00005 6.9s
+[19/50] id10300_8Sz2-IYJ2GA_00013 6.3s
+[20/50] id10298_KaNukQi4imU_00001 5.6s
+[21/50] id10309_XMLMvfrgdzY_00009 3.9s
+[22/50] id10281_1CiBWgsHT4E_00001 6.1s
+[23/50] id10295_ywZWrIt52KQ_00003 5.1s
+[24/50] id10309_rqaAm4bEsXc_00005 6.9s
+[25/50] id10287_2iaCNe7ajII_00004 6.1s
+remaining clips: 25
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Loading weights:   0%|          | 0/245 [00:00<?, ?it/s]Loading weights: 100%|██████████| 245/245 [00:00<00:00, 24046.53it/s]
+A custom logits processor of type <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> has been passed to `.generate()`, but it was also created in `.generate()`, given its parameterization. The custom <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> will take precedence. Please check the docstring of <class 'transformers.generation.logits_process.SuppressTokensLogitsProcessor'> to see related `.generate()` flags.
+A custom logits processor of type <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> has been passed to `.generate()`, but it was also created in `.generate()`, given its parameterization. The custom <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> will take precedence. Please check the docstring of <class 'transformers.generation.logits_process.SuppressTokensAtBeginLogitsProcessor'> to see related `.generate()` flags.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 69410.10it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[26/50] id10270_8jEAjG6SegY_00027 9.7s
+[27/50] id10298_hjvQiiG71rM_00021 3.3s
+[28/50] id10293_k1jiAINXHRI_00007 8.9s
+[29/50] id10270_8jEAjG6SegY_00026 2.1s
+[30/50] id10273_ZpPPaMazpf0_00003 5.4s
+[31/50] id10276_3vWez3baO60_00009 4.8s
+[32/50] id10273_Ed918auNI0Y_00004 4.8s
+[33/50] id10291_iPZGPcrYIZs_00007 4.2s
+[34/50] id10293_MHOCv7pOmG4_00008 17.0s
+[35/50] id10273_hW0Q6eHqN-U_00004 14.1s
+[36/50] id10291_iPZGPcrYIZs_00004 3.4s
+[37/50] id10304_W-5dGkFnQxM_00001 7.0s
+[38/50] id10300_8Sz2-IYJ2GA_00008 8.6s
+[39/50] id10298_6qFnVechX9o_00012 5.4s
+[40/50] id10273_ZpPPaMazpf0_00008 6.2s
+[41/50] id10285_uArtiTSTnSU_00014 5.2s
+[42/50] id10288_FIxC_PNJNkc_00003 7.7s
+[43/50] id10284_Uzxv7Axh3Z8_00006 7.9s
+[44/50] id10283_GcHWzqveqyc_00003 9.6s
+[45/50] id10281_WUg4pRp5_Co_00001 9.7s
+[46/50] id10283_vaK4t1-WD4M_00020 9.0s
+[47/50] id10287_2iaCNe7ajII_00002 3.8s
+[48/50] id10303_Zs8VK91yVMI_00009 6.2s
+[49/50] id10290_HYiqXC0B3iY_00002 4.6s
+[50/50] id10281_ni6gO5jDLJE_00010 5.8s
+remaining clips: 0
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Loading weights:   0%|          | 0/245 [00:00<?, ?it/s]Loading weights: 100%|██████████| 245/245 [00:00<00:00, 16531.34it/s]
+wrote /home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline/Milestone2/AudioXAI/results/whisper-base/report_whisper-base.html 9274 KB, 50 clips

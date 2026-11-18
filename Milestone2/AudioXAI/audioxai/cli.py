@@ -24,11 +24,18 @@ def main(argv=None):
     r.add_argument("--slice", choices=["dev", "test"], default="test")
     r.add_argument("--out", default="report.html")
     r.add_argument("--max-clips", type=int, default=50)
+    o = sub.add_parser("m2", help="M2 SPES-style patch occlusion on the first n clips (pos/neg first)")
+    o.add_argument("--slice", choices=["dev", "test"], default="test")
+    o.add_argument("--n", type=int, default=20)
+    e2 = sub.add_parser("e2e", help="item 7: end-to-end 500 ms segment replacement on the first n clips (pos/neg first)")
+    e2.add_argument("--slice", choices=["dev", "test"], default="test")
+    e2.add_argument("--n", type=int, default=10)
     a = ap.parse_args(argv)
     if a.cmd == "explain":
         from . import core, paths
         if a.asr != paths.ASR_ID or a.sentiment != paths.SENT_ID:
-            raise SystemExit("only openai/whisper-tiny + cardiffnlp/twitter-roberta-base-sentiment-latest are wired tonight")
+            raise SystemExit("set AUDIOXAI_ASR to choose the ASR (openai/whisper-tiny or openai/whisper-base); "
+                             "only cardiffnlp/twitter-roberta-base-sentiment-latest is wired")
         from .metrics import clip_metrics
         meta = core.clip_meta(a.clip)
         od = a.out or (paths.X / ("results/npz" if meta["slice"] == "test" else "results/dev/npz"))
@@ -41,6 +48,12 @@ def main(argv=None):
     elif a.cmd == "summarize":
         from .scan import summarize
         print(json.dumps(summarize(a.slice), indent=1, default=float)[:4000])
+    elif a.cmd == "m2":
+        from .occlusion import run
+        print(run(a.slice, a.n).describe().to_string())
+    elif a.cmd == "e2e":
+        from .occlusion import run_e2e
+        print(run_e2e(a.slice, a.n).describe().to_string())
     elif a.cmd == "report":
         from .report import build
         build(a.slice, a.out, a.max_clips)

@@ -1,0 +1,20 @@
+{
+ "purpose": "Test the user's hypothesis H1 (does the speech model's attribution concentrate on degraded audio?): the focus ratio per clip, grouped by the clip's dominant degradation class, with the overall mean and its 95% CI; a ratio of 1 means no concentration.",
+ "data_file": "Milestone2/AudioXAI/results/aggregate.csv",
+ "filter": "rows with non-null focus_ratio_m1 (clips with at least one flagged 20 ms frame); state the number of excluded zero-flag clips in a corner note (column focus_ratio_m1 is NaN for them)",
+ "columns": {
+  "x_group": "degradation_class",
+  "y": "focus_ratio_m1",
+  "point_color": "correct (1 = Cardiff sentiment correct)",
+  "summary": "overall mean focus_ratio_m1 with bootstrap 95% CI from Milestone2/AudioXAI/results/summary.json key focus_ratio_m1 (mean, ci)"
+ },
+ "encodings": "strip plot: one column per degradation class (ordered by count, descending), one dot per clip, jittered horizontally, dots colored by correctness (two fixed colors); a per-class mean marker; a horizontal dashed line at 1.0 labelled 'no concentration'; a shaded horizontal band for the overall mean's 95% CI with the mean value and n in a label",
+ "axes": {
+  "x": "dominant degradation class of the clip (from AADD)",
+  "y": "focus ratio (attribution mass in flagged audio \u00f7 share of audio flagged)"
+ },
+ "caption": "Focus ratio of whisper-tiny's input attribution (gradient \u00d7 input with SmoothGrad) per test clip, by degradation class. Values near 1 mean the model attends to degraded audio in proportion to its duration, not more; the overall mean's confidence interval includes 1, so hypothesis H1 is refuted.",
+ "output": "figures/xai_focus_ratio_by_class.png",
+ "data_sha256": "a7d4735a068998c176cc8cda10615a92d2629d5eb31bc8c4636de414c7b562cf",
+ "generated": "2026-11-18 overnight run, Phase 5"
+}
