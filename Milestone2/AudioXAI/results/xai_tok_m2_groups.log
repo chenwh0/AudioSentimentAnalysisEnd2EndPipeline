@@ -1,0 +1,46 @@
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Loading weights:   0%|          | 0/245 [00:00<?, ?it/s]Loading weights: 100%|██████████| 245/245 [00:00<00:00, 23283.74it/s]
+done whisper-base id10273_Ed918auNI0Y_00004 (18, 8, 63) 11s
+done whisper-base id10273_E50E5hbggyM_00005 (30, 8, 53) 8s
+done whisper-base id10288_FIxC_PNJNkc_00003 (30, 8, 47) 7s
+done whisper-base id10298_6qFnVechX9o_00012 (20, 8, 48) 7s
+done whisper-base id10287_2iaCNe7ajII_00002 (14, 8, 46) 7s
+done whisper-base id10273_ZpPPaMazpf0_00008 (23, 8, 56) 8s
+done whisper-base id10291_iPZGPcrYIZs_00007 (15, 8, 41) 6s
+done whisper-base id10276_HrA2BLcLApA_00026 (48, 8, 122) 18s
+done whisper-base id10300_8Sz2-IYJ2GA_00013 (21, 8, 47) 7s
+done whisper-base id10271_zWyD72sHVwA_00007 (15, 8, 45) 6s
+done whisper-base id10273_hW0Q6eHqN-U_00004 (52, 8, 115) 17s
+done whisper-base id10281_1CiBWgsHT4E_00001 (23, 8, 75) 11s
+skip id10285_uArtiTSTnSU_00014
+done whisper-base id10309_XMLMvfrgdzY_00009 (14, 8, 60) 8s
+done whisper-base id10276_3vWez3baO60_00009 (18, 8, 49) 7s
+done whisper-base id10273_8fKRoUIpAJY_00012 (69, 8, 162) 24s
+done whisper-base id10287_V0ubcXO71Sg_00001 (19, 8, 64) 9s
+done whisper-base id10304_W-5dGkFnQxM_00001 (26, 8, 65) 9s
+skip id10287_2iaCNe7ajII_00004
+done whisper-base id10284_Uzxv7Axh3Z8_00006 (30, 8, 72) 11s
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Loading weights:   0%|          | 0/245 [00:00<?, ?it/s]Loading weights: 100%|██████████| 245/245 [00:00<00:00, 13958.03it/s]
+done aventiq id10273_Ed918auNI0Y_00004 (28, 8, 63) 11s
+done aventiq id10273_E50E5hbggyM_00005 (30, 8, 53) 8s
+done aventiq id10288_FIxC_PNJNkc_00003 (25, 8, 47) 7s
+done aventiq id10298_6qFnVechX9o_00012 (15, 8, 48) 7s
+done aventiq id10287_2iaCNe7ajII_00002 (14, 8, 46) 7s
+done aventiq id10273_ZpPPaMazpf0_00008 (27, 8, 56) 8s
+done aventiq id10291_iPZGPcrYIZs_00007 (15, 8, 41) 6s
+done aventiq id10276_HrA2BLcLApA_00026 (42, 8, 122) 18s
+done aventiq id10300_8Sz2-IYJ2GA_00013 (15, 8, 47) 7s
+done aventiq id10271_zWyD72sHVwA_00007 (16, 8, 45) 6s
+done aventiq id10273_hW0Q6eHqN-U_00004 (51, 8, 115) 16s
+done aventiq id10281_1CiBWgsHT4E_00001 (29, 8, 75) 11s
+skip id10285_uArtiTSTnSU_00014
+done aventiq id10309_XMLMvfrgdzY_00009 (14, 8, 60) 8s
+done aventiq id10276_3vWez3baO60_00009 (18, 8, 49) 7s
+done aventiq id10273_8fKRoUIpAJY_00012 (70, 8, 162) 24s
+done aventiq id10287_V0ubcXO71Sg_00001 (19, 8, 64) 9s
+done aventiq id10304_W-5dGkFnQxM_00001 (26, 8, 65) 10s
+skip id10287_2iaCNe7ajII_00004
+done aventiq id10284_Uzxv7Axh3Z8_00006 (30, 8, 72) 10s

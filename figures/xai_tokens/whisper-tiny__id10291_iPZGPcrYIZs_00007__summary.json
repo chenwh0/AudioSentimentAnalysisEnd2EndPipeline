@@ -1,0 +1,248 @@
+{
+ "model": "whisper-tiny",
+ "asr": "openai/whisper-tiny",
+ "clip": "id10291_iPZGPcrYIZs_00007",
+ "cls": "noise (hard set)",
+ "wer": 0.29411764705882354,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10291_iPZGPcrYIZs_00007.npz",
+   "sha256": "8861d1a810af17446133c8602e959c306f0f3b18d41b1cf91010be65907dfa81"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10291_iPZGPcrYIZs_00007_m2.npz",
+   "sha256": "ab042b59a324c3ea4557684b9524e4ed0e160e83563f102de3f4939d70e14624"
+  }
+ ],
+ "figures": [
+  "whisper-tiny__id10291_iPZGPcrYIZs_00007__summary__tokens.png",
+  "whisper-tiny__id10291_iPZGPcrYIZs_00007__summary__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 390,
+   "tok": " was",
+   "t": 0.0,
+   "m1_seg": 0,
+   "m1_band": 1,
+   "m2_seg": 0,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    0
+   ]
+  },
+  {
+   "k": 1,
+   "id": 767,
+   "tok": " actually",
+   "t": 0.800000011920929,
+   "m1_seg": 8,
+   "m1_band": 1,
+   "m2_seg": 0,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    0
+   ]
+  },
+  {
+   "k": 2,
+   "id": 382,
+   "tok": " as",
+   "t": 1.1799999475479126,
+   "m1_seg": 11,
+   "m1_band": 1,
+   "m2_seg": 10,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    10
+   ]
+  },
+  {
+   "k": 3,
+   "id": 731,
+   "tok": " well",
+   "t": 1.3600000143051147,
+   "m1_seg": 11,
+   "m1_band": 1,
+   "m2_seg": 13,
+   "m2_band": 7,
+   "m2_patch": [
+    5,
+    13
+   ]
+  },
+  {
+   "k": 4,
+   "id": 382,
+   "tok": " as",
+   "t": 1.440000057220459,
+   "m1_seg": 12,
+   "m1_band": 1,
+   "m2_seg": 11,
+   "m2_band": 0,
+   "m2_patch": [
+    4,
+    11
+   ]
+  },
+  {
+   "k": 5,
+   "id": 322,
+   "tok": " on",
+   "t": 1.7999999523162842,
+   "m1_seg": 14,
+   "m1_band": 1,
+   "m2_seg": 13,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    15
+   ]
+  },
+  {
+   "k": 6,
+   "id": 2568,
+   "tok": " screen",
+   "t": 2.119999885559082,
+   "m1_seg": 19,
+   "m1_band": 1,
+   "m2_seg": 17,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    17
+   ]
+  },
+  {
+   "k": 7,
+   "id": 309,
+   "tok": " it",
+   "t": 2.619999885559082,
+   "m1_seg": 21,
+   "m1_band": 1,
+   "m2_seg": 20,
+   "m2_band": 7,
+   "m2_patch": [
+    5,
+    20
+   ]
+  },
+  {
+   "k": 8,
+   "id": 390,
+   "tok": " was",
+   "t": 2.799999952316284,
+   "m1_seg": 8,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 7,
+   "m2_patch": [
+    3,
+    26
+   ]
+  },
+  {
+   "k": 9,
+   "id": 920,
+   "tok": " still",
+   "t": 3.0,
+   "m1_seg": 25,
+   "m1_band": 1,
+   "m2_seg": 28,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    28
+   ]
+  },
+  {
+   "k": 10,
+   "id": 534,
+   "tok": " really",
+   "t": 3.2799999713897705,
+   "m1_seg": 30,
+   "m1_band": 1,
+   "m2_seg": 30,
+   "m2_band": 5,
+   "m2_patch": [
+    1,
+    30
+   ]
+  },
+  {
+   "k": 11,
+   "id": 1019,
+   "tok": " fun",
+   "t": 3.4600000381469727,
+   "m1_seg": 33,
+   "m1_band": 1,
+   "m2_seg": 31,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    31
+   ]
+  },
+  {
+   "k": 12,
+   "id": 457,
+   "tok": " but",
+   "t": 3.5199999809265137,
+   "m1_seg": 34,
+   "m1_band": 1,
+   "m2_seg": 34,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    34
+   ]
+  },
+  {
+   "k": 13,
+   "id": 309,
+   "tok": " it",
+   "t": 3.640000104904175,
+   "m1_seg": 35,
+   "m1_band": 1,
+   "m2_seg": 34,
+   "m2_band": 7,
+   "m2_patch": [
+    2,
+    35
+   ]
+  },
+  {
+   "k": 14,
+   "id": 390,
+   "tok": " was",
+   "t": 3.880000114440918,
+   "m1_seg": 8,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 0,
+   "m2_patch": [
+    4,
+    9
+   ]
+  },
+  {
+   "k": 15,
+   "id": 544,
+   "tok": " more",
+   "t": 3.9800000190734863,
+   "m1_seg": 39,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    10
+   ]
+  }
+ ]
+}

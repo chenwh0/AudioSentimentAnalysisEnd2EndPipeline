@@ -1,0 +1,220 @@
+{
+ "model": "whisper-base",
+ "asr": "openai/whisper-base",
+ "clip": "id10287_2iaCNe7ajII_00002",
+ "cls": "clean (hard set)",
+ "wer": 0.3,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10287_2iaCNe7ajII_00002.npz",
+   "sha256": "4df35c215d5304d46d83b7b8651f2eba39a870f1e60b5f344537d26e38d1c589"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10287_2iaCNe7ajII_00002_m2.npz",
+   "sha256": "be7b5567ac46b22961faf169871f3e2c9fccdeed0ec8819c5e2ee971c8740c21"
+  }
+ ],
+ "figures": [
+  "whisper-base__id10287_2iaCNe7ajII_00002__summary__tokens.png",
+  "whisper-base__id10287_2iaCNe7ajII_00002__summary__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 14328,
+   "tok": " rede",
+   "t": 0.0,
+   "m1_seg": 12,
+   "m1_band": 0,
+   "m2_seg": 10,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    10
+   ]
+  },
+  {
+   "k": 1,
+   "id": 19558,
+   "tok": "cor",
+   "t": 1.4199999570846558,
+   "m1_seg": 15,
+   "m1_band": 0,
+   "m2_seg": 13,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    13
+   ]
+  },
+  {
+   "k": 2,
+   "id": 990,
+   "tok": "ating",
+   "t": 1.6399999856948853,
+   "m1_seg": 14,
+   "m1_band": 0,
+   "m2_seg": 14,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    14
+   ]
+  },
+  {
+   "k": 3,
+   "id": 452,
+   "tok": " my",
+   "t": 1.9199999570846558,
+   "m1_seg": 18,
+   "m1_band": 0,
+   "m2_seg": 18,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    18
+   ]
+  },
+  {
+   "k": 4,
+   "id": 1782,
+   "tok": " house",
+   "t": 2.259999990463257,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 20,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    20
+   ]
+  },
+  {
+   "k": 5,
+   "id": 13,
+   "tok": ".",
+   "t": 2.4800000190734863,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 25,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    25
+   ]
+  },
+  {
+   "k": 6,
+   "id": 286,
+   "tok": " I",
+   "t": 2.5,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 25,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    25
+   ]
+  },
+  {
+   "k": 7,
+   "id": 478,
+   "tok": "'m",
+   "t": 2.6600000858306885,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 32,
+   "m2_band": 0,
+   "m2_patch": [
+    5,
+    32
+   ]
+  },
+  {
+   "k": 8,
+   "id": 1009,
+   "tok": " always",
+   "t": 2.9800000190734863,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 27,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    9
+   ]
+  },
+  {
+   "k": 9,
+   "id": 885,
+   "tok": " being",
+   "t": 3.259999990463257,
+   "m1_seg": 36,
+   "m1_band": 0,
+   "m2_seg": 32,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    32
+   ]
+  },
+  {
+   "k": 10,
+   "id": 2942,
+   "tok": " created",
+   "t": 3.819999933242798,
+   "m1_seg": 38,
+   "m1_band": 0,
+   "m2_seg": 39,
+   "m2_band": 3,
+   "m2_patch": [
+    2,
+    39
+   ]
+  },
+  {
+   "k": 11,
+   "id": 538,
+   "tok": " by",
+   "t": 4.019999980926514,
+   "m1_seg": 40,
+   "m1_band": 0,
+   "m2_seg": 39,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    39
+   ]
+  },
+  {
+   "k": 12,
+   "id": 5006,
+   "tok": " finding",
+   "t": 4.380000114440918,
+   "m1_seg": 43,
+   "m1_band": 0,
+   "m2_seg": 43,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    43
+   ]
+  },
+  {
+   "k": 13,
+   "id": 300,
+   "tok": " that",
+   "t": 4.539999961853027,
+   "m1_seg": 43,
+   "m1_band": 0,
+   "m2_seg": 44,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    44
+   ]
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "model": "whisper-tiny",
+ "asr": "openai/whisper-tiny",
+ "clip": "id10273_Ed918auNI0Y_00004",
+ "cls": "clean (hard set)",
+ "wer": 0.95,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10273_Ed918auNI0Y_00004.npz",
+   "sha256": "f8b014000e79d5533a3f9dc307e731699f9d4f09bb6b75583fad75902735029c"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10273_Ed918auNI0Y_00004_m2.npz",
+   "sha256": "843cf452e3b8f70297b3591d590e5776ef7c7afe3e09ee07e91cf789a0ec7524"
+  }
+ ],
+ "figures": [
+  "whisper-tiny__id10273_Ed918auNI0Y_00004__tokens.png",
+  "whisper-tiny__id10273_Ed918auNI0Y_00004__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 264,
+   "tok": " the",
+   "t": 0.0,
+   "m1_seg": 7,
+   "m1_band": 0,
+   "m2_seg": 9,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    9
+   ]
+  }
+ ]
+}

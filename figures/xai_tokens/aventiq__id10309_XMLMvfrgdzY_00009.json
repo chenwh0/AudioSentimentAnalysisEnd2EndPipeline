@@ -1,0 +1,220 @@
+{
+ "model": "aventiq",
+ "asr": "AventIQ-AI/whisper-audio-to-text",
+ "clip": "id10309_XMLMvfrgdzY_00009",
+ "cls": "music (mixed set)",
+ "wer": 0.07692307692307693,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10309_XMLMvfrgdzY_00009.npz",
+   "sha256": "591a052c2a7291c46421ed109ae294d0e7532d7769fb4a7100c66a5db0363d7a"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10309_XMLMvfrgdzY_00009_m2.npz",
+   "sha256": "01ca5f9fbd56da772e45bad3fa6dabb6cd615f9aed380a5b9e7ee3580902468c"
+  }
+ ],
+ "figures": [
+  "aventiq__id10309_XMLMvfrgdzY_00009__tokens.png",
+  "aventiq__id10309_XMLMvfrgdzY_00009__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 411,
+   "tok": " like",
+   "t": 0.0,
+   "m1_seg": 0,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    0
+   ]
+  },
+  {
+   "k": 1,
+   "id": 4519,
+   "tok": " girls",
+   "t": 0.699999988079071,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 2,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    1
+   ]
+  },
+  {
+   "k": 2,
+   "id": 365,
+   "tok": " with",
+   "t": 0.9599999785423279,
+   "m1_seg": 8,
+   "m1_band": 0,
+   "m2_seg": 9,
+   "m2_band": 1,
+   "m2_patch": [
+    3,
+    9
+   ]
+  },
+  {
+   "k": 3,
+   "id": 17090,
+   "tok": " artistic",
+   "t": 1.2599999904632568,
+   "m1_seg": 10,
+   "m1_band": 0,
+   "m2_seg": 10,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    10
+   ]
+  },
+  {
+   "k": 4,
+   "id": 2923,
+   "tok": " sens",
+   "t": 1.7400000095367432,
+   "m1_seg": 20,
+   "m1_band": 0,
+   "m2_seg": 18,
+   "m2_band": 0,
+   "m2_patch": [
+    7,
+    18
+   ]
+  },
+  {
+   "k": 5,
+   "id": 2841,
+   "tok": "ibility",
+   "t": 2.119999885559082,
+   "m1_seg": 23,
+   "m1_band": 0,
+   "m2_seg": 23,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    23
+   ]
+  },
+  {
+   "k": 6,
+   "id": 293,
+   "tok": " and",
+   "t": 2.4600000381469727,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 24,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    23
+   ]
+  },
+  {
+   "k": 7,
+   "id": 291,
+   "tok": " you",
+   "t": 2.559999942779541,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 27,
+   "m2_band": 0,
+   "m2_patch": [
+    4,
+    27
+   ]
+  },
+  {
+   "k": 8,
+   "id": 652,
+   "tok": " make",
+   "t": 2.7799999713897705,
+   "m1_seg": 25,
+   "m1_band": 0,
+   "m2_seg": 27,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    27
+   ]
+  },
+  {
+   "k": 9,
+   "id": 1523,
+   "tok": " art",
+   "t": 3.059999942779541,
+   "m1_seg": 30,
+   "m1_band": 0,
+   "m2_seg": 30,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    29
+   ]
+  },
+  {
+   "k": 10,
+   "id": 293,
+   "tok": " and",
+   "t": 4.599999904632568,
+   "m1_seg": 30,
+   "m1_band": 0,
+   "m2_seg": 32,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    32
+   ]
+  },
+  {
+   "k": 11,
+   "id": 286,
+   "tok": " I",
+   "t": 5.360000133514404,
+   "m1_seg": 53,
+   "m1_band": 0,
+   "m2_seg": 53,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    53
+   ]
+  },
+  {
+   "k": 12,
+   "id": 3928,
+   "tok": " tend",
+   "t": 5.71999979019165,
+   "m1_seg": 59,
+   "m1_band": 0,
+   "m2_seg": 59,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    53
+   ]
+  },
+  {
+   "k": 13,
+   "id": 281,
+   "tok": " to",
+   "t": 5.940000057220459,
+   "m1_seg": 59,
+   "m1_band": 0,
+   "m2_seg": 59,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    59
+   ]
+  }
+ ]
+}

@@ -172,3 +172,9 @@
 {"ts": "2026-11-18T06:20:43-0600", "job": "w2_n100_m2_3", "event": "end", "pid": 500207, "note": "M2 occlusion on n100 chunk 3 rc=0"}
 {"ts": "2026-11-18T06:20:43-0600", "job": "w2_n100_m2_4", "event": "start", "pid": 503710, "note": "M2 occlusion on n100 chunk 4"}
 {"ts": "2026-11-18T06:24:22-0600", "job": "w2_n100_m2_4", "event": "end", "pid": 503710, "note": "M2 occlusion on n100 chunk 4 rc=0"}
+{"ts":"2026-11-18T11:18:47-06:00","job":"xai_tok_m2","event":"start","pid":750819,"note":"M2 occlusion, whisper-base + AventIQ, 5 representative clips"}
+{"ts":"2026-11-18T11:20:13-06:00","job":"xai_tok_m2","event":"end","pid":750819,"note":"rc=0"}
+{"ts":"2026-11-18T11:24:30-06:00","job":"xai_tok_m2_groups","event":"start","pid":757127,"note":"M2 occlusion, whisper-base + AventIQ, 20-clip study set"}
+{"ts":"2026-11-18T11:24:32-06:00","job":"xai_tok_m2_groups","event":"end","pid":757127,"note":"rc=0"}
+{"ts":"2026-11-18T11:24:41-06:00","job":"xai_tok_m2_groups","event":"start","pid":757476,"note":"M2 occlusion, whisper-base + AventIQ, 20-clip study set"}
+{"ts":"2026-11-18T11:30:43-06:00","job":"xai_tok_m2_groups","event":"end","pid":757476,"note":"rc=0"}

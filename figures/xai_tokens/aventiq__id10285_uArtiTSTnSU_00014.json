@@ -1,0 +1,318 @@
+{
+ "model": "aventiq",
+ "asr": "AventIQ-AI/whisper-audio-to-text",
+ "clip": "id10285_uArtiTSTnSU_00014",
+ "cls": "clean (mixed set)",
+ "wer": 0.058823529411764705,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10285_uArtiTSTnSU_00014.npz",
+   "sha256": "6d412305d8f34bf31704435e654c7c72ca41faafec8bd3de8a8737bcb4650126"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10285_uArtiTSTnSU_00014_m2.npz",
+   "sha256": "2ec77d36bbb0b477dce11ceffad7c7ccaffb8ca96d0f66b37faf2ce36041cb87"
+  }
+ ],
+ "figures": [
+  "aventiq__id10285_uArtiTSTnSU_00014__tokens.png",
+  "aventiq__id10285_uArtiTSTnSU_00014__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 2022,
+   "tok": " With",
+   "t": 0.0,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 6,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    29
+   ]
+  },
+  {
+   "k": 1,
+   "id": 264,
+   "tok": " the",
+   "t": 0.8600000143051147,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 50,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    6
+   ]
+  },
+  {
+   "k": 2,
+   "id": 2517,
+   "tok": " character",
+   "t": 1.3200000524520874,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 11,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    11
+   ]
+  },
+  {
+   "k": 3,
+   "id": 293,
+   "tok": " and",
+   "t": 1.7799999713897705,
+   "m1_seg": 2,
+   "m1_band": 0,
+   "m2_seg": 17,
+   "m2_band": 2,
+   "m2_patch": [
+    0,
+    17
+   ]
+  },
+  {
+   "k": 4,
+   "id": 807,
+   "tok": " through",
+   "t": 2.0799999237060547,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 21,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    20
+   ]
+  },
+  {
+   "k": 5,
+   "id": 264,
+   "tok": " the",
+   "t": 2.2799999713897705,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 21,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    22
+   ]
+  },
+  {
+   "k": 6,
+   "id": 5534,
+   "tok": " clothes",
+   "t": 2.640000104904175,
+   "m1_seg": 26,
+   "m1_band": 0,
+   "m2_seg": 24,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    24
+   ]
+  },
+  {
+   "k": 7,
+   "id": 575,
+   "tok": " has",
+   "t": 2.859999895095825,
+   "m1_seg": 27,
+   "m1_band": 0,
+   "m2_seg": 29,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    29
+   ]
+  },
+  {
+   "k": 8,
+   "id": 668,
+   "tok": " been",
+   "t": 3.0,
+   "m1_seg": 29,
+   "m1_band": 0,
+   "m2_seg": 31,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    31
+   ]
+  },
+  {
+   "k": 9,
+   "id": 11,
+   "tok": ",",
+   "t": 3.200000047683716,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 31,
+   "m2_band": 0,
+   "m2_patch": [
+    2,
+    31
+   ]
+  },
+  {
+   "k": 10,
+   "id": 286,
+   "tok": " I",
+   "t": 3.2200000286102295,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 31,
+   "m2_band": 1,
+   "m2_patch": [
+    4,
+    31
+   ]
+  },
+  {
+   "k": 11,
+   "id": 914,
+   "tok": " mean",
+   "t": 3.4000000953674316,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 35,
+   "m2_band": 0,
+   "m2_patch": [
+    5,
+    35
+   ]
+  },
+  {
+   "k": 12,
+   "id": 11,
+   "tok": ",",
+   "t": 3.5399999618530273,
+   "m1_seg": 3,
+   "m1_band": 0,
+   "m2_seg": 33,
+   "m2_band": 3,
+   "m2_patch": [
+    0,
+    33
+   ]
+  },
+  {
+   "k": 13,
+   "id": 309,
+   "tok": " it",
+   "t": 3.5999999046325684,
+   "m1_seg": 35,
+   "m1_band": 0,
+   "m2_seg": 35,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    35
+   ]
+  },
+  {
+   "k": 14,
+   "id": 1669,
+   "tok": " makes",
+   "t": 3.740000009536743,
+   "m1_seg": 1,
+   "m1_band": 0,
+   "m2_seg": 36,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    36
+   ]
+  },
+  {
+   "k": 15,
+   "id": 452,
+   "tok": " my",
+   "t": 4.0,
+   "m1_seg": 50,
+   "m1_band": 0,
+   "m2_seg": 40,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    40
+   ]
+  },
+  {
+   "k": 16,
+   "id": 1691,
+   "tok": " job",
+   "t": 4.28000020980835,
+   "m1_seg": 43,
+   "m1_band": 0,
+   "m2_seg": 45,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    45
+   ]
+  },
+  {
+   "k": 17,
+   "id": 370,
+   "tok": " so",
+   "t": 4.679999828338623,
+   "m1_seg": 48,
+   "m1_band": 0,
+   "m2_seg": 50,
+   "m2_band": 3,
+   "m2_patch": [
+    2,
+    46
+   ]
+  },
+  {
+   "k": 18,
+   "id": 709,
+   "tok": " much",
+   "t": 4.960000038146973,
+   "m1_seg": 48,
+   "m1_band": 0,
+   "m2_seg": 48,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    48
+   ]
+  },
+  {
+   "k": 19,
+   "id": 3571,
+   "tok": " easier",
+   "t": 5.059999942779541,
+   "m1_seg": 50,
+   "m1_band": 0,
+   "m2_seg": 50,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    50
+   ]
+  },
+  {
+   "k": 20,
+   "id": 13,
+   "tok": ".",
+   "t": 5.059999942779541,
+   "m1_seg": 50,
+   "m1_band": 0,
+   "m2_seg": 48,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    48
+   ]
+  }
+ ]
+}

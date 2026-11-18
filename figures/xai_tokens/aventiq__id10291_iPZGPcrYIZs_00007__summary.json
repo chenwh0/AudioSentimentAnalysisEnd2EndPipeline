@@ -1,0 +1,234 @@
+{
+ "model": "aventiq",
+ "asr": "AventIQ-AI/whisper-audio-to-text",
+ "clip": "id10291_iPZGPcrYIZs_00007",
+ "cls": "noise (hard set)",
+ "wer": 0.23529411764705882,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10291_iPZGPcrYIZs_00007.npz",
+   "sha256": "bbdbcef76199e88ee85bd3851d1628bd6ea2044cfd742459915d6de237458451"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10291_iPZGPcrYIZs_00007_m2.npz",
+   "sha256": "b88de7990b464da4f5d7e7eaf64a78222ca340354aa70e3610494ea022966b7b"
+  }
+ ],
+ "figures": [
+  "aventiq__id10291_iPZGPcrYIZs_00007__summary__tokens.png",
+  "aventiq__id10291_iPZGPcrYIZs_00007__summary__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 390,
+   "tok": " was",
+   "t": 0.0,
+   "m1_seg": 0,
+   "m1_band": 1,
+   "m2_seg": 6,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    6
+   ]
+  },
+  {
+   "k": 1,
+   "id": 767,
+   "tok": " actually",
+   "t": 0.5,
+   "m1_seg": 8,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 3,
+   "m2_patch": [
+    4,
+    9
+   ]
+  },
+  {
+   "k": 2,
+   "id": 322,
+   "tok": " on",
+   "t": 1.600000023841858,
+   "m1_seg": 11,
+   "m1_band": 1,
+   "m2_seg": 15,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    15
+   ]
+  },
+  {
+   "k": 3,
+   "id": 2568,
+   "tok": " screen",
+   "t": 1.9800000190734863,
+   "m1_seg": 16,
+   "m1_band": 1,
+   "m2_seg": 17,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    17
+   ]
+  },
+  {
+   "k": 4,
+   "id": 11,
+   "tok": ",",
+   "t": 1.9800000190734863,
+   "m1_seg": 8,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 1,
+   "m2_patch": [
+    4,
+    9
+   ]
+  },
+  {
+   "k": 5,
+   "id": 309,
+   "tok": " it",
+   "t": 2.200000047683716,
+   "m1_seg": 8,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 1,
+   "m2_patch": [
+    4,
+    9
+   ]
+  },
+  {
+   "k": 6,
+   "id": 390,
+   "tok": " was",
+   "t": 2.359999895095825,
+   "m1_seg": 28,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    26
+   ]
+  },
+  {
+   "k": 7,
+   "id": 920,
+   "tok": " still",
+   "t": 2.880000114440918,
+   "m1_seg": 28,
+   "m1_band": 1,
+   "m2_seg": 28,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    28
+   ]
+  },
+  {
+   "k": 8,
+   "id": 534,
+   "tok": " really",
+   "t": 3.119999885559082,
+   "m1_seg": 29,
+   "m1_band": 1,
+   "m2_seg": 30,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    30
+   ]
+  },
+  {
+   "k": 9,
+   "id": 1019,
+   "tok": " fun",
+   "t": 3.3399999141693115,
+   "m1_seg": 34,
+   "m1_band": 1,
+   "m2_seg": 34,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    34
+   ]
+  },
+  {
+   "k": 10,
+   "id": 11,
+   "tok": ",",
+   "t": 3.3399999141693115,
+   "m1_seg": 34,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    34
+   ]
+  },
+  {
+   "k": 11,
+   "id": 457,
+   "tok": " but",
+   "t": 3.5,
+   "m1_seg": 34,
+   "m1_band": 1,
+   "m2_seg": 34,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    34
+   ]
+  },
+  {
+   "k": 12,
+   "id": 309,
+   "tok": " it",
+   "t": 3.559999942779541,
+   "m1_seg": 39,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 2,
+   "m2_patch": [
+    1,
+    35
+   ]
+  },
+  {
+   "k": 13,
+   "id": 390,
+   "tok": " was",
+   "t": 3.7200000286102295,
+   "m1_seg": 0,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 3,
+   "m2_patch": [
+    4,
+    9
+   ]
+  },
+  {
+   "k": 14,
+   "id": 544,
+   "tok": " more",
+   "t": 3.940000057220459,
+   "m1_seg": 39,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 3,
+   "m2_patch": [
+    4,
+    40
+   ]
+  }
+ ]
+}

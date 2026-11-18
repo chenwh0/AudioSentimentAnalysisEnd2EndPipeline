@@ -60,7 +60,7 @@ The tool asks where in the audio the ASR model looks, and whether that is where 
 
 - Input: the exact 80-bin log-mel spectrogram the Whisper feature extractor produces (10 ms hop).
 - Degradation timeline: AADD 3.1.0 gives 12 class probabilities every 20 ms. A frame is flagged when any class probability reaches 0.5. AADD was trained on synthetic degradations of read speech, so its flags on real interview audio are estimates.
-- M1, the primary map: gradient × input on the log-mel for each generated token's teacher-forced log-probability, smoothed with SmoothGrad (16 noisy copies, σ = 0.1 × feature std). It gives a time × frequency map per token.
+- M1, the primary map: gradient × input on the log-mel for each generated token's teacher-forced log-probability, smoothed with SmoothGrad (8 noisy copies, σ = 0.1 × feature std, where the brief asked for 16 and the code and HYPOTHESES.md use 8). It gives a time × frequency map per token.
 - M2, model-agnostic: occlude 100 ms × 1/8-mel patches and measure the drop in each token's log-probability, in the spirit of SPES.
 - M3, Grad-CAM on the last encoder layer. Time-only, because Whisper's Conv1d front end leaves no frequency axis.
 - M4, decoder cross-attention averaged over the alignment heads. Also time-only.
@@ -159,3 +159,70 @@ The speech model barely matters because the classifier is the ceiling. Human tra
 - AudioXAI: 300 clips for whisper-base and AventIQ (50 done), M2 and segment replacement on 100 (M2 done on 100, segment replacement on 10).
 - MinIO upload of the registry: the server was unreachable.
 - The per-clip `.npz` attribution arrays (about 1.9 GB) and the AADD scans are gitignored and exist only on the machine that ran this.
+
+## Per-token attribution: which audio segment each output token used
+
+Added on branch `xai-token-segments` on 2026-11-18, after the overnight run. The question moves from audio quality to alignment: for each token the ASR emits, which 100 ms segment of the clip, and which frequency band, contributed most. The study set is 20 clips, the same 20 for whisper-tiny, whisper-base and AventIQ, reported in two groups so that hard cases are not presented as typical behaviour. Every aggregate number from 10 clips is indicative, not conclusive.
+
+Sampling rule (`Milestone2/AudioXAI/scripts/select_groups.py`, clip ids and strata in `results/token_segments/groups.csv`). The pool is the 50-clip stratified test sample the overnight run used for all three models (`results/test_sample_ids.csv`, drawn by `scan.test_sample(n=50, seed=8001)` from Chen's saved test slice `Milestone2/PipelineEvaluation/test.csv`, 1,500 rows), since it is the only set where all three models have saved attribution arrays. The selector asserts that every pool clip is in that saved test slice and in neither the development slice (500) nor the load pool (1,426, never read), and `results/token_segments/groups_provenance.json` records the SHA-256 of the slice CSV and of the three `*_indices.npy` files, so the 20 clips trace back to the reproducibility splits without any re-splitting. `groups.csv` carries each clip's slice and original index. The hard set is the 10 pool clips with the lowest mean teacher-forced token log-probability under whisper-tiny (uncertainty sampling). The mixed set is 10 clips drawn from the remaining 40 by strata of confidence (above or below the median mean log-probability), clip length (above or below the median duration) and audio quality (AADD class clean against anything else): `numpy.random.default_rng(8001)` permutes each stratum, the 8 strata are visited in fixed alphabetical order taking one clip per visit until 10 are drawn.
+
+Hard set: `id10273_Ed918auNI0Y_00004`, `id10273_E50E5hbggyM_00005`, `id10288_FIxC_PNJNkc_00003`, `id10298_6qFnVechX9o_00012`, `id10287_2iaCNe7ajII_00002`, `id10273_ZpPPaMazpf0_00008`, `id10291_iPZGPcrYIZs_00007`, `id10276_HrA2BLcLApA_00026`, `id10300_8Sz2-IYJ2GA_00013`, `id10271_zWyD72sHVwA_00007` (mean log-probability −3.40 to −0.49, 6 degraded and 4 clean by AADD class, and two of them are clips where whisper-tiny emitted only 1 or 2 tokens, WER 0.95 and 0.97).
+Mixed set: `id10273_hW0Q6eHqN-U_00004`, `id10281_1CiBWgsHT4E_00001`, `id10285_uArtiTSTnSU_00014`, `id10309_XMLMvfrgdzY_00009`, `id10276_3vWez3baO60_00009`, `id10273_8fKRoUIpAJY_00012`, `id10287_V0ubcXO71Sg_00001`, `id10304_W-5dGkFnQxM_00001`, `id10287_2iaCNe7ajII_00004`, `id10284_Uzxv7Axh3Z8_00006` (mean log-probability −0.45 to −0.10, with 4 uncertain and 6 confident, 6 long and 4 short, 5 clean and 5 degraded).
+
+Methods. M2 occlusion is the primary method: each 100 ms × 10-mel patch is set to the clip's log-mel floor and the drop in the token's teacher-forced log-probability is recorded. Beside it, M1 (gradient × input with SmoothGrad) appears for comparison only, because it failed the model-randomization check (ρ ≈ 0.92 after re-initializing the top two decoder layers) and tracks input energy (|M1| against |input| correlates at 0.78). M4 cross-attention is not used, since Whisper's token timestamps come from the same alignment heads and the comparison would be circular. The M2 arrays for whisper-base and AventIQ on these 20 clips were computed for this section (`scripts/m2_for_clips.py`, logged in `logs/gpu_jobs.jsonl`). Everything else comes from the saved overnight `.npz` arrays. Code: `scripts/token_segments.py` (tables), `figures/render_xai_tokens_v2.py` (per-clip summary figures, colour-linked design), `figures/render_xai_tokens.py` (the per-token tile figures and the shared loader), `figures/render_xai_token_aggregate.py` (aggregate). Tables: `results/token_segments/tokens.csv`, `summary.json`.
+
+Definitions. A token's time is Whisper's timestamp for it. Its M2 time profile is the positive log-probability drop summed over the 8 bands, per 100 ms patch. The top segment is the patch with the largest drop, the top band the band with the largest drop summed over time. Distance is the gap between the top segment's centre and the token's time. Band shares are each token's positive attribution normalized to 1 and averaged over tokens (no CI). The CIs on distances and fractions are 10,000 bootstrap resamples of clips over per-clip medians, or per-clip means for fractions.
+
+### Per-clip figures
+
+For each of the 20 clips and each model there are two figures in `../figures/xai_tokens/` (120 for the study set, plus the 18 for the three clips of the first pass that are not in the study set, kept as background). `../figures/xai_tokens/MANIFEST.md` lists the arrays each figure read with their SHA-256 and tabulates every token's time, top M2 segment, top M2 band and top M1 segment. Captions name the set the clip belongs to.
+
+- `<model>__<clip>__summary.png`: the headline view. Colour, not lines, links each token to its audio. Every token gets a colour from a validated 8-slot categorical palette (cycled, with the token index printed in every region so a repeated colour is never ambiguous). Top to bottom: the waveform coloured per 20 ms frame by the AADD flag (grey clean, charcoal degraded at p ≥ 0.5, context only) with each token's top M2 segment painted over it, the log-mel with each token's top M2 patch filled in its colour, a thin strip with each token's top M1 segment, the token labels at their timestamps, and a token × time heat strip (rows = tokens, columns = 100 ms patches, cell = that token's M2 attribution scaled to its own maximum). The palette passed the dataviz validator (worst adjacent colorblind ΔE 9.1). three slots sit below 3:1 contrast on the surface, which the printed indices relieve.
+- `<model>__<clip>__tokens.png`: one tile per token, from the first pass. Left half, the log-mel with the M2 occlusion heat at patch resolution and the top patch outlined in orange. Right half, the same with |M1| at full resolution. These were not re-rendered in the redesign.
+
+![Hard set, whisper-tiny, noise clip id10288_FIxC_PNJNkc_00003: colour links each token to its top segment on the waveform and spectrogram, with the token × time heat strip below](../figures/xai_tokens/whisper-tiny__id10288_FIxC_PNJNkc_00003__summary.png)
+
+![Mixed set, whisper-tiny, clean clip id10287_2iaCNe7ajII_00004: one tile per token](../figures/xai_tokens/whisper-tiny__id10287_2iaCNe7ajII_00004__tokens.png)
+
+The hard-set example above (WER 0.67, noise, every frame flagged by AADD) shows what "hard" looks like at token level: the heat strip runs along the diagonal for the content words, each lit at or just after its own timestamp, while the punctuation and sentence-final tokens ("and" at 0.0 s, whose top segment is 0.85 s ahead, and the final ".", whose top segment is 4.49 s back) light up far from their timestamps, because their evidence is not local.
+
+### Aggregate, per group and per model
+
+Ten clips per group, so every number below is indicative, not conclusive. M2 occlusion is the primary method and M1 is the comparison. Same 20 clips for every model.
+
+![Hard set: distance to own timestamp and mel-band share](../figures/xai_tokens/aggregate_distance_bands_hard.png)
+
+Hard set (10 clips, lowest whisper-tiny confidence):
+
+| Model | Tokens | M2 median distance (s) | M2 tokens within 0.3 s | M2 within 0.5 s | M2 top segment's share of the token's attribution | M1 median distance (s) | M1 within 0.3 s | M1 and M2 pick the same top segment |
+|---|---|---|---|---|---|---|---|---|
+| whisper-tiny | 175 | 0.30 [0.20, 0.45] | 63% [45, 77] | 72% | 0.27 [0.23, 0.32] | 0.24 [0.17, 0.36] | 66% | 29% [18, 40] |
+| whisper-base | 234 | 0.10 [0.07, 0.15] | 82% [73, 89] | 86% | 0.33 [0.27, 0.39] | 0.13 [0.08, 0.21] | 74% | 36% [26, 45] |
+| AventIQ | 227 | 0.15 [0.07, 0.27] | 79% [67, 88] | 84% | 0.32 [0.26, 0.37] | 0.13 [0.09, 0.19] | 78% | 34% [28, 41] |
+
+![Mixed set: distance to own timestamp and mel-band share](../figures/xai_tokens/aggregate_distance_bands_mixed.png)
+
+Mixed set (10 clips, stratified, seed 8001):
+
+| Model | Tokens | M2 median distance (s) | M2 tokens within 0.3 s | M2 within 0.5 s | M2 top segment's share of the token's attribution | M1 median distance (s) | M1 within 0.3 s | M1 and M2 pick the same top segment |
+|---|---|---|---|---|---|---|---|---|
+| whisper-tiny | 284 | 0.19 [0.17, 0.20] | 77% [74, 81] | 89% | 0.35 [0.31, 0.39] | 0.19 [0.18, 0.21] | 74% | 38% [32, 44] |
+| whisper-base | 293 | 0.10 [0.08, 0.13] | 81% [75, 86] | 89% | 0.31 [0.25, 0.36] | 0.17 [0.10, 0.28] | 76% | 33% [26, 40] |
+| AventIQ | 301 | 0.10 [0.08, 0.13] | 82% [77, 87] | 90% | 0.27 [0.22, 0.32] | 0.20 [0.12, 0.33] | 73% | 33% [25, 41] |
+
+Mean share of M2 attribution per mel band, hard / mixed: bins 10–19 (about 410–750 Hz) carry the most for every model, 0.24 / 0.27 for whisper-tiny, 0.23 / 0.25 for whisper-base and 0.23 / 0.25 for AventIQ. Bins 0–9 (about 40–370 Hz) come second at 0.15 to 0.21. Bins 20–49 (about 0.8–2.4 kHz) take 0.11 to 0.14 each, and the two bands above 3.7 kHz 0.04 to 0.08 each. M1 instead puts 0.33 to 0.35 on bins 0–9 and 0.20 to 0.21 on bins 10–19 in both groups for every model, which is the profile of a map that follows input energy.
+
+What this says, per model:
+
+- whisper-tiny. In the mixed set three tokens in four draw most on the 100 ms segment at or next to their own timestamp (median gap 0.19 s, 77% within 0.3 s, 89% within 0.5 s). In the hard set that drops to 63% within 0.3 s and the median gap rises to 0.30 s with a wide interval. The hard clips are where the top segment also explains less of the token (0.27 against 0.35), so evidence is more spread out as well as further away.
+- whisper-base. Tighter than whisper-tiny in both groups (median gap 0.10 s, 81% to 82% within 0.3 s), and, unlike whisper-tiny, no worse on the hard set than on the mixed set. The hard set was selected by whisper-tiny's uncertainty, so this is a statement about whisper-base on clips whisper-tiny found hard, not about whisper-base's own hard cases.
+- AventIQ. Within 0.02 of whisper-base in every band share and within 0.05 s of it on median gap in the mixed set, which fits a fine-tune whose weights differ from whisper-base by at most 0.0023. Its hard-set interval is wider (median 0.15 s, CI 0.07 to 0.27).
+- Across models. The frequency answer is the same everywhere: tokens are decided in the 410–750 Hz band first and the band below it second, with little weight above 3.7 kHz. M1 and M2 agree on the top segment for only 29% to 38% of tokens even though their distance distributions look alike. M1 lands on the loud frames near the token, M2 on the frames whose removal hurts the token, and those are often a segment apart. That is the randomization failure seen from the other side.
+
+Two things the per-clip figures show that the aggregate hides. First, the first kept token of every clip carries timestamp 0.00 s for every model (all 50 pool clips, all three models), a property of Whisper's token timestamps, not of the attribution, so that token's distance is inflated. Second, in the hard set the tokens whose colour lands far from their own timestamp are mostly punctuation and sentence-final tokens, whose evidence is not local, while the content words still link to segments near their own time.
+
+### Background: the full 50-clip pool
+
+The first pass of this work used all 50 pool clips for whisper-tiny and 5 clips for the other two models, then was rescoped to the 20-clip study set above. Those numbers are kept only as context: whisper-tiny M2 on 50 clips gives a median gap of 0.22 s [0.19, 0.26] and 72% of tokens within 0.3 s, and M1 on the same 50 clips gives 73% to 75% within 0.3 s for the three models. With the 23 clips that now have M2 arrays for whisper-base and AventIQ (the 20 study clips plus 3 first-pass clips), both sit at 80% within 0.3 s. The per-clip figures of the three first-pass clips that are not in the study set are kept under the same folder and marked in the manifest.
+
+Limits. Ten clips per group give wide intervals, and the hard set is defined by whisper-tiny, so the other two models' hard-set rows are not their own hard cases. Whisper's timestamps are model output, so "distance to own timestamp" measures agreement between occlusion and the alignment heads, not against a human word alignment. Occlusion patches are 100 ms by 10 mel bins, so sub-patch structure is invisible, and a token whose evidence spans two patches shows a top share near 0.3 by construction.

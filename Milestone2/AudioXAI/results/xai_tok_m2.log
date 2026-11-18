@@ -1,0 +1,16 @@
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Loading weights:   0%|          | 0/245 [00:00<?, ?it/s]Loading weights: 100%|██████████| 245/245 [00:00<00:00, 22856.99it/s]
+done whisper-base id10287_2iaCNe7ajII_00004 (23, 8, 59) 10s
+done whisper-base id10285_uArtiTSTnSU_00014 (19, 8, 51) 7s
+done whisper-base id10296_f_k09R8r_cA_00004 (16, 8, 47) 6s
+done whisper-base id10288_R4S2c-NiPfA_00001 (14, 8, 55) 8s
+done whisper-base id10273_ZpPPaMazpf0_00003 (20, 8, 63) 9s
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Loading weights:   0%|          | 0/245 [00:00<?, ?it/s]Loading weights: 100%|██████████| 245/245 [00:00<00:00, 11580.86it/s]
+done aventiq id10287_2iaCNe7ajII_00004 (23, 8, 59) 10s
+done aventiq id10285_uArtiTSTnSU_00014 (21, 8, 51) 7s
+done aventiq id10296_f_k09R8r_cA_00004 (16, 8, 47) 7s
+done aventiq id10288_R4S2c-NiPfA_00001 (17, 8, 55) 8s
+done aventiq id10273_ZpPPaMazpf0_00003 (18, 8, 63) 9s

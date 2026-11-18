@@ -1,0 +1,150 @@
+{
+ "model": "whisper-tiny",
+ "asr": "openai/whisper-tiny",
+ "clip": "id10287_2iaCNe7ajII_00002",
+ "cls": "clean (hard set)",
+ "wer": 0.3,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10287_2iaCNe7ajII_00002.npz",
+   "sha256": "75da7a3b3557db4a244ed5f9c519115245928c5ff4ac8736a33fc82b99580f15"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10287_2iaCNe7ajII_00002_m2.npz",
+   "sha256": "6426b0e0fec9248097245b5cc5e4abe5a138c77e145f597bff294ad014fcb64c"
+  }
+ ],
+ "figures": [
+  "whisper-tiny__id10287_2iaCNe7ajII_00002__tokens.png",
+  "whisper-tiny__id10287_2iaCNe7ajII_00002__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 286,
+   "tok": " I",
+   "t": 0.0,
+   "m1_seg": 14,
+   "m1_band": 0,
+   "m2_seg": 18,
+   "m2_band": 0,
+   "m2_patch": [
+    3,
+    18
+   ]
+  },
+  {
+   "k": 1,
+   "id": 478,
+   "tok": "'m",
+   "t": 2.5199999809265137,
+   "m1_seg": 16,
+   "m1_band": 0,
+   "m2_seg": 17,
+   "m2_band": 1,
+   "m2_patch": [
+    0,
+    17
+   ]
+  },
+  {
+   "k": 2,
+   "id": 1009,
+   "tok": " always",
+   "t": 3.140000104904175,
+   "m1_seg": 10,
+   "m1_band": 0,
+   "m2_seg": 12,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    24
+   ]
+  },
+  {
+   "k": 3,
+   "id": 885,
+   "tok": " being",
+   "t": 3.4800000190734863,
+   "m1_seg": 32,
+   "m1_band": 0,
+   "m2_seg": 32,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    32
+   ]
+  },
+  {
+   "k": 4,
+   "id": 5880,
+   "tok": " creative",
+   "t": 3.9000000953674316,
+   "m1_seg": 39,
+   "m1_band": 0,
+   "m2_seg": 36,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    36
+   ]
+  },
+  {
+   "k": 5,
+   "id": 13,
+   "tok": ".",
+   "t": 4.139999866485596,
+   "m1_seg": 39,
+   "m1_band": 0,
+   "m2_seg": 40,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    44
+   ]
+  },
+  {
+   "k": 6,
+   "id": 286,
+   "tok": " I",
+   "t": 4.179999828338623,
+   "m1_seg": 39,
+   "m1_band": 0,
+   "m2_seg": 44,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    42
+   ]
+  },
+  {
+   "k": 7,
+   "id": 915,
+   "tok": " find",
+   "t": 4.400000095367432,
+   "m1_seg": 43,
+   "m1_band": 0,
+   "m2_seg": 40,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    40
+   ]
+  },
+  {
+   "k": 8,
+   "id": 300,
+   "tok": " that",
+   "t": 4.539999961853027,
+   "m1_seg": 44,
+   "m1_band": 0,
+   "m2_seg": 44,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    43
+   ]
+  }
+ ]
+}

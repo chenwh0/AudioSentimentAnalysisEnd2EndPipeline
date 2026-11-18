@@ -14,3 +14,6 @@ Milestone2/AudioXAI/results/dev/
 Milestone2/T1_final/results/aadd_devtest.json
 Milestone2/T1_final/results/aadd_devtest_seg20ms.csv
 Milestone2/T1_final/results_audit/
+
+# per-token tile SVGs are 12 MB each (308 MB for the set); PNGs are committed, SVGs stay local
+figures/xai_tokens/*__tokens.svg

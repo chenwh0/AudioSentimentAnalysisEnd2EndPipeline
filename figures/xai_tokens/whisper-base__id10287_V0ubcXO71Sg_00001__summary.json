@@ -1,0 +1,290 @@
+{
+ "model": "whisper-base",
+ "asr": "openai/whisper-base",
+ "clip": "id10287_V0ubcXO71Sg_00001",
+ "cls": "noise (mixed set)",
+ "wer": 0.15,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10287_V0ubcXO71Sg_00001.npz",
+   "sha256": "f88e81e7caab17ef15c2c5e8d4611bb0d2180bf61dc1e66b98ead146b3210b1e"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10287_V0ubcXO71Sg_00001_m2.npz",
+   "sha256": "dfcc35e2bca859a00af52df2dc7684c9f0ac51254f2f9ac841c67f9a93f3fef1"
+  }
+ ],
+ "figures": [
+  "whisper-base__id10287_V0ubcXO71Sg_00001__summary__tokens.png",
+  "whisper-base__id10287_V0ubcXO71Sg_00001__summary__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 510,
+   "tok": " here",
+   "t": 0.0,
+   "m1_seg": 2,
+   "m1_band": 1,
+   "m2_seg": 2,
+   "m2_band": 0,
+   "m2_patch": [
+    4,
+    1
+   ]
+  },
+  {
+   "k": 1,
+   "id": 370,
+   "tok": " so",
+   "t": 0.6200000047683716,
+   "m1_seg": 3,
+   "m1_band": 1,
+   "m2_seg": 4,
+   "m2_band": 0,
+   "m2_patch": [
+    7,
+    4
+   ]
+  },
+  {
+   "k": 2,
+   "id": 286,
+   "tok": " I",
+   "t": 0.7599999904632568,
+   "m1_seg": 61,
+   "m1_band": 0,
+   "m2_seg": 16,
+   "m2_band": 1,
+   "m2_patch": [
+    0,
+    60
+   ]
+  },
+  {
+   "k": 3,
+   "id": 483,
+   "tok": " get",
+   "t": 0.8999999761581421,
+   "m1_seg": 8,
+   "m1_band": 0,
+   "m2_seg": 7,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    7
+   ]
+  },
+  {
+   "k": 4,
+   "id": 281,
+   "tok": " to",
+   "t": 1.0800000429153442,
+   "m1_seg": 21,
+   "m1_band": 0,
+   "m2_seg": 10,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    10
+   ]
+  },
+  {
+   "k": 5,
+   "id": 808,
+   "tok": " come",
+   "t": 1.2999999523162842,
+   "m1_seg": 14,
+   "m1_band": 0,
+   "m2_seg": 12,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    12
+   ]
+  },
+  {
+   "k": 6,
+   "id": 293,
+   "tok": " and",
+   "t": 1.5,
+   "m1_seg": 20,
+   "m1_band": 1,
+   "m2_seg": 14,
+   "m2_band": 1,
+   "m2_patch": [
+    0,
+    14
+   ]
+  },
+  {
+   "k": 7,
+   "id": 3441,
+   "tok": " visit",
+   "t": 1.940000057220459,
+   "m1_seg": 17,
+   "m1_band": 1,
+   "m2_seg": 17,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    17
+   ]
+  },
+  {
+   "k": 8,
+   "id": 720,
+   "tok": " her",
+   "t": 2.440000057220459,
+   "m1_seg": 21,
+   "m1_band": 1,
+   "m2_seg": 23,
+   "m2_band": 1,
+   "m2_patch": [
+    3,
+    23
+   ]
+  },
+  {
+   "k": 9,
+   "id": 13,
+   "tok": ".",
+   "t": 3.140000104904175,
+   "m1_seg": 31,
+   "m1_band": 0,
+   "m2_seg": 17,
+   "m2_band": 1,
+   "m2_patch": [
+    3,
+    31
+   ]
+  },
+  {
+   "k": 10,
+   "id": 1222,
+   "tok": " My",
+   "t": 3.240000009536743,
+   "m1_seg": 31,
+   "m1_band": 1,
+   "m2_seg": 31,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    31
+   ]
+  },
+  {
+   "k": 11,
+   "id": 3708,
+   "tok": " brother",
+   "t": 3.5799999237060547,
+   "m1_seg": 32,
+   "m1_band": 0,
+   "m2_seg": 33,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    33
+   ]
+  },
+  {
+   "k": 12,
+   "id": 1143,
+   "tok": " used",
+   "t": 3.9000000953674316,
+   "m1_seg": 38,
+   "m1_band": 0,
+   "m2_seg": 37,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    37
+   ]
+  },
+  {
+   "k": 13,
+   "id": 281,
+   "tok": " to",
+   "t": 4.119999885559082,
+   "m1_seg": 37,
+   "m1_band": 0,
+   "m2_seg": 40,
+   "m2_band": 0,
+   "m2_patch": [
+    3,
+    40
+   ]
+  },
+  {
+   "k": 14,
+   "id": 1621,
+   "tok": " live",
+   "t": 4.340000152587891,
+   "m1_seg": 42,
+   "m1_band": 0,
+   "m2_seg": 40,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    40
+   ]
+  },
+  {
+   "k": 15,
+   "id": 11184,
+   "tok": " nearby",
+   "t": 4.900000095367432,
+   "m1_seg": 47,
+   "m1_band": 1,
+   "m2_seg": 44,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    44
+   ]
+  },
+  {
+   "k": 16,
+   "id": 370,
+   "tok": " so",
+   "t": 5.760000228881836,
+   "m1_seg": 55,
+   "m1_band": 1,
+   "m2_seg": 58,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    58
+   ]
+  },
+  {
+   "k": 17,
+   "id": 286,
+   "tok": " I",
+   "t": 5.920000076293945,
+   "m1_seg": 61,
+   "m1_band": 1,
+   "m2_seg": 58,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    58
+   ]
+  },
+  {
+   "k": 18,
+   "id": 1361,
+   "tok": " came",
+   "t": 6.159999847412109,
+   "m1_seg": 61,
+   "m1_band": 1,
+   "m2_seg": 61,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    61
+   ]
+  }
+ ]
+}
