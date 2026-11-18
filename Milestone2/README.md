@@ -184,7 +184,7 @@ For each of the 20 clips and each model there are two figures in `../figures/xai
 
 ![Mixed set, whisper-tiny, clean clip id10287_2iaCNe7ajII_00004: one tile per token](../figures/xai_tokens/whisper-tiny__id10287_2iaCNe7ajII_00004__tokens.png)
 
-The hard-set example above (WER 0.67, noise, every frame flagged by AADD) shows what "hard" looks like at token level: the heat strip runs along the diagonal for the content words, each lit at or just after its own timestamp, while the punctuation and sentence-final tokens ("and" at 0.0 s, whose top segment is 0.85 s ahead, and the final ".", whose top segment is 4.49 s back) light up far from their timestamps, because their evidence is not local.
+The hard-set example above (WER 0.67, noise, every frame flagged by AADD) shows what "hard" looks like at token level: the heat strip runs along the diagonal for most tokens, each lit at or just after its own timestamp. Two rows break the diagonal. The first token "and" carries the 0.00 s timestamp artefact and its top segment is 0.85 s ahead, and the final "." has its top segment 4.49 s back, spread over the whole clip. The clip's other punctuation sits within 0.4 s of its timestamp, so punctuation as such is not the problem here.
 
 ### Aggregate, per group and per model
 
@@ -207,7 +207,7 @@ Mixed set (10 clips, stratified, seed 8001):
 | Model | Tokens | M2 median distance (s) | M2 tokens within 0.3 s | M2 within 0.5 s | M2 top segment's share of the token's attribution | M1 median distance (s) | M1 within 0.3 s | M1 and M2 pick the same top segment |
 |---|---|---|---|---|---|---|---|---|
 | whisper-tiny | 284 | 0.19 [0.17, 0.20] | 77% [74, 81] | 89% | 0.35 [0.31, 0.39] | 0.19 [0.18, 0.21] | 74% | 38% [32, 44] |
-| whisper-base | 293 | 0.10 [0.08, 0.13] | 81% [75, 86] | 89% | 0.31 [0.25, 0.36] | 0.17 [0.10, 0.28] | 76% | 33% [26, 40] |
+| whisper-base | 293 | 0.10 [0.08, 0.13] | 81% [75, 86] | 89% | 0.31 [0.25, 0.36] | 0.17 [0.10, 0.28] | 76% | 33% [26, 39] |
 | AventIQ | 301 | 0.10 [0.08, 0.13] | 82% [77, 87] | 90% | 0.27 [0.22, 0.32] | 0.20 [0.12, 0.33] | 73% | 33% [25, 41] |
 
 Mean share of M2 attribution per mel band, hard / mixed: bins 10–19 (about 410–750 Hz) carry the most for every model, 0.24 / 0.27 for whisper-tiny, 0.23 / 0.25 for whisper-base and 0.23 / 0.25 for AventIQ. Bins 0–9 (about 40–370 Hz) come second at 0.15 to 0.21. Bins 20–49 (about 0.8–2.4 kHz) take 0.11 to 0.14 each, and the two bands above 3.7 kHz 0.04 to 0.08 each. M1 instead puts 0.33 to 0.35 on bins 0–9 and 0.20 to 0.21 on bins 10–19 in both groups for every model, which is the profile of a map that follows input energy.
@@ -215,11 +215,11 @@ Mean share of M2 attribution per mel band, hard / mixed: bins 10–19 (about 410
 What this says, per model:
 
 - whisper-tiny. In the mixed set three tokens in four draw most on the 100 ms segment at or next to their own timestamp (median gap 0.19 s, 77% within 0.3 s, 89% within 0.5 s). In the hard set that drops to 63% within 0.3 s and the median gap rises to 0.30 s with a wide interval. The hard clips are where the top segment also explains less of the token (0.27 against 0.35), so evidence is more spread out as well as further away.
-- whisper-base. Tighter than whisper-tiny in both groups (median gap 0.10 s, 81% to 82% within 0.3 s), and, unlike whisper-tiny, no worse on the hard set than on the mixed set. The hard set was selected by whisper-tiny's uncertainty, so this is a statement about whisper-base on clips whisper-tiny found hard, not about whisper-base's own hard cases.
+- whisper-base. Tighter than whisper-tiny in both groups (median gap 0.10 s, 81% to 82% within 0.3 s). Unlike whisper-tiny, it barely moves between the groups: the median gap is the same, 82% against 81% within 0.3 s, and 86% against 89% within 0.5 s. The hard set was selected by whisper-tiny's uncertainty, so this is a statement about whisper-base on clips whisper-tiny found hard, not about whisper-base's own hard cases.
 - AventIQ. Within 0.02 of whisper-base in every band share and within 0.05 s of it on median gap in the mixed set, which fits a fine-tune whose weights differ from whisper-base by at most 0.0023. Its hard-set interval is wider (median 0.15 s, CI 0.07 to 0.27).
 - Across models. The frequency answer is the same everywhere: tokens are decided in the 410–750 Hz band first and the band below it second, with little weight above 3.7 kHz. M1 and M2 agree on the top segment for only 29% to 38% of tokens even though their distance distributions look alike. M1 lands on the loud frames near the token, M2 on the frames whose removal hurts the token, and those are often a segment apart. That is the randomization failure seen from the other side.
 
-Two things the per-clip figures show that the aggregate hides. First, the first kept token of every clip carries timestamp 0.00 s for every model (all 50 pool clips, all three models), a property of Whisper's token timestamps, not of the attribution, so that token's distance is inflated. Second, in the hard set the tokens whose colour lands far from their own timestamp are mostly punctuation and sentence-final tokens, whose evidence is not local, while the content words still link to segments near their own time.
+Two things the per-clip figures show that the aggregate hides. First, the first kept token of every clip carries timestamp 0.00 s for every model (all 50 pool clips, all three models), a property of Whisper's token timestamps, not of the attribution, so that token's distance is inflated. Second, the far-off tokens in the hard set are not mainly punctuation. Of the 24 whisper-tiny hard-set tokens whose top M2 segment is more than 0.5 s from their timestamp, 3 are punctuation, 7 are the first token of a clip (the 0.00 s artefact), and 14 are words, among them content words such as "fight" (1.65 s off), "more" (3.03 s), "always" (1.89 s) and "shot" (0.63 s). In the hard set the evidence for a word can sit a second or more away from where Whisper stamps it.
 
 ### Background: the full 50-clip pool
 
