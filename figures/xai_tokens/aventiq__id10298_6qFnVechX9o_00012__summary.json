@@ -1,0 +1,249 @@
+{
+ "model": "aventiq",
+ "asr": "AventIQ-AI/whisper-audio-to-text",
+ "clip": "id10298_6qFnVechX9o_00012",
+ "cls": "reverb (hard set)",
+ "wer": 0.4,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10298_6qFnVechX9o_00012.npz",
+   "sha256": "e2738e773d4d17c3259816651576fe1474f0f40fec2ead9b91c82a77d87f88b5"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10298_6qFnVechX9o_00012_m2.npz",
+   "sha256": "27c76ae16c8a3b5f2d3abad2e5aec8d5b3e3a98e6255d8a857ee3fc1caa76e2c"
+  }
+ ],
+ "figures": [
+  "aventiq__id10298_6qFnVechX9o_00012__summary__tokens.png",
+  "aventiq__id10298_6qFnVechX9o_00012__summary__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 5678,
+   "tok": " James",
+   "t": 0.0,
+   "m1_seg": 3,
+   "m1_band": 0,
+   "m2_seg": 2,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    2
+   ],
+   "lane": 0
+  },
+  {
+   "k": 1,
+   "id": 7995,
+   "tok": " Gar",
+   "t": 0.6200000047683716,
+   "m1_seg": 5,
+   "m1_band": 0,
+   "m2_seg": 5,
+   "m2_band": 1,
+   "m2_patch": [
+    3,
+    5
+   ],
+   "lane": 1
+  },
+  {
+   "k": 2,
+   "id": 607,
+   "tok": "ber",
+   "t": 0.7200000286102295,
+   "m1_seg": 6,
+   "m1_band": 0,
+   "m2_seg": 7,
+   "m2_band": 1,
+   "m2_patch": [
+    2,
+    7
+   ],
+   "lane": 0
+  },
+  {
+   "k": 3,
+   "id": 11,
+   "tok": ",",
+   "t": 1.2599999904632568,
+   "m1_seg": 14,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 1,
+   "m2_patch": [
+    0,
+    0
+   ],
+   "lane": 1
+  },
+  {
+   "k": 4,
+   "id": 2975,
+   "tok": " 11",
+   "t": 1.4600000381469727,
+   "m1_seg": 14,
+   "m1_band": 0,
+   "m2_seg": 14,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    14
+   ],
+   "lane": 0
+  },
+  {
+   "k": 5,
+   "id": 924,
+   "tok": " years",
+   "t": 1.6799999475479126,
+   "m1_seg": 16,
+   "m1_band": 0,
+   "m2_seg": 18,
+   "m2_band": 4,
+   "m2_patch": [
+    0,
+    16
+   ],
+   "lane": 1
+  },
+  {
+   "k": 6,
+   "id": 5237,
+   "tok": " fighting",
+   "t": 1.9600000381469727,
+   "m1_seg": 19,
+   "m1_band": 0,
+   "m2_seg": 19,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    19
+   ],
+   "lane": 0
+  },
+  {
+   "k": 7,
+   "id": 552,
+   "tok": " them",
+   "t": 2.1600000858306885,
+   "m1_seg": 20,
+   "m1_band": 0,
+   "m2_seg": 21,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    21
+   ],
+   "lane": 2
+  },
+  {
+   "k": 8,
+   "id": 294,
+   "tok": " in",
+   "t": 2.319999933242798,
+   "m1_seg": 25,
+   "m1_band": 0,
+   "m2_seg": 21,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    21
+   ],
+   "lane": 3
+  },
+  {
+   "k": 9,
+   "id": 4753,
+   "tok": " court",
+   "t": 2.5,
+   "m1_seg": 23,
+   "m1_band": 0,
+   "m2_seg": 25,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    25
+   ],
+   "lane": 0
+  },
+  {
+   "k": 10,
+   "id": 281,
+   "tok": " to",
+   "t": 3.059999942779541,
+   "m1_seg": 13,
+   "m1_band": 0,
+   "m2_seg": 28,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    28
+   ],
+   "lane": 1
+  },
+  {
+   "k": 11,
+   "id": 483,
+   "tok": " get",
+   "t": 3.2200000286102295,
+   "m1_seg": 32,
+   "m1_band": 0,
+   "m2_seg": 31,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    31
+   ],
+   "lane": 0
+  },
+  {
+   "k": 12,
+   "id": 291,
+   "tok": " you",
+   "t": 3.380000114440918,
+   "m1_seg": 34,
+   "m1_band": 0,
+   "m2_seg": 33,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    33
+   ],
+   "lane": 1
+  },
+  {
+   "k": 13,
+   "id": 1460,
+   "tok": " money",
+   "t": 3.680000066757202,
+   "m1_seg": 34,
+   "m1_band": 0,
+   "m2_seg": 36,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    36
+   ],
+   "lane": 0
+  },
+  {
+   "k": 14,
+   "id": 13,
+   "tok": ".",
+   "t": 4.340000152587891,
+   "m1_seg": 3,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 1,
+   "m2_patch": [
+    0,
+    0
+   ],
+   "lane": 2
+  }
+ ]
+}

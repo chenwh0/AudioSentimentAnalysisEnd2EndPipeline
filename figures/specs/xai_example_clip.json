@@ -1,0 +1,22 @@
+{
+ "purpose": "One worked example of the AudioXAI view: waveform, the log-mel spectrogram the speech model sees with its attribution overlaid, the AADD degradation timeline, and the transcript with errors and sentiment importance.",
+ "data_file": "Milestone2/AudioXAI/results/npz/id10273_ZpPPaMazpf0_00003.npz",
+ "filter": "clip id10273_ZpPPaMazpf0_00003; audio at Milestone2/PipelineEvaluation/data/audio/id10273_ZpPPaMazpf0_00003.wav (16 kHz mono); AADD 20 ms rows for this clip in Milestone2/T1_final/results/aadd_devtest_seg20ms.csv (path column ends with /id10273_ZpPPaMazpf0_00003.wav); its aggregate row in Milestone2/AudioXAI/results/aggregate.csv",
+ "columns": {
+  "npz": "inspect the arrays in the .npz (print keys and shapes first); use the log-mel array, the M1 attribution (clip map or per-token maps averaged), the token timestamps and token strings, and the AADD per-frame max probability; Milestone2/AudioXAI/audioxai/report.py and core.py document the array names"
+ },
+ "encodings": "four stacked panels sharing the time axis in seconds: (1) waveform; (2) log-mel spectrogram (gray) with the M1 attribution overlaid as a translucent heat layer (sequential single-hue colormap, alpha scaled by attribution mass), cropped to the clip duration; (3) the AADD timeline: max class probability per 20 ms frame as a filled step line with the 0.5 flag threshold dashed and flagged regions shaded; (4) the transcript words placed at their timestamps, colored by error type (correct / substitution / insertion; deletions as a marker) and with sentiment importance shown as bar height below each word; a title line with gold label, predicted label and the clip id",
+ "axes": {
+  "x": "time (s)",
+  "panel_y": [
+   "amplitude",
+   "mel bin (80, low to high frequency)",
+   "degradation probability",
+   "sentiment importance (Integrated Gradients, share)"
+  ]
+ },
+ "caption": "One test clip through the AudioXAI tool: where whisper-tiny's attribution falls on the spectrogram, where the degradation detector flags the audio, which transcript words were wrong, and which words carried the sentiment decision.",
+ "output": "figures/xai_example_clip.png",
+ "data_sha256": "00221b2b332aa2b78be9552dc0a734ad605e02d2f07bcdd27bb8116eeaaffe84",
+ "generated": "2026-11-18 overnight run, Phase 5"
+}

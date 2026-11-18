@@ -1,0 +1,98 @@
+{
+ "source_repo": "https://huggingface.co/openai/whisper-base",
+ "revision": "e37978b90ca9030d5170a5c07aadb050351a65bb",
+ "snapshot": "/home/cppesl/.cache/huggingface/hub/models--openai--whisper-base/snapshots/e37978b90ca9030d5170a5c07aadb050351a65bb",
+ "weights_sha256": "07cadb9f25677c8d50df603e66a98fbd842cce45047139baeb16e6219a1e807b",
+ "size_on_disk": {
+  "loaded_files": {
+   "normalizer.json": 52666,
+   "tokenizer_config.json": 282683,
+   "generation_config.json": 3807,
+   "tokenizer.json": 2480466,
+   "added_tokens.json": 34604,
+   "model.safetensors": 290403936,
+   "vocab.json": 835550,
+   "merges.txt": 493869,
+   "config.json": 1983,
+   "preprocessor_config.json": 184990,
+   "special_tokens_map.json": 2194
+  },
+  "loaded_files_MB": 294.78,
+  "hub_repo_all_files_MB": 1166.3,
+  "hub_weight_files_MB": {
+   "flax_model.msgpack": 290.38,
+   "model.safetensors": 290.4,
+   "pytorch_model.bin": 290.45,
+   "tf_model.h5": 290.66
+  }
+ },
+ "offline_accuracy_test": {
+  "n": 1500,
+  "wer_gold": 0.1816577167859984,
+  "wer_gold_nofillers": 0.1649979670664769,
+  "wer_pseudo_reference": 0.1464897304568265,
+  "reference": "SLUE-VoxCeleb human transcripts (gold); whisper-large-v3 pseudo-reference for comparability",
+  "cardiff_macro_f1": 0.6183732752360204,
+  "cardiff_macro_f1_ci": [
+   0.5899344551712516,
+   0.6461822831333666
+  ],
+  "cardiff_t": 0.75,
+  "cardiff_tau": null
+ },
+ "all_sentiment_downstream": {
+  "cardiff": {
+   "macro_f1": 0.6183732752360204,
+   "ci": [
+    0.5899344551712516,
+    0.6461822831333666
+   ],
+   "tau": null,
+   "t": 0.75
+  },
+  "tabularisai": {
+   "macro_f1": 0.3292238713125358,
+   "ci": [
+    0.3062814285618613,
+    0.3518133161021214
+   ],
+   "tau": null,
+   "t": 0.5
+  },
+  "siebert": {
+   "macro_f1": 0.3344618396128907,
+   "ci": [
+    0.3099158018218728,
+    0.3584950120828867
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "distilbert": {
+   "macro_f1": 0.4599297516821536,
+   "ci": [
+    0.4329535863593705,
+    0.4863205158280937
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  }
+ },
+ "notes": "",
+ "kind": "asr",
+ "name": "openai/whisper-base",
+ "short_name": "whisper-base",
+ "version": "e37978b90ca9030d5170a5c07aadb050351a65bb",
+ "registered_at": "2026-11-18T05:43:52-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/asr/whisper-base/e37978b90ca9030d5170a5c07aadb050351a65bb",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}

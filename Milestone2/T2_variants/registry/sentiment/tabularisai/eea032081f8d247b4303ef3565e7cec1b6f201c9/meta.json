@@ -1,0 +1,102 @@
+{
+ "source_repo": "https://huggingface.co/tabularisai/multilingual-sentiment-analysis",
+ "revision": "eea032081f8d247b4303ef3565e7cec1b6f201c9",
+ "snapshot": "/home/cppesl/.cache/huggingface/hub/models--tabularisai--multilingual-sentiment-analysis/snapshots/eea032081f8d247b4303ef3565e7cec1b6f201c9",
+ "weights_sha256": "3ab3cecb8605da0a240e5b4e18d969704d44e27c6ea48533ef6693d31dbb926a",
+ "size_on_disk": {
+  "loaded_files": {
+   "vocab.txt": 995526,
+   "tokenizer_config.json": 1198,
+   "tokenizer.json": 2919362,
+   "model.safetensors": 541326604,
+   "config.json": 851,
+   "special_tokens_map.json": 125
+  },
+  "loaded_files_MB": 545.24,
+  "hub_repo_all_files_MB": 545.26,
+  "hub_weight_files_MB": {
+   "model.safetensors": 541.33
+  }
+ },
+ "label_mapping": "very negative+negative\u2192Negative, positive+very positive\u2192Positive",
+ "offline_accuracy_test": {
+  "upstream=AventIQ": {
+   "macro_f1": 0.3304121160892531,
+   "ci": [
+    0.3077377041934717,
+    0.3531958334573349
+   ],
+   "tau": null,
+   "t": 0.5
+  },
+  "upstream=s2t-small": {
+   "macro_f1": 0.3344030205977588,
+   "ci": [
+    0.3115822172710502,
+    0.3573593157810178
+   ],
+   "tau": null,
+   "t": 0.5
+  },
+  "upstream=whisper-tiny": {
+   "macro_f1": 0.3252074526662327,
+   "ci": [
+    0.3024942854068484,
+    0.347458392587309
+   ],
+   "tau": null,
+   "t": 0.7
+  },
+  "upstream=whisper-base": {
+   "macro_f1": 0.3292238713125358,
+   "ci": [
+    0.3062814285618613,
+    0.3518133161021214
+   ],
+   "tau": null,
+   "t": 0.5
+  },
+  "upstream=moonshine-base": {
+   "macro_f1": 0.3368055860287084,
+   "ci": [
+    0.3141110371181707,
+    0.3594106734043296
+   ],
+   "tau": null,
+   "t": 0.45
+  },
+  "upstream=whisper-tiny-wsp": {
+   "macro_f1": 0.3266102673513675,
+   "ci": [
+    0.3041269951602692,
+    0.3491421997746562
+   ],
+   "tau": null,
+   "t": 0.65
+  }
+ },
+ "gold_text_macro_f1": {
+  "AventIQ": 0.3388567235888127,
+  "s2t-small": 0.3388567235888127,
+  "whisper-tiny": 0.3388567235888127,
+  "whisper-base": 0.3388567235888127,
+  "moonshine-base": 0.3388567235888127,
+  "whisper-tiny-wsp": 0.3388567235888127
+ },
+ "kind": "sentiment",
+ "name": "tabularisai/multilingual-sentiment-analysis",
+ "short_name": "tabularisai",
+ "version": "eea032081f8d247b4303ef3565e7cec1b6f201c9",
+ "registered_at": "2026-11-18T05:43:53-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/sentiment/tabularisai/eea032081f8d247b4303ef3565e7cec1b6f201c9",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}

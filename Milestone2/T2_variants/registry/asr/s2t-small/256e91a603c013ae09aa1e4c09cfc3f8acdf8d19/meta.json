@@ -1,0 +1,94 @@
+{
+ "source_repo": "https://huggingface.co/facebook/s2t-small-librispeech-asr",
+ "revision": "256e91a603c013ae09aa1e4c09cfc3f8acdf8d19",
+ "snapshot": "/home/cppesl/.cache/huggingface/hub/models--facebook--s2t-small-librispeech-asr/snapshots/256e91a603c013ae09aa1e4c09cfc3f8acdf8d19",
+ "weights_sha256": "7d2b5fd0d9072cf00d3599363653a91f725d24e50a6b9ece8e4cb0837ba1969f",
+ "size_on_disk": {
+  "loaded_files": {
+   "tokenizer_config.json": 456,
+   "generation_config.json": 233,
+   "model.safetensors": 118185584,
+   "sentencepiece.bpe.model": 416684,
+   "vocab.json": 235355,
+   "config.json": 1135,
+   "preprocessor_config.json": 242,
+   "special_tokens_map.json": 85
+  },
+  "loaded_files_MB": 118.84,
+  "hub_repo_all_files_MB": 365.91,
+  "hub_weight_files_MB": {
+   "model.safetensors": 118.19,
+   "pytorch_model.bin": 118.27,
+   "tf_model.h5": 128.8
+  }
+ },
+ "offline_accuracy_test": {
+  "n": 1500,
+  "wer_gold": 0.598324383452665,
+  "wer_gold_nofillers": 0.604670664769262,
+  "wer_pseudo_reference": 0.6518185110455792,
+  "reference": "SLUE-VoxCeleb human transcripts (gold); whisper-large-v3 pseudo-reference for comparability",
+  "cardiff_macro_f1": 0.6032455625716769,
+  "cardiff_macro_f1_ci": [
+   0.5737834168203246,
+   0.6321765152886856
+  ],
+  "cardiff_t": 0.75,
+  "cardiff_tau": null
+ },
+ "all_sentiment_downstream": {
+  "cardiff": {
+   "macro_f1": 0.6032455625716769,
+   "ci": [
+    0.5737834168203246,
+    0.6321765152886856
+   ],
+   "tau": null,
+   "t": 0.75
+  },
+  "tabularisai": {
+   "macro_f1": 0.3344030205977588,
+   "ci": [
+    0.3115822172710502,
+    0.3573593157810178
+   ],
+   "tau": null,
+   "t": 0.5
+  },
+  "siebert": {
+   "macro_f1": 0.3253613489013573,
+   "ci": [
+    0.3026117128660081,
+    0.3480710452747305
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "distilbert": {
+   "macro_f1": 0.4423388904874212,
+   "ci": [
+    0.4167986566136948,
+    0.4683536775529232
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  }
+ },
+ "notes": "fixed variant: batch size 1 (see T1_final/results/s2t_bug_probe.json)",
+ "kind": "asr",
+ "name": "facebook/s2t-small-librispeech-asr",
+ "short_name": "s2t-small",
+ "version": "256e91a603c013ae09aa1e4c09cfc3f8acdf8d19",
+ "registered_at": "2026-11-18T05:43:52-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/asr/s2t-small/256e91a603c013ae09aa1e4c09cfc3f8acdf8d19",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}

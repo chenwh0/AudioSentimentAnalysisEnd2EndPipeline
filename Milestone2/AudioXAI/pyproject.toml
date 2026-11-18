@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audioxai"
+version = "0.1.0"
+description = "Explain why ASR choice barely changes audio sentiment results: ASR attribution vs AADD degradation timelines"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "scipy", "torch", "transformers", "captum==0.9.0", "jiwer", "soundfile"]
+
+[project.scripts]
+audioxai = "audioxai.cli:main"
+
+[tool.setuptools]
+packages = ["audioxai"]

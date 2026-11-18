@@ -1,0 +1,37 @@
+# W1 brief: WSP-Whisper, minimal (Phase 3 of brief.md), hard stop 07:30 CST
+
+Read /home/cppesl/Desktop/Alve/e2eML_course/brief.md section 6 (Phase 3) and section 1 first. This brief is the binding scope for tonight.
+
+## Objective
+Produce a minimal, honest Weight-Space-Programming result on openai/whisper-tiny (revision 169d4a4341b33bc18d8881c4b69c2e104e1cc0af) under the brief's rules: no gradients, no optimizers, no decoding changes, no weights from other checkpoints, ≤ 50 forward passes (tonight: use at most 20), everything logged. A well-documented null result is acceptable; an overstated one is not.
+
+## Environment (use exactly these)
+- Repo root R = /home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline (branch m2-overnight). Do NOT run any git command; the orchestrator commits.
+- Python P = /home/cppesl/Desktop/Alve/e2eML_course/.venv/bin/python (torch 2.11 cu128, transformers 5.5.4, jiwer, soundfile, safetensors available). Install nothing except into that venv via `P -m pip install`.
+- GPU: one. Every GPU job: `flock /tmp/m2_gpu.lock P script.py ...` and append a start and an end JSON line to R/logs/gpu_jobs.jsonl: {"ts","job","event":"start"|"end","pid","note"}.
+- Never print or log the HF token. Models are already in the HF cache.
+- Audio: R/Milestone2/PipelineEvaluation/data/audio/<file>.wav (16 kHz mono). Dev slice: R/Milestone2/PipelineEvaluation/development.csv (columns file, label, original_index, duration, openai/whisper-large-v3_transcript). Test slice: test.csv (same columns). Test indices: test_indices.npy; load pool: load_pool_indices.npy (never read load-pool audio).
+- Gold transcripts: R/Milestone2/T1_final/data/slue_voxceleb_test.tsv (tab-separated; columns id, normalized_text, ...; id == file). Join on id.
+- Normalization for WER (the notebook's):
+  def normalize_text(text):
+      text = str(text).lower().replace("—", " ").replace("–", " ")
+      text = re.sub(r"[^\w\s]", "", text)
+      return re.sub(r"\s+", " ", text).strip()
+  Corpus WER = jiwer.wer(list_of_refs, list_of_hyps) after normalization, skipping empty refs.
+
+## Output location and boundaries
+Write only under R/Milestone2/WSP_Whisper/ (subdirs splits/, wsp/, edits/, results/) and your log R/logs/agents/W1_wsp.md, plus append-only lines to R/logs/gpu_jobs.jsonl, R/logs/forward_passes.jsonl, R/logs/eval_runs.jsonl. Touch nothing else. Do not read test audio except through the locked harness. Do not read load-pool audio at all.
+
+## Steps (in order)
+1. splits: from the 500 dev clips sorted by original_index, label-stratified split with numpy.random.default_rng(8001): process labels in alphabetical order; within each label apply rng.permutation to that label's row positions; the first floor(n/2) go to practice, the rest to holdout. Save splits/wsp_practice_ids.npy and splits/wsp_holdout_ids.npy (original_index values) and splits/manifest.json with counts, label counts and SHA-256 of both npy files. Assert disjointness from each other, from test_indices.npy and load_pool_indices.npy. Write this FIRST (another worker needs the holdout IDs) and write splits/READY when done.
+2. wsp/eval_harness.py (locked): loads whisper-tiny at the pinned revision (or an edited checkpoint rebuilt by apply_edits.py), transformers pipeline with chunk_length_s=30, generate_kwargs={"language":"en","task":"transcribe"}, batch_size 8, fp32, soundfile mono float32. Reports: corpus WER vs gold (primary) and vs the whisper-large-v3 pseudo-reference, per-clip WER, word-count ratio (hyp words / ref words), A1 (≥2 words), A2 (0.5 ≤ words/duration ≤ 5.0), counts of long (>1.5×) and short (<0.5×) transcripts. Every harness run appends to logs/eval_runs.jsonl {"ts","checkpoint","split":"holdout"|"test","n","wer_gold","wer_pseudo","a1","a2","long","short"} and saves per-clip results under results/eval_<checkpoint>_<split>.csv. Compute SHA-256 of eval_harness.py into wsp/HARNESS_LOCK.txt and never edit the file afterwards.
+3. Base test run: ONE run of the harness on the 1,500 test clips with the base model → results/eval_base_test.csv. Compare WER vs pseudo-reference with the teammate's 0.1988; if the gap exceeds 0.01, write an explanation in your log before any edit. This is the base model's final test number; never rerun it.
+4. wsp/fp_counter.py: the only way to run the model on practice clips. Each call logs {"pass_id","ts","n_clips","clip_ids_sha256","purpose","hypothesis_id","edit_id"} to logs/forward_passes.jsonl, refuses batches > 64 clips, refuses any non-practice ID, and raises on pass 51. Weight-only analysis is free. Holdout evaluation runs go through the harness only (they do not count).
+5. Diagnostic + layer audit: run the base model on practice clips (≤ 3 passes) to count repetitions, hallucinations on silence, dropped and wrong words. Inspect every encoder/decoder block (self-attn, cross-attn, MLP, layer norms, embeddings, output projection) with weight statistics plus activations from those passes; write results/layer_audit.csv (layer, tensor, shape, norm stats, activation stats, note). Check tied weights (proj_out shares storage with decoder.embed_tokens: True on this checkpoint) and record the consequence.
+6. Edits: each edit = hypothesis (written), tensor name, indices, old values, new values (or exact op). Propose, measure with one pass on practice (or a holdout eval), keep or revert. Two consecutive failures on the same hypothesis → mark it blocked and switch mechanism. Save cumulative sparse patches edits/patch_fp10.safetensors + edits/edits_fp10.json at pass 10 (and fp20 if reached; fp25/fp50 only if time), with wsp/apply_edits.py rebuilding the full model from base + patch. Keep practice/holdout numbers out of final results.
+7. Selection at 07:20 at the latest: register the checkpoint with the lowest holdout WER (ties → fewer changed weights) in results/REGISTERED.txt (checkpoint name, holdout WER, number of changed weights, timestamp) BEFORE any test run of an edited checkpoint. Then run each saved checkpoint on test once through the harness.
+8. results/wsp_results.csv and results/wsp_results.md: rows base + each checkpoint: test WER vs gold with paired bootstrap 95% CI (10,000 resamples with default_rng(8001) of the same clips for both models, corpus WER recomputed from summed errors), WER vs pseudo-reference, long/short counts, A1/A2 pass rates, Cardiff macro-F1 (cardiffnlp/twitter-roberta-base-sentiment-latest on the transcripts, 3 classes as-is, label strings Negative/Neutral/Positive) with bootstrap CI. Also write results/transcripts_whisper-tiny-wsp.csv (columns file, transcript) for the registered checkpoint on test AND dev (dev via one harness run on the 500 dev clips, logged as an eval run), so Phase 2/5 can use the variant. Also results/edit_locations.csv (layer, tensor, n_changed, fraction_changed) for the figure.
+9. Every 15 minutes append a status block to R/logs/agents/W1_wsp.md: time, passes used, what is done (paths), what is running, blockers, next step. At 07:30 CST stop editing no matter what; finish step 8 with what exists by 07:40; final line of your log: "W1 DONE" plus a 10-line summary with file paths and the headline numbers.
+
+## What does not count
+Gradients/backward/optim/Trainer, LoRA, distillation, automated search over values, decoding/generation_config/tokenizer/processor changes, copying weights from other checkpoints, choosing a checkpoint by its test score, an "improvement" whose CI includes zero.

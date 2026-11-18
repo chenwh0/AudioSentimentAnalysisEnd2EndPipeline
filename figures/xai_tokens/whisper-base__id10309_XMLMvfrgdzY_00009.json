@@ -1,0 +1,220 @@
+{
+ "model": "whisper-base",
+ "asr": "openai/whisper-base",
+ "clip": "id10309_XMLMvfrgdzY_00009",
+ "cls": "music (mixed set)",
+ "wer": 0.0,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10309_XMLMvfrgdzY_00009.npz",
+   "sha256": "9fe60f3a376eac1829210815eb14e0c0253c213c114a3d90e360ba407045efd9"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10309_XMLMvfrgdzY_00009_m2.npz",
+   "sha256": "d1c5ba32b0da89fbe5b15352e24cddcf158ba1fdf6ee50f9dfe1433d70b14465"
+  }
+ ],
+ "figures": [
+  "whisper-base__id10309_XMLMvfrgdzY_00009__tokens.png",
+  "whisper-base__id10309_XMLMvfrgdzY_00009__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 411,
+   "tok": " like",
+   "t": 0.0,
+   "m1_seg": 59,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 1,
+   "m2_patch": [
+    3,
+    0
+   ]
+  },
+  {
+   "k": 1,
+   "id": 4519,
+   "tok": " girls",
+   "t": 0.699999988079071,
+   "m1_seg": 6,
+   "m1_band": 0,
+   "m2_seg": 2,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    1
+   ]
+  },
+  {
+   "k": 2,
+   "id": 365,
+   "tok": " with",
+   "t": 0.9599999785423279,
+   "m1_seg": 8,
+   "m1_band": 0,
+   "m2_seg": 9,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    9
+   ]
+  },
+  {
+   "k": 3,
+   "id": 17090,
+   "tok": " artistic",
+   "t": 1.2200000286102295,
+   "m1_seg": 10,
+   "m1_band": 0,
+   "m2_seg": 10,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    10
+   ]
+  },
+  {
+   "k": 4,
+   "id": 2923,
+   "tok": " sens",
+   "t": 1.7400000095367432,
+   "m1_seg": 20,
+   "m1_band": 0,
+   "m2_seg": 16,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    16
+   ]
+  },
+  {
+   "k": 5,
+   "id": 2841,
+   "tok": "ibility",
+   "t": 2.1600000858306885,
+   "m1_seg": 23,
+   "m1_band": 0,
+   "m2_seg": 23,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    23
+   ]
+  },
+  {
+   "k": 6,
+   "id": 293,
+   "tok": " and",
+   "t": 2.440000057220459,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 24,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    23
+   ]
+  },
+  {
+   "k": 7,
+   "id": 567,
+   "tok": " who",
+   "t": 2.559999942779541,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 25,
+   "m2_band": 4,
+   "m2_patch": [
+    0,
+    25
+   ]
+  },
+  {
+   "k": 8,
+   "id": 652,
+   "tok": " make",
+   "t": 2.7799999713897705,
+   "m1_seg": 30,
+   "m1_band": 0,
+   "m2_seg": 27,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    27
+   ]
+  },
+  {
+   "k": 9,
+   "id": 1523,
+   "tok": " art",
+   "t": 3.059999942779541,
+   "m1_seg": 30,
+   "m1_band": 0,
+   "m2_seg": 29,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    29
+   ]
+  },
+  {
+   "k": 10,
+   "id": 293,
+   "tok": " and",
+   "t": 4.659999847412109,
+   "m1_seg": 53,
+   "m1_band": 0,
+   "m2_seg": 32,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    32
+   ]
+  },
+  {
+   "k": 11,
+   "id": 286,
+   "tok": " I",
+   "t": 5.360000133514404,
+   "m1_seg": 53,
+   "m1_band": 0,
+   "m2_seg": 53,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    53
+   ]
+  },
+  {
+   "k": 12,
+   "id": 3928,
+   "tok": " tend",
+   "t": 5.699999809265137,
+   "m1_seg": 59,
+   "m1_band": 0,
+   "m2_seg": 53,
+   "m2_band": 2,
+   "m2_patch": [
+    4,
+    53
+   ]
+  },
+  {
+   "k": 13,
+   "id": 281,
+   "tok": " to",
+   "t": 5.940000057220459,
+   "m1_seg": 59,
+   "m1_band": 0,
+   "m2_seg": 59,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    59
+   ]
+  }
+ ]
+}

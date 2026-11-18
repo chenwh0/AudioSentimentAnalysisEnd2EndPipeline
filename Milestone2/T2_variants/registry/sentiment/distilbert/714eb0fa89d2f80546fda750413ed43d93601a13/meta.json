@@ -1,0 +1,104 @@
+{
+ "source_repo": "https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+ "revision": "714eb0fa89d2f80546fda750413ed43d93601a13",
+ "snapshot": "/home/cppesl/.cache/huggingface/hub/models--distilbert--distilbert-base-uncased-finetuned-sst-2-english/snapshots/714eb0fa89d2f80546fda750413ed43d93601a13",
+ "weights_sha256": "7c3919835e442510166d267fe7cbe847e0c51cd26d9ba07b89a57b952b49b8aa",
+ "size_on_disk": {
+  "loaded_files": {
+   "vocab.txt": 231508,
+   "tokenizer_config.json": 48,
+   "model.safetensors": 267832558,
+   "config.json": 629
+  },
+  "loaded_files_MB": 268.06,
+  "hub_repo_all_files_MB": 1340.7,
+  "hub_weight_files_MB": {
+   "model.safetensors": 267.83,
+   "onnx/model.onnx": 267.96,
+   "pytorch_model.bin": 267.84,
+   "rust_model.ot": 267.85,
+   "tf_model.h5": 267.95
+  }
+ },
+ "label_mapping": "Neutral when score<\u03c4",
+ "offline_accuracy_test": {
+  "upstream=AventIQ": {
+   "macro_f1": 0.4580200927265945,
+   "ci": [
+    0.4313665133974032,
+    0.4844116507583237
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=s2t-small": {
+   "macro_f1": 0.4423388904874212,
+   "ci": [
+    0.4167986566136948,
+    0.4683536775529232
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=whisper-tiny": {
+   "macro_f1": 0.4574909449184081,
+   "ci": [
+    0.4311794263604093,
+    0.4835324175511791
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=whisper-base": {
+   "macro_f1": 0.4599297516821536,
+   "ci": [
+    0.4329535863593705,
+    0.4863205158280937
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=moonshine-base": {
+   "macro_f1": 0.4598087027205801,
+   "ci": [
+    0.4330816558609732,
+    0.4866717085649312
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=whisper-tiny-wsp": {
+   "macro_f1": 0.4562402194651209,
+   "ci": [
+    0.4300349024478087,
+    0.4820289766455723
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  }
+ },
+ "gold_text_macro_f1": {
+  "AventIQ": 0.4801811896215673,
+  "s2t-small": 0.4801811896215673,
+  "whisper-tiny": 0.4801811896215673,
+  "whisper-base": 0.4801811896215673,
+  "moonshine-base": 0.4801811896215673,
+  "whisper-tiny-wsp": 0.4801811896215673
+ },
+ "kind": "sentiment",
+ "name": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+ "short_name": "distilbert",
+ "version": "714eb0fa89d2f80546fda750413ed43d93601a13",
+ "registered_at": "2026-11-18T05:43:53-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/sentiment/distilbert/714eb0fa89d2f80546fda750413ed43d93601a13",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}

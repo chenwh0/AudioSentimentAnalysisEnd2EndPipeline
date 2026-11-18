@@ -1,0 +1,4 @@
+# Final audit brief (fresh-context Opus auditor) — OVERNIGHT_REPORT.md
+
+R = /home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline. Write to R/logs/audit_final.md; modify nothing else; no GPU.
+Check every number in R/Milestone2/OVERNIGHT_REPORT.md against the file it names (or, if it names none, FAIL that number). For each number: the sentence, the file, the value found, match yes/no. Also check that OVERNIGHT_STATUS.md's per-phase lines (DONE / PARTIAL with reason / NOT STARTED) agree with what exists on disk, that every figure in figures/manifest.md exists and its three spot-check values match the data file, and that no file over 50 MB and no *.safetensors other than Milestone2/WSP_Whisper/edits/patch_fp*.safetensors is tracked (`git -C R ls-files`). End with a table: numbers checked, matched, mismatched, and the list of mismatches with the correct value.

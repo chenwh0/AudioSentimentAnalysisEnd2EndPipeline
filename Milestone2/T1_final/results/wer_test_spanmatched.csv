@@ -1,0 +1,13 @@
+asr,subset,n,wer_gold
+AventIQ-AI/whisper-audio-to-text,span_matched,1090,0.17519443307408925
+AventIQ-AI/whisper-audio-to-text,span_mismatched,410,0.20443711037770443
+AventIQ-AI/whisper-audio-to-text,all,1500,0.1831245027844073
+facebook/s2t-small-librispeech-asr,span_matched,1090,0.4936212307272479
+facebook/s2t-small-librispeech-asr,span_mismatched,410,0.8797213054638797
+facebook/s2t-small-librispeech-asr,all,1500,0.598324383452665
+openai/whisper-tiny,span_matched,1090,0.20183517533087733
+openai/whisper-tiny,span_mismatched,410,0.2710854418775211
+openai/whisper-tiny,all,1500,0.2206145584725537
+openai/whisper-large-v3,span_matched,1090,0.16799699822622458
+openai/whisper-large-v3,span_mismatched,410,0.20828749541620828
+openai/whisper-large-v3,all,1500,0.17892303102625298

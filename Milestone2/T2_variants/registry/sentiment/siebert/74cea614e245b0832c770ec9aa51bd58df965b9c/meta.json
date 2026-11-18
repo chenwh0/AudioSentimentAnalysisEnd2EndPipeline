@@ -1,0 +1,105 @@
+{
+ "source_repo": "https://huggingface.co/siebert/sentiment-roberta-large-english",
+ "revision": "74cea614e245b0832c770ec9aa51bd58df965b9c",
+ "snapshot": "/home/cppesl/.cache/huggingface/hub/models--siebert--sentiment-roberta-large-english/snapshots/74cea614e245b0832c770ec9aa51bd58df965b9c",
+ "weights_sha256": null,
+ "size_on_disk": {
+  "loaded_files": {
+   "tokenizer_config.json": 256,
+   "vocab.json": 798293,
+   "merges.txt": 456356,
+   "config.json": 687,
+   "special_tokens_map.json": 150,
+   "pytorch_model.bin": 1421616707
+  },
+  "loaded_files_MB": 1422.87,
+  "hub_repo_all_files_MB": 4270.51,
+  "hub_weight_files_MB": {
+   "flax_model.msgpack": 1421.46,
+   "pytorch_model.bin": 1421.62,
+   "tf_model.h5": 1426.17,
+   "training_args.bin": 0.0
+  }
+ },
+ "label_mapping": "Neutral when score<\u03c4",
+ "offline_accuracy_test": {
+  "upstream=AventIQ": {
+   "macro_f1": 0.3341175365772633,
+   "ci": [
+    0.309863699216472,
+    0.3581799689327888
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=s2t-small": {
+   "macro_f1": 0.3253613489013573,
+   "ci": [
+    0.3026117128660081,
+    0.3480710452747305
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=whisper-tiny": {
+   "macro_f1": 0.3228493438221778,
+   "ci": [
+    0.2992714323605859,
+    0.3463850964318513
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=whisper-base": {
+   "macro_f1": 0.3344618396128907,
+   "ci": [
+    0.3099158018218728,
+    0.3584950120828867
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=moonshine-base": {
+   "macro_f1": 0.3282248450457747,
+   "ci": [
+    0.3045483150200214,
+    0.3521808489321607
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "upstream=whisper-tiny-wsp": {
+   "macro_f1": 0.3238527350294962,
+   "ci": [
+    0.3001756897050504,
+    0.3478035643170566
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  }
+ },
+ "gold_text_macro_f1": {
+  "AventIQ": 0.3473444303001982,
+  "s2t-small": 0.3473444303001982,
+  "whisper-tiny": 0.3473444303001982,
+  "whisper-base": 0.3473444303001982,
+  "moonshine-base": 0.3473444303001982,
+  "whisper-tiny-wsp": 0.3473444303001982
+ },
+ "kind": "sentiment",
+ "name": "siebert/sentiment-roberta-large-english",
+ "short_name": "siebert",
+ "version": "74cea614e245b0832c770ec9aa51bd58df965b9c",
+ "registered_at": "2026-11-18T05:43:53-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/sentiment/siebert/74cea614e245b0832c770ec9aa51bd58df965b9c",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}

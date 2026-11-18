@@ -1,0 +1,20 @@
+{
+ "purpose": "Show that the assertion pass rate does not track macro-F1 across configurations, with and without the added A4a assertion.",
+ "data_file": "Milestone2/T1_final/results/assertions_test.csv",
+ "columns": {
+  "x_left_panel": "pass_A123",
+  "x_right_panel": "pass_A123_A4a",
+  "y": "macro_f1",
+  "label": "asr + sentiment",
+  "marker_color": "sentiment"
+ },
+ "encodings": "two scatter panels side by side sharing the y axis; left: joint pass rate of A1, A2, A3; right: joint pass rate with A4a added; each point one of the 12 configurations, colored by sentiment model (fixed order cardiff, distilbert, siebert, tabularisai), marker shape by ASR; annotate each panel with Pearson and Spearman from Milestone2/T1_final/results/correlations.json (keys A123 and A123_A4a)",
+ "axes": {
+  "x": "share of test clips passing all assertions",
+  "y": "macro-F1 (test slice)"
+ },
+ "caption": "Assertion pass rate against macro-F1 over 12 configurations. Left: A1-A3 only (Pearson -0.24). Right: with the classifier-agreement assertion A4a (Pearson -0.08). Pass rate is tuned per configuration, so it says nothing about which configuration is better.",
+ "output": "figures/t1_passrate_vs_f1.png",
+ "data_sha256": "d7fcdf4cac2fdc39cba3f6b40b3c5de3e224375aa7ba9aec49de50861fc1fb00",
+ "generated": "2026-11-18 overnight run, Phase 5 prep"
+}

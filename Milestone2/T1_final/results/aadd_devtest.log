@@ -1,0 +1,7 @@
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+model=v3 features=frames device=cuda files=2000
+wrote /home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline/Milestone2/T1_final/results/aadd_devtest_files.csv (2000 files)
+wrote /home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline/Milestone2/T1_final/results/aadd_devtest_seg20ms.csv (792116 segments)
+wrote /home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline/Milestone2/T1_final/results/aadd_devtest.json
+summary: 2000 files, 1457 degraded, 543 clean, 0 errors

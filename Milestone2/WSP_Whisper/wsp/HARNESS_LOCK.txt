@@ -1,0 +1,2 @@
+eval_harness.py sha256 fdfad7215076d5afcea57b1b83a0feb6c645d11991a9a9d89afb68ecea0d7a5d
+locked 2026-11-18T04:36:42-06:00 (after one base holdout smoke/eval run; no edits to harness after this line)

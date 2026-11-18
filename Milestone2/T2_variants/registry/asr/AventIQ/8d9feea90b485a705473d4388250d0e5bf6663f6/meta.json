@@ -1,0 +1,94 @@
+{
+ "source_repo": "https://huggingface.co/AventIQ-AI/whisper-audio-to-text",
+ "revision": "8d9feea90b485a705473d4388250d0e5bf6663f6",
+ "snapshot": "/home/cppesl/.cache/huggingface/hub/models--AventIQ-AI--whisper-audio-to-text/snapshots/8d9feea90b485a705473d4388250d0e5bf6663f6",
+ "weights_sha256": "ee2b0f07d7eed59eade2413eb7592a2e679c701ec715e1e54da8f8627d485225",
+ "size_on_disk": {
+  "loaded_files": {
+   "normalizer.json": 52666,
+   "tokenizer_config.json": 282713,
+   "generation_config.json": 3802,
+   "added_tokens.json": 34604,
+   "model.safetensors": 145215824,
+   "vocab.json": 1036584,
+   "merges.txt": 493869,
+   "config.json": 1383,
+   "preprocessor_config.json": 339,
+   "special_tokens_map.json": 2194
+  },
+  "loaded_files_MB": 147.12,
+  "hub_repo_all_files_MB": 147.13,
+  "hub_weight_files_MB": {
+   "model.safetensors": 145.22
+  }
+ },
+ "offline_accuracy_test": {
+  "n": 1500,
+  "wer_gold": 0.1831245027844073,
+  "wer_gold_nofillers": 0.1661923155112827,
+  "wer_pseudo_reference": 0.1477572559366754,
+  "reference": "SLUE-VoxCeleb human transcripts (gold); whisper-large-v3 pseudo-reference for comparability",
+  "cardiff_macro_f1": 0.6210915674250624,
+  "cardiff_macro_f1_ci": [
+   0.5926154279473916,
+   0.649251658454426
+  ],
+  "cardiff_t": 0.65,
+  "cardiff_tau": null
+ },
+ "all_sentiment_downstream": {
+  "cardiff": {
+   "macro_f1": 0.6210915674250624,
+   "ci": [
+    0.5926154279473916,
+    0.649251658454426
+   ],
+   "tau": null,
+   "t": 0.65
+  },
+  "tabularisai": {
+   "macro_f1": 0.3304121160892531,
+   "ci": [
+    0.3077377041934717,
+    0.3531958334573349
+   ],
+   "tau": null,
+   "t": 0.5
+  },
+  "siebert": {
+   "macro_f1": 0.3341175365772633,
+   "ci": [
+    0.309863699216472,
+    0.3581799689327888
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "distilbert": {
+   "macro_f1": 0.4580200927265945,
+   "ci": [
+    0.4313665133974032,
+    0.4844116507583237
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  }
+ },
+ "notes": "fine-tune of openai/whisper-base (same architecture, 240/245 tensors differ by \u22642.3e-3); transcripts near-identical to whisper-base",
+ "kind": "asr",
+ "name": "AventIQ-AI/whisper-audio-to-text",
+ "short_name": "AventIQ",
+ "version": "8d9feea90b485a705473d4388250d0e5bf6663f6",
+ "registered_at": "2026-11-18T05:43:52-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/asr/AventIQ/8d9feea90b485a705473d4388250d0e5bf6663f6",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}

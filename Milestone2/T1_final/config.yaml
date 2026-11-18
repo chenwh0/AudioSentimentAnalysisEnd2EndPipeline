@@ -1,0 +1,24 @@
+# T1 final configuration (Linux paths relative to the repo root; no Windows calls)
+seed: 8001
+bootstrap_resamples: 10000
+audio_dir: Milestone2/PipelineEvaluation/data/audio
+slices_dir: Milestone2/PipelineEvaluation
+gold_tsv: Milestone2/T1_final/data/slue_voxceleb_test.tsv
+pseudo_ref_col: openai/whisper-large-v3_transcript
+cache_dir: Milestone2/T1_final/data
+results_dir: Milestone2/T1_final/results
+aadd_files_csv: Milestone2/T1_final/results/aadd_devtest_files.csv
+asr_models:
+  AventIQ-AI/whisper-audio-to-text: {revision: 8d9feea90b485a705473d4388250d0e5bf6663f6, batch_size: 8, teammate_cache: Milestone2/PipelineEvaluation/transcripts_whisper-audio-to-text.csv}
+  facebook/s2t-small-librispeech-asr: {revision: 256e91a603c013ae09aa1e4c09cfc3f8acdf8d19, batch_size: 1, teammate_cache: null, old_cache: Milestone2/PipelineEvaluation/transcripts_s2t-small-librispeech-asr.csv}
+  openai/whisper-tiny: {revision: 169d4a4341b33bc18d8881c4b69c2e104e1cc0af, batch_size: 8, teammate_cache: Milestone2/PipelineEvaluation/transcripts_whisper-tiny.csv}
+sentiment_models:
+  cardiffnlp/twitter-roberta-base-sentiment-latest: {revision: 3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7, kind: three}
+  tabularisai/multilingual-sentiment-analysis: {revision: eea032081f8d247b4303ef3565e7cec1b6f201c9, kind: five}
+  siebert/sentiment-roberta-large-english: {revision: 74cea614e245b0832c770ec9aa51bd58df965b9c, kind: binary}
+  distilbert/distilbert-base-uncased-finetuned-sst-2-english: {revision: 714eb0fa89d2f80546fda750413ed43d93601a13, kind: binary}
+tau_grid: {start: 0.50, stop: 0.99, step: 0.01}
+t_grid: {start: 0.05, stop: 0.95, step: 0.05}
+
+# Dataset revision pinned by the collaborator (do not regenerate splits): Milestone2/PipelineEvaluation/dataset_revision.txt
+dataset_revision_file: Milestone2/PipelineEvaluation/dataset_revision.txt

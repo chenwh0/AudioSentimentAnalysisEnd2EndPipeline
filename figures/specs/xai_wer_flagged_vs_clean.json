@@ -1,0 +1,20 @@
+{
+ "purpose": "Show whether transcription errors concentrate in degraded audio: per-clip word error rate inside flagged segments versus inside clean segments.",
+ "data_file": "Milestone2/AudioXAI/results/aggregate.csv",
+ "filter": "rows where both wer_flagged and wer_clean are non-null",
+ "columns": {
+  "x": "wer_clean",
+  "y": "wer_flagged",
+  "point_color": "degradation_class",
+  "point_size": "n_words"
+ },
+ "encodings": "scatter with a diagonal y = x reference line; points colored by degradation class (fixed order by count), sized by word count (legend for sizes); annotate with the pooled error rates from summary.json key H2 (error rate inside vs outside flagged) in a corner text box; axis limits equal and starting at 0",
+ "axes": {
+  "x": "word error rate in clean segments",
+  "y": "word error rate in flagged (degraded) segments"
+ },
+ "caption": "Per-clip word error rate inside AADD-flagged audio against the rate in clean audio for whisper-tiny on the test sample. Points above the diagonal mean more errors in degraded audio. The pooled rates are close, so hypothesis H2 (errors concentrate in degraded audio) is refuted.",
+ "output": "figures/xai_wer_flagged_vs_clean.png",
+ "data_sha256": "a7d4735a068998c176cc8cda10615a92d2629d5eb31bc8c4636de414c7b562cf",
+ "generated": "2026-11-18 overnight run, Phase 5"
+}

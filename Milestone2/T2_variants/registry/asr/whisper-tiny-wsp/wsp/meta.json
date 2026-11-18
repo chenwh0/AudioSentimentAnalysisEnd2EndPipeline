@@ -1,0 +1,31 @@
+{
+ "source_repo": "openai/whisper-tiny + Milestone2/WSP_Whisper/edits (sparse patch)",
+ "revision": "base 169d4a43 + registered WSP patch",
+ "size_on_disk": {
+  "loaded_files": {
+   "base": "see openai/whisper-tiny",
+   "patch": "Milestone2/WSP_Whisper/results/transcripts_whisper-tiny-wsp.csv"
+  },
+  "loaded_files_MB": null
+ },
+ "offline_accuracy_test": {
+  "wer_gold": 0.2152197692919649,
+  "cardiff_macro_f1": 0.6085767570194007
+ },
+ "kind": "asr",
+ "name": "whisper-tiny-wsp",
+ "short_name": "whisper-tiny-wsp",
+ "version": "wsp",
+ "registered_at": "2026-11-18T05:43:53-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/asr/whisper-tiny-wsp/wsp",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}

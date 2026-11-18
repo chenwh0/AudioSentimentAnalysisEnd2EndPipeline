@@ -1,0 +1,23 @@
+{
+  "seed": 8001,
+  "source": "Milestone2/PipelineEvaluation/development.csv sorted by original_index",
+  "method": "labels alphabetical; rng.permutation of row positions per label; first floor(n/2) -> practice",
+  "id_type": "original_index",
+  "n_practice": 250,
+  "n_holdout": 250,
+  "label_counts_practice": {
+    "Negative": 12,
+    "Neutral": 184,
+    "Positive": 54
+  },
+  "label_counts_holdout": {
+    "Negative": 12,
+    "Neutral": 184,
+    "Positive": 54
+  },
+  "sha256": {
+    "wsp_practice_ids.npy": "d6ec781ab5cfaaa62438aad06beca857fddd92fd6d172a85fca4823db35ed3f1",
+    "wsp_holdout_ids.npy": "1b743fbb916631dc99d6596e9f7cebfb95b7615e0c3898d59fb0572c4044f8c0"
+  },
+  "disjoint_checks": "practice/holdout/test_indices/load_pool_indices all pairwise disjoint (asserted)"
+}

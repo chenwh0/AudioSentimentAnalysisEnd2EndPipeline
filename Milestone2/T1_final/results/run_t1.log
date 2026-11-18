@@ -1,0 +1,174 @@
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+Failed to load /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /home/cppesl/Desktop/Alve/dev/cuda-env/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+gold checks: {'n_clips': 3426, 'coverage': 3426, 'coverage_by_slice': {'dev': 500, 'load_pool': 1426, 'test': 1500}, 'label_agreement': 3426, 'label_mismatches': 0, 'duration_abs_delta_gt_0.1s': 875, 'duration_mismatch_fraction': 0.2553998832457677, 'duration_abs_delta_max': 1.5700624999999988, 'duration_abs_delta_mean': 0.0714927393461763, 'gold_text_empty': 0, 'verdict_durations': 'INVESTIGATE: >1% of clips differ by >0.1 s'}
+Loading weights:   0%|          | 0/357 [00:00<?, ?it/s]Loading weights: 100%|██████████| 357/357 [00:00<00:00, 25170.90it/s]
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+s2t loops: {'s2t-small:test': {'n': 1500, 'before_gt_1.5x_pseudo': 244, 'after_gt_1.5x_pseudo': 134, 'before_gt_1.5x_gold': 229, 'after_gt_1.5x_gold': 115, 'before_mean_words': 40.86666666666667, 'after_mean_words': 33.634, 'gold_mean_words': 26.816}, 's2t-small:dev': {'n': 500, 'before_gt_1.5x_pseudo': 92, 'after_gt_1.5x_pseudo': 49, 'before_gt_1.5x_gold': 82, 'after_gt_1.5x_gold': 40, 'before_mean_words': 43.366, 'after_mean_words': 35.838, 'gold_mean_words': 28.348}}
+                               asr  wer_gold  wer_gold_nofillers  wer_pseudo_ref  empty_refs_skipped    n  mean_ms_per_clip
+  AventIQ-AI/whisper-audio-to-text    0.1831              0.1662          0.1478                   0 1500           84.2424
+facebook/s2t-small-librispeech-asr    0.5983              0.6047          0.6518                   0 1500           93.4281
+               openai/whisper-tiny    0.2206              0.2052          0.1988                   0 1500           94.9003
+           openai/whisper-large-v3    0.1789              0.1628          0.0000                   0 1500               NaN
+             s2t-small-OLD(batch8)    0.8639              0.8765          0.9285                   0 1500               NaN
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 63785.66it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 59702.22it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 55282.30it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 56955.49it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 102275.28it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 101292.21it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 103901.29it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 60603.49it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: cardiffnlp/twitter-roberta-base-sentiment-latest
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.pooler.dense.bias       | UNEXPECTED |  | 
+roberta.pooler.dense.weight     | UNEXPECTED |  | 
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 25001.87it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 24884.91it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 24075.93it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 26620.75it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 25602.04it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 24954.67it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 25966.28it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 25873.87it/s]
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 74966.41it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: siebert/sentiment-roberta-large-english
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 110628.29it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: siebert/sentiment-roberta-large-english
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 106552.13it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: siebert/sentiment-roberta-large-english
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 100247.00it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: siebert/sentiment-roberta-large-english
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 60901.55it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: siebert/sentiment-roberta-large-english
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 109155.78it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: siebert/sentiment-roberta-large-english
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 76868.19it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: siebert/sentiment-roberta-large-english
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 75058.58it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: siebert/sentiment-roberta-large-english
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 22992.18it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 24423.72it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 26148.40it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 25397.82it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 24518.44it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 23562.23it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 25626.11it/s]
+Loading weights:   0%|          | 0/104 [00:00<?, ?it/s]Loading weights: 100%|██████████| 104/104 [00:00<00:00, 24488.16it/s]
+DONE -> /home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline/Milestone2/T1_final/results
+exit=0

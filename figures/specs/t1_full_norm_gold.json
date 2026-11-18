@@ -1,0 +1,22 @@
+{
+ "purpose": "Show the gold-input ablation: each sentiment model's macro-F1 on the full pipeline text, on normalized ASR text, and on human gold text, per ASR.",
+ "data_file": "Milestone2/T1_final/results/m2_t1_results.csv",
+ "filter": "source in ['full', 'norm', 'gold']",
+ "columns": {
+  "facet": "sentiment",
+  "x_group": "asr",
+  "series": "source",
+  "y": "macro_f1",
+  "y_err_low": "macro_f1_ci_lo",
+  "y_err_high": "macro_f1_ci_hi"
+ },
+ "encodings": "four small panels (one per sentiment model, fixed order cardiff, distilbert, siebert, tabularisai), grouped bars per ASR with three bars in the order full, norm, gold (gold is identical across ASR because it does not depend on the transcript; draw it anyway so the gap is visible); error bars from the CI columns",
+ "axes": {
+  "x": "speech-to-text model",
+  "y": "macro-F1 (test slice)"
+ },
+ "caption": "Gold-input ablation. 'full' = sentiment on the ASR transcript, 'norm' = the same text lowercased without punctuation, 'gold' = human SLUE transcript. Format changes almost nothing; human text adds at most 0.034 macro-F1 for Cardiff.",
+ "output": "figures/t1_full_norm_gold.png",
+ "data_sha256": "8968f33ed3fd24d27748ee9138e7de4ca0d58ea9b340041b2713af19145d74d5",
+ "generated": "2026-11-18 overnight run, Phase 5 prep"
+}

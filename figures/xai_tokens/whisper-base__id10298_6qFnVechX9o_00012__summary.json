@@ -1,0 +1,324 @@
+{
+ "model": "whisper-base",
+ "asr": "openai/whisper-base",
+ "clip": "id10298_6qFnVechX9o_00012",
+ "cls": "reverb (hard set)",
+ "wer": 0.2,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10298_6qFnVechX9o_00012.npz",
+   "sha256": "5b28a276f97c0dfe3bc3fa9075b9a4d5b79daa243dc84996f5072fd32a4bb253"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10298_6qFnVechX9o_00012_m2.npz",
+   "sha256": "e80330f1d37ed55cf3f65dc1baa385bfd3fcefbf9161004d5bab64b2f4cd1130"
+  }
+ ],
+ "figures": [
+  "whisper-base__id10298_6qFnVechX9o_00012__summary__tokens.png",
+  "whisper-base__id10298_6qFnVechX9o_00012__summary__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 5678,
+   "tok": " James",
+   "t": 0.0,
+   "m1_seg": 3,
+   "m1_band": 0,
+   "m2_seg": 3,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    2
+   ],
+   "lane": 0
+  },
+  {
+   "k": 1,
+   "id": 12882,
+   "tok": " Gard",
+   "t": 0.6200000047683716,
+   "m1_seg": 6,
+   "m1_band": 0,
+   "m2_seg": 5,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    5
+   ],
+   "lane": 1
+  },
+  {
+   "k": 2,
+   "id": 1193,
+   "tok": "ner",
+   "t": 0.7599999904632568,
+   "m1_seg": 6,
+   "m1_band": 0,
+   "m2_seg": 7,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    7
+   ],
+   "lane": 2
+  },
+  {
+   "k": 3,
+   "id": 11,
+   "tok": ",",
+   "t": 1.2999999523162842,
+   "m1_seg": 14,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 1,
+   "m2_patch": [
+    4,
+    0
+   ],
+   "lane": 1
+  },
+  {
+   "k": 4,
+   "id": 2975,
+   "tok": " 11",
+   "t": 1.4600000381469727,
+   "m1_seg": 14,
+   "m1_band": 0,
+   "m2_seg": 14,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    14
+   ],
+   "lane": 0
+  },
+  {
+   "k": 5,
+   "id": 924,
+   "tok": " years",
+   "t": 1.659999966621399,
+   "m1_seg": 16,
+   "m1_band": 0,
+   "m2_seg": 18,
+   "m2_band": 4,
+   "m2_patch": [
+    0,
+    16
+   ],
+   "lane": 1
+  },
+  {
+   "k": 6,
+   "id": 5237,
+   "tok": " fighting",
+   "t": 1.940000057220459,
+   "m1_seg": 19,
+   "m1_band": 0,
+   "m2_seg": 19,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    19
+   ],
+   "lane": 0
+  },
+  {
+   "k": 7,
+   "id": 552,
+   "tok": " them",
+   "t": 2.1600000858306885,
+   "m1_seg": 20,
+   "m1_band": 0,
+   "m2_seg": 21,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    21
+   ],
+   "lane": 2
+  },
+  {
+   "k": 8,
+   "id": 294,
+   "tok": " in",
+   "t": 2.299999952316284,
+   "m1_seg": 26,
+   "m1_band": 0,
+   "m2_seg": 22,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    22
+   ],
+   "lane": 3
+  },
+  {
+   "k": 9,
+   "id": 4753,
+   "tok": " court",
+   "t": 2.5,
+   "m1_seg": 23,
+   "m1_band": 0,
+   "m2_seg": 25,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    25
+   ],
+   "lane": 0
+  },
+  {
+   "k": 10,
+   "id": 281,
+   "tok": " to",
+   "t": 3.059999942779541,
+   "m1_seg": 25,
+   "m1_band": 0,
+   "m2_seg": 28,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    28
+   ],
+   "lane": 1
+  },
+  {
+   "k": 11,
+   "id": 483,
+   "tok": " get",
+   "t": 3.2200000286102295,
+   "m1_seg": 32,
+   "m1_band": 0,
+   "m2_seg": 31,
+   "m2_band": 6,
+   "m2_patch": [
+    6,
+    32
+   ],
+   "lane": 0
+  },
+  {
+   "k": 12,
+   "id": 291,
+   "tok": " you",
+   "t": 3.380000114440918,
+   "m1_seg": 34,
+   "m1_band": 0,
+   "m2_seg": 33,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    33
+   ],
+   "lane": 1
+  },
+  {
+   "k": 13,
+   "id": 1460,
+   "tok": " money",
+   "t": 3.680000066757202,
+   "m1_seg": 34,
+   "m1_band": 0,
+   "m2_seg": 36,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    36
+   ],
+   "lane": 0
+  },
+  {
+   "k": 14,
+   "id": 13,
+   "tok": ".",
+   "t": 4.360000133514404,
+   "m1_seg": 3,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 1,
+   "m2_patch": [
+    2,
+    0
+   ],
+   "lane": 2
+  },
+  {
+   "k": 15,
+   "id": 400,
+   "tok": " And",
+   "t": 4.380000114440918,
+   "m1_seg": 3,
+   "m1_band": 0,
+   "m2_seg": 46,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    46
+   ],
+   "lane": 0
+  },
+  {
+   "k": 16,
+   "id": 286,
+   "tok": " I",
+   "t": 4.460000038146973,
+   "m1_seg": 44,
+   "m1_band": 0,
+   "m2_seg": 44,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    43
+   ],
+   "lane": 1
+  },
+  {
+   "k": 17,
+   "id": 848,
+   "tok": " said",
+   "t": 4.639999866485596,
+   "m1_seg": 46,
+   "m1_band": 0,
+   "m2_seg": 46,
+   "m2_band": 1,
+   "m2_patch": [
+    3,
+    46
+   ],
+   "lane": 2
+  },
+  {
+   "k": 18,
+   "id": 572,
+   "tok": " no",
+   "t": 4.739999771118164,
+   "m1_seg": 47,
+   "m1_band": 0,
+   "m2_seg": 47,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    47
+   ],
+   "lane": 3
+  },
+  {
+   "k": 19,
+   "id": 13,
+   "tok": ".",
+   "t": 4.739999771118164,
+   "m1_seg": 47,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 1,
+   "m2_patch": [
+    4,
+    0
+   ],
+   "lane": 3
+  }
+ ]
+}

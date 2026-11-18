@@ -1,0 +1,414 @@
+{
+ "model": "whisper-base",
+ "asr": "openai/whisper-base",
+ "clip": "id10304_W-5dGkFnQxM_00001",
+ "cls": "music (mixed set)",
+ "wer": 0.045454545454545456,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10304_W-5dGkFnQxM_00001.npz",
+   "sha256": "785407d6160a712a3c44c826fa8ea65a87c0638f46bab685eb824060a877ec2c"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/whisper-base/npz/id10304_W-5dGkFnQxM_00001_m2.npz",
+   "sha256": "a573ffbc3233d2f8f71260432f1d99b8e8462e83fc72f9b08184af69a1a27238"
+  }
+ ],
+ "figures": [
+  "whisper-base__id10304_W-5dGkFnQxM_00001__summary__tokens.png",
+  "whisper-base__id10304_W-5dGkFnQxM_00001__summary__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 411,
+   "tok": " like",
+   "t": 0.0,
+   "m1_seg": 0,
+   "m1_band": 0,
+   "m2_seg": 1,
+   "m2_band": 2,
+   "m2_patch": [
+    1,
+    1
+   ],
+   "lane": 0
+  },
+  {
+   "k": 1,
+   "id": 2128,
+   "tok": " forward",
+   "t": 0.8600000143051147,
+   "m1_seg": 9,
+   "m1_band": 0,
+   "m2_seg": 50,
+   "m2_band": 2,
+   "m2_patch": [
+    0,
+    13
+   ],
+   "lane": 0
+  },
+  {
+   "k": 2,
+   "id": 2684,
+   "tok": " moving",
+   "t": 1.2799999713897705,
+   "m1_seg": 9,
+   "m1_band": 0,
+   "m2_seg": 13,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    12
+   ],
+   "lane": 0
+  },
+  {
+   "k": 3,
+   "id": 11,
+   "tok": ",",
+   "t": 1.4800000190734863,
+   "m1_seg": 22,
+   "m1_band": 0,
+   "m2_seg": 17,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    17
+   ],
+   "lane": 1
+  },
+  {
+   "k": 4,
+   "id": 2128,
+   "tok": " forward",
+   "t": 1.6799999475479126,
+   "m1_seg": 17,
+   "m1_band": 0,
+   "m2_seg": 13,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    13
+   ],
+   "lane": 2
+  },
+  {
+   "k": 5,
+   "id": 2684,
+   "tok": " moving",
+   "t": 2.0799999237060547,
+   "m1_seg": 19,
+   "m1_band": 0,
+   "m2_seg": 19,
+   "m2_band": 1,
+   "m2_patch": [
+    7,
+    19
+   ],
+   "lane": 0
+  },
+  {
+   "k": 6,
+   "id": 11,
+   "tok": ",",
+   "t": 2.240000009536743,
+   "m1_seg": 22,
+   "m1_band": 0,
+   "m2_seg": 19,
+   "m2_band": 1,
+   "m2_patch": [
+    0,
+    18
+   ],
+   "lane": 2
+  },
+  {
+   "k": 7,
+   "id": 2128,
+   "tok": " forward",
+   "t": 2.4200000762939453,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 19,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    18
+   ],
+   "lane": 3
+  },
+  {
+   "k": 8,
+   "id": 2684,
+   "tok": " moving",
+   "t": 2.819999933242798,
+   "m1_seg": 24,
+   "m1_band": 0,
+   "m2_seg": 26,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    26
+   ],
+   "lane": 0
+  },
+  {
+   "k": 9,
+   "id": 13,
+   "tok": ".",
+   "t": 3.0199999809265137,
+   "m1_seg": 29,
+   "m1_band": 0,
+   "m2_seg": 1,
+   "m2_band": 4,
+   "m2_patch": [
+    0,
+    28
+   ],
+   "lane": 1
+  },
+  {
+   "k": 10,
+   "id": 400,
+   "tok": " And",
+   "t": 3.0399999618530273,
+   "m1_seg": 0,
+   "m1_band": 0,
+   "m2_seg": 30,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    30
+   ],
+   "lane": 1
+  },
+  {
+   "k": 11,
+   "id": 309,
+   "tok": " it",
+   "t": 3.119999885559082,
+   "m1_seg": 30,
+   "m1_band": 0,
+   "m2_seg": 30,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    30
+   ],
+   "lane": 2
+  },
+  {
+   "k": 12,
+   "id": 311,
+   "tok": "'s",
+   "t": 3.180000066757202,
+   "m1_seg": 0,
+   "m1_band": 0,
+   "m2_seg": 51,
+   "m2_band": 2,
+   "m2_patch": [
+    7,
+    31
+   ],
+   "lane": 1
+  },
+  {
+   "k": 13,
+   "id": 787,
+   "tok": " only",
+   "t": 3.380000114440918,
+   "m1_seg": 35,
+   "m1_band": 0,
+   "m2_seg": 31,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    31
+   ],
+   "lane": 3
+  },
+  {
+   "k": 14,
+   "id": 1564,
+   "tok": " once",
+   "t": 3.6600000858306885,
+   "m1_seg": 37,
+   "m1_band": 0,
+   "m2_seg": 36,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    36
+   ],
+   "lane": 0
+  },
+  {
+   "k": 15,
+   "id": 291,
+   "tok": " you",
+   "t": 3.859999895095825,
+   "m1_seg": 49,
+   "m1_band": 0,
+   "m2_seg": 49,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    48
+   ],
+   "lane": 2
+  },
+  {
+   "k": 16,
+   "id": 1333,
+   "tok": " sort",
+   "t": 4.679999828338623,
+   "m1_seg": 49,
+   "m1_band": 0,
+   "m2_seg": 46,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    46
+   ],
+   "lane": 3
+  },
+  {
+   "k": 17,
+   "id": 295,
+   "tok": " of",
+   "t": 4.800000190734863,
+   "m1_seg": 47,
+   "m1_band": 0,
+   "m2_seg": 47,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    47
+   ],
+   "lane": 4
+  },
+  {
+   "k": 18,
+   "id": 1394,
+   "tok": " sit",
+   "t": 4.940000057220459,
+   "m1_seg": 49,
+   "m1_band": 0,
+   "m2_seg": 49,
+   "m2_band": 7,
+   "m2_patch": [
+    0,
+    49
+   ],
+   "lane": 5
+  },
+  {
+   "k": 19,
+   "id": 760,
+   "tok": " down",
+   "t": 5.159999847412109,
+   "m1_seg": 51,
+   "m1_band": 0,
+   "m2_seg": 52,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    52
+   ],
+   "lane": 3
+  },
+  {
+   "k": 20,
+   "id": 337,
+   "tok": " for",
+   "t": 5.380000114440918,
+   "m1_seg": 53,
+   "m1_band": 0,
+   "m2_seg": 53,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    53
+   ],
+   "lane": 4
+  },
+  {
+   "k": 21,
+   "id": 257,
+   "tok": " a",
+   "t": 5.480000019073486,
+   "m1_seg": 53,
+   "m1_band": 0,
+   "m2_seg": 53,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    53
+   ],
+   "lane": 6
+  },
+  {
+   "k": 22,
+   "id": 1150,
+   "tok": " second",
+   "t": 5.699999809265137,
+   "m1_seg": 55,
+   "m1_band": 0,
+   "m2_seg": 55,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    55
+   ],
+   "lane": 2
+  },
+  {
+   "k": 23,
+   "id": 293,
+   "tok": " and",
+   "t": 5.880000114440918,
+   "m1_seg": 58,
+   "m1_band": 0,
+   "m2_seg": 57,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    57
+   ],
+   "lane": 0
+  },
+  {
+   "k": 24,
+   "id": 574,
+   "tok": " look",
+   "t": 6.099999904632568,
+   "m1_seg": 60,
+   "m1_band": 0,
+   "m2_seg": 60,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    60
+   ],
+   "lane": 1
+  },
+  {
+   "k": 25,
+   "id": 646,
+   "tok": " back",
+   "t": 6.400000095367432,
+   "m1_seg": 60,
+   "m1_band": 0,
+   "m2_seg": 64,
+   "m2_band": 3,
+   "m2_patch": [
+    6,
+    54
+   ],
+   "lane": 0
+  }
+ ]
+}

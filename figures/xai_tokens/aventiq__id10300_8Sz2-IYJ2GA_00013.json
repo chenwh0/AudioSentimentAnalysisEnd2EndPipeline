@@ -1,0 +1,234 @@
+{
+ "model": "aventiq",
+ "asr": "AventIQ-AI/whisper-audio-to-text",
+ "clip": "id10300_8Sz2-IYJ2GA_00013",
+ "cls": "clean (hard set)",
+ "wer": 0.5,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10300_8Sz2-IYJ2GA_00013.npz",
+   "sha256": "ed6d123cc3d5e30df45f4d2edfb628239f73066d698bd6e54ad2007134c6fa71"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10300_8Sz2-IYJ2GA_00013_m2.npz",
+   "sha256": "139ccb80e7279706c86ec6670a8001cf63003e5c20ea16e5764442fc68af5af5"
+  }
+ ],
+ "figures": [
+  "aventiq__id10300_8Sz2-IYJ2GA_00013__tokens.png",
+  "aventiq__id10300_8Sz2-IYJ2GA_00013__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 407,
+   "tok": " So",
+   "t": 0.0,
+   "m1_seg": 8,
+   "m1_band": 1,
+   "m2_seg": 8,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    8
+   ]
+  },
+  {
+   "k": 1,
+   "id": 11,
+   "tok": ",",
+   "t": 0.0,
+   "m1_seg": 8,
+   "m1_band": 0,
+   "m2_seg": 9,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    10
+   ]
+  },
+  {
+   "k": 2,
+   "id": 731,
+   "tok": " well",
+   "t": 1.1399999856948853,
+   "m1_seg": 8,
+   "m1_band": 0,
+   "m2_seg": 8,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    8
+   ]
+  },
+  {
+   "k": 3,
+   "id": 11,
+   "tok": ",",
+   "t": 1.399999976158142,
+   "m1_seg": 16,
+   "m1_band": 0,
+   "m2_seg": 20,
+   "m2_band": 2,
+   "m2_patch": [
+    4,
+    20
+   ]
+  },
+  {
+   "k": 4,
+   "id": 1309,
+   "tok": " thank",
+   "t": 1.7400000095367432,
+   "m1_seg": 16,
+   "m1_band": 1,
+   "m2_seg": 16,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    16
+   ]
+  },
+  {
+   "k": 5,
+   "id": 291,
+   "tok": " you",
+   "t": 1.8799999952316284,
+   "m1_seg": 22,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 1,
+   "m2_patch": [
+    3,
+    19
+   ]
+  },
+  {
+   "k": 6,
+   "id": 588,
+   "tok": " very",
+   "t": 2.0199999809265137,
+   "m1_seg": 22,
+   "m1_band": 1,
+   "m2_seg": 20,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    10
+   ]
+  },
+  {
+   "k": 7,
+   "id": 709,
+   "tok": " much",
+   "t": 2.359999895095825,
+   "m1_seg": 16,
+   "m1_band": 0,
+   "m2_seg": 27,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    27
+   ]
+  },
+  {
+   "k": 8,
+   "id": 1872,
+   "tok": " son",
+   "t": 2.5999999046325684,
+   "m1_seg": 25,
+   "m1_band": 1,
+   "m2_seg": 24,
+   "m2_band": 6,
+   "m2_patch": [
+    6,
+    24
+   ]
+  },
+  {
+   "k": 9,
+   "id": 11,
+   "tok": ",",
+   "t": 2.700000047683716,
+   "m1_seg": 27,
+   "m1_band": 0,
+   "m2_seg": 27,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    25
+   ]
+  },
+  {
+   "k": 10,
+   "id": 510,
+   "tok": " here",
+   "t": 2.7799999713897705,
+   "m1_seg": 29,
+   "m1_band": 0,
+   "m2_seg": 27,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    27
+   ]
+  },
+  {
+   "k": 11,
+   "id": 307,
+   "tok": " is",
+   "t": 2.880000114440918,
+   "m1_seg": 22,
+   "m1_band": 0,
+   "m2_seg": 30,
+   "m2_band": 2,
+   "m2_patch": [
+    0,
+    27
+   ]
+  },
+  {
+   "k": 12,
+   "id": 428,
+   "tok": " your",
+   "t": 2.9600000381469727,
+   "m1_seg": 29,
+   "m1_band": 1,
+   "m2_seg": 9,
+   "m2_band": 1,
+   "m2_patch": [
+    4,
+    28
+   ]
+  },
+  {
+   "k": 13,
+   "id": 1460,
+   "tok": " money",
+   "t": 3.1600000858306885,
+   "m1_seg": 30,
+   "m1_band": 1,
+   "m2_seg": 32,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    32
+   ]
+  },
+  {
+   "k": 14,
+   "id": 13,
+   "tok": ".",
+   "t": 3.5199999809265137,
+   "m1_seg": 42,
+   "m1_band": 0,
+   "m2_seg": 20,
+   "m2_band": 2,
+   "m2_patch": [
+    3,
+    20
+   ]
+  }
+ ]
+}

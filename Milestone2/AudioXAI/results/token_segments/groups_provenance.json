@@ -1,0 +1,17 @@
+{
+ "pool": "results/test_sample_ids.csv (50-clip stratified sample of the saved test slice, scan.test_sample(n=50, seed=8001))",
+ "test_slice_csv": "/home/cppesl/Desktop/Alve/e2eML_course/AudioSentimentAnalysisEnd2EndPipeline/Milestone2/PipelineEvaluation/test.csv",
+ "test_slice_sha256": "dfb0451d8ea3ed486a07a659fa318b568cab9f4303d7b313bd796d0148e95515",
+ "test_slice_rows": 1500,
+ "dev_rows": 500,
+ "load_pool_rows": 1426,
+ "load_pool_read": false,
+ "indices_files": {
+  "development_indices.npy": "267921e25bb62f003ab3b1d54e36c21f788766274786843604ec0ef94efb81b0",
+  "load_pool_indices.npy": "495bd595a3c7a010734f70cddd34553182e08b5b81703404dc21068d05f75870",
+  "test_indices.npy": "e969c4fc8b521ee7fcfc43d016451aca5513065b00c23684e6f2ac404619be22"
+ },
+ "hard_rule": "10 lowest mean whisper-tiny token log-prob (lp0 in results/npz/<clip>.npz)",
+ "mixed_rule": "strata conf x length x quality on the remaining 40; default_rng(8001) permutation per stratum; strata in sorted order, one per visit, until 10",
+ "seed": 8001
+}

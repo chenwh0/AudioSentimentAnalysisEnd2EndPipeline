@@ -1,0 +1,262 @@
+{
+ "model": "aventiq",
+ "asr": "AventIQ-AI/whisper-audio-to-text",
+ "clip": "id10288_R4S2c-NiPfA_00001",
+ "cls": "reverb",
+ "wer": 0.3888888888888889,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10288_R4S2c-NiPfA_00001.npz",
+   "sha256": "40eaae4cafa63355672ea24ce65accb88d91c06504bd6fd7653d469b53f1edea"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/aventiq/npz/id10288_R4S2c-NiPfA_00001_m2.npz",
+   "sha256": "3745d5d1bc08aba8457d18e09f5f5e752bd605f685088b34feb52689c142e121"
+  }
+ ],
+ "figures": [
+  "aventiq__id10288_R4S2c-NiPfA_00001__tokens.png",
+  "aventiq__id10288_R4S2c-NiPfA_00001__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 293,
+   "tok": " and",
+   "t": 0.0,
+   "m1_seg": 0,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 3,
+   "m2_patch": [
+    4,
+    0
+   ]
+  },
+  {
+   "k": 1,
+   "id": 2563,
+   "tok": " major",
+   "t": 0.4000000059604645,
+   "m1_seg": 0,
+   "m1_band": 0,
+   "m2_seg": 0,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    0
+   ]
+  },
+  {
+   "k": 2,
+   "id": 292,
+   "tok": "ed",
+   "t": 0.5400000214576721,
+   "m1_seg": 4,
+   "m1_band": 0,
+   "m2_seg": 5,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    5
+   ]
+  },
+  {
+   "k": 3,
+   "id": 294,
+   "tok": " in",
+   "t": 0.6200000047683716,
+   "m1_seg": 5,
+   "m1_band": 0,
+   "m2_seg": 5,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    5
+   ]
+  },
+  {
+   "k": 4,
+   "id": 2007,
+   "tok": " film",
+   "t": 0.8399999737739563,
+   "m1_seg": 8,
+   "m1_band": 0,
+   "m2_seg": 9,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    9
+   ]
+  },
+  {
+   "k": 5,
+   "id": 293,
+   "tok": " and",
+   "t": 1.0,
+   "m1_seg": 9,
+   "m1_band": 0,
+   "m2_seg": 9,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    9
+   ]
+  },
+  {
+   "k": 6,
+   "id": 8815,
+   "tok": " television",
+   "t": 1.3799999952316284,
+   "m1_seg": 11,
+   "m1_band": 0,
+   "m2_seg": 14,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    14
+   ]
+  },
+  {
+   "k": 7,
+   "id": 293,
+   "tok": " and",
+   "t": 3.0199999809265137,
+   "m1_seg": 36,
+   "m1_band": 0,
+   "m2_seg": 28,
+   "m2_band": 0,
+   "m2_patch": [
+    4,
+    28
+   ]
+  },
+  {
+   "k": 8,
+   "id": 733,
+   "tok": " kind",
+   "t": 3.4600000381469727,
+   "m1_seg": 36,
+   "m1_band": 0,
+   "m2_seg": 34,
+   "m2_band": 3,
+   "m2_patch": [
+    4,
+    34
+   ]
+  },
+  {
+   "k": 9,
+   "id": 295,
+   "tok": " of",
+   "t": 3.619999885559082,
+   "m1_seg": 37,
+   "m1_band": 0,
+   "m2_seg": 35,
+   "m2_band": 3,
+   "m2_patch": [
+    5,
+    14
+   ]
+  },
+  {
+   "k": 10,
+   "id": 645,
+   "tok": " were",
+   "t": 3.680000066757202,
+   "m1_seg": 37,
+   "m1_band": 0,
+   "m2_seg": 36,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    37
+   ]
+  },
+  {
+   "k": 11,
+   "id": 264,
+   "tok": " the",
+   "t": 3.819999933242798,
+   "m1_seg": 37,
+   "m1_band": 0,
+   "m2_seg": 37,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    37
+   ]
+  },
+  {
+   "k": 12,
+   "id": 1606,
+   "tok": " business",
+   "t": 4.019999980926514,
+   "m1_seg": 40,
+   "m1_band": 0,
+   "m2_seg": 38,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    38
+   ]
+  },
+  {
+   "k": 13,
+   "id": 1252,
+   "tok": " side",
+   "t": 4.320000171661377,
+   "m1_seg": 36,
+   "m1_band": 0,
+   "m2_seg": 38,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    38
+   ]
+  },
+  {
+   "k": 14,
+   "id": 295,
+   "tok": " of",
+   "t": 4.460000038146973,
+   "m1_seg": 36,
+   "m1_band": 0,
+   "m2_seg": 37,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    36
+   ]
+  },
+  {
+   "k": 15,
+   "id": 309,
+   "tok": " it",
+   "t": 4.619999885559082,
+   "m1_seg": 36,
+   "m1_band": 0,
+   "m2_seg": 45,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    45
+   ]
+  },
+  {
+   "k": 16,
+   "id": 13,
+   "tok": ".",
+   "t": 4.840000152587891,
+   "m1_seg": 50,
+   "m1_band": 0,
+   "m2_seg": 17,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    45
+   ]
+  }
+ ]
+}

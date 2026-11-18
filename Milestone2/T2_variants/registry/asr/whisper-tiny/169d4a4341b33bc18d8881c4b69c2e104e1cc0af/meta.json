@@ -1,0 +1,98 @@
+{
+ "source_repo": "https://huggingface.co/openai/whisper-tiny",
+ "revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+ "snapshot": "/home/cppesl/.cache/huggingface/hub/models--openai--whisper-tiny/snapshots/169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+ "weights_sha256": "7ebd0e69e78190ffe1438491fa05cc1f5c1aa3a4c4db3bc1723adbb551ea2395",
+ "size_on_disk": {
+  "loaded_files": {
+   "normalizer.json": 52666,
+   "tokenizer_config.json": 282683,
+   "generation_config.json": 3747,
+   "tokenizer.json": 2480466,
+   "added_tokens.json": 34604,
+   "model.safetensors": 151061672,
+   "vocab.json": 835550,
+   "merges.txt": 493869,
+   "config.json": 1983,
+   "preprocessor_config.json": 184990,
+   "special_tokens_map.json": 2194
+  },
+  "loaded_files_MB": 155.43,
+  "hub_repo_all_files_MB": 608.85,
+  "hub_weight_files_MB": {
+   "flax_model.msgpack": 151.05,
+   "model.safetensors": 151.06,
+   "pytorch_model.bin": 151.1,
+   "tf_model.h5": 151.25
+  }
+ },
+ "offline_accuracy_test": {
+  "n": 1500,
+  "wer_gold": 0.2206145584725537,
+  "wer_gold_nofillers": 0.2051738158162228,
+  "wer_pseudo_reference": 0.1988204252677324,
+  "reference": "SLUE-VoxCeleb human transcripts (gold); whisper-large-v3 pseudo-reference for comparability",
+  "cardiff_macro_f1": 0.6149754829924938,
+  "cardiff_macro_f1_ci": [
+   0.5864778727304878,
+   0.6433315162926992
+  ],
+  "cardiff_t": 0.7,
+  "cardiff_tau": null
+ },
+ "all_sentiment_downstream": {
+  "cardiff": {
+   "macro_f1": 0.6149754829924938,
+   "ci": [
+    0.5864778727304878,
+    0.6433315162926992
+   ],
+   "tau": null,
+   "t": 0.7
+  },
+  "tabularisai": {
+   "macro_f1": 0.3252074526662327,
+   "ci": [
+    0.3024942854068484,
+    0.347458392587309
+   ],
+   "tau": null,
+   "t": 0.7
+  },
+  "siebert": {
+   "macro_f1": 0.3228493438221778,
+   "ci": [
+    0.2992714323605859,
+    0.3463850964318513
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  },
+  "distilbert": {
+   "macro_f1": 0.4574909449184081,
+   "ci": [
+    0.4311794263604093,
+    0.4835324175511791
+   ],
+   "tau": 0.99,
+   "t": 0.05
+  }
+ },
+ "notes": "",
+ "kind": "asr",
+ "name": "openai/whisper-tiny",
+ "short_name": "whisper-tiny",
+ "version": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+ "registered_at": "2026-11-18T05:43:52-0600",
+ "storage": {
+  "minio": {
+   "endpoint": "http://localhost:9000",
+   "credentials_in_env": false,
+   "reachable": false,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "uploaded": false
+  },
+  "local_path": "Milestone2/T2_variants/registry/asr/whisper-tiny/169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+  "note": "weights are not copied into the repo; the path below is the Hugging Face cache snapshot"
+ }
+}

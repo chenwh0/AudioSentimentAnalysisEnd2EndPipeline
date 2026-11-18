@@ -1,0 +1,180 @@
+{"ts": "2026-11-18T04:15:17-0600", "job": "preflight_gpu_warmup", "pid": 382308, "event": "end", "checksum": -130122.109375, "secs": 0.148, "gpu": "NVIDIA RTX 4000 Ada Generation"}
+{"ts":"2026-11-18T04:35:29-06:00","job":"aadd_devtest","event":"start","pid":395495,"note":"aadd v3 scan dev+test 2000 clips"}
+{"ts":"2026-11-18T04:36:06-06:00","job":"aadd_devtest","event":"end","pid":395495,"note":"rc=0"}
+{"ts": "2026-11-18T04:36:06-0600", "job": "w2_aadd_smoke", "event": "start", "pid": 396055, "note": "aadd dev smoke 2 clips"}
+{"ts": "2026-11-18T04:36:11-0600", "job": "w2_aadd_smoke", "event": "end", "pid": 396055, "note": "aadd dev smoke 2 clips rc=0"}
+{"ts":"2026-11-18T04:36:11-06:00","job":"W1_eval_base_holdout","event":"start","pid":396215,"note":"harness base holdout"}
+{"ts":"2026-11-18T04:36:36-06:00","job":"W1_eval_base_holdout","event":"end","pid":396215,"note":"harness base holdout rc=0"}
+{"ts":"2026-11-18T04:36:42-06:00","job":"W1_eval_base_test","event":"start","pid":396604,"note":"harness base test (once)"}
+{"ts":"2026-11-18T04:39:00-06:00","job":"W1_eval_base_test","event":"end","pid":396604,"note":"harness base test (once) rc=0"}
+{"ts": "2026-11-18T04:39:00-0600", "job": "w2_smoke_explain", "event": "start", "pid": 398213, "note": "explain 2 dev smoke clips"}
+{"ts": "2026-11-18T04:39:04-0600", "job": "w2_smoke_explain", "event": "end", "pid": 398213, "note": "explain 2 dev smoke clips rc=1"}
+{"ts": "2026-11-18T04:39:16-0600", "job": "w2_smoke_gen", "event": "start", "pid": 398546, "note": "generate check"}
+{"ts": "2026-11-18T04:39:20-0600", "job": "w2_smoke_gen", "event": "end", "pid": 398546, "note": "generate check rc=0"}
+{"ts": "2026-11-18T04:39:27-0600", "job": "w2_smoke_explain", "event": "start", "pid": 398757, "note": "explain 2 dev smoke clips"}
+{"ts": "2026-11-18T04:39:42-0600", "job": "w2_smoke_explain", "event": "end", "pid": 398757, "note": "explain 2 dev smoke clips rc=0"}
+{"ts":"2026-11-18T04:39:51-06:00","job":"run_t1","event":"start","pid":399145,"note":"run_t1.py full P1 regeneration"}
+{"ts": "2026-11-18T04:43:05-0600", "job": "transcribe:facebook/s2t-small-librispeech-asr", "event": "end", "pid": 399150, "note": "2000 clips, batch 1, 190s"}
+{"ts": "2026-11-18T04:43:10-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_cardiff__AventIQ_full.csv"}
+{"ts": "2026-11-18T04:43:13-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_cardiff__AventIQ_norm.csv"}
+{"ts": "2026-11-18T04:43:20-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 6s, cache scores_cardiff__s2t-small_full.csv"}
+{"ts": "2026-11-18T04:43:26-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 6s, cache scores_cardiff__s2t-small_norm.csv"}
+{"ts": "2026-11-18T04:43:31-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 5s, cache scores_cardiff__whisper-tiny_full.csv"}
+{"ts": "2026-11-18T04:43:36-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 4s, cache scores_cardiff__whisper-tiny_norm.csv"}
+{"ts": "2026-11-18T04:43:39-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_cardiff__gold.csv"}
+{"ts": "2026-11-18T04:43:44-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 399150, "note": "2000 texts, 5s, cache scores_cardiff__pseudo.csv"}
+{"ts": "2026-11-18T04:43:47-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_tabularisai__AventIQ_full.csv"}
+{"ts": "2026-11-18T04:43:49-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_tabularisai__AventIQ_norm.csv"}
+{"ts": "2026-11-18T04:43:53-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 4s, cache scores_tabularisai__s2t-small_full.csv"}
+{"ts": "2026-11-18T04:43:57-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_tabularisai__s2t-small_norm.csv"}
+{"ts": "2026-11-18T04:44:00-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_tabularisai__whisper-tiny_full.csv"}
+{"ts": "2026-11-18T04:44:03-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_tabularisai__whisper-tiny_norm.csv"}
+{"ts": "2026-11-18T04:44:05-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_tabularisai__gold.csv"}
+{"ts": "2026-11-18T04:44:08-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_tabularisai__pseudo.csv"}
+{"ts": "2026-11-18T04:44:21-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 12s, cache scores_siebert__AventIQ_full.csv"}
+{"ts": "2026-11-18T04:44:32-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 10s, cache scores_siebert__AventIQ_norm.csv"}
+{"ts": "2026-11-18T04:44:54-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 21s, cache scores_siebert__s2t-small_full.csv"}
+{"ts": "2026-11-18T04:45:15-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 21s, cache scores_siebert__s2t-small_norm.csv"}
+{"ts": "2026-11-18T04:45:31-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 15s, cache scores_siebert__whisper-tiny_full.csv"}
+{"ts": "2026-11-18T04:45:45-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 13s, cache scores_siebert__whisper-tiny_norm.csv"}
+{"ts": "2026-11-18T04:45:57-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 11s, cache scores_siebert__gold.csv"}
+{"ts": "2026-11-18T04:46:12-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 399150, "note": "2000 texts, 15s, cache scores_siebert__pseudo.csv"}
+{"ts": "2026-11-18T04:46:15-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__AventIQ_full.csv"}
+{"ts": "2026-11-18T04:46:16-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__AventIQ_norm.csv"}
+{"ts": "2026-11-18T04:46:20-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_distilbert__s2t-small_full.csv"}
+{"ts": "2026-11-18T04:46:24-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_distilbert__s2t-small_norm.csv"}
+{"ts": "2026-11-18T04:46:26-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 3s, cache scores_distilbert__whisper-tiny_full.csv"}
+{"ts": "2026-11-18T04:46:29-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__whisper-tiny_norm.csv"}
+{"ts": "2026-11-18T04:46:31-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__gold.csv"}
+{"ts": "2026-11-18T04:46:34-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 399150, "note": "2000 texts, 2s, cache scores_distilbert__pseudo.csv"}
+{"ts":"2026-11-18T04:46:44-06:00","job":"W1_diag","event":"start","pid":404563,"note":"3 practice diagnostic passes + layer audit"}
+{"ts":"2026-11-18T04:46:44-06:00","job":"run_t1","event":"end","pid":399145,"note":"exit=0"}
+{"ts":"2026-11-18T04:47:11-06:00","job":"W1_diag","event":"end","pid":404563,"note":"3 practice diagnostic passes + layer audit rc=0"}
+{"ts": "2026-11-18T04:52:56-0600", "job": "transcribe:openai/whisper-base", "event": "end", "pid": 405079, "note": "2000 clips, batch 8, 341s"}
+{"ts": "2026-11-18T05:00:06-0600", "job": "transcribe:UsefulSensors/moonshine-base", "event": "end", "pid": 405079, "note": "2000 clips, batch 8, 429s"}
+{"ts":"2026-11-18T05:00:26-06:00","job":"W1_probe","event":"start","pid":417856,"note":"teacher-forced probe pass"}
+{"ts":"2026-11-18T05:00:31-06:00","job":"W1_probe","event":"end","pid":417856,"note":"teacher-forced probe pass rc=0"}
+{"ts": "2026-11-18T05:00:45-0600", "job": "w2_dev_scan_gpu", "event": "start", "pid": 418405, "note": "dev holdout clips 4-8 GPU timing"}
+{"ts": "2026-11-18T05:01:22-0600", "job": "w2_dev_scan_gpu", "event": "end", "pid": 418405, "note": "dev holdout clips 4-8 GPU timing rc=0"}
+{"ts":"2026-11-18T05:01:22-06:00","job":"W1_edit_E1","event":"start","pid":419137,"note":"edit E1 measure"}
+{"ts":"2026-11-18T05:01:28-06:00","job":"run_t1_P2grid","event":"start","pid":419305,"note":"5 ASR x 4 sentiment grid into T2_variants/results"}
+{"ts":"2026-11-18T05:01:32-06:00","job":"W1_edit_E1","event":"end","pid":419137,"note":"edit E1 measure rc=0"}
+{"ts": "2026-11-18T05:01:41-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 419403, "note": "2000 texts, 4s, cache scores_cardiff__whisper-base_full.csv"}
+{"ts": "2026-11-18T05:01:44-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 419403, "note": "2000 texts, 3s, cache scores_cardiff__whisper-base_norm.csv"}
+{"ts": "2026-11-18T05:01:48-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 419403, "note": "2000 texts, 3s, cache scores_cardiff__moonshine-base_full.csv"}
+{"ts": "2026-11-18T05:01:52-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 419403, "note": "2000 texts, 3s, cache scores_cardiff__moonshine-base_norm.csv"}
+{"ts": "2026-11-18T05:01:54-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_tabularisai__whisper-base_full.csv"}
+{"ts": "2026-11-18T05:01:57-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_tabularisai__whisper-base_norm.csv"}
+{"ts": "2026-11-18T05:01:59-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_tabularisai__moonshine-base_full.csv"}
+{"ts": "2026-11-18T05:02:01-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_tabularisai__moonshine-base_norm.csv"}
+{"ts": "2026-11-18T05:02:13-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 12s, cache scores_siebert__whisper-base_full.csv"}
+{"ts": "2026-11-18T05:02:25-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 11s, cache scores_siebert__whisper-base_norm.csv"}
+{"ts": "2026-11-18T05:02:36-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 11s, cache scores_siebert__moonshine-base_full.csv"}
+{"ts": "2026-11-18T05:02:48-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 419403, "note": "2000 texts, 10s, cache scores_siebert__moonshine-base_norm.csv"}
+{"ts": "2026-11-18T05:02:50-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_distilbert__whisper-base_full.csv"}
+{"ts": "2026-11-18T05:02:52-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_distilbert__whisper-base_norm.csv"}
+{"ts": "2026-11-18T05:02:54-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_distilbert__moonshine-base_full.csv"}
+{"ts": "2026-11-18T05:02:56-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 419403, "note": "2000 texts, 2s, cache scores_distilbert__moonshine-base_norm.csv"}
+{"ts":"2026-11-18T05:03:12-06:00","job":"run_t1_P2grid","event":"end","pid":419305,"note":"exit=0"}
+{"ts":"2026-11-18T05:03:12-06:00","job":"W1_edit_E2","event":"start","pid":421138,"note":"edit E2 measure"}
+{"ts":"2026-11-18T05:03:22-06:00","job":"W1_edit_E2","event":"end","pid":421138,"note":"edit E2 measure rc=0"}
+{"ts": "2026-11-18T05:03:22-0600", "job": "w2_dev_m2", "event": "start", "pid": 421381, "note": "M2 occlusion dev 3 clips"}
+{"ts": "2026-11-18T05:03:49-0600", "job": "w2_dev_m2", "event": "end", "pid": 421381, "note": "M2 occlusion dev 3 clips rc=0"}
+{"ts":"2026-11-18T05:03:49-06:00","job":"W1_edit_E3","event":"start","pid":421929,"note":"edit E3 measure"}
+{"ts":"2026-11-18T05:04:32-06:00","job":"W1_edit_E3","event":"end","pid":421929,"note":"edit E3 measure rc=0"}
+{"ts": "2026-11-18T05:04:32-0600", "job": "w2_dev_e2e", "event": "start", "pid": 422488, "note": "e2e segment replacement dev 2 clips"}
+{"ts": "2026-11-18T05:04:38-0600", "job": "w2_dev_e2e", "event": "end", "pid": 422488, "note": "e2e segment replacement dev 2 clips rc=0"}
+{"ts": "2026-11-18T05:04:51-0600", "job": "w2_dev_dbg", "event": "start", "pid": 422868, "note": "debug e2e batching"}
+{"ts": "2026-11-18T05:04:56-0600", "job": "w2_dev_dbg", "event": "end", "pid": 422868, "note": "debug e2e batching rc=0"}
+{"ts":"2026-11-18T05:05:25-06:00","job":"W1_edit_E4","event":"start","pid":423653,"note":"edit E4 measure"}
+{"ts":"2026-11-18T05:05:30-06:00","job":"W1_edit_E4","event":"end","pid":423653,"note":"edit E4 measure rc=0"}
+{"ts":"2026-11-18T05:05:49-06:00","job":"W1_edit_E5","event":"start","pid":424102,"note":"edit E5 measure"}
+{"ts":"2026-11-18T05:05:57-06:00","job":"W1_edit_E5","event":"end","pid":424102,"note":"edit E5 measure rc=0"}
+{"ts": "2026-11-18T05:06:03-0600", "job": "w2_test_scan_a", "event": "start", "pid": 424512, "note": "audioxai scan test 50, chunk 1"}
+{"ts": "2026-11-18T05:08:15-0600", "job": "w2_test_scan_a", "event": "end", "pid": 424512, "note": "audioxai scan test 50, chunk 1 rc=0"}
+{"ts":"2026-11-18T05:08:15-06:00","job":"W1_rebase10","event":"start","pid":426763,"note":"rebase cumulative on M (pass 10)"}
+{"ts":"2026-11-18T05:08:25-06:00","job":"W1_rebase10","event":"end","pid":426763,"note":"rebase cumulative on M (pass 10) rc=0"}
+{"ts": "2026-11-18T05:08:25-0600", "job": "w2_test_scan_b", "event": "start", "pid": 426981, "note": "audioxai scan test 50, chunk 2"}
+{"ts": "2026-11-18T05:09:49-0600", "job": "w2_test_scan_b", "event": "end", "pid": 426981, "note": "audioxai scan test 50, chunk 2 rc=0"}
+{"ts":"2026-11-18T05:09:49-06:00","job":"W1_save_fp10","event":"start","pid":428355,"note":"save fp10 patch"}
+{"ts":"2026-11-18T05:09:53-06:00","job":"W1_save_fp10","event":"end","pid":428355,"note":"save fp10 patch rc=0"}
+{"ts": "2026-11-18T05:09:53-0600", "job": "w2_test_m2", "event": "start", "pid": 428483, "note": "M2 occlusion test n=20"}
+{"ts": "2026-11-18T05:13:02-0600", "job": "w2_test_m2", "event": "end", "pid": 428483, "note": "M2 occlusion test n=20 rc=0"}
+{"ts":"2026-11-18T05:13:02-06:00","job":"W1_eval_fp10_holdout","event":"start","pid":431198,"note":"harness fp10 holdout"}
+{"ts":"2026-11-18T05:13:35-06:00","job":"W1_eval_fp10_holdout","event":"end","pid":431198,"note":"harness fp10 holdout rc=0"}
+{"ts": "2026-11-18T05:13:35-0600", "job": "w2_test_e2e", "event": "start", "pid": 431742, "note": "e2e segment replacement test n=10"}
+{"ts": "2026-11-18T05:13:48-0600", "job": "w2_test_e2e", "event": "end", "pid": 431742, "note": "e2e segment replacement test n=10 rc=0"}
+{"ts":"2026-11-18T05:13:59-06:00","job":"W1_eval_cand_E2E5_holdout","event":"start","pid":432524,"note":"harness cand_E2E5 holdout"}
+{"ts":"2026-11-18T05:14:29-06:00","job":"W1_eval_cand_E2E5_holdout","event":"end","pid":432524,"note":"harness cand_E2E5 holdout rc=0"}
+{"ts":"2026-11-18T05:14:29-06:00","job":"W1_eval_cand_E5_holdout","event":"start","pid":432973,"note":"harness cand_E5 holdout"}
+{"ts":"2026-11-18T05:15:00-06:00","job":"W1_eval_cand_E5_holdout","event":"end","pid":432973,"note":"harness cand_E5 holdout rc=0"}
+{"ts":"2026-11-18T05:15:17-06:00","job":"W1_rebase11","event":"start","pid":433637,"note":"rebase E2+E5 on M (pass 11)"}
+{"ts":"2026-11-18T05:15:27-06:00","job":"W1_rebase11","event":"end","pid":433637,"note":"rebase E2+E5 on M (pass 11) rc=0"}
+{"ts":"2026-11-18T05:15:34-06:00","job":"W1_edit_E6","event":"start","pid":433942,"note":"edit E6 measure"}
+{"ts":"2026-11-18T05:15:44-06:00","job":"W1_edit_E6","event":"end","pid":433942,"note":"edit E6 measure rc=0"}
+{"ts":"2026-11-18T05:15:52-06:00","job":"W1_edit_E7","event":"start","pid":434304,"note":"edit E7 measure"}
+{"ts":"2026-11-18T05:16:00-06:00","job":"W1_edit_E7","event":"end","pid":434304,"note":"edit E7 measure rc=0"}
+{"ts":"2026-11-18T05:16:18-06:00","job":"W1_edit_E8","event":"start","pid":434742,"note":"edit E8 measure"}
+{"ts":"2026-11-18T05:16:29-06:00","job":"W1_edit_E8","event":"end","pid":434742,"note":"edit E8 measure rc=0"}
+{"ts":"2026-11-18T05:16:38-06:00","job":"W1_eval_cand_E2E5E8_holdout","event":"start","pid":435237,"note":"harness cand_E2E5E8 holdout"}
+{"ts":"2026-11-18T05:17:08-06:00","job":"W1_eval_cand_E2E5E8_holdout","event":"end","pid":435237,"note":"harness cand_E2E5E8 holdout rc=0"}
+{"ts": "2026-11-18T05:17:08-0600", "job": "w2_test_m2_50", "event": "start", "pid": 435836, "note": "M2 occlusion on all 50 test-sample clips"}
+{"ts": "2026-11-18T05:20:39-0600", "job": "w2_test_m2_50", "event": "end", "pid": 435836, "note": "M2 occlusion on all 50 test-sample clips rc=0"}
+{"ts":"2026-11-18T05:20:39-06:00","job":"W1_edit_E9","event":"start","pid":438905,"note":"edit E9 measure"}
+{"ts":"2026-11-18T05:20:50-06:00","job":"W1_edit_E9","event":"end","pid":438905,"note":"edit E9 measure rc=0"}
+{"ts": "2026-11-18T05:20:50-0600", "job": "w2_test100_scan", "event": "start", "pid": 439167, "note": "audioxai scan test 100 (50 reused)"}
+{"ts": "2026-11-18T05:24:19-0600", "job": "w2_test100_scan", "event": "end", "pid": 439167, "note": "audioxai scan test 100 (50 reused) rc=0"}
+{"ts":"2026-11-18T05:24:19-06:00","job":"W1_gencheck","event":"start","pid":442467,"note":"passes 16-17 generalization check"}
+{"ts":"2026-11-18T05:24:42-06:00","job":"W1_gencheck","event":"end","pid":442467,"note":"passes 16-17 generalization check rc=0"}
+{"ts":"2026-11-18T05:25:03-06:00","job":"W1_eval_fp17_holdout","event":"start","pid":443433,"note":"harness fp17 holdout"}
+{"ts":"2026-11-18T05:25:34-06:00","job":"W1_eval_fp17_holdout","event":"end","pid":443433,"note":"harness fp17 holdout rc=0"}
+{"ts":"2026-11-18T05:26:02-06:00","job":"W1_eval_fp17_test","event":"start","pid":444298,"note":"harness fp17 test (once)"}
+{"ts":"2026-11-18T05:28:37-06:00","job":"W1_eval_fp17_test","event":"end","pid":444298,"note":"harness fp17 test (once) rc=0"}
+{"ts": "2026-11-18T05:28:37-0600", "job": "w2_test_base_a", "event": "start", "pid": 446469, "note": "whisper-base test 50, chunk 1"}
+{"ts": "2026-11-18T05:33:15-0600", "job": "w2_test_base_a", "event": "end", "pid": 446469, "note": "whisper-base test 50, chunk 1 rc=0"}
+{"ts":"2026-11-18T05:33:15-06:00","job":"W1_eval_fp10_test","event":"start","pid":450835,"note":"harness fp10 test (once)"}
+{"ts":"2026-11-18T05:36:43-06:00","job":"W1_eval_fp10_test","event":"end","pid":450835,"note":"harness fp10 test (once) rc=0"}
+{"ts": "2026-11-18T05:36:43-0600", "job": "w2_test_base_b", "event": "start", "pid": 454195, "note": "whisper-base test 50, chunk 2"}
+{"ts": "2026-11-18T05:39:40-0600", "job": "w2_test_base_b", "event": "end", "pid": 454195, "note": "whisper-base test 50, chunk 2 rc=0"}
+{"ts":"2026-11-18T05:39:40-06:00","job":"W1_eval_fp17_dev","event":"start","pid":457419,"note":"harness fp17 dev (transcripts for Phase 2/5)"}
+{"ts":"2026-11-18T05:40:40-06:00","job":"W1_eval_fp17_dev","event":"end","pid":457419,"note":"harness fp17 dev (transcripts for Phase 2/5) rc=0"}
+{"ts":"2026-11-18T05:42:38-06:00","job":"run_t1_P5grid","event":"start","pid":460724,"note":"6 ASR x 4 sentiment grid incl. whisper-tiny-wsp into T2_variants/results"}
+{"ts": "2026-11-18T05:42:48-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 460733, "note": "2000 texts, 4s, cache scores_cardiff__whisper-tiny-wsp_full.csv"}
+{"ts": "2026-11-18T05:42:52-0600", "job": "sentiment:cardiffnlp/twitter-roberta-base-sentiment-latest", "event": "end", "pid": 460733, "note": "2000 texts, 4s, cache scores_cardiff__whisper-tiny-wsp_norm.csv"}
+{"ts": "2026-11-18T05:42:56-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 460733, "note": "2000 texts, 3s, cache scores_tabularisai__whisper-tiny-wsp_full.csv"}
+{"ts": "2026-11-18T05:42:58-0600", "job": "sentiment:tabularisai/multilingual-sentiment-analysis", "event": "end", "pid": 460733, "note": "2000 texts, 2s, cache scores_tabularisai__whisper-tiny-wsp_norm.csv"}
+{"ts": "2026-11-18T05:43:13-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 460733, "note": "2000 texts, 15s, cache scores_siebert__whisper-tiny-wsp_full.csv"}
+{"ts": "2026-11-18T05:43:27-0600", "job": "sentiment:siebert/sentiment-roberta-large-english", "event": "end", "pid": 460733, "note": "2000 texts, 13s, cache scores_siebert__whisper-tiny-wsp_norm.csv"}
+{"ts": "2026-11-18T05:43:30-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 460733, "note": "2000 texts, 3s, cache scores_distilbert__whisper-tiny-wsp_full.csv"}
+{"ts": "2026-11-18T05:43:32-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 460733, "note": "2000 texts, 2s, cache scores_distilbert__whisper-tiny-wsp_norm.csv"}
+{"ts":"2026-11-18T05:43:51-06:00","job":"run_t1_P5grid","event":"end","pid":460724,"note":"exit=0"}
+{"ts": "2026-11-18T05:43:57-0600", "job": "w2_n300_1", "event": "start", "pid": 463018, "note": "audioxai scan test n=300 chunk 1 (<=55 clips)"}
+{"ts": "2026-11-18T05:47:40-0600", "job": "w2_n300_1", "event": "end", "pid": 463018, "note": "audioxai scan test n=300 chunk 1 (<=55 clips) rc=0"}
+{"ts": "2026-11-18T05:47:40-0600", "job": "w2_n300_2", "event": "start", "pid": 468567, "note": "audioxai scan test n=300 chunk 2 (<=55 clips)"}
+{"ts": "2026-11-18T05:52:06-0600", "job": "w2_n300_2", "event": "end", "pid": 468567, "note": "audioxai scan test n=300 chunk 2 (<=55 clips) rc=0"}
+{"ts": "2026-11-18T05:52:06-0600", "job": "w2_n300_3", "event": "start", "pid": 474243, "note": "audioxai scan test n=300 chunk 3 (<=55 clips)"}
+{"ts": "2026-11-18T05:55:23-0600", "job": "w2_n300_3", "event": "end", "pid": 474243, "note": "audioxai scan test n=300 chunk 3 (<=55 clips) rc=0"}
+{"ts": "2026-11-18T05:55:23-0600", "job": "w2_n300_4", "event": "start", "pid": 477815, "note": "audioxai scan test n=300 chunk 4 (<=55 clips)"}
+{"ts": "2026-11-18T05:58:32-0600", "job": "w2_n300_4", "event": "end", "pid": 477815, "note": "audioxai scan test n=300 chunk 4 (<=55 clips) rc=0"}
+{"ts": "2026-11-18T05:58:32-0600", "job": "w2_n300_5", "event": "start", "pid": 481157, "note": "audioxai scan test n=300 final chunk"}
+{"ts": "2026-11-18T05:58:33-0600", "job": "w2_n300_5", "event": "end", "pid": 481157, "note": "audioxai scan test n=300 final chunk rc=0"}
+{"ts": "2026-11-18T05:58:38-0600", "job": "w2_aventiq_a", "event": "start", "pid": 481357, "note": "AventIQ test 50 chunk 1"}
+{"ts": "2026-11-18T05:58:41-0600", "job": "w2_aventiq_a", "event": "end", "pid": 481357, "note": "AventIQ test 50 chunk 1 rc=1"}
+{"ts": "2026-11-18T06:02:12-0600", "job": "w2_aventiq_a", "event": "start", "pid": 484725, "note": "AventIQ test 50 chunk 1"}
+{"ts": "2026-11-18T06:06:42-0600", "job": "w2_aventiq_a", "event": "end", "pid": 484725, "note": "AventIQ test 50 chunk 1 rc=0"}
+{"ts": "2026-11-18T06:06:42-0600", "job": "w2_aventiq_b", "event": "start", "pid": 489313, "note": "AventIQ test 50 chunk 2"}
+{"ts": "2026-11-18T06:09:39-0600", "job": "w2_aventiq_b", "event": "end", "pid": 489313, "note": "AventIQ test 50 chunk 2 rc=0"}
+{"ts": "2026-11-18T06:09:49-0600", "job": "w2_n100_m2_1", "event": "start", "pid": 492919, "note": "M2 occlusion on n100 chunk 1"}
+{"ts": "2026-11-18T06:14:19-0600", "job": "w2_n100_m2_1", "event": "end", "pid": 492919, "note": "M2 occlusion on n100 chunk 1 rc=0"}
+{"ts": "2026-11-18T06:14:19-0600", "job": "w2_n100_m2_2", "event": "start", "pid": 497192, "note": "M2 occlusion on n100 chunk 2"}
+{"ts": "2026-11-18T06:17:18-0600", "job": "w2_n100_m2_2", "event": "end", "pid": 497192, "note": "M2 occlusion on n100 chunk 2 rc=0"}
+{"ts": "2026-11-18T06:17:18-0600", "job": "w2_n100_m2_3", "event": "start", "pid": 500207, "note": "M2 occlusion on n100 chunk 3"}
+{"ts": "2026-11-18T06:20:43-0600", "job": "w2_n100_m2_3", "event": "end", "pid": 500207, "note": "M2 occlusion on n100 chunk 3 rc=0"}
+{"ts": "2026-11-18T06:20:43-0600", "job": "w2_n100_m2_4", "event": "start", "pid": 503710, "note": "M2 occlusion on n100 chunk 4"}
+{"ts": "2026-11-18T06:24:22-0600", "job": "w2_n100_m2_4", "event": "end", "pid": 503710, "note": "M2 occlusion on n100 chunk 4 rc=0"}
+{"ts":"2026-11-18T11:18:47-06:00","job":"xai_tok_m2","event":"start","pid":750819,"note":"M2 occlusion, whisper-base + AventIQ, 5 representative clips"}
+{"ts":"2026-11-18T11:20:13-06:00","job":"xai_tok_m2","event":"end","pid":750819,"note":"rc=0"}
+{"ts":"2026-11-18T11:24:30-06:00","job":"xai_tok_m2_groups","event":"start","pid":757127,"note":"M2 occlusion, whisper-base + AventIQ, 20-clip study set"}
+{"ts":"2026-11-18T11:24:32-06:00","job":"xai_tok_m2_groups","event":"end","pid":757127,"note":"rc=0"}
+{"ts":"2026-11-18T11:24:41-06:00","job":"xai_tok_m2_groups","event":"start","pid":757476,"note":"M2 occlusion, whisper-base + AventIQ, 20-clip study set"}
+{"ts":"2026-11-18T11:30:43-06:00","job":"xai_tok_m2_groups","event":"end","pid":757476,"note":"rc=0"}

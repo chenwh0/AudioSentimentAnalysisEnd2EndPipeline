@@ -1,0 +1,5 @@
+checkpoint,layer,tensor,n_changed,n_rows_changed,fraction_changed,registered
+fp10,model.decoder.embed_tokens,model.decoder.embed_tokens.weight,168960,440,0.008483563096500531,False
+fp10,proj_out,"proj_out.weight (tied, same storage)",168960,440,0.008483563096500531,False
+fp17,model.decoder.embed_tokens,model.decoder.embed_tokens.weight,165888,432,0.008329316494745975,True
+fp17,proj_out,"proj_out.weight (tied, same storage)",165888,432,0.008329316494745975,True

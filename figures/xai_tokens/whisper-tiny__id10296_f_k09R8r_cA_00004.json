@@ -1,0 +1,248 @@
+{
+ "model": "whisper-tiny",
+ "asr": "openai/whisper-tiny",
+ "clip": "id10296_f_k09R8r_cA_00004",
+ "cls": "noise",
+ "wer": 0.35294117647058826,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10296_f_k09R8r_cA_00004.npz",
+   "sha256": "fac3f8d19009f232e00acec5eee15fd9d8747218c1acee6ab3a0e4d1ce62a7cb"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10296_f_k09R8r_cA_00004_m2.npz",
+   "sha256": "b088c740a78b26dd9d8e59f8ba02e64a9f4f61a225031afbdf11264a3910811f"
+  }
+ ],
+ "figures": [
+  "whisper-tiny__id10296_f_k09R8r_cA_00004__tokens.png",
+  "whisper-tiny__id10296_f_k09R8r_cA_00004__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 341,
+   "tok": " this",
+   "t": 0.0,
+   "m1_seg": 0,
+   "m1_band": 0,
+   "m2_seg": 1,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    0
+   ]
+  },
+  {
+   "k": 1,
+   "id": 23138,
+   "tok": " scrap",
+   "t": 0.5,
+   "m1_seg": 0,
+   "m1_band": 0,
+   "m2_seg": 3,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    3
+   ]
+  },
+  {
+   "k": 2,
+   "id": 2939,
+   "tok": "book",
+   "t": 0.7799999713897705,
+   "m1_seg": 5,
+   "m1_band": 0,
+   "m2_seg": 5,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    5
+   ]
+  },
+  {
+   "k": 3,
+   "id": 8374,
+   "tok": " dedicated",
+   "t": 1.1399999856948853,
+   "m1_seg": 7,
+   "m1_band": 0,
+   "m2_seg": 7,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    7
+   ]
+  },
+  {
+   "k": 4,
+   "id": 281,
+   "tok": " to",
+   "t": 1.3799999952316284,
+   "m1_seg": 16,
+   "m1_band": 0,
+   "m2_seg": 13,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    13
+   ]
+  },
+  {
+   "k": 5,
+   "id": 452,
+   "tok": " my",
+   "t": 1.5,
+   "m1_seg": 13,
+   "m1_band": 0,
+   "m2_seg": 13,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    13
+   ]
+  },
+  {
+   "k": 6,
+   "id": 3086,
+   "tok": " father",
+   "t": 1.7400000095367432,
+   "m1_seg": 15,
+   "m1_band": 0,
+   "m2_seg": 16,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    15
+   ]
+  },
+  {
+   "k": 7,
+   "id": 311,
+   "tok": "'s",
+   "t": 1.9199999570846558,
+   "m1_seg": 16,
+   "m1_band": 0,
+   "m2_seg": 18,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    17
+   ]
+  },
+  {
+   "k": 8,
+   "id": 1708,
+   "tok": " days",
+   "t": 2.2799999713897705,
+   "m1_seg": 19,
+   "m1_band": 0,
+   "m2_seg": 19,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    19
+   ]
+  },
+  {
+   "k": 9,
+   "id": 382,
+   "tok": " as",
+   "t": 2.940000057220459,
+   "m1_seg": 28,
+   "m1_band": 0,
+   "m2_seg": 28,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    28
+   ]
+  },
+  {
+   "k": 10,
+   "id": 364,
+   "tok": " an",
+   "t": 3.059999942779541,
+   "m1_seg": 29,
+   "m1_band": 0,
+   "m2_seg": 29,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    29
+   ]
+  },
+  {
+   "k": 11,
+   "id": 8747,
+   "tok": " actor",
+   "t": 3.359999895095825,
+   "m1_seg": 32,
+   "m1_band": 0,
+   "m2_seg": 32,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    32
+   ]
+  },
+  {
+   "k": 12,
+   "id": 412,
+   "tok": " at",
+   "t": 3.7200000286102295,
+   "m1_seg": 38,
+   "m1_band": 0,
+   "m2_seg": 35,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    35
+   ]
+  },
+  {
+   "k": 13,
+   "id": 13654,
+   "tok": " Ry",
+   "t": 3.9000000953674316,
+   "m1_seg": 38,
+   "m1_band": 0,
+   "m2_seg": 36,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    36
+   ]
+  },
+  {
+   "k": 14,
+   "id": 3953,
+   "tok": "erson",
+   "t": 4.039999961853027,
+   "m1_seg": 38,
+   "m1_band": 0,
+   "m2_seg": 40,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    40
+   ]
+  },
+  {
+   "k": 15,
+   "id": 13,
+   "tok": ".",
+   "t": 4.139999866485596,
+   "m1_seg": 40,
+   "m1_band": 0,
+   "m2_seg": 42,
+   "m2_band": 1,
+   "m2_patch": [
+    0,
+    42
+   ]
+  }
+ ]
+}

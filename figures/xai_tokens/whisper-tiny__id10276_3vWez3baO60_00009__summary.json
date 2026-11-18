@@ -1,0 +1,324 @@
+{
+ "model": "whisper-tiny",
+ "asr": "openai/whisper-tiny",
+ "clip": "id10276_3vWez3baO60_00009",
+ "cls": "reverb (mixed set)",
+ "wer": 0.1111111111111111,
+ "has_m2": true,
+ "files": [
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10276_3vWez3baO60_00009.npz",
+   "sha256": "5cb3b18c9300a48137cea2ef725633a1e57e9050417b7d9b923b382ee9f94f33"
+  },
+  {
+   "path": "Milestone2/AudioXAI/results/npz/id10276_3vWez3baO60_00009_m2.npz",
+   "sha256": "052470951b8b368c44d637543f2250ea57312dbdc93af4fd8a609765ecee1fb4"
+  }
+ ],
+ "figures": [
+  "whisper-tiny__id10276_3vWez3baO60_00009__summary__tokens.png",
+  "whisper-tiny__id10276_3vWez3baO60_00009__summary__summary.png"
+ ],
+ "tokens": [
+  {
+   "k": 0,
+   "id": 407,
+   "tok": " So",
+   "t": 0.0,
+   "m1_seg": 5,
+   "m1_band": 0,
+   "m2_seg": 4,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    4
+   ],
+   "lane": 0
+  },
+  {
+   "k": 1,
+   "id": 286,
+   "tok": " I",
+   "t": 0.7599999904632568,
+   "m1_seg": 5,
+   "m1_band": 0,
+   "m2_seg": 5,
+   "m2_band": 2,
+   "m2_patch": [
+    2,
+    5
+   ],
+   "lane": 1
+  },
+  {
+   "k": 2,
+   "id": 519,
+   "tok": " think",
+   "t": 1.0,
+   "m1_seg": 5,
+   "m1_band": 0,
+   "m2_seg": 8,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    8
+   ],
+   "lane": 2
+  },
+  {
+   "k": 3,
+   "id": 1333,
+   "tok": " sort",
+   "t": 1.2599999904632568,
+   "m1_seg": 11,
+   "m1_band": 0,
+   "m2_seg": 10,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    10
+   ],
+   "lane": 0
+  },
+  {
+   "k": 4,
+   "id": 295,
+   "tok": " of",
+   "t": 1.340000033378601,
+   "m1_seg": 11,
+   "m1_band": 0,
+   "m2_seg": 11,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    11
+   ],
+   "lane": 1
+  },
+  {
+   "k": 5,
+   "id": 550,
+   "tok": " then",
+   "t": 1.600000023841858,
+   "m1_seg": 11,
+   "m1_band": 0,
+   "m2_seg": 13,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    13
+   ],
+   "lane": 2
+  },
+  {
+   "k": 6,
+   "id": 550,
+   "tok": " then",
+   "t": 1.8799999952316284,
+   "m1_seg": 14,
+   "m1_band": 0,
+   "m2_seg": 13,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    13
+   ],
+   "lane": 3
+  },
+  {
+   "k": 7,
+   "id": 309,
+   "tok": " it",
+   "t": 1.9800000190734863,
+   "m1_seg": 17,
+   "m1_band": 0,
+   "m2_seg": 17,
+   "m2_band": 1,
+   "m2_patch": [
+    0,
+    17
+   ],
+   "lane": 0
+  },
+  {
+   "k": 8,
+   "id": 1409,
+   "tok": " started",
+   "t": 2.200000047683716,
+   "m1_seg": 21,
+   "m1_band": 0,
+   "m2_seg": 39,
+   "m2_band": 0,
+   "m2_patch": [
+    1,
+    22
+   ],
+   "lane": 0
+  },
+  {
+   "k": 9,
+   "id": 281,
+   "tok": " to",
+   "t": 2.5199999809265137,
+   "m1_seg": 20,
+   "m1_band": 0,
+   "m2_seg": 22,
+   "m2_band": 0,
+   "m2_patch": [
+    1,
+    22
+   ],
+   "lane": 0
+  },
+  {
+   "k": 10,
+   "id": 534,
+   "tok": " really",
+   "t": 2.8399999141693115,
+   "m1_seg": 20,
+   "m1_band": 0,
+   "m2_seg": 1,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    27
+   ],
+   "lane": 2
+  },
+  {
+   "k": 11,
+   "id": 9302,
+   "tok": " strike",
+   "t": 3.319999933242798,
+   "m1_seg": 32,
+   "m1_band": 0,
+   "m2_seg": 32,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    32
+   ],
+   "lane": 0
+  },
+  {
+   "k": 12,
+   "id": 385,
+   "tok": " me",
+   "t": 3.559999942779541,
+   "m1_seg": 32,
+   "m1_band": 0,
+   "m2_seg": 34,
+   "m2_band": 5,
+   "m2_patch": [
+    5,
+    34
+   ],
+   "lane": 1
+  },
+  {
+   "k": 13,
+   "id": 300,
+   "tok": " that",
+   "t": 3.6600000858306885,
+   "m1_seg": 35,
+   "m1_band": 0,
+   "m2_seg": 35,
+   "m2_band": 3,
+   "m2_patch": [
+    3,
+    35
+   ],
+   "lane": 2
+  },
+  {
+   "k": 14,
+   "id": 341,
+   "tok": " this",
+   "t": 3.9200000762939453,
+   "m1_seg": 37,
+   "m1_band": 0,
+   "m2_seg": 37,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    36
+   ],
+   "lane": 3
+  },
+  {
+   "k": 15,
+   "id": 390,
+   "tok": " was",
+   "t": 4.239999771118164,
+   "m1_seg": 39,
+   "m1_band": 0,
+   "m2_seg": 40,
+   "m2_band": 7,
+   "m2_patch": [
+    7,
+    40
+   ],
+   "lane": 1
+  },
+  {
+   "k": 16,
+   "id": 411,
+   "tok": " like",
+   "t": 4.579999923706055,
+   "m1_seg": 42,
+   "m1_band": 0,
+   "m2_seg": 42,
+   "m2_band": 0,
+   "m2_patch": [
+    3,
+    42
+   ],
+   "lane": 2
+  },
+  {
+   "k": 17,
+   "id": 257,
+   "tok": " a",
+   "t": 4.78000020980835,
+   "m1_seg": 46,
+   "m1_band": 0,
+   "m2_seg": 45,
+   "m2_band": 1,
+   "m2_patch": [
+    1,
+    45
+   ],
+   "lane": 0
+  },
+  {
+   "k": 18,
+   "id": 291,
+   "tok": " you",
+   "t": 4.78000020980835,
+   "m1_seg": 47,
+   "m1_band": 0,
+   "m2_seg": 47,
+   "m2_band": 4,
+   "m2_patch": [
+    4,
+    45
+   ],
+   "lane": 1
+  },
+  {
+   "k": 19,
+   "id": 458,
+   "tok": " know",
+   "t": 4.78000020980835,
+   "m1_seg": 47,
+   "m1_band": 0,
+   "m2_seg": 47,
+   "m2_band": 0,
+   "m2_patch": [
+    0,
+    47
+   ],
+   "lane": 2
+  }
+ ]
+}
