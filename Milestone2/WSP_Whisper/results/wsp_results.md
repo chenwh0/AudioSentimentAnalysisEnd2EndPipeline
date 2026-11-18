@@ -19,7 +19,7 @@ Changed-weight percentages are out of 37,760,640 unique parameters. Every edit s
 - **fp10 is a failure, kept in the table for honesty.** Its filler-row boost (x1.10 on uh/um) sends 18 test clips into uh-uh-uh repetition loops. The holdout eval had already flagged this (0.2302, 1 long clip), and the edit was reverted before fp17.
 - **Budget:** 17 forward passes of the 50 allowed. Tonight's cap was 20, so no fp20, fp25 or fp50 exists. Because the brief requires at least 40 passes before calling a null result, this is a partial result, not a completed WSP study.
 
-## Audit notes (added by the orchestrator after logs/audit_phase3.md, 05:52 CST)
+## Audit notes (added by the orchestrator after logs/audit_phase3.md, 05:47 CST)
 - Registration preceded the first edited test run (REGISTERED.txt written 05:25:49; the fp17 test job started 05:26:02), but the git commit of REGISTERED.txt (303b9e7) came at 05:37:14, after that run, because only the orchestrator commits. The order rests on the file timestamp, the harness check that refuses an edited test run without REGISTERED.txt, the GPU job log and the ledger (line 24), not on git. The auditor marked item 9 FAIL on the literal criterion.
 - After registration and both test runs, the registered checkpoint was run once on the 500-clip dev split through the harness (eval_runs.jsonl line 10, 05:40:39) to export `transcripts_whisper-tiny-wsp.csv` for Phase 2/5. That run put the 250 practice clips through the model outside the forward-pass counter; it could not influence any edit or the selection, and it is not one of the 17 counted passes.
 
