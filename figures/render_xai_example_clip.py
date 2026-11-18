@@ -38,8 +38,8 @@ pred = LAB[int(np.argmax(z["probs"]))]
 ERR = {"ok": ("#52514e", "correct"), "sub": ("#D55E00", "substitution"), "ins": ("#CC79A7", "insertion")}
 HEAT = "#E69F00"
 
-fig, axs = plt.subplots(4, 1, figsize=(11, 9.6), sharex=True, gridspec_kw=dict(height_ratios=[0.8, 1.7, 0.9, 1.5]))
-fig.subplots_adjust(top=0.865, bottom=0.12, left=0.09, right=0.98, hspace=0.12)
+fig, axs = plt.subplots(4, 1, figsize=(11, 10.2), sharex=True, gridspec_kw=dict(height_ratios=[0.8, 1.7, 0.9, 1.5]))
+fig.subplots_adjust(top=0.875, bottom=0.165, left=0.09, right=0.98, hspace=0.12)
 a0, a1, a2, a3 = axs
 t = np.arange(len(wav)) / sr
 a0.plot(t, wav, color=INK2, lw=0.4)
@@ -93,31 +93,31 @@ for i, w in enumerate(words):
     if abs(x[i] - cx[i]) > 0.01:
         a3.plot([cx[i], x[i]], [-0.06 * top, 0], color=MUTED, lw=0.6, zorder=2)
     a3.plot([cx[i]], [-0.06 * top], marker="|", color=MUTED, ms=5)
-    a3.text(x[i], top * 1.08, w["word"], rotation=90, ha="center", va="bottom", fontsize=8.5, color=col,
+    a3.text(x[i], share[i] + 0.04 * top, w["word"], rotation=90, ha="center", va="bottom", fontsize=8.5, color=col,
             fontweight="bold" if tags[i] != "ok" else "normal")
 dels = [e[0] for e in events if e[2] == "del"]
 a3.scatter(dels, [-0.06 * top] * len(dels), marker="v", s=46, color=INK, zorder=5)
-a3.set_ylim(-0.1 * top, top * 2.0)
+a3.set_ylim(-0.1 * top, top * 1.75)
 a3.set_yticks([0, 0.05, 0.10])
 a3.axhline(0, color=AXIS, lw=0.8)
 a3.set_ylabel("sentiment importance\n(Integrated Gradients,\nshare)")
 a3.set_xlabel(spec["axes"]["x"])
-a3.set_xlim(0, dur)
+a3.set_xlim(0, dur + 0.1)
 for a in axs:
     a.grid(axis="x", visible=False)
 
 cnt = meta["cnt"]
 wer = (cnt["S"] + cnt["D"] + cnt["I"]) / cnt["N"]
 head = (f"Clip {CLIP}  |  gold sentiment label: {meta['meta']['label']}  |  predicted from the transcript: {pred} "
-        f"(p = {z['probs'].max():.2f})  |  word error rate {wer:.2f} ({cnt['S']} substituted, {cnt['D']} dropped, "
+        f"(p = {z['probs'].max():.2f})\nword error rate {wer:.2f} ({cnt['S']} substituted, {cnt['D']} dropped, "
         f"{cnt['I']} inserted of {cnt['N']} words)")
 fig.text(0.01, 0.885, head, fontsize=8.5, color=INK, ha="left", va="bottom", fontweight="bold")
-fig.text(0.09, 0.083, f"whisper-tiny transcript: \"{meta['text']}\"\nhuman reference:          \"{meta['gold']}\"",
+fig.text(0.09, 0.125, f"whisper-tiny transcript: \"{meta['text']}\"\nhuman reference:         \"{meta['gold']}\"",
          fontsize=8, color=INK2, ha="left", va="top", family="DejaVu Sans Mono")
 handles = [Patch(color=ERR[k][0], label=f"word {ERR[k][1]}") for k in ("ok", "sub", "ins")]
 handles += [Line2D([], [], ls="", marker="v", color=INK, ms=7, label="dropped word (missing from transcript)"),
             Patch(facecolor=MUTED, hatch="////", edgecolor=SURFACE, label="word pushes against the predicted label")]
-fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.085, 0.035), ncol=5, fontsize=7.8, handlelength=1.4)
+fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.085, 0.068), ncol=5, fontsize=7.8, handlelength=1.4)
 note = ("Waveform and spectrogram from the 16 kHz clip; degradation probability = highest of AADD's 12 class probabilities per 20 ms frame. "
         "Importance share = |Integrated Gradients| of the Cardiff sentiment model for each word / sum over words. "
         "Ticks under the baseline mark each word's true time; words are spread apart only to keep labels readable.")

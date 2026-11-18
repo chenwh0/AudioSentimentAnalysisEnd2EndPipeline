@@ -149,3 +149,5 @@
 {"ts": "2026-11-18T05:43:32-0600", "job": "sentiment:distilbert/distilbert-base-uncased-finetuned-sst-2-english", "event": "end", "pid": 460733, "note": "2000 texts, 2s, cache scores_distilbert__whisper-tiny-wsp_norm.csv"}
 {"ts":"2026-11-18T05:43:51-06:00","job":"run_t1_P5grid","event":"end","pid":460724,"note":"exit=0"}
 {"ts": "2026-11-18T05:43:57-0600", "job": "w2_n300_1", "event": "start", "pid": 463018, "note": "audioxai scan test n=300 chunk 1 (<=55 clips)"}
+{"ts": "2026-11-18T05:47:40-0600", "job": "w2_n300_1", "event": "end", "pid": 463018, "note": "audioxai scan test n=300 chunk 1 (<=55 clips) rc=0"}
+{"ts": "2026-11-18T05:47:40-0600", "job": "w2_n300_2", "event": "start", "pid": 468567, "note": "audioxai scan test n=300 chunk 2 (<=55 clips)"}
