@@ -170,12 +170,15 @@ def summarize(slice_="test", h3=None):
     od = out_dir(slice_)
     df = pd.read_csv(od / "aggregate.csv")
     S = dict(slice=slice_, n_clips=int(len(df)), asr=paths.ASR_ID, asr_rev=paths.ASR_REV, sentiment=paths.SENT_ID,
-             sentiment_rev=paths.SENT_REV, aadd="aadd 3.1.0 CLI, model v3 (registry default), 20 ms segments",
+             sentiment_rev=paths.SENT_REV, aadd="aadd 3.1.0 CLI, model v3 (v3.1), threshold 0.5, --segments --resolution 0.02 (20 ms)",
              flag_rule_frame="20 ms frame flagged if any class probability >= 0.5",
              flag_rule_clip="AADD published default: per-class 95th percentile >= 0.5",
              aadd_caveat="AADD is trained on synthetic LibriSpeech degradations; VoxCeleb is real YouTube audio, so "
                          "flags are estimates.", bootstrap="10,000 resamples, numpy default_rng(8001), percentile CI",
              label_counts=df.label.value_counts().to_dict())
+    import os
+    if os.environ.get("AUDIOXAI_NOTE"):
+        S["note"] = os.environ["AUDIOXAI_NOTE"]
     if "frac_flagged" in df:
         S["n_zero_flagged"] = int((df.n_flagged_frames == 0).sum())
         S["n_aadd_clip_flag"] = int(df.aadd_clip_flag.sum())

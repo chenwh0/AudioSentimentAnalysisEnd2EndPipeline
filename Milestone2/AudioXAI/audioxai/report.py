@@ -114,7 +114,7 @@ select,button{font:inherit;background:var(--card);color:var(--fg);border:1px sol
 .w{padding:1px 2px;margin:1px;border-radius:3px;display:inline-block}.tag-sub{outline:2px solid var(--sub)}.tag-ins{outline:2px dashed var(--ins)}
 .lg span{margin-right:12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
 </style></head><body>
-<h1>AudioXAI: does whisper-tiny attend to degraded audio?</h1>
+<h1 id="ttl">AudioXAI</h1>
 <div class="mut" id="sub"></div>
 <div class="card" id="answer"></div>
 <h2>Hypotheses and verdicts</h2><div class="grid" id="verd"></div>
@@ -134,22 +134,22 @@ Token <select id="tokSel"></select></div>
 <div id="trans" style="margin-top:6px"></div><div class="mut" id="goldt" style="margin-top:6px"></div>
 </div>
 <h2>All clips</h2><div class="card"><table id="tbl"></table></div>
-<p class="mut">Credits: AADD (MIT, github.com/gertelrina/aadd) for degradation timelines; Captum for LayerIntegratedGradients; Whisper (OpenAI) for ASR and alignment heads; the SPES idea (arXiv:2411.01710) for spectrogram perturbation (M2, not run tonight). No audio is embedded.</p>
+<p class="mut">Credits: AADD (MIT, github.com/gertelrina/aadd) for degradation timelines; Captum for LayerIntegratedGradients; Whisper (OpenAI) for ASR and alignment heads; the SPES idea (arXiv:2411.01710) for spectrogram perturbation. No audio is embedded.</p>
 <script>
 const D=__DATA__;
 const $=id=>document.getElementById(id);
 const f=(x,d=3)=>x==null||Number.isNaN(x)?'NaN':(+x).toFixed(d);
 const ci=o=>o&&o.ci?`${f(o.mean)} [${f(o.ci[0])}, ${f(o.ci[1])}] (n=${o.n})`:'n/a';
-const S=D.summary;
+const S=D.summary;const ASR=(S.asr||'').split('/').pop();$('ttl').textContent=`AudioXAI: does ${ASR} attend to degraded audio?`;
 $('sub').textContent=`${S.slice} slice, n=${S.n_clips} clips, ASR ${S.asr}, sentiment ${S.sentiment}. ${S.aadd}. ${S.aadd_caveat}`;
 function card(t,v,body){return `<div class="card"><div class="v">${t}: ${v}</div><div class="mut">${body}</div></div>`}
 let h=card('H1 attribution concentrates in flagged audio',S.H1.verdict,`mean focus ratio (M1) ${ci(S.H1)}; median ${f(S.H1.median)}. M3 ${ci(S.focus_ratio_m3)}, M4 ${ci(S.focus_ratio_m4)}. Time-profile agreement Spearman M1-M3 ${ci(S.rho_m1_m3_time)}, M1-M4 ${ci(S.rho_m1_m4_time)}. Clips with zero flagged frames: ${S.n_zero_flagged} (NaN, kept in table); all frames flagged: ${S.n_all_flagged} (ratio 1 by construction). Informative clips (0&lt;flagged&lt;1): M1 ${ci(S.focus_ratio_m1_informative)}, M4 ${ci(S.focus_ratio_m4_informative)}. Graded Spearman(M1 time profile, max AADD prob) ${ci(S.rho_m1_vs_aadd_maxprob)}.`);
 if(S.H2){const H=S.H2;h+=card('H2 errors in flagged audio, on low-importance words',H.verdict,`error rate flagged ${f(H.pooled_err_rate_flagged)} (${H.n_ref_words_flagged} ref words) vs clean ${f(H.pooled_err_rate_clean)} (${H.n_ref_words_clean}); paired diff ${ci(H.paired_wer_diff_flagged_minus_clean)}. Importance share of erroneous words minus their word share ${ci(H.err_imp_share_minus_word_share)}. Sentiment importance share in flagged ${ci(H.sent_imp_share_flagged)}.`)}
-h+=card('H3 text classifier is the bottleneck',S.H3.verdict||'',(S.H3.detail||'')+` Sample: Cardiff accuracy on ASR text ${f(S.cardiff_acc_asr_text_sample)}, on gold text ${f(S.cardiff_acc_gold_text_sample)}.`);
+const h3v=(S.H3.verdict||'').startsWith('pending')&&ASR!='whisper-tiny'?`H3 is decided on whisper-tiny only (no Phase 1 ablation for ${ASR})`:(S.H3.verdict||'');h+=card('H3 text classifier is the bottleneck',h3v,(S.H3.detail||'')+` Sample: Cardiff accuracy on ASR text ${f(S.cardiff_acc_asr_text_sample)}, on gold text ${f(S.cardiff_acc_gold_text_sample)}.`);
 $('verd').innerHTML=h;
-$('answer').innerHTML=`<b>Reading.</b> Whisper-tiny's attribution does not concentrate on AADD-flagged audio (mean focus ratio ${f(S.H1.mean)}, 95% CI [${f(S.H1.ci[0])}, ${f(S.H1.ci[1])}], n=${S.H1.n}; graded rank correlation with AADD probability ${f(S.rho_m1_vs_aadd_maxprob.mean)}). `+
+$('answer').innerHTML=`<b>Reading.</b> ${ASR}'s attribution does not concentrate on AADD-flagged audio (mean focus ratio ${f(S.H1.mean)}, 95% CI [${f(S.H1.ci[0])}, ${f(S.H1.ci[1])}], n=${S.H1.n}; graded rank correlation with AADD probability ${f(S.rho_m1_vs_aadd_maxprob.mean)}). `+
 (S.H2?`ASR errors are not more frequent in flagged audio (${f(S.H2.pooled_err_rate_flagged)} vs ${f(S.H2.pooled_err_rate_clean)}) and erroneous words carry about their share of sentiment importance (${f(S.H2.mean_err_word_imp_share)} vs ${f(S.H2.mean_err_word_share)} word share). `:'')+
-`Human gold text raises Cardiff macro-F1 only from ${f(S.H3.macro_f1_full)} to ${f(S.H3.macro_f1_gold)}. The small ASR effect is better explained by a classifier ceiling than by where the ASR looks. Caveats: AADD flags are estimates on real audio, and M1 ${S.randomization&&S.randomization.verdict=='FAIL'?'fails':'passes'} the model-randomization check (Spearman ${S.randomization?f(S.randomization.rho_tf_abs.mean):'n/a'}); a failure means its maps are partly driven by the input itself, although deletion shows they still rank patches better than random.`;
+(S.H3.macro_f1_gold!=null?`Human gold text raises Cardiff macro-F1 only from ${f(S.H3.macro_f1_full)} to ${f(S.H3.macro_f1_gold)}. `:`On this sample Cardiff accuracy is ${f(S.cardiff_acc_asr_text_sample)} on ASR text and ${f(S.cardiff_acc_gold_text_sample)} on gold text. `)+`The small ASR effect is better explained by a classifier ceiling than by where the ASR looks. Caveats: AADD flags are estimates on real audio, and M1 ${S.randomization&&S.randomization.verdict=='FAIL'?'fails':'passes'} the model-randomization check (Spearman ${S.randomization?f(S.randomization.rho_tf_abs.mean):'n/a'}); a failure means its maps are partly driven by the input itself, although deletion shows they still rank patches better than random.`;
 let fh='';if(S.deletion){const d=S.deletion;fh+=`<div>Deletion (top-k% M1 patches vs random, k=5..50%, n=${d.n}): AUC top ${ci(d.auc_top)}, random ${ci(d.auc_random)}, diff ${ci(d.auc_diff)}; clips with top &gt; random ${f(d.frac_clips_top_gt_random,2)}. ${d.unit}.</div>`}
 if(S.randomization){const r=S.randomization;fh+=`<div>Model randomization (top 2 decoder layers re-initialized, n=${r.n}): Spearman |M1| TF ${ci(r.rho_tf_abs)}, time profile ${ci(r.rho_time_abs)} → <b>${r.verdict}</b> (${r.rule}). Correlation of |M1| with |input|: ${ci(r.rho_map_vs_absinput)}.</div>`}
 if(S.m2){fh+=`<div>M1 vs M2 (SPES-style patch occlusion, n=${S.m2.n} clips): median per-token Spearman of time profiles ${ci(S.m2.m1_m2_rho_time_median)}; M2 focus ratio ${ci(S.m2.focus_ratio_m2)}.</div>`}

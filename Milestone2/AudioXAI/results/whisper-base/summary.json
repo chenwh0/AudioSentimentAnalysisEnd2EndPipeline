@@ -5,7 +5,7 @@
   "asr_rev": "e37978b90ca9030d5170a5c07aadb050351a65bb",
   "sentiment": "cardiffnlp/twitter-roberta-base-sentiment-latest",
   "sentiment_rev": "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
-  "aadd": "aadd 3.1.0 CLI, model v3 (registry default), 20 ms segments",
+  "aadd": "aadd 3.1.0 CLI, model v3 (v3.1), threshold 0.5, --segments --resolution 0.02 (20 ms)",
   "flag_rule_frame": "20 ms frame flagged if any class probability >= 0.5",
   "flag_rule_clip": "AADD published default: per-class 95th percentile >= 0.5",
   "aadd_caveat": "AADD is trained on synthetic LibriSpeech degradations; VoxCeleb is real YouTube audio, so flags are estimates.",

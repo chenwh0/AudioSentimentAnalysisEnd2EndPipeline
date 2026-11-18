@@ -38,14 +38,12 @@ The 50-clip test sample is reproducible: sort test.csv by original_index, propor
 - ASR openai/whisper-tiny rev 169d4a4341b33bc18d8881c4b69c2e104e1cc0af (decoded with language=en, task=transcribe,
   greedy; token timestamps from `return_token_timestamps=True` with the checkpoint's alignment heads).
 - Sentiment cardiffnlp/twitter-roberta-base-sentiment-latest rev 3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7.
-- Captum 0.9.0, transformers 5.5.4, torch 2.11, jiwer, AADD 3.1.0 (model v3).
+- Captum 0.9.0, transformers 5.5.4, torch 2.11, jiwer, AADD 3.1.0 (model v3.1; aadd --segments --resolution 0.02; frame flagged if any class p >= 0.5; clip flag = per-class p95 >= 0.5).
 
 ## Limitations
 - AADD is trained on synthetic LibriSpeech degradations; on real VoxCeleb audio its flags are estimates.
 - Whisper-tiny DTW token timestamps are coarse (several tokens can share one time, especially at the start).
 - Grad x input inherits structure from the input; see the randomization check in `summary.json`.
-- Not run tonight: M2 (SPES-style spectrogram occlusion), M3 (Grad-CAM, time-only), end-to-end segment
-  replacement, and other ASR variants. Only whisper-tiny + Cardiff are wired.
 
 ## Credits
 - **AADD** (github.com/gertelrina/aadd, MIT): the degradation detector and its timeline; AudioXAI only reads its output.

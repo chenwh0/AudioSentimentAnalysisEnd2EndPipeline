@@ -15,7 +15,8 @@ WSP_HOLDOUT = R / "Milestone2/WSP_Whisper/splits/wsp_holdout_ids.npy"
 
 ASR_ID = os.environ.get("AUDIOXAI_ASR", "openai/whisper-tiny")
 _REVS = {"openai/whisper-tiny": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
-         "openai/whisper-base": "e37978b90ca9030d5170a5c07aadb050351a65bb"}
+         "openai/whisper-base": "e37978b90ca9030d5170a5c07aadb050351a65bb",
+         "AventIQ-AI/whisper-audio-to-text": "8d9feea90b485a705473d4388250d0e5bf6663f6"}
 ASR_REV = _REVS[ASR_ID]
 SENT_ID = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 SENT_REV = "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7"
